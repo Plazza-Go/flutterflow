@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'prescription_requied_model.dart';
+import '/services/cart_manager.dart';
 export 'prescription_requied_model.dart';
 
 class PrescriptionRequiedWidget extends StatefulWidget {
@@ -25,6 +26,7 @@ class PrescriptionRequiedWidget extends StatefulWidget {
 
 class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
   late PrescriptionRequiedModel _model;
+  final CartManager _cartManager = CartManager();
 
   @override
   void setState(VoidCallback callback) {
@@ -50,6 +52,17 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+
+    final prescriptionItems = _cartManager.getPrescriptionRequiredItems();
+    final prescriptionStatus = _cartManager.getPrescriptionStatus();
+
+    if (prescriptionStatus.needsPrescription) {
+      await _cartManager.handlePrescriptionUpload(widget.orderId!);
+    }
+
+    if (_cartManager.isCartEmpty()) {
+      Navigator.pop(context);
+    }
 
     return Align(
       alignment: const AlignmentDirectional(0.0, 1.0),
@@ -135,11 +148,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                   ),
                   Builder(
                     builder: (context) {
-                      final medicine = FFAppState()
-                          .CartMedicineDetails
-                          .where((e) =>
-                              e.prescriptionRequired == 'Prescription Required')
-                          .toList();
+                      final medicine = _cartManager.getPrescriptionRequiredItems();
 
                       return ListView.separated(
                         padding: EdgeInsets.zero,

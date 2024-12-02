@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'addtocart_model.dart';
+import '/services/cart_manager.dart';
 export 'addtocart_model.dart';
 
 class AddtocartWidget extends StatefulWidget {
@@ -50,6 +51,7 @@ class AddtocartWidget extends StatefulWidget {
 
 class _AddtocartWidgetState extends State<AddtocartWidget> {
   late AddtocartModel _model;
+  final CartManager _cartManager = CartManager();
 
   @override
   void setState(VoidCallback callback) {

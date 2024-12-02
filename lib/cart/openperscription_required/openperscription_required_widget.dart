@@ -6,6 +6,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'openperscription_required_model.dart';
+import '/services/cart_manager.dart';
 export 'openperscription_required_model.dart';
 
 class OpenperscriptionRequiredWidget extends StatefulWidget {
@@ -28,6 +29,7 @@ class OpenperscriptionRequiredWidget extends StatefulWidget {
 class _OpenperscriptionRequiredWidgetState
     extends State<OpenperscriptionRequiredWidget> {
   late OpenperscriptionRequiredModel _model;
+  final CartManager _cartManager = CartManager();
 
   @override
   void setState(VoidCallback callback) {
@@ -43,30 +45,13 @@ class _OpenperscriptionRequiredWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       if ((widget.ordersource == 'Search') &&
-          !FFAppState().Donothaveprescription &&
+          !_cartManager.getDontHavePrescriptionStatus() &&
           widget.prescriptioncheck! &&
-          (FFAppState()
-                  .CartMedicineDetails
-                  .where(
-                      (e) => e.prescriptionRequired == 'Prescription Required')
-                  .toList().isNotEmpty)) {
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          isDismissible: false,
-          enableDrag: false,
+          _cartManager.hasPrescriptionItems()) {
+        await _cartManager.showPrescriptionModal(
           context: context,
-          builder: (context) {
-            return WebViewAware(
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: PrescriptionRequiedWidget(
-                  orderId: widget.recordId!,
-                ),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
+          orderId: widget.recordId!,
+        );
       }
     });
 

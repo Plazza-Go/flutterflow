@@ -9,6 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cart_items_model.dart';
+import '/services/cart_manager.dart';
 export 'cart_items_model.dart';
 
 class CartItemsWidget extends StatefulWidget {
@@ -49,6 +50,7 @@ class CartItemsWidget extends StatefulWidget {
 
 class _CartItemsWidgetState extends State<CartItemsWidget> {
   late CartItemsModel _model;
+  final CartManager _cartManager = CartManager();
 
   @override
   void setState(VoidCallback callback) {
@@ -78,18 +80,7 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
     return Stack(
       alignment: const AlignmentDirectional(0.0, 0.0),
       children: [
-        if (formatNumber(
-              (_model.count != null
-                      ? _model.count!.toDouble()
-                      : (widget.quantity == widget.quantityCart
-                              ? widget.quantity!
-                              : widget.quantityCart!)
-                          .toDouble()) *
-                  functions.stringToDouble(widget.medicineRate!.toString()),
-              formatType: FormatType.decimal,
-              decimalType: DecimalType.periodDecimal,
-            ) !=
-            '0')
+        if (_cartManager.getItemPrice(widget.medicineRate!, _model.count ?? widget.quantity) != 0)
           Opacity(
             opacity: _model.loading ? 0.5 : 1.0,
             child: Padding(
@@ -205,151 +196,20 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                                         ),
                                         onPressed: () async {
                                           _model.loading = true;
-                                          safeSetState(() {});
-                                          if (FFAppState().itemsPrice <= 0.0) {
-                                            FFAppState().itemsPrice =
-                                                functions.jsonToDouble(
-                                                    widget.itemtotal);
-                                            safeSetState(() {});
+                                          if (_cartManager.getItemsPrice() <= 0.0) {
+                                            await _cartManager.initializePrice(widget.itemtotal);
                                           }
-                                          if (_model.count != null) {
-                                            _model.count = _model.count! + -1;
-                                            safeSetState(() {});
-                                          } else {
-                                            _model.count = (widget.quantity ==
-                                                        widget.quantityCart
-                                                    ? widget.quantity!
-                                                    : widget.quantityCart!) -
-                                                1;
-                                            safeSetState(() {});
-                                          }
-
-                                          FFAppState().itemsPrice = FFAppState()
-                                                  .itemsPrice +
-                                              functions.getMinus(
-                                                  functions.jsonToDouble(
-                                                      widget.medicineRate));
-                                          safeSetState(() {});
-                                          if ((FFAppState().itemsPrice ==
-                                                  0.0) ||
-                                              (FFAppState()
-                                                      .CartMedicineDetails.isEmpty) ||
-                                              !(FFAppState()
-                                                  .CartMedicineDetails
-                                                  .isNotEmpty)) {
-                                            _model.loading = false;
-                                            safeSetState(() {});
-                                            await Future.wait([
-                                              Future(() async {
-                                                _model.apiResultbn0 =
-                                                    await AirtableApiGroup
-                                                        .deleteCall
-                                                        .call(
-                                                  tableName:
-                                                      'tblGQ0gGC4IKOo48N',
-                                                  recordId:
-                                                      widget.orderRecordId,
-                                                );
-                                              }),
-                                              Future(() async {
-                                                context.pushNamed('Home');
-                                              }),
-                                              Future(() async {
-                                                if (widget.orderSource ==
-                                                    'Search') {
-                                                  FFAppState()
-                                                      .CartMedicineDetails = [];
-                                                  FFAppState().cartId =
-                                                      CartDetailsStruct();
-                                                  safeSetState(() {});
-                                                }
-                                              }),
-                                            ]);
-                                          } else {
-                                            if (_model.count == 0) {
-                                              _model.deleted =
-                                                  await AirtableApiGroup
-                                                      .deleteCall
-                                                      .call(
-                                                tableName: 'tblN6VE6bxbIgu0z3',
-                                                recordId: widget
-                                                    .medicineRecordid
-                                                    ?.toString(),
-                                              );
-
-                                              if (widget.orderSource ==
-                                                  'Search') {
-                                                FFAppState().removeAtIndexFromCartMedicineDetails(
-                                                    functions.checklistContains(
-                                                        FFAppState()
-                                                            .CartMedicineDetails
-                                                            .map((e) =>
-                                                                e.productID)
-                                                            .toList(),
-                                                        widget.productId!)!);
-                                                safeSetState(() {});
-                                              }
-                                            } else {
-                                              _model.minusmedicine =
-                                                  await AirtableApiGroup
-                                                      .updateMedicineDetailsCall
-                                                      .call(
-                                                totalprice: (_model.count !=
-                                                            null
-                                                        ? _model.count!
-                                                            .toDouble()
-                                                        : (widget.quantity ==
-                                                                    widget
-                                                                        .quantityCart
-                                                                ? widget
-                                                                    .quantity!
-                                                                : widget
-                                                                    .quantityCart!)
-                                                            .toDouble()) *
-                                                    functions.stringToDouble(
-                                                        widget.medicineRate!
-                                                            .toString()),
-                                                quantity:
-                                                    _model.count?.toDouble(),
-                                                recordId: widget
-                                                    .medicineRecordid
-                                                    ?.toString(),
-                                              );
-
-                                              if (widget.orderSource ==
-                                                  'Search') {
-                                                FFAppState()
-                                                    .updateCartMedicineDetailsAtIndex(
-                                                  functions.checklistContains(
-                                                      FFAppState()
-                                                          .CartMedicineDetails
-                                                          .map((e) =>
-                                                              e.productID)
-                                                          .toList(),
-                                                      widget.productId!)!,
-                                                  (e) => e
-                                                    ..incrementQuantity(-1)
-                                                    ..incrementQuantityCart(-1)
-                                                    ..incrementPlazzaPrice(
-                                                        functions.getMinus(functions
-                                                            .stringToDouble(widget
-                                                                .medicineRate!
-                                                                .toString())))
-                                                    ..incrementPlazzaPriceCart(
-                                                        functions.getMinus(functions
-                                                            .stringToDouble(widget
-                                                                .medicineRate!
-                                                                .toString()))),
-                                                );
-                                                safeSetState(() {});
-                                              }
-                                            }
-                                          }
-
+                                          
+                                          await _cartManager.decrementQuantity(
+                                            productId: widget.productId!,
+                                            medicineRecordId: widget.medicineRecordid,
+                                            orderSource: widget.orderSource,
+                                            orderRecordId: widget.orderRecordId,
+                                            medicineRate: widget.medicineRate,
+                                            currentCount: _model.count,
+                                          );
+                                          
                                           _model.loading = false;
-                                          safeSetState(() {});
-
-                                          safeSetState(() {});
                                         },
                                       ),
                                       Text(
@@ -395,75 +255,19 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                                         ),
                                         onPressed: () async {
                                           _model.loading = true;
-                                          safeSetState(() {});
-                                          if (FFAppState().itemsPrice <= 0.0) {
-                                            FFAppState().itemsPrice =
-                                                functions.jsonToDouble(
-                                                    widget.itemtotal);
-                                            safeSetState(() {});
-                                          }
-                                          if (_model.count != null) {
-                                            _model.count = _model.count! + 1;
-                                            safeSetState(() {});
-                                          } else {
-                                            _model.count = widget.quantity ==
-                                                    widget.quantityCart
-                                                ? widget.quantity
-                                                : widget.quantityCart;
-                                            safeSetState(() {});
-                                            _model.count = _model.count! + 1;
-                                            safeSetState(() {});
+                                          if (_cartManager.getItemsPrice() <= 0.0) {
+                                            await _cartManager.initializePrice(widget.itemtotal);
                                           }
 
-                                          FFAppState().itemsPrice =
-                                              FFAppState().itemsPrice +
-                                                  functions.jsonToDouble(
-                                                      widget.medicineRate);
-                                          safeSetState(() {});
-                                          _model.apiResult5ax =
-                                              await AirtableApiGroup
-                                                  .updateMedicineDetailsCall
-                                                  .call(
-                                            recordId: widget.medicineRecordid
-                                                ?.toString(),
-                                            totalprice: (_model.count != null
-                                                    ? _model.count!.toDouble()
-                                                    : (widget.quantity ==
-                                                                widget
-                                                                    .quantityCart
-                                                            ? widget.quantity!
-                                                            : widget
-                                                                .quantityCart!)
-                                                        .toDouble()) *
-                                                functions.stringToDouble(widget
-                                                    .medicineRate!
-                                                    .toString()),
-                                            quantity: _model.count?.toDouble(),
+                                          await _cartManager.incrementQuantity(
+                                            productId: widget.productId!,
+                                            medicineRecordId: widget.medicineRecordid,
+                                            medicineRate: widget.medicineRate,
+                                            currentCount: _model.count,
+                                            orderSource: widget.orderSource,
                                           );
-
+                                          
                                           _model.loading = false;
-                                          safeSetState(() {});
-                                          if (widget.orderSource == 'Search') {
-                                            FFAppState()
-                                                .updateCartMedicineDetailsAtIndex(
-                                              functions.checklistContains(
-                                                  FFAppState()
-                                                      .CartMedicineDetails
-                                                      .map((e) => e.productID)
-                                                      .toList(),
-                                                  widget.productId!)!,
-                                              (e) => e
-                                                ..incrementQuantity(1)
-                                                ..incrementQuantityCart(1)
-                                                ..incrementPlazzaPrice(
-                                                    widget.medicineRate!)
-                                                ..incrementPlazzaPriceCart(
-                                                    widget.medicineRate!),
-                                            );
-                                            safeSetState(() {});
-                                          }
-
-                                          safeSetState(() {});
                                         },
                                       ),
                                     ],
