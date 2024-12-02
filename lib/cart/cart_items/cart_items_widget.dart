@@ -230,7 +230,13 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                                                   functions.jsonToDouble(
                                                       widget.medicineRate));
                                           safeSetState(() {});
-                                          if (FFAppState().itemsPrice == 0.0) {
+                                          if ((FFAppState().itemsPrice ==
+                                                  0.0) ||
+                                              (FFAppState()
+                                                      .CartMedicineDetails.isEmpty) ||
+                                              !(FFAppState()
+                                                  .CartMedicineDetails
+                                                  .isNotEmpty)) {
                                             _model.loading = false;
                                             safeSetState(() {});
                                             await Future.wait([

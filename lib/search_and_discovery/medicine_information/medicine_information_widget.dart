@@ -104,73 +104,95 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                         label: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               10.0, 8.0, 0.0, 8.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'View cart',
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineLarge
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .headlineLargeFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineLargeFamily),
-                                        ),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              context.pushNamed(
+                                'medicineCart',
+                                queryParameters: {
+                                  'ticketId': serializeParam(
+                                    FFAppState().cartId.ticketid,
+                                    ParamType.int,
                                   ),
-                                  Text(
-                                    '${functions.addlist(FFAppState().CartMedicineDetails.map((e) => e.quantity).toList()).toString()} ITEMS',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyLargeFamily,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyLargeFamily),
-                                        ),
-                                  ),
-                                ],
-                              ),
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 8.0,
-                                buttonSize: 40.0,
-                                fillColor: FlutterFlowTheme.of(context).primary,
-                                icon: Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24.0,
+                                }.withoutNulls,
+                              );
+                                                        },
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'View cart',
+                                      style: FlutterFlowTheme.of(context)
+                                          .headlineLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .headlineLargeFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineLargeFamily),
+                                          ),
+                                    ),
+                                    Text(
+                                      '${functions.addlist(FFAppState().CartMedicineDetails.map((e) => e.quantity).toList()).toString()} ITEMS',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLargeFamily),
+                                          ),
+                                    ),
+                                  ],
                                 ),
-                                onPressed: () async {
-                                  context.pushNamed(
-                                    'medicineCart',
-                                    queryParameters: {
-                                      'ticketId': serializeParam(
-                                        FFAppState().cartId.ticketid,
-                                        ParamType.int,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                                                },
-                              ),
-                            ].divide(const SizedBox(width: 8.0)),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      10.0, 0.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed(
+                                        'medicineCart',
+                                        queryParameters: {
+                                          'ticketId': serializeParam(
+                                            FFAppState().cartId.ticketid,
+                                            ParamType.int,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                                                        },
+                                    child: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      size: 24.0,
+                                    ),
+                                  ),
+                                ),
+                              ].divide(const SizedBox(width: 8.0)),
+                            ),
                           ),
                         ),
                       ),

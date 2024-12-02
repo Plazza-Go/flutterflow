@@ -1,34 +1,5 @@
 {
-  "indexes": [
-    {
-      "collectionGroup": "app_order",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "contact_id",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "ticket_id",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "Orders",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "contact_id",
-          "arrayConfig": "CONTAINS"
-        },
-        {
-          "fieldPath": "ticket_id",
-          "order": "DESCENDING"
-        }
-      ]
-    }
-  ],
+  "indexes": [],
   "fieldOverrides": [
     {
       "collectionGroup": "fcm_tokens",

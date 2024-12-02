@@ -8,7 +8,7 @@ Future initializeFirebaseRemoteConfig() async {
     ));
     await FirebaseRemoteConfig.instance.setDefaults(const {
       'is_mandatory': false,
-      'app_version': 0.59,
+      'app_version': 0.71,
     });
     await FirebaseRemoteConfig.instance.fetchAndActivate();
   } catch (error) {

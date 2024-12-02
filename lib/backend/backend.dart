@@ -11,7 +11,6 @@ import 'schema/app_transactions_record.dart';
 import 'schema/order_notifications_record.dart';
 import 'schema/app_resources_record.dart';
 import 'schema/app_order_record.dart';
-import 'schema/orders_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -26,7 +25,6 @@ export 'schema/app_transactions_record.dart';
 export 'schema/order_notifications_record.dart';
 export 'schema/app_resources_record.dart';
 export 'schema/app_order_record.dart';
-export 'schema/orders_record.dart';
 
 /// Functions to query AppUsersRecords (as a Stream and as a Future).
 Future<int> queryAppUsersRecordCount({
@@ -245,43 +243,6 @@ Future<List<AppOrderRecord>> queryAppOrderRecordOnce({
     queryCollectionOnce(
       AppOrderRecord.collection,
       AppOrderRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-/// Functions to query OrdersRecords (as a Stream and as a Future).
-Future<int> queryOrdersRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      OrdersRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<OrdersRecord>> queryOrdersRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      OrdersRecord.collection,
-      OrdersRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<OrdersRecord>> queryOrdersRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      OrdersRecord.collection,
-      OrdersRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

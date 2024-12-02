@@ -11,7 +11,7 @@ class StatusModel extends FlutterFlowModel<StatusWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  List<OrdersRecord>? statusPreviousSnapshot;
+  List<OrderNotificationsRecord>? statusPreviousSnapshot;
   // Model for statusOfPrescription-cartBeingBuilt component.
   late StatusOfPrescriptionCartBeingBuiltModel
       statusOfPrescriptionCartBeingBuiltModel;

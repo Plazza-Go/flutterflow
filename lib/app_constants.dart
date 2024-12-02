@@ -1,4 +1,4 @@
 
 abstract class FFAppConstants {
-  static const double appversion = 0.6;
+  static const double appversion = 0.71;
 }

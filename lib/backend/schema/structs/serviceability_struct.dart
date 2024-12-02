@@ -13,12 +13,14 @@ class ServiceabilityStruct extends FFFirebaseStruct {
     int? number,
     String? addressId,
     bool? addressIdSet,
+    String? deliverytime,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _name = name,
         _number = number,
         _addressId = addressId,
         _addressIdSet = addressIdSet,
+        _deliverytime = deliverytime,
         super(firestoreUtilData);
 
   // "id" field.
@@ -58,6 +60,13 @@ class ServiceabilityStruct extends FFFirebaseStruct {
 
   bool hasAddressIdSet() => _addressIdSet != null;
 
+  // "deliverytime" field.
+  String? _deliverytime;
+  String get deliverytime => _deliverytime ?? '';
+  set deliverytime(String? val) => _deliverytime = val;
+
+  bool hasDeliverytime() => _deliverytime != null;
+
   static ServiceabilityStruct fromMap(Map<String, dynamic> data) =>
       ServiceabilityStruct(
         id: data['id'] as String?,
@@ -65,6 +74,7 @@ class ServiceabilityStruct extends FFFirebaseStruct {
         number: castToType<int>(data['number']),
         addressId: data['AddressId'] as String?,
         addressIdSet: data['AddressIdSet'] as bool?,
+        deliverytime: data['deliverytime'] as String?,
       );
 
   static ServiceabilityStruct? maybeFromMap(dynamic data) => data is Map
@@ -77,6 +87,7 @@ class ServiceabilityStruct extends FFFirebaseStruct {
         'number': _number,
         'AddressId': _addressId,
         'AddressIdSet': _addressIdSet,
+        'deliverytime': _deliverytime,
       }.withoutNulls;
 
   @override
@@ -100,6 +111,10 @@ class ServiceabilityStruct extends FFFirebaseStruct {
         'AddressIdSet': serializeParam(
           _addressIdSet,
           ParamType.bool,
+        ),
+        'deliverytime': serializeParam(
+          _deliverytime,
+          ParamType.String,
         ),
       }.withoutNulls;
 
@@ -128,6 +143,11 @@ class ServiceabilityStruct extends FFFirebaseStruct {
         addressIdSet: deserializeParam(
           data['AddressIdSet'],
           ParamType.bool,
+          false,
+        ),
+        deliverytime: deserializeParam(
+          data['deliverytime'],
+          ParamType.String,
           false,
         ),
       );
@@ -159,6 +179,11 @@ class ServiceabilityStruct extends FFFirebaseStruct {
           ParamType.bool,
           false,
         ),
+        deliverytime: convertAlgoliaParam(
+          data['deliverytime'],
+          ParamType.String,
+          false,
+        ),
         firestoreUtilData: const FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
@@ -175,12 +200,13 @@ class ServiceabilityStruct extends FFFirebaseStruct {
         name == other.name &&
         number == other.number &&
         addressId == other.addressId &&
-        addressIdSet == other.addressIdSet;
+        addressIdSet == other.addressIdSet &&
+        deliverytime == other.deliverytime;
   }
 
   @override
-  int get hashCode =>
-      const ListEquality().hash([id, name, number, addressId, addressIdSet]);
+  int get hashCode => const ListEquality()
+      .hash([id, name, number, addressId, addressIdSet, deliverytime]);
 }
 
 ServiceabilityStruct createServiceabilityStruct({
@@ -189,6 +215,7 @@ ServiceabilityStruct createServiceabilityStruct({
   int? number,
   String? addressId,
   bool? addressIdSet,
+  String? deliverytime,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -200,6 +227,7 @@ ServiceabilityStruct createServiceabilityStruct({
       number: number,
       addressId: addressId,
       addressIdSet: addressIdSet,
+      deliverytime: deliverytime,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

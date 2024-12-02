@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 class AddNewAddressModel extends FlutterFlowModel<AddNewAddressWidget> {
   ///  State fields for stateful widgets in this component.
 
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Custom Action - locationPermissionDenied] action in Row widget.
   bool? location;
-  Completer<ApiCallResponse>? apiRequestCompleter;
   // Stores action output result for [Backend Call - API (update Addressid in order)] action in Container widget.
   ApiCallResponse? apiResultjvr;
   // Stores action output result for [Backend Call - API (UpdateContactIdAddress)] action in Container widget.

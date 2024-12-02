@@ -47,21 +47,24 @@ class _StatusWidgetState extends State<StatusWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return StreamBuilder<List<OrdersRecord>>(
-      stream: queryOrdersRecord(
-        queryBuilder: (ordersRecord) => ordersRecord.where(
-          'ticket_id',
-          isEqualTo: widget.ticketid,
-        ),
-        singleRecord: true,
+    return StreamBuilder<List<OrderNotificationsRecord>>(
+      stream: queryOrderNotificationsRecord(
+        queryBuilder: (orderNotificationsRecord) => orderNotificationsRecord
+            .where(
+              'ticketID',
+              isEqualTo: widget.ticketid,
+            )
+            .where(
+              'status',
+              isEqualTo: 'Final order ready',
+            ),
       )..listen((snapshot) {
-          List<OrdersRecord> statusOrdersRecordList = snapshot;
-          final statusOrdersRecord = statusOrdersRecordList.isNotEmpty
-              ? statusOrdersRecordList.first
-              : null;
+          List<OrderNotificationsRecord> statusOrderNotificationsRecordList =
+              snapshot;
           if (_model.statusPreviousSnapshot != null &&
-              !const ListEquality(OrdersRecordDocumentEquality()).equals(
-                  statusOrdersRecordList, _model.statusPreviousSnapshot)) {
+              !const ListEquality(OrderNotificationsRecordDocumentEquality())
+                  .equals(statusOrderNotificationsRecordList,
+                      _model.statusPreviousSnapshot)) {
             () async {
               context.pushNamed(
                 'medicineCart',
@@ -96,14 +99,8 @@ class _StatusWidgetState extends State<StatusWidget> {
             ),
           );
         }
-        List<OrdersRecord> statusOrdersRecordList = snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
-        final statusOrdersRecord = statusOrdersRecordList.isNotEmpty
-            ? statusOrdersRecordList.first
-            : null;
+        List<OrderNotificationsRecord> statusOrderNotificationsRecordList =
+            snapshot.data!;
 
         return Title(
             title: 'Status',

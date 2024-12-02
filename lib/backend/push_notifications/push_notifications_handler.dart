@@ -149,7 +149,6 @@ final parametersBuilderMap =
         allParams: {
           'ticketid': getParameter<int>(data, 'ticketid'),
           'pagename': getParameter<String>(data, 'pagename'),
-          'orderRef': getParameter<DocumentReference>(data, 'orderRef'),
         },
       ),
   'statusOfOrder3': ParameterData.none(),
@@ -210,14 +209,6 @@ final parametersBuilderMap =
           'pagename': getParameter<String>(data, 'pagename'),
         },
       ),
-  'HistoryCopy': ParameterData.none(),
-  'statusOfOrderCopy': (data) async => ParameterData(
-        allParams: {
-          'ticketid': getParameter<int>(data, 'ticketid'),
-          'pagename': getParameter<String>(data, 'pagename'),
-        },
-      ),
-  'HomeCopy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

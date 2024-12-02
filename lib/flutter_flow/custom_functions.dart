@@ -186,14 +186,6 @@ int? removeSpaceInPhonenumber(String? phone) {
   return int.parse(phone!.replaceAll(' ', ''));
 }
 
-double fixtowdigitvalue(double price) {
-  if (price % 1 == 0) {
-    return price.toDouble(); // Convert to double with .0
-  }
-
-  return double.parse(price.toStringAsFixed(2));
-}
-
 String jsonConvertToString(dynamic json) {
   // json convert to string and remove ""
   return jsonEncode(json).replaceAll('"', '');
@@ -206,13 +198,6 @@ bool checkInt(dynamic price) {
   } else {
     return false;
   }
-}
-
-String fixstringDouble(String price) {
-  // pass string data in this formate 3.87878789 return this formate 3.90
-  double parsedPrice = double.parse(price);
-  String formattedPrice = parsedPrice.toStringAsFixed(2);
-  return formattedPrice;
 }
 
 double jsonToDouble(dynamic json) {

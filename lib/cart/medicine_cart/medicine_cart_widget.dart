@@ -12,12 +12,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/location/components/add_new_address/add_new_address_widget.dart';
 import '/shimmer/cart_shimmer/cart_shimmer_widget.dart';
-import '/shimmer/comman_shimmer/comman_shimmer_widget.dart';
 import '/shimmer/location_search_shimmer/location_search_shimmer_widget.dart';
 import '/shimmer/shimmer_address/shimmer_address_widget.dart';
 import '/upload_prescription/components/view_prescription/view_prescription_widget.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -446,202 +444,161 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
                                     decoration: const BoxDecoration(),
-                                    child: SingleChildScrollView(
-                                      primary: false,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    20.0, 0.0, 20.0, 0.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                boxShadow: const [
-                                                  BoxShadow(
-                                                    blurRadius: 24.0,
-                                                    color: Color(0x34959DA5),
-                                                    offset: Offset(
-                                                      0.0,
-                                                      8.0,
-                                                    ),
-                                                    spreadRadius: 0.0,
-                                                  )
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 20.0, 0.0, 20.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    if (AirtableApiGroup
-                                                            .getMedicineDetailsCall
-                                                            .recordList(
-                                                              mainContainerGetMedicineDetailsResponse
-                                                                  .jsonBody,
-                                                            )
-                                                            ?.length !=
-                                                        0)
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    20.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: FutureBuilder<
-                                                            ApiCallResponse>(
-                                                          future: AirtableApiGroup
-                                                              .getLocalityCall
-                                                              .call(
-                                                            localitynumber:
-                                                                getJsonField(
-                                                              medicineCartFindSingleOrderResponse
-                                                                  .jsonBody,
-                                                              r'''$.records[0].fields['LoaclityNumber (from Locality)'][0]''',
-                                                            ),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        safeSetState(() =>
+                                            _model.apiRequestCompleter = null);
+                                        await _model
+                                            .waitForApiRequestCompleted();
+                                      },
+                                      child: SingleChildScrollView(
+                                        primary: false,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      20.0, 0.0, 20.0, 0.0),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryBackground,
+                                                  boxShadow: const [
+                                                    BoxShadow(
+                                                      blurRadius: 24.0,
+                                                      color: Color(0x34959DA5),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        8.0,
+                                                      ),
+                                                      spreadRadius: 0.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 20.0, 0.0, 20.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      if (AirtableApiGroup
+                                                              .getMedicineDetailsCall
+                                                              .recordList(
+                                                                mainContainerGetMedicineDetailsResponse
+                                                                    .jsonBody,
+                                                              )
+                                                              ?.length !=
+                                                          0)
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      20.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Delivery in ${FFAppState().Serviceability.deliverytime}',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                           ),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return const CommanShimmerWidget(
-                                                                hieght: 50,
-                                                                width: 200,
-                                                                radiusTL: 8,
-                                                                radiusTR: 8,
-                                                                radiusBL: 8,
-                                                                radiusBR: 8,
-                                                              );
-                                                            }
-                                                            final headerTextGetLocalityResponse =
-                                                                snapshot.data!;
-
-                                                            return Text(
-                                                              'Delivery in ${AirtableApiGroup.getLocalityCall.pharmacyDeliveryTime(
-                                                                    headerTextGetLocalityResponse
-                                                                        .jsonBody,
-                                                                  )?.toString()} minutes',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            );
-                                                          },
                                                         ),
+                                                      Divider(
+                                                        thickness: 1.0,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
                                                       ),
-                                                    Divider(
-                                                      thickness: 1.0,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
-                                                    ),
-                                                    FutureBuilder<
-                                                        List<
-                                                            AppResourcesRecord>>(
-                                                      future: FFAppState()
-                                                          .appAssets(
-                                                        requestFn: () =>
-                                                            queryAppResourcesRecordOnce(
-                                                          singleRecord: true,
+                                                      FutureBuilder<
+                                                          List<
+                                                              AppResourcesRecord>>(
+                                                        future: FFAppState()
+                                                            .appAssets(
+                                                          requestFn: () =>
+                                                              queryAppResourcesRecordOnce(
+                                                            singleRecord: true,
+                                                          ),
                                                         ),
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return const LocationSearchShimmerWidget();
-                                                        }
-                                                        List<AppResourcesRecord>
-                                                            containerAppResourcesRecordList =
-                                                            snapshot.data!;
-                                                        // Return an empty Container when the item does not exist.
-                                                        if (snapshot
-                                                            .data!.isEmpty) {
-                                                          return Container();
-                                                        }
-                                                        final containerAppResourcesRecord =
-                                                            containerAppResourcesRecordList
-                                                                    .isNotEmpty
-                                                                ? containerAppResourcesRecordList
-                                                                    .first
-                                                                : null;
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return const LocationSearchShimmerWidget();
+                                                          }
+                                                          List<AppResourcesRecord>
+                                                              containerAppResourcesRecordList =
+                                                              snapshot.data!;
+                                                          // Return an empty Container when the item does not exist.
+                                                          if (snapshot
+                                                              .data!.isEmpty) {
+                                                            return Container();
+                                                          }
+                                                          final containerAppResourcesRecord =
+                                                              containerAppResourcesRecordList
+                                                                      .isNotEmpty
+                                                                  ? containerAppResourcesRecordList
+                                                                      .first
+                                                                  : null;
 
-                                                        return Container(
-                                                          decoration:
-                                                              const BoxDecoration(),
-                                                          child: Builder(
-                                                            builder: (context) {
-                                                              final medicine =
-                                                                  AirtableApiGroup
-                                                                          .getMedicineDetailsCall
-                                                                          .recordList(
-                                                                            mainContainerGetMedicineDetailsResponse.jsonBody,
-                                                                          )
-                                                                          ?.toList() ??
-                                                                      [];
-                                                              if (medicine
-                                                                  .isEmpty) {
-                                                                return const EmptymedicineWidget();
-                                                              }
+                                                          return Container(
+                                                            decoration:
+                                                                const BoxDecoration(),
+                                                            child: Builder(
+                                                              builder:
+                                                                  (context) {
+                                                                final medicine =
+                                                                    AirtableApiGroup
+                                                                            .getMedicineDetailsCall
+                                                                            .recordList(
+                                                                              mainContainerGetMedicineDetailsResponse.jsonBody,
+                                                                            )
+                                                                            ?.toList() ??
+                                                                        [];
+                                                                if (medicine
+                                                                    .isEmpty) {
+                                                                  return const EmptymedicineWidget();
+                                                                }
 
-                                                              return RefreshIndicator(
-                                                                onRefresh:
-                                                                    () async {
-                                                                  safeSetState(() =>
-                                                                      _model.apiRequestCompleter =
-                                                                          null);
-                                                                  await _model
-                                                                      .waitForApiRequestCompleted();
-                                                                },
-                                                                child: ListView
-                                                                    .separated(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .zero,
-                                                                  primary:
-                                                                      false,
-                                                                  shrinkWrap:
-                                                                      true,
-                                                                  scrollDirection:
-                                                                      Axis.vertical,
-                                                                  itemCount:
+                                                                return Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: List.generate(
                                                                       medicine
                                                                           .length,
-                                                                  separatorBuilder: (_,
-                                                                          __) =>
-                                                                      const SizedBox(
-                                                                          height:
-                                                                              10.0),
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                          medicineIndex) {
+                                                                      (medicineIndex) {
                                                                     final medicineItem =
                                                                         medicine[
                                                                             medicineIndex];
@@ -731,95 +688,59 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         ),
                                                                       ),
                                                                     );
-                                                                  },
-                                                                ),
-                                                              );
-                                                            },
-                                                          ),
-                                                        );
-                                                      },
-                                                    ),
-                                                  ].divide(
-                                                      const SizedBox(height: 10.0)),
+                                                                  }),
+                                                                );
+                                                              },
+                                                            ),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ].divide(
+                                                        const SizedBox(height: 10.0)),
+                                                  ),
                                                 ),
                                               ),
                                             ),
-                                          ),
-                                          if (AirtableApiGroup
-                                                  .getMedicineDetailsCall
-                                                  .recordList(
-                                                    mainContainerGetMedicineDetailsResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.length !=
-                                              0)
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 0.0, 20.0, 0.0),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  boxShadow: const [
-                                                    BoxShadow(
-                                                      blurRadius: 24.0,
-                                                      color: Color(0x34959DA5),
-                                                      offset: Offset(
-                                                        0.0,
-                                                        8.0,
-                                                      ),
-                                                      spreadRadius: 0.0,
+                                            if (AirtableApiGroup
+                                                    .getMedicineDetailsCall
+                                                    .recordList(
+                                                      mainContainerGetMedicineDetailsResponse
+                                                          .jsonBody,
                                                     )
-                                                  ],
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(10.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets.all(8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              'Bill details',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                  ),
-                                                            ),
-                                                          ].divide(const SizedBox(
-                                                              width: 10.0)),
+                                                    ?.length !=
+                                                0)
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 0.0, 20.0, 0.0),
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    boxShadow: const [
+                                                      BoxShadow(
+                                                        blurRadius: 24.0,
+                                                        color:
+                                                            Color(0x34959DA5),
+                                                        offset: Offset(
+                                                          0.0,
+                                                          8.0,
                                                         ),
-                                                      ),
-                                                      if (getJsonField(
-                                                            medicineCartFindSingleOrderResponse
-                                                                .jsonBody,
-                                                            r'''$.records[:].fields["Item Total"]''',
-                                                          ) !=
-                                                          null)
+                                                        spreadRadius: 0.0,
+                                                      )
+                                                    ],
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(10.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
                                                         Padding(
                                                           padding:
                                                               const EdgeInsets.all(
@@ -828,70 +749,16 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                             mainAxisSize:
                                                                 MainAxisSize
                                                                     .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
                                                             children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            8.0),
-                                                                    child: Image
-                                                                        .asset(
-                                                                      'assets/images/Icon_(1).png',
-                                                                      width:
-                                                                          16.0,
-                                                                      height:
-                                                                          16.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      'Items total',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
                                                               Text(
-                                                                '₹ ${functions.fixstringDouble(FFAppState().itemsPrice > 0.0 ? FFAppState().itemsPrice.toString() : getJsonField(
-                                                                    medicineCartFindSingleOrderResponse
-                                                                        .jsonBody,
-                                                                    r'''$.records[:].fields["Item Total"]''',
-                                                                  ).toString())}',
+                                                                'Bill details',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyLarge
+                                                                    .bodyMedium
                                                                     .override(
                                                                       fontFamily:
                                                                           FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryText,
+                                                                              .bodyMediumFamily,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -900,89 +767,32 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       useGoogleFonts: GoogleFonts
                                                                               .asMap()
                                                                           .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
-                                                            ],
+                                                            ].divide(const SizedBox(
+                                                                width: 10.0)),
                                                           ),
                                                         ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets.all(8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Builder(
-                                                              builder:
-                                                                  (context) =>
-                                                                      InkWell(
-                                                                splashColor: Colors
-                                                                    .transparent,
-                                                                focusColor: Colors
-                                                                    .transparent,
-                                                                hoverColor: Colors
-                                                                    .transparent,
-                                                                highlightColor:
-                                                                    Colors
-                                                                        .transparent,
-                                                                onTap:
-                                                                    () async {
-                                                                  await showDialog(
-                                                                    context:
-                                                                        context,
-                                                                    builder:
-                                                                        (dialogContext) {
-                                                                      return Dialog(
-                                                                        elevation:
-                                                                            0,
-                                                                        insetPadding:
-                                                                            EdgeInsets.zero,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        alignment:
-                                                                            const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                        child:
-                                                                            WebViewAware(
-                                                                          child:
-                                                                              GestureDetector(
-                                                                            onTap: () =>
-                                                                                FocusScope.of(dialogContext).unfocus(),
-                                                                            child:
-                                                                                SizedBox(
-                                                                              height: 300.0,
-                                                                              width: 300.0,
-                                                                              child: HandlingchargesWidget(
-                                                                                packaging: valueOrDefault<int>(
-                                                                                  AirtableApiGroup.findSingleOrderCall.packingfee(
-                                                                                    medicineCartFindSingleOrderResponse.jsonBody,
-                                                                                  ),
-                                                                                  15,
-                                                                                ),
-                                                                                platform: valueOrDefault<int>(
-                                                                                  AirtableApiGroup.findSingleOrderCall.platformfee(
-                                                                                    medicineCartFindSingleOrderResponse.jsonBody,
-                                                                                  ),
-                                                                                  2,
-                                                                                ),
-                                                                                canvenience: valueOrDefault<int>(
-                                                                                  AirtableApiGroup.findSingleOrderCall.conveniencefee(
-                                                                                    medicineCartFindSingleOrderResponse.jsonBody,
-                                                                                  ),
-                                                                                  5,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      );
-                                                                    },
-                                                                  );
-                                                                },
-                                                                child: Row(
+                                                        if (getJsonField(
+                                                              medicineCartFindSingleOrderResponse
+                                                                  .jsonBody,
+                                                              r'''$.records[:].fields["Item Total"]''',
+                                                            ) !=
+                                                            null)
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    8.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
                                                                           .max,
@@ -990,10 +800,10 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     ClipRRect(
                                                                       borderRadius:
                                                                           BorderRadius.circular(
-                                                                              0.0),
+                                                                              8.0),
                                                                       child: Image
                                                                           .asset(
-                                                                        'assets/images/shopping-bag.png',
+                                                                        'assets/images/Icon_(1).png',
                                                                         width:
                                                                             16.0,
                                                                         height:
@@ -1010,7 +820,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        'Handling charges',
+                                                                        'Items total',
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodySmall
                                                                             .override(
@@ -1020,295 +830,311 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                             ),
                                                                       ),
                                                                     ),
-                                                                    Builder(
+                                                                  ],
+                                                                ),
+                                                                Text(
+                                                                  '₹ ${formatNumber(
+                                                                    FFAppState().itemsPrice >
+                                                                            0.0
+                                                                        ? FFAppState()
+                                                                            .itemsPrice
+                                                                        : getJsonField(
+                                                                            medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            r'''$.records[:].fields["Item Total"]''',
+                                                                          ),
+                                                                    formatType:
+                                                                        FormatType
+                                                                            .decimal,
+                                                                    decimalType:
+                                                                        DecimalType
+                                                                            .periodDecimal,
+                                                                  )}',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Builder(
+                                                                builder:
+                                                                    (context) =>
+                                                                        InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await showDialog(
+                                                                      context:
+                                                                          context,
                                                                       builder:
-                                                                          (context) =>
-                                                                              Padding(
+                                                                          (dialogContext) {
+                                                                        return Dialog(
+                                                                          elevation:
+                                                                              0,
+                                                                          insetPadding:
+                                                                              EdgeInsets.zero,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          alignment:
+                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                          child:
+                                                                              WebViewAware(
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                              child: SizedBox(
+                                                                                height: 300.0,
+                                                                                width: 300.0,
+                                                                                child: HandlingchargesWidget(
+                                                                                  packaging: valueOrDefault<int>(
+                                                                                    AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                      medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                    ),
+                                                                                    15,
+                                                                                  ),
+                                                                                  platform: valueOrDefault<int>(
+                                                                                    AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                      medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                    ),
+                                                                                    2,
+                                                                                  ),
+                                                                                  canvenience: valueOrDefault<int>(
+                                                                                    AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                      medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                    ),
+                                                                                    5,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(0.0),
+                                                                        child: Image
+                                                                            .asset(
+                                                                          'assets/images/shopping-bag.png',
+                                                                          width:
+                                                                              16.0,
+                                                                          height:
+                                                                              16.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
                                                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             8.0,
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
                                                                         child:
-                                                                            InkWell(
-                                                                          splashColor:
-                                                                              Colors.transparent,
-                                                                          focusColor:
-                                                                              Colors.transparent,
-                                                                          hoverColor:
-                                                                              Colors.transparent,
-                                                                          highlightColor:
-                                                                              Colors.transparent,
-                                                                          onTap:
-                                                                              () async {
-                                                                            await showDialog(
-                                                                              context: context,
-                                                                              builder: (dialogContext) {
-                                                                                return Dialog(
-                                                                                  elevation: 0,
-                                                                                  insetPadding: EdgeInsets.zero,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
-                                                                                  child: WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                                      child: SizedBox(
-                                                                                        height: 300.0,
-                                                                                        width: 300.0,
-                                                                                        child: HandlingchargesWidget(
-                                                                                          packaging: valueOrDefault<int>(
-                                                                                            AirtableApiGroup.findSingleOrderCall.packingfee(
-                                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            Text(
+                                                                          'Handling charges',
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodySmall
+                                                                              .override(
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                                letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Builder(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                Padding(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              await showDialog(
+                                                                                context: context,
+                                                                                builder: (dialogContext) {
+                                                                                  return Dialog(
+                                                                                    elevation: 0,
+                                                                                    insetPadding: EdgeInsets.zero,
+                                                                                    backgroundColor: Colors.transparent,
+                                                                                    alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    child: WebViewAware(
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () => FocusScope.of(dialogContext).unfocus(),
+                                                                                        child: SizedBox(
+                                                                                          height: 300.0,
+                                                                                          width: 300.0,
+                                                                                          child: HandlingchargesWidget(
+                                                                                            packaging: valueOrDefault<int>(
+                                                                                              AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                              ),
+                                                                                              15,
                                                                                             ),
-                                                                                            15,
-                                                                                          ),
-                                                                                          platform: valueOrDefault<int>(
-                                                                                            AirtableApiGroup.findSingleOrderCall.platformfee(
-                                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                            platform: valueOrDefault<int>(
+                                                                                              AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                              ),
+                                                                                              2,
                                                                                             ),
-                                                                                            2,
-                                                                                          ),
-                                                                                          canvenience: valueOrDefault<int>(
-                                                                                            AirtableApiGroup.findSingleOrderCall.conveniencefee(
-                                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                            canvenience: valueOrDefault<int>(
+                                                                                              AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                                              ),
+                                                                                              5,
                                                                                             ),
-                                                                                            5,
                                                                                           ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                );
-                                                                              },
-                                                                            );
-                                                                          },
-                                                                          child:
-                                                                              Icon(
-                                                                            Icons.info_outlined,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondaryText,
-                                                                            size:
-                                                                                15.0,
+                                                                                  );
+                                                                                },
+                                                                              );
+                                                                            },
+                                                                            child:
+                                                                                Icon(
+                                                                              Icons.info_outlined,
+                                                                              color: FlutterFlowTheme.of(context).secondaryText,
+                                                                              size: 15.0,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                    ),
-                                                                  ],
+                                                                    ],
+                                                                  ),
                                                                 ),
                                                               ),
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    '₹ ${(valueOrDefault<int>(
-                                                                          AirtableApiGroup
-                                                                              .findSingleOrderCall
-                                                                              .platformfee(
-                                                                            medicineCartFindSingleOrderResponse.jsonBody,
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      '₹ ${(valueOrDefault<int>(
+                                                                            AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            ),
+                                                                            2,
+                                                                          ) + valueOrDefault<int>(
+                                                                            AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            ),
+                                                                            5,
+                                                                          ) + valueOrDefault<int>(
+                                                                            AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            ),
+                                                                            15,
+                                                                          )).toString()}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
                                                                           ),
-                                                                          2,
-                                                                        ) + valueOrDefault<int>(
-                                                                          AirtableApiGroup
-                                                                              .findSingleOrderCall
-                                                                              .conveniencefee(
-                                                                            medicineCartFindSingleOrderResponse.jsonBody,
-                                                                          ),
-                                                                          5,
-                                                                        ) + valueOrDefault<int>(
-                                                                          AirtableApiGroup
-                                                                              .findSingleOrderCall
-                                                                              .packingfee(
-                                                                            medicineCartFindSingleOrderResponse.jsonBody,
-                                                                          ),
-                                                                          15,
-                                                                        )).toString()}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                        ),
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                                if (((AirtableApiGroup.findSingleOrderCall.platformfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!) +
-                                                                            (AirtableApiGroup.findSingleOrderCall.conveniencefee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!) +
-                                                                            (AirtableApiGroup.findSingleOrderCall.packingfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!))
-                                                                        .toString() ==
-                                                                    '0')
-                                                                  Text(
-                                                                    'FREE',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).customColor2,
-                                                                          fontSize:
-                                                                              13.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
-                                                              ],
-                                                            ),
-                                                          ],
+                                                                  if (((AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!))
+                                                                          .toString() ==
+                                                                      '0')
+                                                                    Text(
+                                                                      'FREE',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).customColor2,
+                                                                            fontSize:
+                                                                                13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                          ),
+                                                                    ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets.all(8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              0.0),
-                                                                  child: Image
-                                                                      .asset(
-                                                                    'assets/images/shopping-bag.png',
-                                                                    width: 16.0,
-                                                                    height:
-                                                                        16.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    'Delivery charge (Inc taxes)',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodySmallFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    '₹ ${valueOrDefault<String>(
-                                                                      AirtableApiGroup
-                                                                          .findSingleOrderCall
-                                                                          .deliveryfee(
-                                                                            medicineCartFindSingleOrderResponse.jsonBody,
-                                                                          )
-                                                                          ?.toString(),
-                                                                      '40',
-                                                                    )}',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                if (AirtableApiGroup
-                                                                        .findSingleOrderCall
-                                                                        .deliveryfee(
-                                                                      medicineCartFindSingleOrderResponse
-                                                                          .jsonBody,
-                                                                    ) ==
-                                                                    0)
-                                                                  Text(
-                                                                    'FREE',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).customColor2,
-                                                                          fontSize:
-                                                                              13.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      if (responsiveVisibility(
-                                                        context: context,
-                                                        phone: false,
-                                                        tablet: false,
-                                                        tabletLandscape: false,
-                                                        desktop: false,
-                                                      ))
                                                         Padding(
                                                           padding:
                                                               const EdgeInsets.all(
@@ -1332,11 +1158,11 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                             0.0),
                                                                     child: Image
                                                                         .asset(
-                                                                      'assets/images/mdi_brightness-percent.png',
+                                                                      'assets/images/shopping-bag.png',
                                                                       width:
-                                                                          14.0,
+                                                                          16.0,
                                                                       height:
-                                                                          13.0,
+                                                                          16.0,
                                                                       fit: BoxFit
                                                                           .cover,
                                                                     ),
@@ -1349,17 +1175,17 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                             0.0,
                                                                             0.0),
                                                                     child: Text(
-                                                                      'Discount coupon',
+                                                                      'Delivery charge (Inc taxes)',
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .bodyMedium
+                                                                          .bodySmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                FlutterFlowTheme.of(context).bodySmallFamily,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1370,160 +1196,426 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Text(
-                                                                    '-₹80',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).customColor2,
-                                                                          fontSize:
-                                                                              13.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.bold,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
+                                                                  Padding(
+                                                                    padding: const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      '₹ ${valueOrDefault<String>(
+                                                                        AirtableApiGroup
+                                                                            .findSingleOrderCall
+                                                                            .deliveryfee(
+                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                            )
+                                                                            ?.toString(),
+                                                                        '40',
+                                                                      )}',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                          ),
+                                                                    ),
                                                                   ),
+                                                                  if (AirtableApiGroup
+                                                                          .findSingleOrderCall
+                                                                          .deliveryfee(
+                                                                        medicineCartFindSingleOrderResponse
+                                                                            .jsonBody,
+                                                                      ) ==
+                                                                      0)
+                                                                    Text(
+                                                                      'FREE',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).customColor2,
+                                                                            fontSize:
+                                                                                13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                          ),
+                                                                    ),
                                                                 ],
                                                               ),
                                                             ],
                                                           ),
                                                         ),
-                                                      Divider(
-                                                        thickness: 1.0,
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets.all(9.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          children: [
-                                                            Text(
-                                                              'Grand total',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineLargeFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
-                                                                  ),
+                                                        if (responsiveVisibility(
+                                                          context: context,
+                                                          phone: false,
+                                                          tablet: false,
+                                                          tabletLandscape:
+                                                              false,
+                                                          desktop: false,
+                                                        ))
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    8.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              0.0),
+                                                                      child: Image
+                                                                          .asset(
+                                                                        'assets/images/mdi_brightness-percent.png',
+                                                                        width:
+                                                                            14.0,
+                                                                        height:
+                                                                            13.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        'Discount coupon',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Text(
+                                                                      '-₹80',
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).customColor2,
+                                                                            fontSize:
+                                                                                13.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                          ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
                                                             ),
-                                                            Text(
-                                                              '₹ ${functions.fixstringDouble(formatNumber(
-                                                                (FFAppState().itemsPrice >
-                                                                            0.0
-                                                                        ? FFAppState()
-                                                                            .itemsPrice
-                                                                        : getJsonField(
-                                                                            medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            r'''$.records[:].fields["Item Total"]''',
-                                                                          )) +
-                                                                    ((AirtableApiGroup.findSingleOrderCall
-                                                                                .platformfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!) +
-                                                                            (AirtableApiGroup.findSingleOrderCall
-                                                                                .conveniencefee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!) +
-                                                                            (AirtableApiGroup.findSingleOrderCall
-                                                                                .packingfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )!))
-                                                                        .toDouble() +
-                                                                    AirtableApiGroup
-                                                                        .findSingleOrderCall
-                                                                        .deliveryfee(
-                                                                          medicineCartFindSingleOrderResponse
-                                                                              .jsonBody,
-                                                                        )!
-                                                                        .toDouble(),
-                                                                formatType:
-                                                                    FormatType
-                                                                        .decimal,
-                                                                decimalType:
-                                                                    DecimalType
-                                                                        .periodDecimal,
-                                                              ))}',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineLargeFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
-                                                                  ),
-                                                            ),
-                                                          ],
+                                                          ),
+                                                        Divider(
+                                                          thickness: 1.0,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
                                                         ),
-                                                      ),
-                                                    ],
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets.all(
+                                                                  9.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(
+                                                                'Grand total',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineLargeFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                '₹ ${formatNumber(
+                                                                  (FFAppState().itemsPrice >
+                                                                              0.0
+                                                                          ? FFAppState()
+                                                                              .itemsPrice
+                                                                          : getJsonField(
+                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              r'''$.records[:].fields["Item Total"]''',
+                                                                            )) +
+                                                                      ((AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!))
+                                                                          .toDouble() +
+                                                                      AirtableApiGroup.findSingleOrderCall
+                                                                          .deliveryfee(
+                                                                            medicineCartFindSingleOrderResponse.jsonBody,
+                                                                          )!
+                                                                          .toDouble(),
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .decimal,
+                                                                  decimalType:
+                                                                      DecimalType
+                                                                          .periodDecimal,
+                                                                )}',
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .headlineLargeFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          if (AirtableApiGroup
-                                                  .getMedicineDetailsCall
-                                                  .recordList(
-                                                    mainContainerGetMedicineDetailsResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.length !=
-                                              0)
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 0.0, 20.0, 0.0),
-                                              child: Container(
-                                                height: 68.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
+                                            if (AirtableApiGroup
+                                                    .getMedicineDetailsCall
+                                                    .recordList(
+                                                      mainContainerGetMedicineDetailsResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.length !=
+                                                0)
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 0.0, 20.0, 0.0),
+                                                child: Container(
+                                                  height: 68.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await launchURL(
+                                                          'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketId?.toString()}');
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Stack(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          children: [
+                                                            Container(
+                                                              width: 36.0,
+                                                              height: 36.0,
+                                                              decoration:
+                                                                  const BoxDecoration(
+                                                                color: Color(
+                                                                    0xFFF7F7F7),
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 20.0,
+                                                              height: 20.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                              ),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    Image.asset(
+                                                                  'assets/images/message-square_(1).png',
+                                                                  width: 20.0,
+                                                                  height: 20.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Expanded(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Text(
+                                                                  'Need help?',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).headlineLargeFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineLargeFamily),
+                                                                      ),
+                                                                ),
+                                                                Text(
+                                                                  'Chat with us about any issue with your order',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        useGoogleFonts:
+                                                                            GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Icon(
+                                                            Icons
+                                                                .arrow_forward_ios_outlined,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .backArrowColor,
+                                                            size: 14.0,
+                                                          ),
+                                                        ),
+                                                      ].divide(const SizedBox(
+                                                          width: 10.0)),
+                                                    ),
+                                                  ),
                                                 ),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    await launchURL(
-                                                        'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketId?.toString()}');
-                                                  },
+                                              ),
+                                            if (AirtableApiGroup
+                                                    .getMedicineDetailsCall
+                                                    .recordList(
+                                                      mainContainerGetMedicineDetailsResponse
+                                                          .jsonBody,
+                                                    )
+                                                    ?.length !=
+                                                0)
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        20.0, 0.0, 20.0, 0.0),
+                                                child: Container(
+                                                  height: 68.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -1560,7 +1652,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           8.0),
                                                               child:
                                                                   Image.asset(
-                                                                'assets/images/message-square_(1).png',
+                                                                'assets/images/x-circle.png',
                                                                 width: 20.0,
                                                                 height: 20.0,
                                                                 fit: BoxFit
@@ -1591,7 +1683,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     .start,
                                                             children: [
                                                               Text(
-                                                                'Need help?',
+                                                                'Cancellation & refund policy',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .headlineLarge
@@ -1608,7 +1700,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     ),
                                                               ),
                                                               Text(
-                                                                'Chat with us about any issue with your order',
+                                                                'Orders cannot be cancelled once packed \nfor delivery.',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodySmall
@@ -1628,192 +1720,47 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           ),
                                                         ),
                                                       ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Icon(
-                                                          Icons
-                                                              .arrow_forward_ios_outlined,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .backArrowColor,
-                                                          size: 14.0,
-                                                        ),
-                                                      ),
-                                                    ].divide(
-                                                        const SizedBox(width: 10.0)),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          if (AirtableApiGroup
-                                                  .getMedicineDetailsCall
-                                                  .recordList(
-                                                    mainContainerGetMedicineDetailsResponse
-                                                        .jsonBody,
-                                                  )
-                                                  ?.length !=
-                                              0)
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 0.0, 20.0, 0.0),
-                                              child: Container(
-                                                height: 68.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Stack(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      children: [
-                                                        Container(
-                                                          width: 36.0,
-                                                          height: 36.0,
-                                                          decoration:
-                                                              const BoxDecoration(
-                                                            color: Color(
-                                                                0xFFF7F7F7),
-                                                            shape:
-                                                                BoxShape.circle,
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          width: 20.0,
-                                                          height: 20.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                          ),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                            child: Image.asset(
-                                                              'assets/images/x-circle.png',
-                                                              width: 20.0,
-                                                              height: 20.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                    Expanded(
-                                                      child: Padding(
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    8.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .center,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Text(
-                                                              'Cancellation & refund policy',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .headlineLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .headlineLargeFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).headlineLargeFamily),
-                                                                  ),
-                                                            ),
-                                                            Text(
-                                                              'Orders cannot be cancelled once packed \nfor delivery.',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodySmallFamily,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
-                                                                  ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
+                                            wrapWithModel(
+                                              model: _model
+                                                  .openperscriptionRequiredModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child:
+                                                  OpenperscriptionRequiredWidget(
+                                                recordId: AirtableApiGroup
+                                                    .findSingleOrderCall
+                                                    .recordId(
+                                                  medicineCartFindSingleOrderResponse
+                                                      .jsonBody,
+                                                )!,
+                                                ordersource: AirtableApiGroup
+                                                    .findSingleOrderCall
+                                                    .orderSource(
+                                                  medicineCartFindSingleOrderResponse
+                                                      .jsonBody,
+                                                )!,
+                                                prescriptioncheck: AirtableApiGroup
+                                                            .findSingleOrderCall
+                                                            .presscriptionCheck(
+                                                          medicineCartFindSingleOrderResponse
+                                                              .jsonBody,
+                                                        ) ==
+                                                        null ||
+                                                    AirtableApiGroup
+                                                            .findSingleOrderCall
+                                                            .presscriptionCheck(
+                                                          medicineCartFindSingleOrderResponse
+                                                              .jsonBody,
+                                                        ) ==
+                                                        '',
                                               ),
                                             ),
-                                          wrapWithModel(
-                                            model: _model
-                                                .openperscriptionRequiredModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child:
-                                                OpenperscriptionRequiredWidget(
-                                              recordId: AirtableApiGroup
-                                                  .findSingleOrderCall
-                                                  .recordId(
-                                                medicineCartFindSingleOrderResponse
-                                                    .jsonBody,
-                                              )!,
-                                              ordersource: AirtableApiGroup
-                                                  .findSingleOrderCall
-                                                  .orderSource(
-                                                medicineCartFindSingleOrderResponse
-                                                    .jsonBody,
-                                              )!,
-                                              prescriptioncheck: AirtableApiGroup
-                                                          .findSingleOrderCall
-                                                          .presscriptionCheck(
-                                                        medicineCartFindSingleOrderResponse
-                                                            .jsonBody,
-                                                      ) ==
-                                                      null ||
-                                                  AirtableApiGroup
-                                                          .findSingleOrderCall
-                                                          .presscriptionCheck(
-                                                        medicineCartFindSingleOrderResponse
-                                                            .jsonBody,
-                                                      ) ==
-                                                      '',
-                                            ),
-                                          ),
-                                        ].divide(const SizedBox(height: 20.0)),
+                                          ].divide(const SizedBox(height: 20.0)),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -2272,7 +2219,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                               ticketId: widget.ticketId,
                                               contactNumber: currentPhoneNumber,
                                               buttonTextValue:
-                                                  'TOTAL ${'₹ ${functions.fixstringDouble(formatNumber(
+                                                  'TOTAL ${'₹ ${formatNumber(
                                                 (FFAppState().itemsPrice > 0.0
                                                         ? FFAppState()
                                                             .itemsPrice
@@ -2310,7 +2257,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 formatType: FormatType.decimal,
                                                 decimalType:
                                                     DecimalType.periodDecimal,
-                                              ))}'}',
+                                              )}'}',
                                               navigatesuccessful:
                                                   (ticketid) async {
                                                 context.pushNamed(

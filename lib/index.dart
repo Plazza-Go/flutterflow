@@ -57,7 +57,3 @@ export '/search_and_discovery/search_medicine_copy2/search_medicine_copy2_widget
 export '/update_app/update_app_widget.dart' show UpdateAppWidget;
 export '/location/search_location_copy2/search_location_copy2_widget.dart'
     show SearchLocationCopy2Widget;
-export '/order/history_copy/history_copy_widget.dart' show HistoryCopyWidget;
-export '/order/status_of_order_copy/status_of_order_copy_widget.dart'
-    show StatusOfOrderCopyWidget;
-export '/home_profile/home_copy/home_copy_widget.dart' show HomeCopyWidget;

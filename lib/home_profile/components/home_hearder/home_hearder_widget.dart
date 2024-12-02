@@ -7,6 +7,7 @@ import '/location/components/add_new_address/add_new_address_widget.dart';
 import '/pages/authentication/sign_in/sign_in_widget.dart';
 import '/shimmer/comman_shimmer/comman_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -68,6 +69,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
         number: widget.localitynumber,
         addressId: widget.closestAddress! ? widget.addressId : '',
         addressIdSet: widget.closestAddress,
+        deliverytime: widget.deliverytime,
       );
       safeSetState(() {});
     });
@@ -453,6 +455,13 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                     child: TextFormField(
                       controller: _model.textController,
                       focusNode: _model.textFieldFocusNode,
+                      onChanged: (_) => EasyDebounce.debounce(
+                        '_model.textController',
+                        const Duration(milliseconds: 2000),
+                        () async {
+                          context.pushNamed('searchMedicine');
+                        },
+                      ),
                       autofocus: false,
                       obscureText: false,
                       decoration: InputDecoration(

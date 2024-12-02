@@ -10,6 +10,7 @@ import '/auth/base_auth_user_provider.dart';
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/index.dart';
+import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -76,359 +77,337 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const HomeWidget() : const PhoneAuthWidget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const PhoneAuthWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const HomeWidget() : const PhoneAuthWidget(),
-          routes: [
-            FFRoute(
-              name: 'Status',
-              path: 'status',
-              builder: (context, params) => StatusWidget(
-                ticketid: params.getParam(
-                  'ticketid',
-                  ParamType.int,
-                ),
-                pageName: params.getParam(
-                  'pageName',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'History',
-              path: 'history',
-              builder: (context, params) => const HistoryWidget(),
-            ),
-            FFRoute(
-              name: 'statusOfOrders',
-              path: 'statusOfOrders',
-              builder: (context, params) => StatusOfOrdersWidget(
-                ticketid: params.getParam(
-                  'ticketid',
-                  ParamType.int,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'Home',
-              path: 'home',
-              builder: (context, params) => const HomeWidget(),
-            ),
-            FFRoute(
-              name: 'Cancelled',
-              path: 'cancelled',
-              builder: (context, params) => const CancelledWidget(),
-            ),
-            FFRoute(
-              name: 'medicineCart',
-              path: 'medicineCart',
-              builder: (context, params) => MedicineCartWidget(
-                ticketId: params.getParam(
-                  'ticketId',
-                  ParamType.int,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'Location',
-              path: 'location',
-              builder: (context, params) => const LocationWidget(),
-            ),
-            FFRoute(
-              name: 'PhoneAuth',
-              path: 'phoneAuth',
-              builder: (context, params) => const PhoneAuthWidget(),
-            ),
-            FFRoute(
-              name: 'Otp',
-              path: 'otp',
-              builder: (context, params) => OtpWidget(
-                number: params.getParam(
-                  'number',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'Profile',
-              path: 'profile',
-              requireAuth: true,
-              builder: (context, params) => const ProfileWidget(),
-            ),
-            FFRoute(
-              name: 'Ordermedicine',
-              path: 'ordermedicine',
-              builder: (context, params) => const OrdermedicineWidget(),
-            ),
-            FFRoute(
-              name: 'PaymentSuccess',
-              path: 'paymentSuccess',
-              builder: (context, params) => PaymentSuccessWidget(
-                ticketId: params.getParam(
-                  'ticketId',
-                  ParamType.int,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'PaymentFailed',
-              path: 'paymentFailed',
-              builder: (context, params) => PaymentFailedWidget(
-                ticketid: params.getParam(
-                  'ticketid',
-                  ParamType.int,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'statusOfOrder',
-              path: 'statusOfOrder',
-              builder: (context, params) => StatusOfOrderWidget(
-                ticketid: params.getParam(
-                  'ticketid',
-                  ParamType.int,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-                orderRef: params.getParam(
-                  'orderRef',
-                  ParamType.DocumentReference,
-                  isList: false,
-                  collectionNamePath: ['Orders'],
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'statusOfOrder3',
-              path: 'statusOfOrder3',
-              builder: (context, params) => const StatusOfOrder3Widget(),
-            ),
-            FFRoute(
-              name: 'statusOfOrder4',
-              path: 'statusOfOrder4',
-              builder: (context, params) => const StatusOfOrder4Widget(),
-            ),
-            FFRoute(
-              name: 'statusOfOrder5',
-              path: 'statusOfOrder5',
-              builder: (context, params) => const StatusOfOrder5Widget(),
-            ),
-            FFRoute(
-              name: 'Userlogdata',
-              path: 'userlogdata',
-              builder: (context, params) => const UserlogdataWidget(),
-            ),
-            FFRoute(
-              name: 'Settings',
-              path: 'settings',
-              requireAuth: true,
-              builder: (context, params) => const SettingsWidget(),
-            ),
-            FFRoute(
-              name: 'changeLocation',
-              path: 'changeLocation',
-              builder: (context, params) => ChangeLocationWidget(
-                lat: params.getParam(
-                  'lat',
-                  ParamType.String,
-                ),
-                lng: params.getParam(
-                  'lng',
-                  ParamType.String,
-                ),
-                orderRecordId: params.getParam(
-                  'orderRecordId',
-                  ParamType.String,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-                addressId: params.getParam(
-                  'addressId',
-                  ParamType.String,
-                ),
-                tag: params.getParam(
-                  'tag',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'searchAndDiscoveryHome',
-              path: 'searchAndDiscoveryHome',
-              builder: (context, params) => const SearchAndDiscoveryHomeWidget(),
-            ),
-            FFRoute(
-              name: 'searchAndDiscover2',
-              path: 'searchAndDiscover2',
-              builder: (context, params) => const SearchAndDiscover2Widget(),
-            ),
-            FFRoute(
-              name: 'Addressbook',
-              path: 'addressbook',
-              builder: (context, params) => const AddressbookWidget(),
-            ),
-            FFRoute(
-              name: 'PolicyWebview',
-              path: 'policyWebview',
-              builder: (context, params) => const PolicyWebviewWidget(),
-            ),
-            FFRoute(
-              name: 'searchMedicine',
-              path: 'searchMedicine',
-              builder: (context, params) => const SearchMedicineWidget(),
-            ),
-            FFRoute(
-              name: 'searchAndAutoSuggest',
-              path: 'searchAndAutoSuggest',
-              builder: (context, params) => const SearchAndAutoSuggestWidget(),
-            ),
-            FFRoute(
-              name: 'productDescriptionPage',
-              path: 'productDescriptionPage',
-              builder: (context, params) => const ProductDescriptionPageWidget(),
-            ),
-            FFRoute(
-              name: 'MedicineInformation',
-              path: 'medicineInformation',
-              builder: (context, params) => MedicineInformationWidget(
-                productid: params.getParam(
-                  'productid',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'searchMedicineCopy',
-              path: 'searchMedicineCopy',
-              builder: (context, params) => const SearchMedicineCopyWidget(),
-            ),
-            FFRoute(
-              name: 'cartEmpty',
-              path: 'cartEmpty',
-              builder: (context, params) => const CartEmptyWidget(),
-            ),
-            FFRoute(
-              name: 'SearchLocationCopy',
-              path: 'searchLocationCopy',
-              builder: (context, params) => SearchLocationCopyWidget(
-                recordId: params.getParam(
-                  'recordId',
-                  ParamType.String,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-                addLocation: params.getParam(
-                  'addLocation',
-                  ParamType.String,
-                ),
-                addressId: params.getParam(
-                  'addressId',
-                  ParamType.String,
-                ),
-                tag: params.getParam(
-                  'tag',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'SearchLocation',
-              path: 'searchLocation',
-              builder: (context, params) => SearchLocationWidget(
-                recordId: params.getParam(
-                  'recordId',
-                  ParamType.String,
-                ),
-                addLocation: params.getParam(
-                  'addLocation',
-                  ParamType.String,
-                ),
-                addressId: params.getParam(
-                  'addressId',
-                  ParamType.String,
-                ),
-                tag: params.getParam(
-                  'tag',
-                  ParamType.String,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'searchMedicineCopy2',
-              path: 'searchMedicineCopy2',
-              builder: (context, params) => const SearchMedicineCopy2Widget(),
-            ),
-            FFRoute(
-              name: 'UpdateApp',
-              path: 'updateApp',
-              builder: (context, params) => const UpdateAppWidget(),
-            ),
-            FFRoute(
-              name: 'SearchLocationCopy2',
-              path: 'searchLocationCopy2',
-              builder: (context, params) => SearchLocationCopy2Widget(
-                recordId: params.getParam(
-                  'recordId',
-                  ParamType.String,
-                ),
-                addLocation: params.getParam(
-                  'addLocation',
-                  ParamType.String,
-                ),
-                addressId: params.getParam(
-                  'addressId',
-                  ParamType.String,
-                ),
-                tag: params.getParam(
-                  'tag',
-                  ParamType.String,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'HistoryCopy',
-              path: 'historyCopy',
-              builder: (context, params) => const HistoryCopyWidget(),
-            ),
-            FFRoute(
-              name: 'statusOfOrderCopy',
-              path: 'statusOfOrderCopy',
-              builder: (context, params) => StatusOfOrderCopyWidget(
-                ticketid: params.getParam(
-                  'ticketid',
-                  ParamType.int,
-                ),
-                pagename: params.getParam(
-                  'pagename',
-                  ParamType.String,
-                ),
-              ),
-            ),
-            FFRoute(
-              name: 'HomeCopy',
-              path: 'homeCopy',
-              builder: (context, params) => const HomeCopyWidget(),
-            )
-          ].map((r) => r.toRoute(appStateNotifier)).toList(),
+              appStateNotifier.loggedIn ? const NavBarPage() : const PhoneAuthWidget(),
         ),
+        FFRoute(
+          name: 'Status',
+          path: '/status',
+          builder: (context, params) => StatusWidget(
+            ticketid: params.getParam(
+              'ticketid',
+              ParamType.int,
+            ),
+            pageName: params.getParam(
+              'pageName',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'History',
+          path: '/history',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'History')
+              : const NavBarPage(
+                  initialPage: 'History',
+                  page: HistoryWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'statusOfOrders',
+          path: '/statusOfOrders',
+          builder: (context, params) => StatusOfOrdersWidget(
+            ticketid: params.getParam(
+              'ticketid',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Home',
+          path: '/home',
+          builder: (context, params) => params.isEmpty
+              ? const NavBarPage(initialPage: 'Home')
+              : const NavBarPage(
+                  initialPage: 'Home',
+                  page: HomeWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'Cancelled',
+          path: '/cancelled',
+          builder: (context, params) => const CancelledWidget(),
+        ),
+        FFRoute(
+          name: 'medicineCart',
+          path: '/medicineCart',
+          builder: (context, params) => MedicineCartWidget(
+            ticketId: params.getParam(
+              'ticketId',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Location',
+          path: '/location',
+          builder: (context, params) => const LocationWidget(),
+        ),
+        FFRoute(
+          name: 'PhoneAuth',
+          path: '/phoneAuth',
+          builder: (context, params) => const PhoneAuthWidget(),
+        ),
+        FFRoute(
+          name: 'Otp',
+          path: '/otp',
+          builder: (context, params) => OtpWidget(
+            number: params.getParam(
+              'number',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'Profile',
+          path: '/profile',
+          requireAuth: true,
+          builder: (context, params) => const ProfileWidget(),
+        ),
+        FFRoute(
+          name: 'Ordermedicine',
+          path: '/ordermedicine',
+          builder: (context, params) => const OrdermedicineWidget(),
+        ),
+        FFRoute(
+          name: 'PaymentSuccess',
+          path: '/paymentSuccess',
+          builder: (context, params) => PaymentSuccessWidget(
+            ticketId: params.getParam(
+              'ticketId',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'PaymentFailed',
+          path: '/paymentFailed',
+          builder: (context, params) => PaymentFailedWidget(
+            ticketid: params.getParam(
+              'ticketid',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'statusOfOrder',
+          path: '/statusOfOrder',
+          builder: (context, params) => StatusOfOrderWidget(
+            ticketid: params.getParam(
+              'ticketid',
+              ParamType.int,
+            ),
+            pagename: params.getParam(
+              'pagename',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'statusOfOrder3',
+          path: '/statusOfOrder3',
+          builder: (context, params) => const StatusOfOrder3Widget(),
+        ),
+        FFRoute(
+          name: 'statusOfOrder4',
+          path: '/statusOfOrder4',
+          builder: (context, params) => const StatusOfOrder4Widget(),
+        ),
+        FFRoute(
+          name: 'statusOfOrder5',
+          path: '/statusOfOrder5',
+          builder: (context, params) => const StatusOfOrder5Widget(),
+        ),
+        FFRoute(
+          name: 'Userlogdata',
+          path: '/userlogdata',
+          builder: (context, params) => const UserlogdataWidget(),
+        ),
+        FFRoute(
+          name: 'Settings',
+          path: '/settings',
+          requireAuth: true,
+          builder: (context, params) => const SettingsWidget(),
+        ),
+        FFRoute(
+          name: 'changeLocation',
+          path: '/changeLocation',
+          builder: (context, params) => ChangeLocationWidget(
+            lat: params.getParam(
+              'lat',
+              ParamType.String,
+            ),
+            lng: params.getParam(
+              'lng',
+              ParamType.String,
+            ),
+            orderRecordId: params.getParam(
+              'orderRecordId',
+              ParamType.String,
+            ),
+            pagename: params.getParam(
+              'pagename',
+              ParamType.String,
+            ),
+            addressId: params.getParam(
+              'addressId',
+              ParamType.String,
+            ),
+            tag: params.getParam(
+              'tag',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'searchAndDiscoveryHome',
+          path: '/searchAndDiscoveryHome',
+          builder: (context, params) => const SearchAndDiscoveryHomeWidget(),
+        ),
+        FFRoute(
+          name: 'searchAndDiscover2',
+          path: '/searchAndDiscover2',
+          builder: (context, params) => const SearchAndDiscover2Widget(),
+        ),
+        FFRoute(
+          name: 'Addressbook',
+          path: '/addressbook',
+          builder: (context, params) => const AddressbookWidget(),
+        ),
+        FFRoute(
+          name: 'PolicyWebview',
+          path: '/policyWebview',
+          builder: (context, params) => const PolicyWebviewWidget(),
+        ),
+        FFRoute(
+          name: 'searchMedicine',
+          path: '/searchMedicine',
+          builder: (context, params) => const SearchMedicineWidget(),
+        ),
+        FFRoute(
+          name: 'searchAndAutoSuggest',
+          path: '/searchAndAutoSuggest',
+          builder: (context, params) => const SearchAndAutoSuggestWidget(),
+        ),
+        FFRoute(
+          name: 'productDescriptionPage',
+          path: '/productDescriptionPage',
+          builder: (context, params) => const ProductDescriptionPageWidget(),
+        ),
+        FFRoute(
+          name: 'MedicineInformation',
+          path: '/medicineInformation',
+          builder: (context, params) => MedicineInformationWidget(
+            productid: params.getParam(
+              'productid',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'searchMedicineCopy',
+          path: '/searchMedicineCopy',
+          builder: (context, params) => const SearchMedicineCopyWidget(),
+        ),
+        FFRoute(
+          name: 'cartEmpty',
+          path: '/cartEmpty',
+          builder: (context, params) => const CartEmptyWidget(),
+        ),
+        FFRoute(
+          name: 'SearchLocationCopy',
+          path: '/searchLocationCopy',
+          builder: (context, params) => SearchLocationCopyWidget(
+            recordId: params.getParam(
+              'recordId',
+              ParamType.String,
+            ),
+            pagename: params.getParam(
+              'pagename',
+              ParamType.String,
+            ),
+            addLocation: params.getParam(
+              'addLocation',
+              ParamType.String,
+            ),
+            addressId: params.getParam(
+              'addressId',
+              ParamType.String,
+            ),
+            tag: params.getParam(
+              'tag',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'SearchLocation',
+          path: '/searchLocation',
+          builder: (context, params) => SearchLocationWidget(
+            recordId: params.getParam(
+              'recordId',
+              ParamType.String,
+            ),
+            addLocation: params.getParam(
+              'addLocation',
+              ParamType.String,
+            ),
+            addressId: params.getParam(
+              'addressId',
+              ParamType.String,
+            ),
+            tag: params.getParam(
+              'tag',
+              ParamType.String,
+            ),
+            pagename: params.getParam(
+              'pagename',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'searchMedicineCopy2',
+          path: '/searchMedicineCopy2',
+          builder: (context, params) => const SearchMedicineCopy2Widget(),
+        ),
+        FFRoute(
+          name: 'UpdateApp',
+          path: '/updateApp',
+          builder: (context, params) => const UpdateAppWidget(),
+        ),
+        FFRoute(
+          name: 'SearchLocationCopy2',
+          path: '/searchLocationCopy2',
+          builder: (context, params) => SearchLocationCopy2Widget(
+            recordId: params.getParam(
+              'recordId',
+              ParamType.String,
+            ),
+            addLocation: params.getParam(
+              'addLocation',
+              ParamType.String,
+            ),
+            addressId: params.getParam(
+              'addressId',
+              ParamType.String,
+            ),
+            tag: params.getParam(
+              'tag',
+              ParamType.String,
+            ),
+            pagename: params.getParam(
+              'pagename',
+              ParamType.String,
+            ),
+          ),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

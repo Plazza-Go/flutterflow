@@ -1,6 +1,8 @@
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/order/reting_component/reting_component_widget.dart';
+import 'dart:async';
 import 'history_widget.dart' show HistoryWidget;
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,8 @@ class HistoryModel extends FlutterFlowModel<HistoryWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  List<AppOrderRecord>? historyPreviousSnapshot;
+  List<OrderNotificationsRecord>? historyPreviousSnapshot;
+  Completer<ApiCallResponse>? apiRequestCompleter;
   // Models for retingComponent dynamic component.
   late FlutterFlowDynamicModels<RetingComponentModel> retingComponentModels;
 
@@ -26,5 +29,21 @@ class HistoryModel extends FlutterFlowModel<HistoryWidget> {
   @override
   void dispose() {
     retingComponentModels.dispose();
+  }
+
+  /// Additional helper methods.
+  Future waitForApiRequestCompleted({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(const Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
   }
 }

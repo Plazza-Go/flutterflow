@@ -81,29 +81,24 @@ class AppOrderRecord extends FirestoreRecord {
   bool hasOrderSource() => _orderSource != null;
 
   // "packaging_charges" field.
-  int? _packagingCharges;
-  int get packagingCharges => _packagingCharges ?? 0;
+  double? _packagingCharges;
+  double get packagingCharges => _packagingCharges ?? 0.0;
   bool hasPackagingCharges() => _packagingCharges != null;
 
-  // "platform_fee" field.
-  int? _platformFee;
-  int get platformFee => _platformFee ?? 0;
-  bool hasPlatformFee() => _platformFee != null;
-
   // "convenience_fee" field.
-  int? _convenienceFee;
-  int get convenienceFee => _convenienceFee ?? 0;
+  double? _convenienceFee;
+  double get convenienceFee => _convenienceFee ?? 0.0;
   bool hasConvenienceFee() => _convenienceFee != null;
 
   // "delivery_charges" field.
-  int? _deliveryCharges;
-  int get deliveryCharges => _deliveryCharges ?? 0;
+  double? _deliveryCharges;
+  double get deliveryCharges => _deliveryCharges ?? 0.0;
   bool hasDeliveryCharges() => _deliveryCharges != null;
 
-  // "prescription_url_list" field.
-  List<String>? _prescriptionUrlList;
-  List<String> get prescriptionUrlList => _prescriptionUrlList ?? const [];
-  bool hasPrescriptionUrlList() => _prescriptionUrlList != null;
+  // "platform_fee" field.
+  double? _platformFee;
+  double get platformFee => _platformFee ?? 0.0;
+  bool hasPlatformFee() => _platformFee != null;
 
   void _initializeFields() {
     _ticketId = castToType<int>(snapshotData['ticket_id']);
@@ -121,11 +116,10 @@ class AppOrderRecord extends FirestoreRecord {
         snapshotData['delivery_agent_phonenumber'] as String?;
     _deliveryAgentName = snapshotData['delivery_agent_name'] as String?;
     _orderSource = snapshotData['order_source'] as String?;
-    _packagingCharges = castToType<int>(snapshotData['packaging_charges']);
-    _platformFee = castToType<int>(snapshotData['platform_fee']);
-    _convenienceFee = castToType<int>(snapshotData['convenience_fee']);
-    _deliveryCharges = castToType<int>(snapshotData['delivery_charges']);
-    _prescriptionUrlList = getDataList(snapshotData['prescription_url_list']);
+    _packagingCharges = castToType<double>(snapshotData['packaging_charges']);
+    _convenienceFee = castToType<double>(snapshotData['convenience_fee']);
+    _deliveryCharges = castToType<double>(snapshotData['delivery_charges']);
+    _platformFee = castToType<double>(snapshotData['platform_fee']);
   }
 
   static CollectionReference get collection =>
@@ -176,10 +170,10 @@ Map<String, dynamic> createAppOrderRecordData({
   String? deliveryAgentPhonenumber,
   String? deliveryAgentName,
   String? orderSource,
-  int? packagingCharges,
-  int? platformFee,
-  int? convenienceFee,
-  int? deliveryCharges,
+  double? packagingCharges,
+  double? convenienceFee,
+  double? deliveryCharges,
+  double? platformFee,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -197,9 +191,9 @@ Map<String, dynamic> createAppOrderRecordData({
       'delivery_agent_name': deliveryAgentName,
       'order_source': orderSource,
       'packaging_charges': packagingCharges,
-      'platform_fee': platformFee,
       'convenience_fee': convenienceFee,
       'delivery_charges': deliveryCharges,
+      'platform_fee': platformFee,
     }.withoutNulls,
   );
 
@@ -211,7 +205,6 @@ class AppOrderRecordDocumentEquality implements Equality<AppOrderRecord> {
 
   @override
   bool equals(AppOrderRecord? e1, AppOrderRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.ticketId == e2?.ticketId &&
         e1?.createdTime == e2?.createdTime &&
         e1?.status == e2?.status &&
@@ -226,10 +219,9 @@ class AppOrderRecordDocumentEquality implements Equality<AppOrderRecord> {
         e1?.deliveryAgentName == e2?.deliveryAgentName &&
         e1?.orderSource == e2?.orderSource &&
         e1?.packagingCharges == e2?.packagingCharges &&
-        e1?.platformFee == e2?.platformFee &&
         e1?.convenienceFee == e2?.convenienceFee &&
         e1?.deliveryCharges == e2?.deliveryCharges &&
-        listEquality.equals(e1?.prescriptionUrlList, e2?.prescriptionUrlList);
+        e1?.platformFee == e2?.platformFee;
   }
 
   @override
@@ -248,10 +240,9 @@ class AppOrderRecordDocumentEquality implements Equality<AppOrderRecord> {
         e?.deliveryAgentName,
         e?.orderSource,
         e?.packagingCharges,
-        e?.platformFee,
         e?.convenienceFee,
         e?.deliveryCharges,
-        e?.prescriptionUrlList
+        e?.platformFee
       ]);
 
   @override

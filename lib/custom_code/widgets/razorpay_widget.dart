@@ -59,7 +59,7 @@ class _RazorpayWidgetState extends State<RazorpayWidget> {
   void openCheckout() {
     var options = {
       'key': 'rzp_live_13nfx7eGyPUdLb',
-      'amount': (widget.amount ?? 0) * 100,
+      'amount': ((widget.amount ?? 0) * 100).toInt(),
       'name': widget.name ?? 'Customer',
       "reference_id": widget.ticketId?.toString(),
       'prefill': {'contact': widget.contactNumber ?? ''},
@@ -85,7 +85,7 @@ class _RazorpayWidgetState extends State<RazorpayWidget> {
     final body = json.encode({
       "data": {
         "paymentId": response.paymentId,
-        "amount": (widget.amount ?? 0) * 100,
+        'amount': ((widget.amount ?? 0) * 100).toInt(),
         "currency": "INR",
         "isProd": true
       }

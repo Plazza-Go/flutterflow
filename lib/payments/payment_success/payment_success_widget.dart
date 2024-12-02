@@ -1,7 +1,6 @@
-import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,14 +33,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 2000));
-      _model.orderRef = await queryOrdersRecordOnce(
-        queryBuilder: (ordersRecord) => ordersRecord.where(
-          'ticket_id',
-          isEqualTo: widget.ticketId,
-        ),
-        singleRecord: true,
-      ).then((s) => s.firstOrNull);
+      await Future.delayed(const Duration(milliseconds: 4000));
       if (FFAppState().cartId.ticketid == widget.ticketId) {
         FFAppState().cartId = CartDetailsStruct();
         FFAppState().CartMedicineDetails = [];
@@ -57,10 +49,6 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
             'pagename': serializeParam(
               'Payment',
               ParamType.String,
-            ),
-            'orderRef': serializeParam(
-              _model.orderRef?.reference,
-              ParamType.DocumentReference,
             ),
           }.withoutNulls,
           extra: <String, dynamic>{
@@ -82,10 +70,6 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
             'pagename': serializeParam(
               'Payment',
               ParamType.String,
-            ),
-            'orderRef': serializeParam(
-              _model.orderRef?.reference,
-              ParamType.DocumentReference,
             ),
           }.withoutNulls,
           extra: <String, dynamic>{
