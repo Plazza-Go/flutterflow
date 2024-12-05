@@ -76,16 +76,16 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
     context.watch<FFAppState>();
 
     return Stack(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       children: [
         if (formatNumber(
               (_model.count != null
                       ? _model.count!.toDouble()
-                      : (widget!.quantity == widget!.quantityCart
-                              ? widget!.quantity!
-                              : widget!.quantityCart!)
+                      : (widget.quantity == widget.quantityCart
+                              ? widget.quantity!
+                              : widget.quantityCart!)
                           .toDouble()) *
-                  functions.stringToDouble(widget!.medicineRate!.toString()),
+                  functions.stringToDouble(widget.medicineRate!.toString()),
               formatType: FormatType.decimal,
               decimalType: DecimalType.periodDecimal,
             ) !=
@@ -93,20 +93,20 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
           Opacity(
             opacity: _model.loading ? 0.5 : 1.0,
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        widget!.medicineimageurl != null
-                            ? widget!.medicineimageurl!.toString()
-                            : widget!.defultImageurl!,
+                        widget.medicineimageurl != null
+                            ? widget.medicineimageurl!.toString()
+                            : widget.defultImageurl!,
                         width: 36.0,
                         height: 36.0,
                         fit: BoxFit.contain,
@@ -122,7 +122,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                   ),
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +139,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      widget!.medicine!.toString(),
+                                      widget.medicine!.toString(),
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -156,9 +156,9 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                         .bodyLargeFamily),
                                           ),
                                     ),
-                                    if (widget!.description != null)
+                                    if (widget.description != null)
                                       Text(
-                                        widget!.description!.toString(),
+                                        widget.description!.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
@@ -175,7 +175,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                           .labelMediumFamily),
                                             ),
                                       ),
-                                  ].divide(SizedBox(height: 4.0)),
+                                  ].divide(const SizedBox(height: 4.0)),
                                 ),
                               ),
                               Expanded(
@@ -209,17 +209,17 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                           if (FFAppState().itemsPrice <= 0.0) {
                                             FFAppState().itemsPrice =
                                                 functions.jsonToDouble(
-                                                    widget!.itemtotal!);
+                                                    widget.itemtotal!);
                                             safeSetState(() {});
                                           }
                                           if (_model.count != null) {
                                             _model.count = _model.count! + -1;
                                             safeSetState(() {});
                                           } else {
-                                            _model.count = (widget!.quantity ==
-                                                        widget!.quantityCart
-                                                    ? widget!.quantity!
-                                                    : widget!.quantityCart!) -
+                                            _model.count = (widget.quantity ==
+                                                        widget.quantityCart
+                                                    ? widget.quantity!
+                                                    : widget.quantityCart!) -
                                                 1;
                                             safeSetState(() {});
                                           }
@@ -228,16 +228,14 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                       .doubleToInt(FFAppState()
                                                           .itemsPrice) -
                                                   functions.doubleToInt(functions
-                                                      .jsonToDouble(widget!
+                                                      .jsonToDouble(widget
                                                           .medicineRate!))) /
                                               100;
                                           safeSetState(() {});
                                           if ((FFAppState().itemsPrice ==
                                                   0.0) ||
                                               (FFAppState()
-                                                      .CartMedicineDetails
-                                                      .length <
-                                                  1) ||
+                                                      .CartMedicineDetails.isEmpty) ||
                                               !(FFAppState()
                                                   .CartMedicineDetails
                                                   .isNotEmpty)) {
@@ -252,14 +250,14 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                   tableName:
                                                       'tblGQ0gGC4IKOo48N',
                                                   recordId:
-                                                      widget!.orderRecordId,
+                                                      widget.orderRecordId,
                                                 );
                                               }),
                                               Future(() async {
                                                 context.pushNamed('Home');
                                               }),
                                               Future(() async {
-                                                if (widget!.orderSource ==
+                                                if (widget.orderSource ==
                                                     'Search') {
                                                   FFAppState()
                                                       .CartMedicineDetails = [];
@@ -276,12 +274,12 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                       .deleteCall
                                                       .call(
                                                 tableName: 'tblN6VE6bxbIgu0z3',
-                                                recordId: widget!
+                                                recordId: widget
                                                     .medicineRecordid
                                                     ?.toString(),
                                               );
 
-                                              if (widget!.orderSource ==
+                                              if (widget.orderSource ==
                                                   'Search') {
                                                 FFAppState().removeAtIndexFromCartMedicineDetails(
                                                     functions.checklistContains(
@@ -290,7 +288,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                             .map((e) =>
                                                                 e.productID)
                                                             .toList(),
-                                                        widget!.productId!)!);
+                                                        widget.productId!)!);
                                                 safeSetState(() {});
                                               }
                                             } else {
@@ -302,25 +300,25 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                             null
                                                         ? _model.count!
                                                             .toDouble()
-                                                        : (widget!.quantity ==
-                                                                    widget!
+                                                        : (widget.quantity ==
+                                                                    widget
                                                                         .quantityCart
-                                                                ? widget!
+                                                                ? widget
                                                                     .quantity!
-                                                                : widget!
+                                                                : widget
                                                                     .quantityCart!)
                                                             .toDouble()) *
                                                     functions.stringToDouble(
-                                                        widget!.medicineRate!
+                                                        widget.medicineRate!
                                                             .toString()),
                                                 quantity:
                                                     _model.count?.toDouble(),
-                                                recordId: widget!
+                                                recordId: widget
                                                     .medicineRecordid
                                                     ?.toString(),
                                               );
 
-                                              if (widget!.orderSource ==
+                                              if (widget.orderSource ==
                                                   'Search') {
                                                 FFAppState()
                                                     .updateCartMedicineDetailsAtIndex(
@@ -330,18 +328,18 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                           .map((e) =>
                                                               e.productID)
                                                           .toList(),
-                                                      widget!.productId!)!,
+                                                      widget.productId!)!,
                                                   (e) => e
                                                     ..incrementQuantity(-1)
                                                     ..incrementQuantityCart(-1)
                                                     ..incrementPlazzaPrice(
                                                         functions.getMinus(functions
-                                                            .stringToDouble(widget!
+                                                            .stringToDouble(widget
                                                                 .medicineRate!
                                                                 .toString())))
                                                     ..incrementPlazzaPriceCart(
                                                         functions.getMinus(functions
-                                                            .stringToDouble(widget!
+                                                            .stringToDouble(widget
                                                                 .medicineRate!
                                                                 .toString()))),
                                                 );
@@ -358,12 +356,10 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                       ),
                                       Text(
                                         valueOrDefault<String>(
-                                          (_model.count != null
-                                                  ? _model.count
-                                                  : (widget!.quantity ==
-                                                          widget!.quantityCart
-                                                      ? widget!.quantity
-                                                      : widget!.quantityCart))
+                                          (_model.count ?? (widget.quantity ==
+                                                          widget.quantityCart
+                                                      ? widget.quantity
+                                                      : widget.quantityCart))
                                               ?.toString(),
                                           '1',
                                         ),
@@ -405,17 +401,17 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                           if (FFAppState().itemsPrice <= 0.0) {
                                             FFAppState().itemsPrice =
                                                 functions.jsonToDouble(
-                                                    widget!.itemtotal!);
+                                                    widget.itemtotal!);
                                             safeSetState(() {});
                                           }
                                           if (_model.count != null) {
                                             _model.count = _model.count! + 1;
                                             safeSetState(() {});
                                           } else {
-                                            _model.count = widget!.quantity ==
-                                                    widget!.quantityCart
-                                                ? widget!.quantity
-                                                : widget!.quantityCart;
+                                            _model.count = widget.quantity ==
+                                                    widget.quantityCart
+                                                ? widget.quantity
+                                                : widget.quantityCart;
                                             safeSetState(() {});
                                             _model.count = _model.count! + 1;
                                             safeSetState(() {});
@@ -425,7 +421,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                       .doubleToInt(FFAppState()
                                                           .itemsPrice) +
                                                   functions.doubleToInt(functions
-                                                      .jsonToDouble(widget!
+                                                      .jsonToDouble(widget
                                                           .medicineRate!))) /
                                               100;
                                           safeSetState(() {});
@@ -433,18 +429,18 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                               await AirtableApiGroup
                                                   .updateMedicineDetailsCall
                                                   .call(
-                                            recordId: widget!.medicineRecordid
+                                            recordId: widget.medicineRecordid
                                                 ?.toString(),
                                             totalprice: (_model.count != null
                                                     ? _model.count!.toDouble()
-                                                    : (widget!.quantity ==
-                                                                widget!
+                                                    : (widget.quantity ==
+                                                                widget
                                                                     .quantityCart
-                                                            ? widget!.quantity!
-                                                            : widget!
+                                                            ? widget.quantity!
+                                                            : widget
                                                                 .quantityCart!)
                                                         .toDouble()) *
-                                                functions.stringToDouble(widget!
+                                                functions.stringToDouble(widget
                                                     .medicineRate!
                                                     .toString()),
                                             quantity: _model.count?.toDouble(),
@@ -452,7 +448,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
 
                                           _model.loading = false;
                                           safeSetState(() {});
-                                          if (widget!.orderSource == 'Search') {
+                                          if (widget.orderSource == 'Search') {
                                             FFAppState()
                                                 .updateCartMedicineDetailsAtIndex(
                                               functions.checklistContains(
@@ -460,14 +456,14 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                                       .CartMedicineDetails
                                                       .map((e) => e.productID)
                                                       .toList(),
-                                                  widget!.productId!)!,
+                                                  widget.productId!)!,
                                               (e) => e
                                                 ..incrementQuantity(1)
                                                 ..incrementQuantityCart(1)
                                                 ..incrementPlazzaPrice(
-                                                    widget!.medicineRate!)
+                                                    widget.medicineRate!)
                                                 ..incrementPlazzaPriceCart(
-                                                    widget!.medicineRate!),
+                                                    widget.medicineRate!),
                                             );
                                             safeSetState(() {});
                                           }
@@ -479,7 +475,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                   ),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 10.0)),
+                            ].divide(const SizedBox(width: 10.0)),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -487,18 +483,18 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   '₹ ${formatNumber(
                                     (_model.count != null
                                             ? _model.count!
-                                            : (widget!.quantity ==
-                                                    widget!.quantityCart
-                                                ? widget!.quantity!
-                                                : widget!.quantityCart!)) *
+                                            : (widget.quantity ==
+                                                    widget.quantityCart
+                                                ? widget.quantity!
+                                                : widget.quantityCart!)) *
                                         functions.stringToDouble(
-                                            widget!.medicineRate!.toString()),
+                                            widget.medicineRate!.toString()),
                                     formatType: FormatType.decimal,
                                     decimalType: DecimalType.periodDecimal,
                                   )}',
@@ -518,9 +514,9 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
                                       ),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 10.0)),
+                            ].divide(const SizedBox(width: 10.0)),
                           ),
-                        ].divide(SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8.0)),
                       ),
                     ),
                   ),
@@ -530,7 +526,7 @@ class _CartItemssearchWidgetState extends State<CartItemssearchWidget> {
           ),
         if (_model.loading)
           Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(

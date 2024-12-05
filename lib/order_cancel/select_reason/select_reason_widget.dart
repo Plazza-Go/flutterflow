@@ -67,7 +67,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -75,7 +75,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +90,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 59.0,
                           height: 6.0,
@@ -121,7 +121,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
             ),
             Container(
               height: 516.0,
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -141,7 +141,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
                   ),
                   Container(
                     width: 350.0,
-                    decoration: BoxDecoration(),
+                    decoration: const BoxDecoration(),
                     child: FlutterFlowRadioButton(
                       options: [
                         'Medicine no longer needed',
@@ -197,7 +197,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
                           color: FlutterFlowTheme.of(context).primaryBackground,
                         ),
                       ),
-                      child: Container(
+                      child: SizedBox(
                         width: 200.0,
                         child: TextFormField(
                           controller: _model.messageTextController,
@@ -286,7 +286,7 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
               child: Container(
                 width: 350.0,
                 height: 50.0,
@@ -305,10 +305,10 @@ class _SelectReasonWidgetState extends State<SelectReasonWidget> {
                       options: FFButtonOptions(
                         width: 350.0,
                         height: 50.0,
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color:
                             FlutterFlowTheme.of(context).plazzaNewPrimaryPink,
                         textStyle: FlutterFlowTheme.of(context)

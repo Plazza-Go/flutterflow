@@ -15,7 +15,7 @@ enum PaymentStatus {
   failed,
 }
 
-final bool _isProd = false;
+const bool _isProd = false;
 
 // Razorpay Credentials
 const _kProdRazorpayKeyId = '';
@@ -72,7 +72,7 @@ Future<void> processRazorpayPayment(
 
 class RazorpayPaymentSheet extends StatefulWidget {
   const RazorpayPaymentSheet({
-    Key? key,
+    super.key,
     required this.amount,
     required this.currency,
     required this.timeout,
@@ -87,7 +87,7 @@ class RazorpayPaymentSheet extends StatefulWidget {
     this.successColor,
     this.dialogColor,
     this.textColor,
-  }) : super(key: key);
+  });
 
   final int amount;
   final String currency;

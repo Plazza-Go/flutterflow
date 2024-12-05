@@ -2,11 +2,9 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'test_model.dart';
 export 'test_model.dart';
 
@@ -85,7 +83,7 @@ class _TestWidgetState extends State<TestWidget> {
                                 FlutterFlowTheme.of(context).titleLargeFamily),
                           ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -97,8 +95,8 @@ class _TestWidgetState extends State<TestWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 20.0),
-                    child: Container(
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 20.0),
+                    child: SizedBox(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 60.0,
                       child: custom_widgets.Otp(
@@ -106,10 +104,10 @@ class _TestWidgetState extends State<TestWidget> {
                         height: 60.0,
                         auth: (otps) async {
                           GoRouter.of(context).prepareAuthEvent();
-                          final smsCodeVal = widget!.phone;
+                          final smsCodeVal = widget.phone;
                           if (smsCodeVal == null || smsCodeVal.isEmpty) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
+                              const SnackBar(
                                 content: Text('Enter SMS verification code.'),
                               ),
                             );

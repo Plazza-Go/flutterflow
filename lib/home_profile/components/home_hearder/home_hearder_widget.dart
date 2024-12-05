@@ -1,4 +1,3 @@
-import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
@@ -65,12 +64,12 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().Serviceability = ServiceabilityStruct(
-        id: widget!.localityid,
-        name: widget!.localityname,
-        number: widget!.localitynumber,
-        addressId: widget!.closestAddress! ? widget!.addressId : '',
-        addressIdSet: widget!.closestAddress,
-        deliverytime: widget!.deliverytime,
+        id: widget.localityid,
+        name: widget.localityname,
+        number: widget.localitynumber,
+        addressId: widget.closestAddress! ? widget.addressId : '',
+        addressIdSet: widget.closestAddress,
+        deliverytime: widget.deliverytime,
       );
       safeSetState(() {});
     });
@@ -118,14 +117,14 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
         color: FlutterFlowTheme.of(context).primary,
       ),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 20.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 20.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,7 +152,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                               ),
                         ),
                         Text(
-                          widget!.deliverytime!,
+                          widget.deliverytime!,
                           style: FlutterFlowTheme.of(context)
                               .headlineMedium
                               .override(
@@ -168,7 +167,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                         .headlineMediumFamily),
                               ),
                         ),
-                        if (widget!.closestAddress ?? true)
+                        if (widget.closestAddress ?? true)
                           InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -185,7 +184,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                   return WebViewAware(
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: AddNewAddressWidget(
+                                      child: const AddNewAddressWidget(
                                         pagename: 'Home',
                                       ),
                                     ),
@@ -203,7 +202,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                   size: 20.0,
                                 ),
                                 Text(
-                                  '${widget!.tag} - ',
+                                  '${widget.tag} - ',
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
                                       .headlineLarge
@@ -222,7 +221,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                       ),
                                 ),
                                 Text(
-                                  widget!.address!,
+                                  widget.address!,
                                   textAlign: TextAlign.start,
                                   style: FlutterFlowTheme.of(context)
                                       .labelLarge
@@ -242,18 +241,18 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                   color: FlutterFlowTheme.of(context).info,
                                   size: 20.0,
                                 ),
-                              ].divide(SizedBox(width: 5.0)),
+                              ].divide(const SizedBox(width: 5.0)),
                             ),
                           ),
-                        if (!widget!.closestAddress!)
+                        if (!widget.closestAddress!)
                           FutureBuilder<ApiCallResponse>(
                             future: GoogleMapApiCall.call(
-                              latlng: widget!.latlng,
+                              latlng: widget.latlng,
                             ),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
-                                return CommanShimmerWidget(
+                                return const CommanShimmerWidget(
                                   hieght: 32,
                                   width: 200,
                                   radiusTL: 12,
@@ -281,7 +280,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: AddNewAddressWidget(
+                                          child: const AddNewAddressWidget(
                                             pagename: 'Home',
                                           ),
                                         ),
@@ -322,12 +321,12 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                       color: FlutterFlowTheme.of(context).info,
                                       size: 20.0,
                                     ),
-                                  ].divide(SizedBox(width: 5.0)),
+                                  ].divide(const SizedBox(width: 5.0)),
                                 ),
                               );
                             },
                           ),
-                      ].divide(SizedBox(height: 4.0)),
+                      ].divide(const SizedBox(height: 4.0)),
                     ),
                   ),
                   if (!loggedIn)
@@ -347,7 +346,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                               return WebViewAware(
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
+                                  child: const SizedBox(
                                     height: 500.0,
                                     child: SignInWidget(),
                                   ),
@@ -360,7 +359,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                           width: 30.0,
                           height: 30.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: Image.network(
@@ -392,7 +391,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                               return WebViewAware(
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: Container(
+                                  child: const SizedBox(
                                     height: 500.0,
                                     child: SignInWidget(),
                                   ),
@@ -406,7 +405,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                         width: 30.0,
                         height: 30.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFFF0083),
+                          color: const Color(0xFFFF0083),
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: FlutterFlowTheme.of(context)
@@ -414,7 +413,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                           ),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Text(
                               functions.getTwoDigit(valueOrDefault(
@@ -439,26 +438,26 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                         ),
                       ),
                     ),
-                ].divide(SizedBox(width: 10.0)),
+                ].divide(const SizedBox(width: 10.0)),
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 20.0, 8.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 20.0, 8.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 0.9,
                 height: 50.0,
-                decoration: BoxDecoration(),
-                alignment: AlignmentDirectional(0.0, 0.0),
+                decoration: const BoxDecoration(),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Visibility(
-                  visible: widget!.serviceabilitybool ?? true,
-                  child: Container(
+                  visible: widget.serviceabilitybool ?? true,
+                  child: SizedBox(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     child: TextFormField(
                       controller: _model.textController,
                       focusNode: _model.textFieldFocusNode,
                       onChanged: (_) => EasyDebounce.debounce(
                         '_model.textController',
-                        Duration(milliseconds: 2000),
+                        const Duration(milliseconds: 2000),
                         () async {
                           context.pushNamed('searchMedicine');
                         },
@@ -497,7 +496,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -520,9 +519,9 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                         filled: true,
                         fillColor:
                             FlutterFlowTheme.of(context).primaryBackground,
-                        contentPadding: EdgeInsetsDirectional.fromSTEB(
+                        contentPadding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 0.0, 10.0),
-                        prefixIcon: Icon(
+                        prefixIcon: const Icon(
                           FFIcons.ksearch1,
                         ),
                       ),
@@ -543,13 +542,13 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0x2AFFFFFF),
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(0.0),
@@ -560,7 +559,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 20.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 20.0, 0.0),
                       child: Text(
                         'Coming soon',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -582,7 +581,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
               ),
             ),
             Container(
-              decoration: BoxDecoration(),
+              decoration: const BoxDecoration(),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -590,7 +589,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -605,7 +604,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 0.0),
                           child: Text(
                             'Pharmacy',
@@ -623,14 +622,14 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 6.0, 0.0, 0.0),
                           child: Container(
                             width: 80.0,
                             height: 4.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFFFFEDF8),
-                              borderRadius: BorderRadius.only(
+                              color: const Color(0xFFFFEDF8),
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(0.0),
                                 bottomRight: Radius.circular(0.0),
                                 topLeft: Radius.circular(8.0),
@@ -648,7 +647,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                   ),
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0x2AFFFFFF),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(0.0),
@@ -658,7 +657,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                         ),
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             10.0, 10.0, 20.0, 12.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -692,7 +691,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                                     .headlineMediumFamily),
                                       ),
                                 ),
-                              ].divide(SizedBox(height: 12.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -722,7 +721,7 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                                     .headlineMediumFamily),
                                       ),
                                 ),
-                              ].divide(SizedBox(height: 12.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
@@ -752,14 +751,14 @@ class _HomeHearderWidgetState extends State<HomeHearderWidget> {
                                                     .headlineMediumFamily),
                                       ),
                                 ),
-                              ].divide(SizedBox(height: 12.0)),
+                              ].divide(const SizedBox(height: 12.0)),
                             ),
-                          ].divide(SizedBox(width: 5.0)),
+                          ].divide(const SizedBox(width: 5.0)),
                         ),
                       ),
                     ),
                   ),
-                ].divide(SizedBox(width: 10.0)),
+                ].divide(const SizedBox(width: 10.0)),
               ),
             ),
           ],

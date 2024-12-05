@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'update_app_model.dart';
 export 'update_app_model.dart';
 
@@ -83,7 +82,7 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                   return Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 1.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Color(0xFFF8F9FA), Color(0xFFE9ECEF)],
                         stops: [0.0, 1.0],
@@ -92,7 +91,7 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                       ),
                     ),
                     child: Stack(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       children: [
                         if (containerAppResourcesRecord?.appVersionImage !=
                                 null &&
@@ -104,7 +103,7 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                             fit: BoxFit.contain,
                           ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 20.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
@@ -117,9 +116,9 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   height: 50.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -152,11 +151,11 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                                     width:
                                         MediaQuery.sizeOf(context).width * 1.0,
                                     height: 50.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0x00FFFFFF),
+                                    color: const Color(0x00FFFFFF),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
@@ -180,7 +179,7 @@ class _UpdateAppWidgetState extends State<UpdateAppWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                            ].divide(SizedBox(height: 16.0)),
+                            ].divide(const SizedBox(height: 16.0)),
                           ),
                         ),
                       ],

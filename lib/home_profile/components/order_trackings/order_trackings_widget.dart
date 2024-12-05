@@ -55,7 +55,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
     return Material(
       color: Colors.transparent,
       elevation: 6.0,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
@@ -85,7 +85,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(14.0),
@@ -94,15 +94,15 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
         ),
         child: Builder(
           builder: (context) {
-            final orderlist = widget!.records!.toList();
+            final orderlist = widget.records!.toList();
 
-            return Container(
+            return SizedBox(
               width: double.infinity,
               child: Stack(
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
                     child: PageView.builder(
                       controller: _model.pageViewController ??= PageController(
                           initialPage: max(0, min(0, orderlist.length - 1))),
@@ -147,7 +147,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  kTransitionInfoKey: const TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.bottomToTop,
@@ -189,7 +189,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                     ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType:
                                           PageTransitionType.bottomToTop,
@@ -200,9 +200,9 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                             }
                           },
                           child: Container(
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -220,7 +220,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                           Container(
                                             width: 36.0,
                                             height: 36.0,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [
                                                   Color(0xFFFFDBEE),
@@ -235,7 +235,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                               shape: BoxShape.circle,
                                             ),
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Lottie.network(
                                               '',
                                               width: 24.0,
@@ -334,7 +334,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                                               .bodySmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 10.0)),
+                                    ].divide(const SizedBox(width: 10.0)),
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
@@ -347,7 +347,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 6.0, 8.0, 6.0),
                                       child: Text(
                                         valueOrDefault<String>(
@@ -381,7 +381,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 10.0)),
+                                ].divide(const SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
@@ -390,10 +390,10 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(
@@ -404,7 +404,7 @@ class _OrderTrackingsWidgetState extends State<OrderTrackingsWidget> {
                         onDotClicked: (i) async {
                           await _model.pageViewController!.animateToPage(
                             i,
-                            duration: Duration(milliseconds: 500),
+                            duration: const Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
                           safeSetState(() {});

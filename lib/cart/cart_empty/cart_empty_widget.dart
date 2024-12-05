@@ -2,9 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'cart_empty_model.dart';
 export 'cart_empty_model.dart';
 
@@ -72,9 +70,9 @@ class _CartEmptyWidgetState extends State<CartEmptyWidget> {
                                         .titleLargeFamily),
                               ),
                         ),
-                      ].divide(SizedBox(width: 20.0)),
+                      ].divide(const SizedBox(width: 20.0)),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -86,7 +84,7 @@ class _CartEmptyWidgetState extends State<CartEmptyWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
                     child: Container(
                       width: double.infinity,
                       height: 250.0,
@@ -135,9 +133,9 @@ class _CartEmptyWidgetState extends State<CartEmptyWidget> {
                             options: FFButtonOptions(
                               width: 200.0,
                               height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
                               color: FlutterFlowTheme.of(context).primary,
                               textStyle: FlutterFlowTheme.of(context)

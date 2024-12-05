@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'livetrackinglinks_model.dart';
 export 'livetrackinglinks_model.dart';
@@ -57,9 +56,9 @@ class _LivetrackinglinksWidgetState extends State<LivetrackinglinksWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
         child: Container(
           height: 600.0,
           constraints: BoxConstraints(
@@ -82,7 +81,7 @@ class _LivetrackinglinksWidgetState extends State<LivetrackinglinksWidget> {
           ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 25.0,
                 color: Color(0x19000000),
@@ -93,7 +92,7 @@ class _LivetrackinglinksWidgetState extends State<LivetrackinglinksWidget> {
                 spreadRadius: 0.0,
               )
             ],
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(18.0),
@@ -110,16 +109,16 @@ class _LivetrackinglinksWidgetState extends State<LivetrackinglinksWidget> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 10.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),
                                 child: Container(
                                   width: 59.0,
@@ -150,7 +149,7 @@ class _LivetrackinglinksWidgetState extends State<LivetrackinglinksWidget> {
                   ],
                 ),
                 FlutterFlowWebView(
-                  content: widget!.url!,
+                  content: widget.url!,
                   bypass: false,
                   height: 536.0,
                   verticalScroll: false,

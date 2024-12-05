@@ -5,7 +5,6 @@ import '/location/components/add_new_address/add_new_address_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'location_model.dart';
 export 'location_model.dart';
@@ -50,14 +49,14 @@ class _LocationWidgetState extends State<LocationWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb ? 393.0 : 393.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(20.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,7 +95,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                                                 .bodyMediumFamily),
                                   ),
                             ),
-                          ].divide(SizedBox(height: 10.0)),
+                          ].divide(const SizedBox(height: 10.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -123,7 +122,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: AddNewAddressWidget(
+                                            child: const AddNewAddressWidget(
                                               recordid: '',
                                               pagename: 'Location',
                                             ),
@@ -144,8 +143,8 @@ class _LocationWidgetState extends State<LocationWidget> {
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 40.0,
-                                      color: Color(0x80FF0083),
-                                      offset: Offset(
+                                      color: const Color(0x80FF0083),
+                                      offset: const Offset(
                                         0.0,
                                         10.0,
                                       ),
@@ -155,7 +154,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                                   borderRadius: BorderRadius.circular(5.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Continue',
                                     style: FlutterFlowTheme.of(context)
@@ -189,7 +188,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: AddNewAddressWidget(
+                                          child: const AddNewAddressWidget(
                                             pagename: 'Location',
                                           ),
                                         ),
@@ -202,11 +201,11 @@ class _LocationWidgetState extends State<LocationWidget> {
                               options: FFButtonOptions(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: Color(0x00FFFFFF),
+                                color: const Color(0x00FFFFFF),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
@@ -224,7 +223,7 @@ class _LocationWidgetState extends State<LocationWidget> {
                                 borderRadius: BorderRadius.circular(0.0),
                               ),
                             ),
-                          ].divide(SizedBox(height: 20.0)),
+                          ].divide(const SizedBox(height: 20.0)),
                         ),
                       ],
                     ),

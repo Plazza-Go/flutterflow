@@ -1,11 +1,8 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/upload_prescription/components/status_of_prescription_cart_being_built/status_of_prescription_cart_being_built_widget.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -55,7 +52,7 @@ class _StatusWidgetState extends State<StatusWidget> {
         queryBuilder: (orderNotificationsRecord) => orderNotificationsRecord
             .where(
               'ticketID',
-              isEqualTo: widget!.ticketid,
+              isEqualTo: widget.ticketid,
             )
             .where(
               'status',
@@ -73,7 +70,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                 'medicineCart',
                 queryParameters: {
                   'ticketId': serializeParam(
-                    widget!.ticketid,
+                    widget.ticketid,
                     ParamType.int,
                   ),
                 }.withoutNulls,
@@ -123,7 +120,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                             FlutterFlowTheme.of(context).primaryBackground,
                         automaticallyImplyLeading: false,
                         title: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -135,13 +132,13 @@ class _StatusWidgetState extends State<StatusWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (widget!.pageName == 'History') {
+                                  if (widget.pageName == 'History') {
                                     context.safePop();
                                   } else {
                                     context.goNamed(
                                       'Home',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.topToBottom,
@@ -157,10 +154,10 @@ class _StatusWidgetState extends State<StatusWidget> {
                                   size: 24.0,
                                 ),
                               ),
-                            ].divide(SizedBox(width: 20.0)),
+                            ].divide(const SizedBox(width: 20.0)),
                           ),
                         ),
-                        actions: [],
+                        actions: const [],
                         centerTitle: true,
                         elevation: 0.0,
                       )
@@ -168,7 +165,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       constraints: BoxConstraints(
                         maxWidth: isWeb
@@ -188,29 +185,29 @@ class _StatusWidgetState extends State<StatusWidget> {
                               }()
                             : FFAppState().width.small.toDouble(),
                       ),
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Stack(
-                              alignment: AlignmentDirectional(-0.4, -1.0),
+                              alignment: const AlignmentDirectional(-0.4, -1.0),
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Container(
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.sizeOf(context).width * 0.85,
                                     child: Stack(
-                                      alignment: AlignmentDirectional(1.2, 0.6),
+                                      alignment: const AlignmentDirectional(1.2, 0.6),
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(-1.0, -1.0),
+                                              const AlignmentDirectional(-1.0, -1.0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: ClipRRect(
                                               borderRadius:
@@ -226,13 +223,13 @@ class _StatusWidgetState extends State<StatusWidget> {
                                           width: 130.0,
                                           height: 60.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFF393C4D),
+                                            color: const Color(0xFF393C4D),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -289,7 +286,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                                                     ),
                                                   ],
                                                 ),
-                                              ].divide(SizedBox(height: 5.0)),
+                                              ].divide(const SizedBox(height: 5.0)),
                                             ),
                                           ),
                                         ),
@@ -314,7 +311,7 @@ class _StatusWidgetState extends State<StatusWidget> {
                               updateCallback: () => safeSetState(() {}),
                               updateOnChange: true,
                               child: StatusOfPrescriptionCartBeingBuiltWidget(
-                                ticketid: widget!.ticketid!,
+                                ticketid: widget.ticketid!,
                                 status: 'ok',
                               ),
                             ),

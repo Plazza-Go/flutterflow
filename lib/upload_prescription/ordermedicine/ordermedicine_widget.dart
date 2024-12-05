@@ -1,7 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -10,7 +8,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/custom_components/image_viewer/image_viewer_widget.dart';
 import '/pages/custom_components/pdf_viewer/pdf_viewer_widget.dart';
 import '/upload_prescription/components/upload_prescriptions/upload_prescriptions_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -103,7 +100,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                 .titleLargeFamily),
                                   ),
                             ),
-                          ].divide(SizedBox(width: 15.0)),
+                          ].divide(const SizedBox(width: 15.0)),
                         ),
                         Text(
                           'Delivery in 15 mins',
@@ -121,7 +118,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                         ),
                       ],
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -129,7 +126,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb
@@ -149,16 +146,16 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                           }()
                         : FFAppState().width.small.toDouble(),
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
@@ -173,18 +170,18 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                         .primaryBackground,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, -1.0),
+                                    alignment: const AlignmentDirectional(0.0, -1.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Container(
                                             width: 272.0,
                                             height: 24.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -208,11 +205,11 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                   animation: true,
                                                   animateFromLastPercent: true,
                                                   progressColor:
-                                                      Color(0xFF50C154),
+                                                      const Color(0xFF50C154),
                                                   backgroundColor:
-                                                      Color(0xFFD9D9D9),
+                                                      const Color(0xFFD9D9D9),
                                                   barRadius:
-                                                      Radius.circular(8.0),
+                                                      const Radius.circular(8.0),
                                                   padding: EdgeInsets.zero,
                                                 ),
                                                 ClipRRect(
@@ -233,11 +230,11 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                   animation: true,
                                                   animateFromLastPercent: true,
                                                   progressColor:
-                                                      Color(0xFF318616),
+                                                      const Color(0xFF318616),
                                                   backgroundColor:
-                                                      Color(0xFFD9D9D9),
+                                                      const Color(0xFFD9D9D9),
                                                   barRadius:
-                                                      Radius.circular(8.0),
+                                                      const Radius.circular(8.0),
                                                   padding: EdgeInsets.zero,
                                                 ),
                                                 ClipRRect(
@@ -257,10 +254,10 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                         ),
                                         Container(
                                           width: 350.0,
-                                          decoration: BoxDecoration(),
+                                          decoration: const BoxDecoration(),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 16.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -269,7 +266,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                               children: [
                                                 Container(
                                                   width: 116.0,
-                                                  decoration: BoxDecoration(),
+                                                  decoration: const BoxDecoration(),
                                                   child: Text(
                                                     'Prescription ',
                                                     textAlign: TextAlign.center,
@@ -295,13 +292,13 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Container(
                                                     width: 116.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       'cart',
@@ -330,9 +327,9 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                 Expanded(
                                                   child: Container(
                                                     width: 126.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Text(
                                                       'Pay',
@@ -391,13 +388,10 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                 children: [
                                                   if (prescriptionItem
                                                               .imageurl !=
-                                                          null &&
-                                                      prescriptionItem
-                                                              .imageurl !=
                                                           '')
                                                     Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.9, -0.95),
                                                       children: [
                                                         InkWell(
@@ -432,7 +426,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height:
                                                                             500.0,
                                                                         child:
@@ -482,9 +476,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                                     prescriptionIndex);
                                                             safeSetState(() {});
                                                             if (FFAppState()
-                                                                    .prescritiondata
-                                                                    .length ==
-                                                                0) {
+                                                                    .prescritiondata.isEmpty) {
                                                               context.goNamed(
                                                                   'Home');
                                                             }
@@ -505,12 +497,10 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                       ],
                                                     ),
                                                   if (prescriptionItem.pdfurl !=
-                                                          null &&
-                                                      prescriptionItem.pdfurl !=
                                                           '')
                                                     Stack(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               0.9, -0.95),
                                                       children: [
                                                         InkWell(
@@ -545,7 +535,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                                           .viewInsetsOf(
                                                                               context),
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height:
                                                                             700.0,
                                                                         child:
@@ -566,7 +556,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                             width: 280.0,
                                                             height: 400.0,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child:
                                                                 FlutterFlowPdfViewer(
                                                               networkPath:
@@ -597,9 +587,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                                     prescriptionIndex);
                                                             safeSetState(() {});
                                                             if (FFAppState()
-                                                                    .prescritiondata
-                                                                    .length ==
-                                                                0) {
+                                                                    .prescritiondata.isEmpty) {
                                                               context.goNamed(
                                                                   'Home');
                                                             }
@@ -622,14 +610,14 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                     ),
                                                 ],
                                               );
-                                            }).divide(SizedBox(width: 10.0)),
+                                            }).divide(const SizedBox(width: 10.0)),
                                           ),
                                         );
                                       },
                                     ),
-                                  ].divide(SizedBox(height: 10.0)),
+                                  ].divide(const SizedBox(height: 10.0)),
                                 ),
-                              ].divide(SizedBox(height: 20.0)),
+                              ].divide(const SizedBox(height: 20.0)),
                             ),
                           ),
                         ),
@@ -637,7 +625,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -660,7 +648,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                     MediaQuery.viewInsetsOf(
                                                         context),
                                                 child:
-                                                    UploadPrescriptionsWidget(),
+                                                    const UploadPrescriptionsWidget(),
                                               ),
                                             ),
                                           );
@@ -668,16 +656,16 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                       ).then((value) => safeSetState(() {}));
                                     },
                                     text: 'Add more prescription',
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.add,
                                       size: 15.0,
                                     ),
                                     options: FFButtonOptions(
                                       height: 50.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -704,11 +692,11 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                             ),
                             Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0xFFEDF4FF),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -735,7 +723,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                         .displaySmallFamily),
                                           ),
                                     ),
-                                  ].divide(SizedBox(width: 8.0)),
+                                  ].divide(const SizedBox(width: 8.0)),
                                 ),
                               ),
                             ),
@@ -772,9 +760,9 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                       }()
                                     : FFAppState().width.small.toDouble(),
                               ),
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -874,7 +862,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: Duration(
+                                                duration: const Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -944,7 +932,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                                         .primaryText,
                                                   ),
                                                 ),
-                                                duration: Duration(
+                                                duration: const Duration(
                                                     milliseconds: 4000),
                                                 backgroundColor:
                                                     FlutterFlowTheme.of(context)
@@ -967,8 +955,8 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                           boxShadow: [
                                             BoxShadow(
                                               blurRadius: 40.0,
-                                              color: Color(0x80FF0083),
-                                              offset: Offset(
+                                              color: const Color(0x80FF0083),
+                                              offset: const Offset(
                                                 0.0,
                                                 10.0,
                                               ),
@@ -981,7 +969,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             'Continue',
                                             style: FlutterFlowTheme.of(context)
@@ -1006,7 +994,7 @@ class _OrdermedicineWidgetState extends State<OrdermedicineWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(height: 8.0)),
+                          ].divide(const SizedBox(height: 8.0)),
                         ),
                       ],
                     ),

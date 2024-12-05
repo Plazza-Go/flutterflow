@@ -4,7 +4,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/location/components/select_option/select_option_widget.dart';
 import '/shimmer/location_search_shimmer/location_search_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -67,7 +66,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                     automaticallyImplyLeading: false,
                     title: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -101,10 +100,10 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                           .headlineMediumFamily),
                                 ),
                           ),
-                        ].divide(SizedBox(width: 20.0)),
+                        ].divide(const SizedBox(width: 20.0)),
                       ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: false,
                     elevation: 0.0,
                   )
@@ -112,15 +111,15 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb ? 393.0 : 393.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: SingleChildScrollView(
                       primary: false,
                       child: Column(
@@ -134,7 +133,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -142,10 +141,8 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if ((FFAppState().address.lat != null &&
-                                          FFAppState().address.lat != '') &&
-                                      (FFAppState().address.lng != null &&
-                                          FFAppState().address.lng != '')) {
+                                  if ((FFAppState().address.lat != '') &&
+                                      (FFAppState().address.lng != '')) {
                                     context.pushNamed(
                                       'changeLocation',
                                       queryParameters: {
@@ -212,7 +209,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                             .bodyMediumFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(width: 10.0)),
+                                      ].divide(const SizedBox(width: 10.0)),
                                     ),
                                     Icon(
                                       Icons.keyboard_arrow_right,
@@ -240,7 +237,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
-                                  return LocationSearchShimmerWidget();
+                                  return const LocationSearchShimmerWidget();
                                 }
                                 final listViewFindListAddressResponse =
                                     snapshot.data!;
@@ -269,7 +266,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                         scrollDirection: Axis.vertical,
                                         itemCount: address.length,
                                         separatorBuilder: (_, __) =>
-                                            SizedBox(height: 16.0),
+                                            const SizedBox(height: 16.0),
                                         itemBuilder: (context, addressIndex) {
                                           final addressItem =
                                               address[addressIndex];
@@ -329,7 +326,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                                 .info,
                                                       ),
                                                     ),
-                                                    duration: Duration(
+                                                    duration: const Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -353,7 +350,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                     BorderRadius.circular(12.0),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsets.all(16.0),
+                                                padding: const EdgeInsets.all(16.0),
                                                 child: Row(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -374,7 +371,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                     Expanded(
                                                       child: Container(
                                                         decoration:
-                                                            BoxDecoration(),
+                                                            const BoxDecoration(),
                                                         child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
@@ -408,7 +405,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleMediumFamily),
                                                                       ),
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   width: 8.0)),
                                                             ),
                                                             Text(
@@ -445,7 +442,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -545,7 +542,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                                         ),
                                                                       ),
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                       child:
@@ -559,18 +556,18 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ].divide(SizedBox(
+                                                                ].divide(const SizedBox(
                                                                     width:
                                                                         20.0)),
                                                               ),
                                                             ),
-                                                          ].divide(SizedBox(
+                                                          ].divide(const SizedBox(
                                                               height: 8.0)),
                                                         ),
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      SizedBox(width: 16.0)),
+                                                      const SizedBox(width: 16.0)),
                                                 ),
                                               ),
                                             ),
@@ -583,7 +580,7 @@ class _AddressbookWidgetState extends State<AddressbookWidget> {
                               },
                             ),
                           ),
-                        ].divide(SizedBox(height: 28.0)),
+                        ].divide(const SizedBox(height: 28.0)),
                       ),
                     ),
                   ),

@@ -55,7 +55,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb
@@ -75,10 +75,10 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                           }()
                         : FFAppState().width.small.toDouble(),
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -93,10 +93,10 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                             width: 76.0,
                             height: 76.0,
                             decoration: BoxDecoration(
-                              color: Color(0xFFFFDBE0),
+                              color: const Color(0xFFFFDBE0),
                               borderRadius: BorderRadius.circular(60.0),
                             ),
-                            child: Align(
+                            child: const Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Icon(
                                 Icons.error_outline,
@@ -113,7 +113,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .headlineLargeFamily,
-                                color: Color(0xFFFF5963),
+                                color: const Color(0xFFFF5963),
                                 letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
@@ -128,7 +128,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .bodySmallFamily,
-                                color: Color(0xFF616161),
+                                color: const Color(0xFF616161),
                                 letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
@@ -160,7 +160,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -257,7 +257,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                                         ),
                                       ],
                                     ),
-                                  ].divide(SizedBox(height: 12.0)),
+                                  ].divide(const SizedBox(height: 12.0)),
                                 ),
                               ),
                             ),
@@ -268,7 +268,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                               'medicineCart',
                               queryParameters: {
                                 'ticketId': serializeParam(
-                                  widget!.ticketid,
+                                  widget.ticketid,
                                   ParamType.int,
                                 ),
                               }.withoutNulls,
@@ -278,9 +278,9 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -301,17 +301,17 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                         FFButtonWidget(
                           onPressed: () async {
                             await launchURL(
-                                'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget!.ticketid?.toString()}');
+                                'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketid?.toString()}');
                           },
                           text: 'Contact Support',
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0x00FFFFFF),
+                            color: const Color(0x00FFFFFF),
                             textStyle: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -331,7 +331,7 @@ class _PaymentFailedWidgetState extends State<PaymentFailedWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
-                      ].divide(SizedBox(height: 32.0)),
+                      ].divide(const SizedBox(height: 32.0)),
                     ),
                   ),
                 ),

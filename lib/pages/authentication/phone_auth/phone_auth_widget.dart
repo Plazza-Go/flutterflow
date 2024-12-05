@@ -7,7 +7,6 @@ import '/flutter_flow/permissions_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'phone_auth_model.dart';
 export 'phone_auth_model.dart';
 
@@ -42,7 +41,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
       () async {
         await _model.columnAuth?.animateTo(
           _model.columnAuth!.position.maxScrollExtent,
-          duration: Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 100),
           curve: Curves.ease,
         );
       },
@@ -72,20 +71,20 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb ? 393.0 : 393.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Stack(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -99,10 +98,10 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                     },
                                     text: 'Skip login',
                                     options: FFButtonOptions(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 16.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
@@ -127,7 +126,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 30.0, 0.0, 0.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(0.0),
@@ -146,11 +145,11 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Container(
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Colors.white,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -186,7 +185,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                             AutovalidateMode.disabled,
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Container(
                                             decoration: BoxDecoration(
@@ -199,17 +198,17 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 5.0, 0.0, 5.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
-                                                    child: Container(
+                                                    child: SizedBox(
                                                       width: 40.0,
                                                       child: TextFormField(
                                                         controller: _model
@@ -262,7 +261,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                           focusedErrorBorder:
                                                               InputBorder.none,
                                                           contentPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       10.0,
@@ -306,7 +305,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                     flex: 5,
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -333,8 +332,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                           }
                                                           final phoneNumberVal =
                                                               '${_model.textController1.text}${_model.textController2.text}';
-                                                          if (phoneNumberVal == null ||
-                                                              phoneNumberVal
+                                                          if (phoneNumberVal
                                                                   .isEmpty ||
                                                               !phoneNumberVal
                                                                   .startsWith(
@@ -342,7 +340,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                             ScaffoldMessenger
                                                                     .of(context)
                                                                 .showSnackBar(
-                                                              SnackBar(
+                                                              const SnackBar(
                                                                 content: Text(
                                                                     'Phone Number is required and has to start with +.'),
                                                               ),
@@ -378,7 +376,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                           safeSetState(() {});
                                                         },
                                                         autofocus: true,
-                                                        autofillHints: [
+                                                        autofillHints: const [
                                                           AutofillHints
                                                               .telephoneNumber
                                                         ],
@@ -426,7 +424,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                           focusedErrorBorder:
                                                               InputBorder.none,
                                                           contentPadding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       10.0,
@@ -472,7 +470,7 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 20.0, 0.0, 0.0),
                                         child: FFButtonWidget(
                                           onPressed: () async {
@@ -483,13 +481,12 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                             }
                                             final phoneNumberVal =
                                                 '${_model.textController1.text}${functions.removeSpaceInPhonenumber(_model.textController2.text)?.toString()}';
-                                            if (phoneNumberVal == null ||
-                                                phoneNumberVal.isEmpty ||
+                                            if (phoneNumberVal.isEmpty ||
                                                 !phoneNumberVal
                                                     .startsWith('+')) {
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
-                                                SnackBar(
+                                                const SnackBar(
                                                   content: Text(
                                                       'Phone Number is required and has to start with +.'),
                                                 ),
@@ -521,10 +518,10 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                 1.0,
                                             height: 50.0,
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     16.0, 0.0, 16.0, 0.0),
                                             iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -660,9 +657,9 @@ class _PhoneAuthWidgetState extends State<PhoneAuthWidget> {
                                                       ),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 2.0)),
+                                        ].divide(const SizedBox(width: 2.0)),
                                       ),
-                                    ].divide(SizedBox(height: 12.0)),
+                                    ].divide(const SizedBox(height: 12.0)),
                                   ),
                                 ),
                               ),

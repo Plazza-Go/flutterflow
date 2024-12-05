@@ -1,17 +1,8 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/shimmer/location_search_shimmer/location_search_shimmer_widget.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
 import 'search_location_widget.dart' show SearchLocationWidget;
-import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class SearchLocationModel extends FlutterFlowModel<SearchLocationWidget> {
   ///  Local state fields for this page.
@@ -48,7 +39,7 @@ class SearchLocationModel extends FlutterFlowModel<SearchLocationWidget> {
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = apiRequestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {

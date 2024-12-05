@@ -7,10 +7,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'userlogdata_model.dart';
 export 'userlogdata_model.dart';
@@ -71,7 +69,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                     automaticallyImplyLeading: false,
                     leading: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -101,10 +99,10 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                           .titleLargeFamily),
                                 ),
                           ),
-                        ].divide(SizedBox(width: 20.0)),
+                        ].divide(const SizedBox(width: 20.0)),
                       ),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -112,7 +110,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -158,7 +156,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                                   .bodyLargeFamily),
                                     ),
                               ),
-                            ].divide(SizedBox(height: 14.0)),
+                            ].divide(const SizedBox(height: 14.0)),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -323,7 +321,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                       .asValidator(context),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 10.0)),
+                            ].divide(const SizedBox(width: 10.0)),
                           ),
                           Row(
                             mainAxisSize: MainAxisSize.max,
@@ -385,7 +383,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                                           .titleSmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(height: 10.0)),
+                                    ].divide(const SizedBox(height: 10.0)),
                                   ),
                                 ),
                               ),
@@ -445,7 +443,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                                           .titleSmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(height: 10.0)),
+                                    ].divide(const SizedBox(height: 10.0)),
                                   ),
                                 ),
                               ),
@@ -505,18 +503,18 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                                           .titleSmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(height: 10.0)),
+                                    ].divide(const SizedBox(height: 10.0)),
                                   ),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 10.0)),
+                            ].divide(const SizedBox(width: 10.0)),
                           ),
-                        ].divide(SizedBox(height: 40.0)),
+                        ].divide(const SizedBox(height: 40.0)),
                       ),
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 46.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 46.0, 0.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           if (_model.formKey.currentState == null ||
@@ -565,12 +563,12 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                               builder: (alertDialogContext) {
                                 return WebViewAware(
                                   child: AlertDialog(
-                                    title: Text('Please select gender'),
+                                    title: const Text('Please select gender'),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
+                                        child: const Text('Ok'),
                                       ),
                                     ],
                                   ),
@@ -585,11 +583,11 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               24.0, 0.0, 24.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFFFF0083),
+                          color: const Color(0xFFFF0083),
                           textStyle: FlutterFlowTheme.of(context)
                               .titleSmall
                               .override(
@@ -601,7 +599,7 @@ class _UserlogdataWidgetState extends State<UserlogdataWidget> {
                                     GoogleFonts.asMap().containsKey('Figtree'),
                               ),
                           elevation: 3.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

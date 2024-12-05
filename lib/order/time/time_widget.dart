@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'time_model.dart';
 export 'time_model.dart';
 
@@ -43,13 +42,13 @@ class _TimeWidgetState extends State<TimeWidget> {
       width: 82.0,
       height: 45.0,
       decoration: BoxDecoration(
-        color: Color(0xFF393C4D),
+        color: const Color(0xFF393C4D),
         borderRadius: BorderRadius.circular(6.0),
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.0, 0.0),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: Padding(
-          padding: EdgeInsets.all(5.0),
+          padding: const EdgeInsets.all(5.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

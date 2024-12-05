@@ -3,16 +3,13 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/order/livetrackinglinks/livetrackinglinks_widget.dart';
 import '/order/reting/reting_widget.dart';
 import '/payments/bill_details/bill_details_widget.dart';
 import '/shimmer/order_status_shimmer/order_status_shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -72,7 +69,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
           'Order Cancelled'
         ]).where(
           'ticketID',
-          isEqualTo: widget!.ticketid,
+          isEqualTo: widget.ticketid,
         ),
       )..listen((snapshot) {
           List<OrderNotificationsRecord>
@@ -95,7 +92,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: Center(
+            body: const Center(
               child: SizedBox(
                 width: 1.0,
                 height: 1.0,
@@ -125,7 +122,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                   desktop: false,
                 )
                     ? AppBar(
-                        backgroundColor: Color(0xFFEBF7F3),
+                        backgroundColor: const Color(0xFFEBF7F3),
                         automaticallyImplyLeading: false,
                         title: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -141,13 +138,13 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                 size: 24.0,
                               ),
                               onPressed: () async {
-                                if (widget!.pagename == 'History') {
+                                if (widget.pagename == 'History') {
                                   context.safePop();
                                 } else {
                                   context.pushNamed(
                                     'Home',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
+                                      kTransitionInfoKey: const TransitionInfo(
                                         hasTransition: true,
                                         transitionType:
                                             PageTransitionType.topToBottom,
@@ -157,9 +154,9 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                 }
                               },
                             ),
-                          ].divide(SizedBox(width: 20.0)),
+                          ].divide(const SizedBox(width: 20.0)),
                         ),
-                        actions: [],
+                        actions: const [],
                         centerTitle: true,
                         elevation: 0.0,
                       )
@@ -167,19 +164,19 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: (_model.apiRequestCompleter ??=
                               Completer<ApiCallResponse>()
                                 ..complete(
                                     AirtableApiGroup.findSingleOrderCall.call(
-                                  ticketID: widget!.ticketid,
+                                  ticketID: widget.ticketid,
                                 )))
                           .future,
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return OrderStatusShimmerWidget();
+                          return const OrderStatusShimmerWidget();
                         }
                         final containerMFindSingleOrderResponse =
                             snapshot.data!;
@@ -217,7 +214,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                   }()
                                 : FFAppState().width.small.toDouble(),
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Stack(
                             children: [
                               SingleChildScrollView(
@@ -247,9 +244,9 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                       .jsonBody,
                                                 ) ==
                                                 'Ready for pickup') ||
-                                            (widget!.pagename == 'Payment'))
+                                            (widget.pagename == 'Payment'))
                                           Container(
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Color(0xFFEBF7F3),
                                             ),
                                             child: Lottie.asset(
@@ -269,7 +266,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                             ) ==
                                             'Order picked up by Delivery Agent')
                                           Container(
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Color(0xFFEBF7F3),
                                             ),
                                             child: Lottie.asset(
@@ -289,7 +286,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                             ) ==
                                             'Order Delivered')
                                           Container(
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Color(0xFFEBF7F3),
                                             ),
                                             child: Lottie.asset(
@@ -314,16 +311,16 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.0, -1.0),
+                                          const AlignmentDirectional(0.0, -1.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 300.0, 0.0, 0.0),
                                         child: Container(
                                           width: 390.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
-                                            borderRadius: BorderRadius.only(
+                                            borderRadius: const BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
                                               bottomRight: Radius.circular(0.0),
                                               topLeft: Radius.circular(18.0),
@@ -332,21 +329,21 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     20.0, 0.0, 20.0, 20.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 0.0),
                                                   child: Container(
                                                     width: 350.0,
                                                     height: 20.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Text(
                                                       () {
@@ -399,14 +396,14 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                   Container(
                                                     width: 350.0,
                                                     height: 65.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -416,7 +413,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                             width: 272.0,
                                                             height: 24.0,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -450,12 +447,12 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   animateFromLastPercent:
                                                                       true,
                                                                   progressColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFF50C154),
                                                                   backgroundColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFFD9D9D9),
-                                                                  barRadius: Radius
+                                                                  barRadius: const Radius
                                                                       .circular(
                                                                           8.0),
                                                                   padding:
@@ -488,10 +485,10 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   animateFromLastPercent:
                                                                       true,
                                                                   progressColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFF318616),
                                                                   backgroundColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFFD9D9D9),
                                                                   padding:
                                                                       EdgeInsets
@@ -518,7 +515,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       16.0,
@@ -535,10 +532,10 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               Container(
                                                                 width: 116.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -567,16 +564,16 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child:
                                                                     Container(
                                                                   width: 116.0,
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -604,9 +601,9 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               Container(
                                                                 width: 116.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
@@ -660,14 +657,14 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                   Container(
                                                     width: 350.0,
                                                     height: 65.0,
-                                                    decoration: BoxDecoration(),
+                                                    decoration: const BoxDecoration(),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -677,7 +674,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                             width: 272.0,
                                                             height: 24.0,
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -711,12 +708,12 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   animateFromLastPercent:
                                                                       true,
                                                                   progressColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFF50C154),
                                                                   backgroundColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFFD9D9D9),
-                                                                  barRadius: Radius
+                                                                  barRadius: const Radius
                                                                       .circular(
                                                                           8.0),
                                                                   padding:
@@ -749,10 +746,10 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   animateFromLastPercent:
                                                                       true,
                                                                   progressColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFF318616),
                                                                   backgroundColor:
-                                                                      Color(
+                                                                      const Color(
                                                                           0xFFD9D9D9),
                                                                   padding:
                                                                       EdgeInsets
@@ -779,7 +776,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       16.0,
@@ -796,10 +793,10 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               Container(
                                                                 width: 116.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 child: Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -0.1,
                                                                           0.0),
                                                                   child: Text(
@@ -828,16 +825,16 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child:
                                                                     Container(
                                                                   width: 116.0,
                                                                   decoration:
-                                                                      BoxDecoration(),
+                                                                      const BoxDecoration(),
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           0.0,
                                                                           0.0),
                                                                   child: Text(
@@ -865,9 +862,9 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               Container(
                                                                 width: 116.0,
                                                                 decoration:
-                                                                    BoxDecoration(),
+                                                                    const BoxDecoration(),
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 child: Text(
@@ -1037,13 +1034,13 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   ],
                                                                 ),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 20.0)),
                                                           ),
                                                           Container(
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFFEBFFEF),
                                                               borderRadius:
                                                                   BorderRadius
@@ -1052,7 +1049,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           10.0),
                                                               child: Text(
@@ -1156,11 +1153,11 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                       .primary,
                                                                   size: 24.0,
                                                                 ),
-                                                              ].divide(SizedBox(
+                                                              ].divide(const SizedBox(
                                                                   width: 10.0)),
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             height: 10.0)),
                                                       ),
                                                     if (AirtableApiGroup
@@ -1258,7 +1255,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                             children: [
                                                               Stack(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         0.0),
                                                                 children: [
@@ -1267,7 +1264,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                     height:
                                                                         36.0,
                                                                     decoration:
-                                                                        BoxDecoration(
+                                                                        const BoxDecoration(
                                                                       color: Color(
                                                                           0xFFF7F7F7),
                                                                       shape: BoxShape
@@ -1305,7 +1302,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               ),
                                                               Expanded(
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -1360,12 +1357,12 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                             height:
                                                                                 25.0,
                                                                             decoration:
-                                                                                BoxDecoration(),
+                                                                                const BoxDecoration(),
                                                                           ),
                                                                         ],
                                                                       ),
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             5.0,
                                                                             0.0,
                                                                             0.0,
@@ -1399,7 +1396,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                   ) ==
                                                                   null)
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -1414,7 +1411,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                     size: 14.0,
                                                                   ),
                                                                 ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -1437,14 +1434,14 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                     children: [
                                                       Stack(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         children: [
                                                           Container(
                                                             width: 36.0,
                                                             height: 36.0,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               color: Color(
                                                                   0xFFF7F7F7),
                                                               shape: BoxShape
@@ -1480,7 +1477,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1544,7 +1541,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        SizedBox(width: 10.0)),
+                                                        const SizedBox(width: 10.0)),
                                                   ),
                                                 ),
                                                 InkWell(
@@ -1558,7 +1555,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     await launchURL(
-                                                        'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget!.ticketid?.toString()}');
+                                                        'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketid?.toString()}');
                                                   },
                                                   child: Container(
                                                     height: 68.0,
@@ -1576,14 +1573,14 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                       children: [
                                                         Stack(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           children: [
                                                             Container(
                                                               width: 36.0,
                                                               height: 36.0,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 color: Color(
                                                                     0xFFF7F7F7),
                                                                 shape: BoxShape
@@ -1619,7 +1616,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -1670,7 +1667,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1685,7 +1682,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                             size: 14.0,
                                                           ),
                                                         ),
-                                                      ].divide(SizedBox(
+                                                      ].divide(const SizedBox(
                                                           width: 10.0)),
                                                     ),
                                                   ),
@@ -1720,7 +1717,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                                       context),
                                                               child:
                                                                   BillDetailsWidget(
-                                                                ticketid: widget!
+                                                                ticketid: widget
                                                                     .ticketid!,
                                                                 itemtotal:
                                                                     formatNumber(
@@ -1834,7 +1831,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1846,14 +1843,14 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                         children: [
                                                           Stack(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.0, 0.0),
                                                             children: [
                                                               Container(
                                                                 width: 36.0,
                                                                 height: 36.0,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   color: Color(
                                                                       0xFFF7F7F7),
                                                                   shape: BoxShape
@@ -1891,7 +1888,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           0.0,
@@ -1963,7 +1960,7 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -1978,13 +1975,13 @@ class _StatusOfOrderWidgetState extends State<StatusOfOrderWidget> {
                                                               size: 14.0,
                                                             ),
                                                           ),
-                                                        ].divide(SizedBox(
+                                                        ].divide(const SizedBox(
                                                             width: 10.0)),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(height: 20.0)),
+                                              ].divide(const SizedBox(height: 20.0)),
                                             ),
                                           ),
                                         ),

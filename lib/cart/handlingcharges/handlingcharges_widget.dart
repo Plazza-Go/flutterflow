@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'handlingcharges_model.dart';
 export 'handlingcharges_model.dart';
 
@@ -61,13 +60,13 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Text(
                       'Handling charges',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -99,13 +98,13 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Packaging fee (₹ ${widget!.packaging?.toString()})',
+                  'Packaging fee (₹ ${widget.packaging?.toString()})',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -125,7 +124,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
                             FlutterFlowTheme.of(context).labelSmallFamily),
                       ),
                 ),
-              ].divide(SizedBox(height: 10.0)),
+              ].divide(const SizedBox(height: 10.0)),
             ),
           ),
           Divider(
@@ -133,13 +132,13 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
             color: FlutterFlowTheme.of(context).alternate,
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Platform fee (₹ ${widget!.platform?.toString()})',
+                  'Platform fee (₹ ${widget.platform?.toString()})',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -159,7 +158,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
                             FlutterFlowTheme.of(context).labelSmallFamily),
                       ),
                 ),
-              ].divide(SizedBox(height: 10.0)),
+              ].divide(const SizedBox(height: 10.0)),
             ),
           ),
           Divider(
@@ -167,13 +166,13 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
             color: FlutterFlowTheme.of(context).alternate,
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Convenience fee (₹ ${widget!.canvenience?.toString()})',
+                  'Convenience fee (₹ ${widget.canvenience?.toString()})',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -193,7 +192,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
                             FlutterFlowTheme.of(context).labelSmallFamily),
                       ),
                 ),
-              ].divide(SizedBox(height: 10.0)),
+              ].divide(const SizedBox(height: 10.0)),
             ),
           ),
           InkWell(
@@ -207,7 +206,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
             child: Container(
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(12.0),
                   bottomRight: Radius.circular(12.0),
                   topLeft: Radius.circular(0.0),
@@ -215,7 +214,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
                 ),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 15.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -237,7 +236,7 @@ class _HandlingchargesWidgetState extends State<HandlingchargesWidget> {
               ),
             ),
           ),
-        ].divide(SizedBox(height: 8.0)),
+        ].divide(const SizedBox(height: 8.0)),
       ),
     );
   }

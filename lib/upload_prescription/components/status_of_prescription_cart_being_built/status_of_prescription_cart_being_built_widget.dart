@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -55,7 +54,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.0, -1.0),
+      alignment: const AlignmentDirectional(0.0, -1.0),
       child: Container(
         height: 539.0,
         constraints: BoxConstraints(
@@ -77,7 +76,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
         ),
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 25.0,
               color: Color(0x19000000),
@@ -88,7 +87,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
               spreadRadius: 0.0,
             )
           ],
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(18.0),
@@ -96,9 +95,9 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
           ),
         ),
         child: Align(
-          alignment: AlignmentDirectional(0.0, 0.0),
+          alignment: const AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +108,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Container(
                         height: 20.0,
                         decoration: BoxDecoration(
@@ -134,7 +133,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
                           color:
@@ -170,7 +169,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                         child: Container(
                           height: 24.0,
                           decoration: BoxDecoration(
@@ -178,7 +177,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                                 .secondaryBackground,
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -204,9 +203,9 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                                     lineHeight: 4.0,
                                     animation: true,
                                     animateFromLastPercent: true,
-                                    progressColor: Color(0xFF50C154),
-                                    backgroundColor: Color(0xFFD9D9D9),
-                                    barRadius: Radius.circular(8.0),
+                                    progressColor: const Color(0xFF50C154),
+                                    backgroundColor: const Color(0xFFD9D9D9),
+                                    barRadius: const Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
@@ -225,9 +224,9 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                                     lineHeight: 4.0,
                                     animation: true,
                                     animateFromLastPercent: true,
-                                    progressColor: Color(0xFF318616),
-                                    backgroundColor: Color(0xFFD9D9D9),
-                                    barRadius: Radius.circular(8.0),
+                                    progressColor: const Color(0xFF318616),
+                                    backgroundColor: const Color(0xFFD9D9D9),
+                                    barRadius: const Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
@@ -246,9 +245,9 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                         ),
                       ),
                       Container(
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 16.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -271,7 +270,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 0.0),
                                 child: Text(
                                   'Building \ncart',
@@ -320,7 +319,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     await launchURL(
-                        'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget!.ticketid?.toString()}');
+                        'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketid?.toString()}');
                   },
                   child: Container(
                     width: 350.0,
@@ -336,7 +335,7 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                           width: 36.0,
                           height: 36.0,
                           clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
                           child: SvgPicture.asset(
@@ -384,11 +383,11 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                                                   .bodySmallFamily),
                                     ),
                               ),
-                            ].divide(SizedBox(height: 5.0)),
+                            ].divide(const SizedBox(height: 5.0)),
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 0.0, 0.0),
                           child: Icon(
                             Icons.arrow_forward_ios_outlined,
@@ -396,11 +395,11 @@ class _StatusOfPrescriptionCartBeingBuiltWidgetState
                             size: 14.0,
                           ),
                         ),
-                      ].divide(SizedBox(width: 5.0)),
+                      ].divide(const SizedBox(width: 5.0)),
                     ),
                   ),
                 ),
-              ].divide(SizedBox(height: 40.0)),
+              ].divide(const SizedBox(height: 40.0)),
             ),
           ),
         ),

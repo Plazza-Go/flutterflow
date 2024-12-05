@@ -1,7 +1,6 @@
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,7 +34,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await Future.delayed(const Duration(milliseconds: 4000));
-      if (FFAppState().cartId.ticketid == widget!.ticketId) {
+      if (FFAppState().cartId.ticketid == widget.ticketId) {
         FFAppState().cartId = CartDetailsStruct();
         FFAppState().CartMedicineDetails = [];
         safeSetState(() {});
@@ -44,7 +43,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
           'statusOfOrder',
           queryParameters: {
             'ticketid': serializeParam(
-              widget!.ticketId,
+              widget.ticketId,
               ParamType.int,
             ),
             'pagename': serializeParam(
@@ -53,7 +52,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
             ),
           }.withoutNulls,
           extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
+            kTransitionInfoKey: const TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.fade,
               duration: Duration(milliseconds: 0),
@@ -65,7 +64,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
           'statusOfOrder',
           queryParameters: {
             'ticketid': serializeParam(
-              widget!.ticketId,
+              widget.ticketId,
               ParamType.int,
             ),
             'pagename': serializeParam(
@@ -74,7 +73,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
             ),
           }.withoutNulls,
           extra: <String, dynamic>{
-            kTransitionInfoKey: TransitionInfo(
+            kTransitionInfoKey: const TransitionInfo(
               hasTransition: true,
               transitionType: PageTransitionType.leftToRight,
             ),
@@ -108,9 +107,9 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +131,7 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .headlineLargeFamily,
-                                  color: Color(0xFF3AB757),
+                                  color: const Color(0xFF3AB757),
                                   letterSpacing: 0.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
@@ -147,16 +146,16 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
                                 .override(
                                   fontFamily: FlutterFlowTheme.of(context)
                                       .bodySmallFamily,
-                                  color: Color(0xFF616161),
+                                  color: const Color(0xFF616161),
                                   letterSpacing: 0.0,
                                   useGoogleFonts: GoogleFonts.asMap()
                                       .containsKey(FlutterFlowTheme.of(context)
                                           .bodySmallFamily),
                                 ),
                           ),
-                        ].divide(SizedBox(height: 8.0)),
+                        ].divide(const SizedBox(height: 8.0)),
                       ),
-                    ].divide(SizedBox(height: 20.0)),
+                    ].divide(const SizedBox(height: 20.0)),
                   ),
                 ),
               ),

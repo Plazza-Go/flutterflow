@@ -3,17 +3,14 @@ import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/order/reting/reting_widget.dart';
 import '/order/reting_component/reting_component_widget.dart';
 import '/shimmer/shimmer/shimmer_widget.dart';
 import '/shimmer/shimmer_history/shimmer_history_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -87,7 +84,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return Scaffold(
+          return const Scaffold(
             backgroundColor: Color(0xFFF4F6FB),
             body: Center(
               child: SizedBox(
@@ -112,17 +109,17 @@ class _HistoryWidgetState extends State<HistoryWidget> {
               onTap: () => FocusScope.of(context).unfocus(),
               child: Scaffold(
                 key: scaffoldKey,
-                backgroundColor: Color(0xFFF4F6FB),
+                backgroundColor: const Color(0xFFF4F6FB),
                 appBar: responsiveVisibility(
                   context: context,
                   tabletLandscape: false,
                   desktop: false,
                 )
                     ? AppBar(
-                        backgroundColor: Color(0xFFF4F6FB),
+                        backgroundColor: const Color(0xFFF4F6FB),
                         automaticallyImplyLeading: false,
                         title: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -145,10 +142,10 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                   .headlineMediumFamily),
                                     ),
                               ),
-                            ].divide(SizedBox(width: 20.0)),
+                            ].divide(const SizedBox(width: 20.0)),
                           ),
                         ),
-                        actions: [],
+                        actions: const [],
                         centerTitle: true,
                         elevation: 0.0,
                       )
@@ -156,7 +153,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       constraints: BoxConstraints(
                         maxWidth: isWeb
@@ -176,18 +173,18 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                               }()
                             : FFAppState().width.small.toDouble(),
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFFF4F6FB),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
                                 child: SingleChildScrollView(
                                   primary: false,
@@ -214,7 +211,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return ShimmerHistoryWidget();
+                                              return const ShimmerHistoryWidget();
                                             }
                                             final listViewFindOrderListDataResponse =
                                                 snapshot.data!;
@@ -246,7 +243,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                         Axis.vertical,
                                                     itemCount: orders.length,
                                                     separatorBuilder: (_, __) =>
-                                                        SizedBox(height: 10.0),
+                                                        const SizedBox(height: 10.0),
                                                     itemBuilder:
                                                         (context, ordersIndex) {
                                                       final ordersItem =
@@ -300,7 +297,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
-                                                                    TransitionInfo(
+                                                                    const TransitionInfo(
                                                                   hasTransition:
                                                                       true,
                                                                   transitionType:
@@ -356,7 +353,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      TransitionInfo(
+                                                                      const TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -379,7 +376,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
-                                                            boxShadow: [
+                                                            boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius:
                                                                     24.0,
@@ -404,7 +401,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         16.0,
@@ -422,13 +419,13 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                           45.0,
                                                                       decoration:
                                                                           BoxDecoration(
-                                                                        color: Color(
+                                                                        color: const Color(
                                                                             0xFFEBFFEF),
                                                                         borderRadius:
                                                                             BorderRadius.circular(12.0),
                                                                       ),
                                                                       child:
-                                                                          Icon(
+                                                                          const Icon(
                                                                         Icons
                                                                             .check,
                                                                         color: Color(
@@ -448,7 +445,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                             CrossAxisAlignment.start,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 15.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -552,18 +549,18 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                                           ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                                                                                       child: Container(
                                                                                         width: 6.0,
                                                                                         height: 6.0,
                                                                                         decoration: BoxDecoration(
-                                                                                          color: Color(0xFFD9D9D9),
+                                                                                          color: const Color(0xFFD9D9D9),
                                                                                           borderRadius: BorderRadius.circular(100.0),
                                                                                         ),
                                                                                       ),
                                                                                     ),
                                                                                     Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                      padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
                                                                                         dateTimeFormat(
                                                                                             "d/M h:mm a",
@@ -598,7 +595,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                                     ),
                                                                                   ],
                                                                                 ),
-                                                                              ].divide(SizedBox(height: 4.0)),
+                                                                              ].divide(const SizedBox(height: 4.0)),
                                                                             ),
                                                                           ),
                                                                           Icon(
@@ -632,7 +629,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                         r'''$.fields.Status''',
                                                                       )) !=
                                                                       'Availability updated'))
-                                                                Divider(
+                                                                const Divider(
                                                                   thickness:
                                                                       0.5,
                                                                   color: Color(
@@ -654,7 +651,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                   // Customize what your widget looks like when it's loading.
                                                                   if (!snapshot
                                                                       .hasData) {
-                                                                    return ShimmerWidget();
+                                                                    return const ShimmerWidget();
                                                                   }
                                                                   final containerGetMedicineDetailsResponse =
                                                                       snapshot
@@ -662,7 +659,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
 
                                                                   return Container(
                                                                     decoration:
-                                                                        BoxDecoration(),
+                                                                        const BoxDecoration(),
                                                                     child:
                                                                         Builder(
                                                                       builder:
@@ -683,7 +680,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                             final medicensItem =
                                                                                 medicens[medicensIndex];
                                                                             return Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 10.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 10.0, 0.0, 10.0),
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
                                                                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -706,7 +703,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                                     crossAxisAlignment: CrossAxisAlignment.start,
                                                                                     children: [
                                                                                       Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                         child: Text(
                                                                                           getJsonField(
                                                                                             medicensItem,
@@ -727,7 +724,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                                           ) !=
                                                                                           null)
                                                                                         Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                          padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                           child: Text(
                                                                                             getJsonField(
                                                                                               medicensItem,
@@ -805,10 +802,10 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                         height:
                                                                             47.0,
                                                                         decoration:
-                                                                            BoxDecoration(),
+                                                                            const BoxDecoration(),
                                                                         child:
                                                                             Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                           child:
@@ -816,7 +813,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                             'Reorder',
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'Figtree',
-                                                                                  color: Color(0xFF0C831F),
+                                                                                  color: const Color(0xFF0C831F),
                                                                                   fontSize: 13.0,
                                                                                   letterSpacing: 0.0,
                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey('Figtree'),
@@ -902,14 +899,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                                 Container(
                                                                               width: MediaQuery.sizeOf(context).width * 0.4,
                                                                               height: 47.0,
-                                                                              decoration: BoxDecoration(),
+                                                                              decoration: const BoxDecoration(),
                                                                               child: Align(
-                                                                                alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                alignment: const AlignmentDirectional(0.0, 0.0),
                                                                                 child: Text(
                                                                                   'Rate order',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                        color: Color(0xFF0C831F),
+                                                                                        color: const Color(0xFF0C831F),
                                                                                         fontSize: 13.0,
                                                                                         letterSpacing: 0.0,
                                                                                         useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -924,7 +921,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                                             ) !=
                                                                             null)
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 12.0,
                                                                                 0.0,
@@ -963,7 +960,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                           },
                                         ),
                                       ),
-                                    ].divide(SizedBox(height: 15.0)),
+                                    ].divide(const SizedBox(height: 15.0)),
                                   ),
                                 ),
                               ),

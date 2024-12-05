@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -83,18 +82,16 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
 
                   return FloatingActionButton(
                     onPressed: () async {
-                      if (FFAppState().cartId.ticketid != null) {
-                        context.pushNamed(
-                          'medicineCart',
-                          queryParameters: {
-                            'ticketId': serializeParam(
-                              FFAppState().cartId.ticketid,
-                              ParamType.int,
-                            ),
-                          }.withoutNulls,
-                        );
-                      }
-                    },
+                      context.pushNamed(
+                        'medicineCart',
+                        queryParameters: {
+                          'ticketId': serializeParam(
+                            FFAppState().cartId.ticketid,
+                            ParamType.int,
+                          ),
+                        }.withoutNulls,
+                      );
+                                        },
                     backgroundColor: FlutterFlowTheme.of(context).primary,
                     elevation: 8.0,
                     child: badges.Badge(
@@ -106,7 +103,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                     .jsonBody,
                               )
                               ?.length
-                              ?.toString(),
+                              .toString(),
                           '0',
                         ),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -124,13 +121,13 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                       badgeColor: FlutterFlowTheme.of(context).primary,
                       elevation: 4.0,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                       position: badges.BadgePosition.topEnd(),
                       animationType: badges.BadgeAnimationType.scale,
                       toAnimate: true,
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                         child: Icon(
                           Icons.add_shopping_cart,
                           color: FlutterFlowTheme.of(context).primaryBackground,
@@ -167,7 +164,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -181,7 +178,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                     size: 24.0,
                                   ),
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 200.0,
                                       child: TextFormField(
                                         controller:
@@ -227,7 +224,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelMediumFamily),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -235,7 +232,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -303,14 +300,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                       fit: BoxFit.contain,
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 10.0)),
+                                ].divide(const SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -318,7 +315,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -326,7 +323,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -382,7 +379,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .headlineLargeFamily,
-                                          color: Color(0xFFB57962),
+                                          color: const Color(0xFFB57962),
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
@@ -397,7 +394,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Container(
                                       height: 40.0,
                                       decoration: BoxDecoration(
@@ -408,13 +405,13 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                               .buttonTextColor,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -450,14 +447,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                                       .headlineLargeFamily),
                                                         ),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Container(
                                       height: 40.0,
                                       decoration: BoxDecoration(
@@ -468,13 +465,13 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                               .buttonTextColor,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -510,14 +507,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                                       .headlineLargeFamily),
                                                         ),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Container(
                                       height: 40.0,
                                       decoration: BoxDecoration(
@@ -528,13 +525,13 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                               .buttonTextColor,
                                         ),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -570,15 +567,15 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                                       .headlineLargeFamily),
                                                         ),
                                               ),
-                                            ].divide(SizedBox(width: 8.0)),
+                                            ].divide(const SizedBox(width: 8.0)),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 12.0)),
+                                ].divide(const SizedBox(width: 12.0)),
                               ),
-                            ].divide(SizedBox(height: 10.0)),
+                            ].divide(const SizedBox(height: 10.0)),
                           ),
                         ),
                         if (responsiveVisibility(
@@ -633,11 +630,11 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                     color: FlutterFlowTheme.of(context).primary,
                                     size: 24.0,
                                   ),
-                                ].divide(SizedBox(width: 12.0)),
+                                ].divide(const SizedBox(width: 12.0)),
                               ),
                             ],
                           ),
-                      ].divide(SizedBox(height: 24.0)),
+                      ].divide(const SizedBox(height: 24.0)),
                     ),
                     Expanded(
                       child: Column(
@@ -689,12 +686,11 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                     color: FlutterFlowTheme.of(context).primary,
                                     size: 24.0,
                                   ),
-                                ].divide(SizedBox(width: 12.0)),
+                                ].divide(const SizedBox(width: 12.0)),
                               ),
                             ],
                           ),
-                          if (_model.textField11TextController.text == null ||
-                              _model.textField11TextController.text == '')
+                          if (_model.textField11TextController.text == '')
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -703,12 +699,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -723,14 +719,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                   height: 100.0,
                                                   fit: BoxFit.fitWidth,
                                                   alignment:
-                                                      Alignment(-1.0, 0.0),
+                                                      const Alignment(-1.0, 0.0),
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.55),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -755,7 +751,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -1.01, 0.79),
                                                 child: Text(
                                                   '10 capsules',
@@ -784,7 +780,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -0.97, 0.96),
                                                 child: Text(
                                                   '₹400',
@@ -849,8 +845,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                 ],
                               ),
                             ),
-                          if (_model.textField11TextController.text != null &&
-                              _model.textField11TextController.text != '')
+                          if (_model.textField11TextController.text != '')
                             SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
                               child: Row(
@@ -859,12 +854,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             crossAxisAlignment:
@@ -879,14 +874,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                   height: 100.0,
                                                   fit: BoxFit.fitWidth,
                                                   alignment:
-                                                      Alignment(-1.0, 0.0),
+                                                      const Alignment(-1.0, 0.0),
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.55),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Text(
@@ -911,7 +906,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -1.01, 0.79),
                                                 child: Text(
                                                   '10 capsules',
@@ -940,7 +935,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     -0.97, 0.96),
                                                 child: Text(
                                                   '₹400',
@@ -1002,10 +997,10 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                       ],
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 8.0)),
+                                ].divide(const SizedBox(width: 8.0)),
                               ),
                             ),
-                        ].divide(SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
                     ),
                     if (responsiveVisibility(
@@ -1019,7 +1014,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1052,7 +1047,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1083,12 +1078,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1119,12 +1114,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1155,17 +1150,17 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 14.0)),
+                                ].divide(const SizedBox(width: 14.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1196,12 +1191,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1233,12 +1228,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1269,14 +1264,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 14.0)),
+                                ].divide(const SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
                     if (responsiveVisibility(
                       context: context,
@@ -1289,7 +1284,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1322,7 +1317,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1353,12 +1348,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1389,12 +1384,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1425,14 +1420,14 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 14.0)),
+                                ].divide(const SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
                     if (responsiveVisibility(
                       context: context,
@@ -1445,7 +1440,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1478,7 +1473,7 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1509,12 +1504,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1545,12 +1540,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1581,17 +1576,17 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 14.0)),
+                                ].divide(const SizedBox(width: 14.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1622,12 +1617,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1659,12 +1654,12 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1695,16 +1690,16 @@ class _SearchMedicineCopyWidgetState extends State<SearchMedicineCopyWidget> {
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(SizedBox(height: 8.0)),
+                                      ].divide(const SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 14.0)),
+                                ].divide(const SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
-                  ].divide(SizedBox(height: 24.0)),
+                  ].divide(const SizedBox(height: 24.0)),
                 ),
               ),
             ),

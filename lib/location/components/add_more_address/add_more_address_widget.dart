@@ -8,7 +8,6 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'add_more_address_model.dart';
 export 'add_more_address_model.dart';
@@ -81,7 +80,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
         safeSetState(() {});
       },
     );
-    _model.textController5 ??= TextEditingController(text: widget!.locality);
+    _model.textController5 ??= TextEditingController(text: widget.locality);
     _model.textFieldFocusNode3 ??= FocusNode();
     _model.textFieldFocusNode3!.addListener(
       () async {
@@ -110,13 +109,13 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
       child: Container(
         width: 390.0,
         height: 565.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(14.0),
@@ -124,14 +123,14 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
           ),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 6.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 6.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -167,7 +166,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                   ],
                 ),
               ),
-              Divider(
+              const Divider(
                 thickness: 1.0,
                 color: Color(0xFFF0F0F0),
               ),
@@ -175,7 +174,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                 key: _model.formKey,
                 autovalidateMode: AutovalidateMode.disabled,
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -376,7 +375,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -424,7 +423,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                                           .displaySmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 8.0)),
+                                    ].divide(const SizedBox(width: 8.0)),
                                   ),
                                 ),
                               ),
@@ -451,7 +450,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -499,7 +498,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                                           .displaySmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 8.0)),
+                                    ].divide(const SizedBox(width: 8.0)),
                                   ),
                                 ),
                               ),
@@ -526,7 +525,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -575,7 +574,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                                           .displaySmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 8.0)),
+                                    ].divide(const SizedBox(width: 8.0)),
                                   ),
                                 ),
                               ),
@@ -602,7 +601,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -651,12 +650,12 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                                           .displaySmallFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 8.0)),
+                                    ].divide(const SizedBox(width: 8.0)),
                                   ),
                                 ),
                               ),
                             ),
-                          ].divide(SizedBox(width: 12.0)),
+                          ].divide(const SizedBox(width: 12.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -838,7 +837,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                     .asValidator(context),
                               ),
                             ),
-                          ].divide(SizedBox(width: 12.0)),
+                          ].divide(const SizedBox(width: 12.0)),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -1036,9 +1035,9 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                               text: 'Change',
                               options: FFButtonOptions(
                                 height: 30.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
@@ -1062,7 +1061,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
-                          ].divide(SizedBox(width: 8.0)),
+                          ].divide(const SizedBox(width: 8.0)),
                         ),
                         TextFormField(
                           controller: _model.textController6,
@@ -1144,17 +1143,17 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                           validator: _model.textController6Validator
                               .asValidator(context),
                         ),
-                      ].divide(SizedBox(height: 16.0)),
+                      ].divide(const SizedBox(height: 16.0)),
                     ),
                   ),
                 ),
               ),
-              Divider(
+              const Divider(
                 thickness: 1.0,
                 color: Color(0xFFF0F0F0),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     if (_model.formKey.currentState == null ||
@@ -1167,8 +1166,8 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                             await AirtableApiGroup.createAddressCall.call(
                           contactID: valueOrDefault(
                               currentUserDocument?.userRecordId, ''),
-                          longitude: widget!.lng,
-                          latitude: widget!.lat,
+                          longitude: widget.lng,
+                          latitude: widget.lat,
                           houseNumber: _model.houseTextFieldTextController.text,
                           floor: _model.textController3.text,
                           buildingName:
@@ -1176,16 +1175,16 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                           landmark: _model.textController6.text,
                           tag: _model.addessType,
                           contactMobile: _model.textController1.text,
-                          locality: widget!.locality,
+                          locality: widget.locality,
                         );
 
                         if ((_model.apiResultAddreaa1?.succeeded ?? true)) {
-                          if (widget!.recordId != null &&
-                              widget!.recordId != '') {
+                          if (widget.recordId != null &&
+                              widget.recordId != '') {
                             _model.orderUpdate1 = await AirtableApiGroup
                                 .updateAddressidInOrderCall
                                 .call(
-                              recordId: widget!.recordId,
+                              recordId: widget.recordId,
                               addressId:
                                   AirtableApiGroup.createAddressCall.addressId(
                                 (_model.apiResultAddreaa1?.jsonBody ?? ''),
@@ -1213,7 +1212,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                     .addressId(
                                   (_model.apiResultAddreaa1?.jsonBody ?? ''),
                                 ),
-                                recordId: widget!.recordId,
+                                recordId: widget.recordId,
                               );
 
                               if ((_model.orderUpdate2?.succeeded ?? true)) {
@@ -1235,7 +1234,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                               }
                             }
                           } else {
-                            if (widget!.pagename == 'AddressBook') {
+                            if (widget.pagename == 'AddressBook') {
                               context.pushNamed('Addressbook');
                             } else {
                               context.pushNamed('Home');
@@ -1247,13 +1246,13 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                             builder: (alertDialogContext) {
                               return WebViewAware(
                                 child: AlertDialog(
-                                  content: Text(
+                                  content: const Text(
                                       'Something want wrong please try again'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
+                                      child: const Text('Ok'),
                                     ),
                                   ],
                                 ),
@@ -1262,14 +1261,13 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                           );
                         }
                       } else {
-                        if (_model.textController1.text != null &&
-                            _model.textController1.text != '') {
+                        if (_model.textController1.text != '') {
                           _model.someOneElseaddress =
                               await AirtableApiGroup.createAddressCall.call(
                             contactID: valueOrDefault(
                                 currentUserDocument?.userRecordId, ''),
-                            longitude: widget!.lng,
-                            latitude: widget!.lat,
+                            longitude: widget.lng,
+                            latitude: widget.lat,
                             houseNumber:
                                 _model.houseTextFieldTextController.text,
                             floor: _model.textController3.text,
@@ -1278,16 +1276,16 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                             landmark: _model.textController6.text,
                             tag: _model.addessType,
                             contactMobile: _model.textController1.text,
-                            locality: widget!.locality,
+                            locality: widget.locality,
                           );
 
                           if ((_model.someOneElseaddress?.succeeded ?? true)) {
-                            if (widget!.recordId != null &&
-                                widget!.recordId != '') {
+                            if (widget.recordId != null &&
+                                widget.recordId != '') {
                               _model.orderupdate3 = await AirtableApiGroup
                                   .updateAddressidInOrderCall
                                   .call(
-                                recordId: widget!.recordId,
+                                recordId: widget.recordId,
                                 addressId: AirtableApiGroup.createAddressCall
                                     .addressId(
                                   (_model.someOneElseaddress?.jsonBody ?? ''),
@@ -1312,7 +1310,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                                 context.pushNamed('History');
                               }
                             } else {
-                              if (widget!.pagename == 'AddressBook') {
+                              if (widget.pagename == 'AddressBook') {
                                 context.pushNamed('Addressbook');
                               } else {
                                 context.pushNamed('Home');
@@ -1324,13 +1322,13 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                               builder: (alertDialogContext) {
                                 return WebViewAware(
                                   child: AlertDialog(
-                                    content: Text(
+                                    content: const Text(
                                         'Something want wrong please try again'),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: Text('Ok'),
+                                        child: const Text('Ok'),
                                       ),
                                     ],
                                   ),
@@ -1344,12 +1342,12 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                             builder: (alertDialogContext) {
                               return WebViewAware(
                                 child: AlertDialog(
-                                  content: Text('Please Enter Phone Number'),
+                                  content: const Text('Please Enter Phone Number'),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
                                           Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
+                                      child: const Text('Ok'),
                                     ),
                                   ],
                                 ),
@@ -1365,12 +1363,12 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                           return WebViewAware(
                             child: AlertDialog(
                               content:
-                                  Text('Please select a tag for your address'),
+                                  const Text('Please select a tag for your address'),
                               actions: [
                                 TextButton(
                                   onPressed: () =>
                                       Navigator.pop(alertDialogContext),
-                                  child: Text('Ok'),
+                                  child: const Text('Ok'),
                                 ),
                               ],
                             ),
@@ -1386,9 +1384,9 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 40.0,
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily:
@@ -1403,7 +1401,7 @@ class _AddMoreAddressWidgetState extends State<AddMoreAddressWidget> {
                   ),
                 ),
               ),
-            ].divide(SizedBox(height: 5.0)),
+            ].divide(const SizedBox(height: 5.0)),
           ),
         ),
       ),

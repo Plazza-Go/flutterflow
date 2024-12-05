@@ -1,11 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'product_description_page_model.dart';
 export 'product_description_page_model.dart';
 
@@ -54,7 +52,7 @@ class _ProductDescriptionPageWidgetState
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -84,16 +82,16 @@ class _ProductDescriptionPageWidgetState
                                                   .headlineLargeFamily),
                                     ),
                               ),
-                            ].divide(SizedBox(width: 10.0)),
+                            ].divide(const SizedBox(width: 10.0)),
                           ),
                           Container(
-                            constraints: BoxConstraints(
+                            constraints: const BoxConstraints(
                               maxHeight: 48.0,
                             ),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -111,7 +109,7 @@ class _ProductDescriptionPageWidgetState
                               ),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -127,7 +125,7 @@ class _ProductDescriptionPageWidgetState
                                     ),
                                   ),
                                   Expanded(
-                                    child: Container(
+                                    child: SizedBox(
                                       width: 200.0,
                                       child: TextFormField(
                                         controller: _model.textController,
@@ -172,7 +170,7 @@ class _ProductDescriptionPageWidgetState
                                                             .labelMediumFamily),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -180,7 +178,7 @@ class _ProductDescriptionPageWidgetState
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -239,11 +237,11 @@ class _ProductDescriptionPageWidgetState
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(width: 10.0)),
+                                ].divide(const SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
-                        ].divide(SizedBox(height: 20.0)),
+                        ].divide(const SizedBox(height: 20.0)),
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.max,
@@ -274,7 +272,7 @@ class _ProductDescriptionPageWidgetState
                                 width: 7.0,
                                 height: 7.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF082454),
+                                  color: const Color(0xFF082454),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ),
@@ -282,7 +280,7 @@ class _ProductDescriptionPageWidgetState
                                 width: 7.0,
                                 height: 7.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFEBD9D2),
+                                  color: const Color(0xFFEBD9D2),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ),
@@ -290,20 +288,20 @@ class _ProductDescriptionPageWidgetState
                                 width: 7.0,
                                 height: 7.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFEBD9D2),
+                                  color: const Color(0xFFEBD9D2),
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                               ),
-                            ].divide(SizedBox(width: 5.0)),
+                            ].divide(const SizedBox(width: 5.0)),
                           ),
-                        ].divide(SizedBox(width: 32.0)),
+                        ].divide(const SizedBox(width: 32.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
                             height: 24.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0xFFEBFFEF),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0.0),
@@ -313,9 +311,9 @@ class _ProductDescriptionPageWidgetState
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              alignment: const AlignmentDirectional(-1.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -328,7 +326,7 @@ class _ProductDescriptionPageWidgetState
                                             fontFamily:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMediumFamily,
-                                            color: Color(0xFF0E401D),
+                                            color: const Color(0xFF0E401D),
                                             fontSize: 10.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
@@ -345,7 +343,7 @@ class _ProductDescriptionPageWidgetState
                           ),
                           Container(
                             decoration: BoxDecoration(
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x33FFFFFF),
@@ -370,7 +368,7 @@ class _ProductDescriptionPageWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -378,7 +376,7 @@ class _ProductDescriptionPageWidgetState
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 16.0, 0.0),
                                                 child: Row(
@@ -404,7 +402,7 @@ class _ProductDescriptionPageWidgetState
                                                                 fontFamily: FlutterFlowTheme.of(
                                                                         context)
                                                                     .bodyMediumFamily,
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF082454),
                                                                 fontSize: 20.0,
                                                                 letterSpacing:
@@ -444,14 +442,14 @@ class _ProductDescriptionPageWidgetState
                                                       height: 28.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0xFF24963F),
+                                                            const Color(0xFF24963F),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(6.0),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Text(
                                                           'In Stock',
@@ -487,7 +485,7 @@ class _ProductDescriptionPageWidgetState
                                                                       context)
                                                                   .labelSmallFamily,
                                                           color:
-                                                              Color(0xFF082454),
+                                                              const Color(0xFF082454),
                                                           letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
@@ -497,7 +495,7 @@ class _ProductDescriptionPageWidgetState
                                                                       .labelSmallFamily),
                                                         ),
                                               ),
-                                            ].divide(SizedBox(height: 8.0)),
+                                            ].divide(const SizedBox(height: 8.0)),
                                           ),
                                         ),
                                       ],
@@ -505,7 +503,7 @@ class _ProductDescriptionPageWidgetState
                                   ],
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     'Paracetamol is a commonly used over-the-counter pain reliever and fever reducer.',
@@ -526,7 +524,7 @@ class _ProductDescriptionPageWidgetState
                                 Container(
                                   width: 350.0,
                                   height: 46.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0xFFEDF4FF),
                                     borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(18.0),
@@ -539,7 +537,7 @@ class _ProductDescriptionPageWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      FaIcon(
+                                      const FaIcon(
                                         FontAwesomeIcons.filePrescription,
                                         color: Color(0xFF864129),
                                         size: 18.0,
@@ -552,7 +550,7 @@ class _ProductDescriptionPageWidgetState
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLargeFamily,
-                                              color: Color(0xFF864129),
+                                              color: const Color(0xFF864129),
                                               letterSpacing: 0.0,
                                               decoration:
                                                   TextDecoration.underline,
@@ -564,10 +562,10 @@ class _ProductDescriptionPageWidgetState
                                                           .labelLargeFamily),
                                             ),
                                       ),
-                                    ].divide(SizedBox(width: 8.0)),
+                                    ].divide(const SizedBox(width: 8.0)),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 20.0)),
+                              ].divide(const SizedBox(height: 20.0)),
                             ),
                           ),
                         ],
@@ -575,7 +573,7 @@ class _ProductDescriptionPageWidgetState
                       Container(
                         width: 390.0,
                         height: 32.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -586,7 +584,7 @@ class _ProductDescriptionPageWidgetState
                                   .override(
                                     fontFamily: FlutterFlowTheme.of(context)
                                         .bodyMediumFamily,
-                                    color: Color(0xFF24963F),
+                                    color: const Color(0xFF24963F),
                                     letterSpacing: 0.0,
                                     useGoogleFonts: GoogleFonts.asMap()
                                         .containsKey(
@@ -594,12 +592,12 @@ class _ProductDescriptionPageWidgetState
                                                 .bodyMediumFamily),
                                   ),
                             ),
-                            FaIcon(
+                            const FaIcon(
                               FontAwesomeIcons.chevronDown,
                               color: Color(0xFF24963F),
                               size: 16.0,
                             ),
-                          ].divide(SizedBox(width: 8.0)),
+                          ].divide(const SizedBox(width: 8.0)),
                         ),
                       ),
                       Row(
@@ -621,7 +619,7 @@ class _ProductDescriptionPageWidgetState
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .labelLargeFamily,
-                                          color: Color(0xFF082454),
+                                          color: const Color(0xFF082454),
                                           letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
@@ -648,7 +646,7 @@ class _ProductDescriptionPageWidgetState
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .labelLargeFamily,
-                                                  color: Color(0xFF082454),
+                                                  color: const Color(0xFF082454),
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
@@ -710,9 +708,9 @@ class _ProductDescriptionPageWidgetState
                                                                       .labelLargeFamily),
                                                         ),
                                               ),
-                                            ].divide(SizedBox(width: 6.0)),
+                                            ].divide(const SizedBox(width: 6.0)),
                                           ),
-                                        ].divide(SizedBox(width: 6.0)),
+                                        ].divide(const SizedBox(width: 6.0)),
                                       ),
                                       Text(
                                         'Inclusive of all taxes',
@@ -722,7 +720,7 @@ class _ProductDescriptionPageWidgetState
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLargeFamily,
-                                              color: Color(0xFF082454),
+                                              color: const Color(0xFF082454),
                                               fontSize: 10.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
@@ -736,7 +734,7 @@ class _ProductDescriptionPageWidgetState
                                       ),
                                     ],
                                   ),
-                                ].divide(SizedBox(height: 4.0)),
+                                ].divide(const SizedBox(height: 4.0)),
                               ),
                             ],
                           ),
@@ -744,7 +742,7 @@ class _ProductDescriptionPageWidgetState
                             width: 52.0,
                             height: 20.0,
                             decoration: BoxDecoration(
-                              gradient: LinearGradient(
+                              gradient: const LinearGradient(
                                 colors: [Color(0xFFF7FAFF), Color(0xFFDBE8FF)],
                                 stops: [0.0, 1.0],
                                 begin: AlignmentDirectional(1.0, 0.0),
@@ -753,7 +751,7 @@ class _ProductDescriptionPageWidgetState
                               borderRadius: BorderRadius.circular(4.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 '15% OFF',
                                 style: FlutterFlowTheme.of(context)
@@ -761,7 +759,7 @@ class _ProductDescriptionPageWidgetState
                                     .override(
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodyMediumFamily,
-                                      color: Color(0xFF1155CB),
+                                      color: const Color(0xFF1155CB),
                                       fontSize: 10.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w800,
@@ -781,7 +779,7 @@ class _ProductDescriptionPageWidgetState
                               borderRadius: BorderRadius.circular(5.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 'Add to Cart',
                                 style: FlutterFlowTheme.of(context)
@@ -802,7 +800,7 @@ class _ProductDescriptionPageWidgetState
                           ),
                         ],
                       ),
-                    ].divide(SizedBox(height: 20.0)),
+                    ].divide(const SizedBox(height: 20.0)),
                   ),
                 ),
               ),

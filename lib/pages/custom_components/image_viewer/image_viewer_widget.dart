@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'image_viewer_model.dart';
 export 'image_viewer_model.dart';
 
@@ -48,7 +47,7 @@ class _ImageViewerWidgetState extends State<ImageViewerWidget> {
       width: MediaQuery.sizeOf(context).width * 1.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -60,7 +59,7 @@ class _ImageViewerWidgetState extends State<ImageViewerWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -71,7 +70,7 @@ class _ImageViewerWidgetState extends State<ImageViewerWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 59.0,
                           height: 6.0,
@@ -116,7 +115,7 @@ class _ImageViewerWidgetState extends State<ImageViewerWidget> {
             borderRadius: BorderRadius.circular(8.0),
             child: Image.network(
               valueOrDefault<String>(
-                widget!.imagePath,
+                widget.imagePath,
                 'https://t3.ftcdn.net/jpg/04/60/01/36/240_F_460013622_6xF8uN6ubMvLx0tAJECBHfKPoNOR5cRa.jpg',
               ),
               width: MediaQuery.sizeOf(context).width * 0.9,
@@ -130,7 +129,7 @@ class _ImageViewerWidgetState extends State<ImageViewerWidget> {
               ),
             ),
           ),
-        ].divide(SizedBox(height: 10.0)),
+        ].divide(const SizedBox(height: 10.0)),
       ),
     );
   }

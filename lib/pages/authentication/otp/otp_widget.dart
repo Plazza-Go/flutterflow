@@ -7,11 +7,9 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'otp_model.dart';
 export 'otp_model.dart';
@@ -104,9 +102,9 @@ class _OtpWidgetState extends State<OtpWidget> {
                                         .titleLargeFamily),
                               ),
                         ),
-                      ].divide(SizedBox(width: 20.0)),
+                      ].divide(const SizedBox(width: 20.0)),
                     ),
-                    actions: [],
+                    actions: const [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -114,15 +112,15 @@ class _OtpWidgetState extends State<OtpWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: AlignmentDirectional(0.0, -1.0),
+                alignment: const AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb ? 393.0 : 393.0,
                   ),
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -148,7 +146,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                               ),
                               TextSpan(
                                 text: valueOrDefault<String>(
-                                  widget!.number,
+                                  widget.number,
                                   ' +91 1122 3344 ',
                                 ),
                                 style: FlutterFlowTheme.of(context)
@@ -185,7 +183,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: PinCodeTextField(
                                   autoDisposeControllers: false,
@@ -214,14 +212,14 @@ class _OtpWidgetState extends State<OtpWidget> {
                                     fieldHeight: 45.0,
                                     fieldWidth: 45.0,
                                     borderWidth: 2.0,
-                                    borderRadius: BorderRadius.only(
+                                    borderRadius: const BorderRadius.only(
                                       bottomLeft: Radius.circular(5.0),
                                       bottomRight: Radius.circular(5.0),
                                       topLeft: Radius.circular(5.0),
                                       topRight: Radius.circular(5.0),
                                     ),
                                     shape: PinCodeFieldShape.box,
-                                    activeColor: Color(0xFFECECEC),
+                                    activeColor: const Color(0xFFECECEC),
                                     inactiveColor:
                                         FlutterFlowTheme.of(context).alternate,
                                     selectedColor:
@@ -233,11 +231,10 @@ class _OtpWidgetState extends State<OtpWidget> {
                                     GoRouter.of(context).prepareAuthEvent();
                                     final smsCodeVal =
                                         _model.pinCodeController!.text;
-                                    if (smsCodeVal == null ||
-                                        smsCodeVal.isEmpty) {
+                                    if (smsCodeVal.isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                               'Enter SMS verification code.'),
                                         ),
@@ -272,7 +269,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -285,9 +282,9 @@ class _OtpWidgetState extends State<OtpWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    alignment: const AlignmentDirectional(1.0, 1.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 5.0, 0.0),
                                       child: Text(
                                         'Resend in',
@@ -313,7 +310,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                                     ),
                                     controller: _model.timerController,
                                     updateStateInterval:
-                                        Duration(milliseconds: 1000),
+                                        const Duration(milliseconds: 1000),
                                     onChanged:
                                         (value, displayTime, shouldUpdate) {
                                       _model.timerMilliseconds = value;
@@ -340,13 +337,13 @@ class _OtpWidgetState extends State<OtpWidget> {
                               FFButtonWidget(
                                 onPressed: () async {
                                   if (_model.timerMilliseconds == 0) {
-                                    final phoneNumberVal = widget!.number;
+                                    final phoneNumberVal = widget.number;
                                     if (phoneNumberVal == null ||
                                         phoneNumberVal.isEmpty ||
                                         !phoneNumberVal.startsWith('+')) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                               'Phone Number is required and has to start with +.'),
                                         ),
@@ -362,7 +359,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                                           context.mounted,
                                           queryParameters: {
                                             'number': serializeParam(
-                                              widget!.number,
+                                              widget.number,
                                               ParamType.String,
                                             ),
                                           }.withoutNulls,
@@ -388,7 +385,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                                               TextButton(
                                                 onPressed: () => Navigator.pop(
                                                     alertDialogContext),
-                                                child: Text('Ok'),
+                                                child: const Text('Ok'),
                                               ),
                                             ],
                                           ),
@@ -400,9 +397,9 @@ class _OtpWidgetState extends State<OtpWidget> {
                                 text: 'Send again',
                                 options: FFButtonOptions(
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
@@ -426,7 +423,7 @@ class _OtpWidgetState extends State<OtpWidget> {
                             ],
                           ),
                         ),
-                      ].divide(SizedBox(height: 40.0)),
+                      ].divide(const SizedBox(height: 40.0)),
                     ),
                   ),
                 ),

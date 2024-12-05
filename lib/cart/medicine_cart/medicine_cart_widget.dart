@@ -69,14 +69,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
 
     return FutureBuilder<ApiCallResponse>(
       future: AirtableApiGroup.findSingleOrderCall.call(
-        ticketID: widget!.ticketId,
+        ticketID: widget.ticketId,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: CartShimmerWidget(),
+            body: const CartShimmerWidget(),
           );
         }
         final medicineCartFindSingleOrderResponse = snapshot.data!;
@@ -128,9 +128,9 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 .titleLargeFamily),
                                   ),
                             ),
-                          ].divide(SizedBox(width: 20.0)),
+                          ].divide(const SizedBox(width: 20.0)),
                         ),
-                        actions: [],
+                        actions: const [],
                         centerTitle: true,
                         elevation: 0.0,
                       )
@@ -138,20 +138,20 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: AlignmentDirectional(0.0, -1.0),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: (_model.apiRequestCompleter ??= Completer<
                               ApiCallResponse>()
                             ..complete(
                                 AirtableApiGroup.getMedicineDetailsCall.call(
-                              orderTicketId: widget!.ticketId,
+                              orderTicketId: widget.ticketId,
                               quantityvalue: 0,
                             )))
                           .future,
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return CartShimmerWidget();
+                          return const CartShimmerWidget();
                         }
                         final mainContainerGetMedicineDetailsResponse =
                             snapshot.data!;
@@ -189,7 +189,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                   }()
                                 : FFAppState().width.small.toDouble(),
                           ),
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -212,25 +212,23 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           .where((e) =>
                                               e.prescriptionRequired ==
                                               'Prescription Required')
-                                          .toList()
-                                          .length >=
-                                      1))
+                                          .toList().isNotEmpty))
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 44.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0xFFFFEDF8),
+                                        color: const Color(0xFFFFEDF8),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -351,9 +349,9 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                       ) !=
                                       '')
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -377,7 +375,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       MediaQuery.viewInsetsOf(
                                                           context),
                                                   child: ViewPrescriptionWidget(
-                                                    ticketid: widget!.ticketId,
+                                                    ticketid: widget.ticketId,
                                                   ),
                                                 ),
                                               ),
@@ -391,13 +389,13 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 1.0,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFFFEDF8),
+                                          color: const Color(0xFFFFEDF8),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -408,7 +406,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 '${AirtableApiGroup.findSingleOrderCall.prescriptionList(
                                                       medicineCartFindSingleOrderResponse
                                                           .jsonBody,
-                                                    )?.length?.toString()} Prescriptions uploaded. Tap to see files.',
+                                                    )?.length.toString()} Prescriptions uploaded. Tap to see files.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
@@ -441,10 +439,10 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                 ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: BoxDecoration(),
+                                    decoration: const BoxDecoration(),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -462,7 +460,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Container(
@@ -470,7 +468,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: [
+                                                  boxShadow: const [
                                                     BoxShadow(
                                                       blurRadius: 24.0,
                                                       color: Color(0x34959DA5),
@@ -486,7 +484,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 20.0),
                                                   child: Column(
@@ -506,7 +504,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           0)
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       0.0,
@@ -556,7 +554,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return LocationSearchShimmerWidget();
+                                                            return const LocationSearchShimmerWidget();
                                                           }
                                                           List<AppResourcesRecord>
                                                               containerAppResourcesRecordList =
@@ -575,7 +573,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
 
                                                           return Container(
                                                             decoration:
-                                                                BoxDecoration(),
+                                                                const BoxDecoration(),
                                                             child: Builder(
                                                               builder:
                                                                   (context) {
@@ -589,7 +587,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         [];
                                                                 if (medicine
                                                                     .isEmpty) {
-                                                                  return EmptymedicineWidget();
+                                                                  return const EmptymedicineWidget();
                                                                 }
 
                                                                 return Column(
@@ -655,7 +653,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           r'''$.fields.MedicineRate''',
                                                                         ),
                                                                         ticketid:
-                                                                            widget!.ticketId!,
+                                                                            widget.ticketId!,
                                                                         orderRecordId: AirtableApiGroup
                                                                             .findSingleOrderCall
                                                                             .recordId(
@@ -697,7 +695,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         },
                                                       ),
                                                     ].divide(
-                                                        SizedBox(height: 10.0)),
+                                                        const SizedBox(height: 10.0)),
                                                   ),
                                                 ),
                                               ),
@@ -711,7 +709,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -719,7 +717,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 24.0,
                                                         color:
@@ -737,14 +735,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(10.0),
+                                                        const EdgeInsets.all(10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -771,7 +769,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
-                                                            ].divide(SizedBox(
+                                                            ].divide(const SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -783,7 +781,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                             null)
                                                           Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     8.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -814,7 +812,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -871,7 +869,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -910,13 +908,13 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           backgroundColor:
                                                                               Colors.transparent,
                                                                           alignment:
-                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
                                                                               WebViewAware(
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                              child: Container(
+                                                                              child: SizedBox(
                                                                                 height: 300.0,
                                                                                 width: 300.0,
                                                                                 child: HandlingchargesWidget(
@@ -966,7 +964,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             8.0,
                                                                             0.0,
                                                                             0.0,
@@ -987,7 +985,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         builder:
                                                                             (context) =>
                                                                                 Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               8.0,
                                                                               0.0,
                                                                               0.0,
@@ -1011,11 +1009,11 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                                     elevation: 0,
                                                                                     insetPadding: EdgeInsets.zero,
                                                                                     backgroundColor: Colors.transparent,
-                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                     child: WebViewAware(
                                                                                       child: GestureDetector(
                                                                                         onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                                        child: Container(
+                                                                                        child: SizedBox(
                                                                                           height: 300.0,
                                                                                           width: 300.0,
                                                                                           child: HandlingchargesWidget(
@@ -1075,7 +1073,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           .toString() !=
                                                                       '0')
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           8.0,
@@ -1119,7 +1117,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           .toString() ==
                                                                       '0')
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           8.0,
@@ -1190,7 +1188,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -1221,7 +1219,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1257,7 +1255,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ) !=
                                                                       0)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           8.0,
@@ -1290,7 +1288,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ) ==
                                                                       0)
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           8.0,
@@ -1358,7 +1356,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ))
                                                           Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     8.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1389,7 +1387,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -1446,7 +1444,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   9.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -1537,7 +1535,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -1561,7 +1559,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       await launchURL(
-                                                          'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget!.ticketId?.toString()}');
+                                                          'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketId?.toString()}');
                                                     },
                                                     child: Row(
                                                       mainAxisSize:
@@ -1569,14 +1567,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       children: [
                                                         Stack(
                                                           alignment:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           children: [
                                                             Container(
                                                               width: 36.0,
                                                               height: 36.0,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 color: Color(
                                                                     0xFFF7F7F7),
                                                                 shape: BoxShape
@@ -1612,7 +1610,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -1663,7 +1661,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1678,7 +1676,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                             size: 14.0,
                                                           ),
                                                         ),
-                                                      ].divide(SizedBox(
+                                                      ].divide(const SizedBox(
                                                           width: 10.0)),
                                                     ),
                                                   ),
@@ -1693,7 +1691,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -1712,14 +1710,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     children: [
                                                       Stack(
                                                         alignment:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         children: [
                                                           Container(
                                                             width: 36.0,
                                                             height: 36.0,
                                                             decoration:
-                                                                BoxDecoration(
+                                                                const BoxDecoration(
                                                               color: Color(
                                                                   0xFFF7F7F7),
                                                               shape: BoxShape
@@ -1755,7 +1753,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1849,7 +1847,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         '',
                                               ),
                                             ),
-                                          ].divide(SizedBox(height: 20.0)),
+                                          ].divide(const SizedBox(height: 20.0)),
                                         ),
                                       ),
                                     ),
@@ -1879,7 +1877,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: [
+                                  boxShadow: const [
                                     BoxShadow(
                                       blurRadius: 24.0,
                                       color: Color(0x34959DA5),
@@ -1890,7 +1888,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                       spreadRadius: 0.0,
                                     )
                                   ],
-                                  borderRadius: BorderRadius.only(
+                                  borderRadius: const BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(20.0),
@@ -1898,7 +1896,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1927,7 +1925,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                               0))
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -1965,10 +1963,10 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       .width *
                                                   1.0,
                                               height: 50.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2030,7 +2028,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return ShimmerAddressWidget();
+                                              return const ShimmerAddressWidget();
                                             }
                                             final addressRowGetAddressDetailsResponse =
                                                 snapshot.data!;
@@ -2059,7 +2057,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -2263,7 +2261,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   ?.length !=
                                               0))
                                         AuthUserStreamWidget(
-                                          builder: (context) => Container(
+                                          builder: (context) => SizedBox(
                                             width: 390.0,
                                             height: 60.0,
                                             child:
@@ -2306,7 +2304,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       .toDouble(),
                                               name:
                                                   '${valueOrDefault(currentUserDocument?.firstName, '')} ${valueOrDefault(currentUserDocument?.lastName, '')}',
-                                              ticketId: widget!.ticketId,
+                                              ticketId: widget.ticketId,
                                               contactNumber: currentPhoneNumber,
                                               buttonTextValue:
                                                   'TOTAL ${'₹ ${formatNumber(
@@ -2354,7 +2352,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   'PaymentSuccess',
                                                   queryParameters: {
                                                     'ticketId': serializeParam(
-                                                      widget!.ticketId,
+                                                      widget.ticketId,
                                                       ParamType.int,
                                                     ),
                                                   }.withoutNulls,
@@ -2365,7 +2363,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   'PaymentFailed',
                                                   queryParameters: {
                                                     'ticketid': serializeParam(
-                                                      widget!.ticketId,
+                                                      widget.ticketId,
                                                       ParamType.int,
                                                     ),
                                                   }.withoutNulls,
@@ -2375,8 +2373,8 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           ),
                                         ),
                                     ]
-                                        .divide(SizedBox(height: 8.0))
-                                        .around(SizedBox(height: 8.0)),
+                                        .divide(const SizedBox(height: 8.0))
+                                        .around(const SizedBox(height: 8.0)),
                                   ),
                                 ),
                               ),
