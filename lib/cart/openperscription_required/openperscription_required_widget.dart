@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'openperscription_required_model.dart';
@@ -42,14 +43,16 @@ class _OpenperscriptionRequiredWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if ((widget.ordersource == 'Search') &&
+      if ((widget!.ordersource == 'Search') &&
           !FFAppState().Donothaveprescription &&
-          widget.prescriptioncheck! &&
+          widget!.prescriptioncheck! &&
           (FFAppState()
                   .CartMedicineDetails
                   .where(
                       (e) => e.prescriptionRequired == 'Prescription Required')
-                  .toList().isNotEmpty)) {
+                  .toList()
+                  .length >=
+              1)) {
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
@@ -61,7 +64,7 @@ class _OpenperscriptionRequiredWidgetState
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
                 child: PrescriptionRequiedWidget(
-                  orderId: widget.recordId!,
+                  orderId: widget!.recordId!,
                 ),
               ),
             );

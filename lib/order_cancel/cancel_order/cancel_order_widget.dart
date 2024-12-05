@@ -65,7 +65,7 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -73,7 +73,7 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -88,7 +88,7 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 59.0,
                           height: 6.0,
@@ -143,9 +143,9 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 50.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).plazzaNewPrimaryPink,
                     textStyle: FlutterFlowTheme.of(context)
                         .headlineSmall
@@ -172,7 +172,7 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
                         return WebViewAware(
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: const SelectReasonWidget(),
+                            child: SelectReasonWidget(),
                           ),
                         );
                       },
@@ -183,9 +183,9 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
                     width: 350.0,
                     height: 50.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: Colors.white,
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily:
@@ -202,9 +202,9 @@ class _CancelOrderWidgetState extends State<CancelOrderWidget> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
-              ].divide(const SizedBox(height: 20.0)),
+              ].divide(SizedBox(height: 20.0)),
             ),
-          ].divide(const SizedBox(height: 20.0)),
+          ].divide(SizedBox(height: 20.0)),
         ),
       ),
     );

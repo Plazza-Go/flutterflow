@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -88,9 +89,9 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         .titleLargeFamily),
                               ),
                         ),
-                      ].divide(const SizedBox(width: 20.0)),
+                      ].divide(SizedBox(width: 20.0)),
                     ),
-                    actions: const [],
+                    actions: [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -98,7 +99,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb
@@ -118,10 +119,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           }()
                         : FFAppState().width.small.toDouble(),
                   ),
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -132,7 +133,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -172,11 +173,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -195,7 +196,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         .primaryBackground,
                                     borderRadius: BorderRadius.circular(8.0),
                                     border: Border.all(
-                                      color: const Color(0xFFD9D9D9),
+                                      color: Color(0xFFD9D9D9),
                                       width: 1.0,
                                     ),
                                   ),
@@ -233,13 +234,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                           .bodyMediumFamily),
                                             ),
                                       ),
-                                    ].divide(const SizedBox(width: 5.0)),
+                                    ].divide(SizedBox(width: 5.0)),
                                   ),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -265,7 +266,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                         ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -282,7 +283,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             width: 32.0,
                                             height: 32.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: SvgPicture.asset(
@@ -308,15 +309,15 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 14.0)),
+                                        ].divide(SizedBox(width: 14.0)),
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 16.0)),
+                                ].divide(SizedBox(height: 16.0)),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -356,7 +357,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           width: 32.0,
                                           height: 32.0,
                                           clipBehavior: Clip.antiAlias,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
                                           child: SvgPicture.asset(
@@ -381,12 +382,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                             .bodyMediumFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(width: 14.0)),
+                                      ].divide(SizedBox(width: 14.0)),
                                     ),
                                   ),
                                   Builder(
                                     builder: (context) => Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 4.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -407,7 +408,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                               width: 32.0,
                                               height: 32.0,
                                               clipBehavior: Clip.antiAlias,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 shape: BoxShape.circle,
                                               ),
                                               child: SvgPicture.asset(
@@ -434,13 +435,13 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                                     .bodyMediumFamily),
                                                       ),
                                             ),
-                                          ].divide(const SizedBox(width: 14.0)),
+                                          ].divide(SizedBox(width: 14.0)),
                                         ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -457,7 +458,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             width: 32.0,
                                             height: 32.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: SvgPicture.asset(
@@ -483,12 +484,12 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 14.0)),
+                                        ].divide(SizedBox(width: 14.0)),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -511,7 +512,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             width: 32.0,
                                             height: 32.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: SvgPicture.asset(
@@ -537,14 +538,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 14.0)),
+                                        ].divide(SizedBox(width: 14.0)),
                                       ),
                                     ),
                                   ),
-                                ].divide(const SizedBox(height: 16.0)),
+                                ].divide(SizedBox(height: 16.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 20.0)),
+                          ].divide(SizedBox(height: 20.0)),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -571,7 +572,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                 .bodyMediumFamily),
                                   ),
                             ),
-                          ].divide(const SizedBox(height: 5.0)),
+                          ].divide(SizedBox(height: 5.0)),
                         ),
                       ],
                     ),

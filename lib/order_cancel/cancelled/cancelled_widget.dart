@@ -71,12 +71,12 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      const Color(0xFFFFEDEF),
+                      Color(0xFFFFEDEF),
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: const [0.0, 1.0],
-                    begin: const AlignmentDirectional(0.0, -1.0),
-                    end: const AlignmentDirectional(0, 1.0),
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: Column(
@@ -85,13 +85,13 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                   children: [
                     Expanded(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: Lottie.asset(
                                 'assets/jsons/Somethingwentwrong.json',
                                 width: 80.0,
@@ -101,7 +101,7 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 30.0, 0.0, 0.0),
                               child: Text(
                                 'Your order has been cancelled.',
@@ -136,7 +136,7 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -165,10 +165,10 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                                     color: FlutterFlowTheme.of(context).primary,
                                     size: 24.0,
                                   ),
-                                ].divide(const SizedBox(width: 5.0)),
+                                ].divide(SizedBox(width: 5.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 10.0)),
+                          ].divide(SizedBox(height: 10.0)),
                         ),
                       ),
                     ),
@@ -180,10 +180,10 @@ class _CancelledWidgetState extends State<CancelledWidget> {
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 0.9,
                         height: 50.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
                             .titleSmall

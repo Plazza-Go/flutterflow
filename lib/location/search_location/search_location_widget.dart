@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shimmer/location_search_shimmer/location_search_shimmer_widget.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'dart:async';
@@ -79,7 +80,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                     automaticallyImplyLeading: false,
                     leading: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -108,10 +109,10 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                           .titleLargeFamily),
                                 ),
                           ),
-                        ].divide(const SizedBox(width: 10.0)),
+                        ].divide(SizedBox(width: 10.0)),
                       ),
                     ),
-                    actions: const [],
+                    actions: [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -119,7 +120,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb
@@ -143,26 +144,26 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(20.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 20.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             height: 50.0,
-                            decoration: const BoxDecoration(),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: SizedBox(
+                            decoration: BoxDecoration(),
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               child: TextFormField(
                                 controller: _model.textController,
                                 focusNode: _model.textFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
                                   '_model.textController',
-                                  const Duration(milliseconds: 2000),
+                                  Duration(milliseconds: 2000),
                                   () async {
                                     safeSetState(() =>
                                         _model.apiRequestCompleter = null);
@@ -233,9 +234,9 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                   fillColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 10.0),
-                                  prefixIcon: const Icon(
+                                  prefixIcon: Icon(
                                     FFIcons.ksearch1,
                                   ),
                                 ),
@@ -261,10 +262,10 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 20.0),
                           child: Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -312,7 +313,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                           .bodyMediumFamily),
                                             ),
                                       ),
-                                    ].divide(const SizedBox(width: 8.0)),
+                                    ].divide(SizedBox(width: 8.0)),
                                   ),
                                   Icon(
                                     Icons.chevron_right_outlined,
@@ -320,17 +321,17 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                         .primaryText,
                                     size: 24.0,
                                   ),
-                                ].divide(const SizedBox(width: 10.0)),
+                                ].divide(SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
                         ),
-                        const Divider(
+                        Divider(
                           thickness: 1.0,
                           color: Color(0xFFF0F0F0),
                         ),
                         Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -344,7 +345,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const LocationSearchShimmerWidget();
+                                    return LocationSearchShimmerWidget();
                                   }
                                   final addressListViewGoogleMapSearchResponse =
                                       snapshot.data!;
@@ -356,7 +357,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                       addressListViewGoogleMapSearchResponse
                                                           .jsonBody)
                                                   ?.predictions
-                                                  .toList() ??
+                                                  ?.toList() ??
                                               [];
 
                                       return RefreshIndicator(
@@ -372,7 +373,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                           scrollDirection: Axis.vertical,
                                           itemCount: location.length,
                                           separatorBuilder: (_, __) =>
-                                              const SizedBox(height: 16.0),
+                                              SizedBox(height: 16.0),
                                           itemBuilder:
                                               (context, locationIndex) {
                                             final locationItem =
@@ -393,7 +394,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                 if ((_model
                                                         .getLatlng?.succeeded ??
                                                     true)) {
-                                                  if (widget.addLocation !=
+                                                  if (widget!.addLocation !=
                                                       'Edit') {
                                                     FFAppState().address =
                                                         AppAddressStruct(
@@ -439,21 +440,21 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                         ),
                                                         'orderRecordId':
                                                             serializeParam(
-                                                          widget.recordId,
+                                                          widget!.recordId,
                                                           ParamType.String,
                                                         ),
                                                         'pagename':
                                                             serializeParam(
-                                                          widget.pagename,
+                                                          widget!.pagename,
                                                           ParamType.String,
                                                         ),
                                                         'addressId':
                                                             serializeParam(
-                                                          widget.addressId,
+                                                          widget!.addressId,
                                                           ParamType.String,
                                                         ),
                                                         'tag': serializeParam(
-                                                          widget.tag,
+                                                          widget!.tag,
                                                           ParamType.String,
                                                         ),
                                                       }.withoutNulls,
@@ -473,7 +474,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                               .info,
                                                         ),
                                                       ),
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 4000),
                                                       backgroundColor:
                                                           FlutterFlowTheme.of(
@@ -499,7 +500,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           12.0, 8.0, 12.0, 8.0),
                                                   child: Row(
@@ -521,7 +522,7 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                       Expanded(
                                                         child: Container(
                                                           decoration:
-                                                              const BoxDecoration(),
+                                                              BoxDecoration(),
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -582,13 +583,13 @@ class _SearchLocationWidgetState extends State<SearchLocationWidget> {
                                                                               FlutterFlowTheme.of(context).bodyLargeFamily),
                                                                     ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 height: 8.0)),
                                                           ),
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 8.0)),
+                                                        SizedBox(width: 8.0)),
                                                   ),
                                                 ),
                                               ),

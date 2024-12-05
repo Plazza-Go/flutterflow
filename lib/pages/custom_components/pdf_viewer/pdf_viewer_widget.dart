@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'pdf_viewer_model.dart';
 export 'pdf_viewer_model.dart';
 
@@ -48,7 +49,7 @@ class _PdfViewerWidgetState extends State<PdfViewerWidget> {
       width: MediaQuery.sizeOf(context).width * 1.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -60,7 +61,7 @@ class _PdfViewerWidgetState extends State<PdfViewerWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -71,7 +72,7 @@ class _PdfViewerWidgetState extends State<PdfViewerWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Container(
                           width: 59.0,
                           height: 6.0,
@@ -114,16 +115,16 @@ class _PdfViewerWidgetState extends State<PdfViewerWidget> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: FlutterFlowPdfViewer(
-                networkPath: widget.pdfUrl!,
+                networkPath: widget!.pdfUrl!,
                 width: 350.0,
                 height: 500.0,
                 horizontalScroll: false,
               ),
             ),
           ),
-        ].divide(const SizedBox(height: 10.0)),
+        ].divide(SizedBox(height: 10.0)),
       ),
     );
   }

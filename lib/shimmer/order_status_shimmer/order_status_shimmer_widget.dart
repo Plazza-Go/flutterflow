@@ -1,8 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'order_status_shimmer_model.dart';
 export 'order_status_shimmer_model.dart';
@@ -115,7 +118,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
         constraints: BoxConstraints(
           maxWidth: isWeb
@@ -134,13 +137,13 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                 }()
               : FFAppState().width.small.toDouble(),
         ),
-        decoration: const BoxDecoration(),
+        decoration: BoxDecoration(),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: SingleChildScrollView(
                 primary: false,
                 child: Column(
@@ -148,13 +151,13 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 300.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 24.0,
                               color: Color(0x34959DA5),
@@ -171,7 +174,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                           animationsMap['containerOnPageLoadAnimation1']!),
                     ),
                     Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(
+                      padding: EdgeInsetsDirectional.fromSTEB(
                           20.0, 300.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -182,7 +185,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -203,7 +206,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -224,7 +227,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -245,7 +248,7 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -260,10 +263,10 @@ class _OrderStatusShimmerWidgetState extends State<OrderStatusShimmerWidget>
                             ),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation5']!),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(SizedBox(height: 20.0)),
                       ),
                     ),
-                  ].divide(const SizedBox(height: 20.0)),
+                  ].divide(SizedBox(height: 20.0)),
                 ),
               ),
             ),

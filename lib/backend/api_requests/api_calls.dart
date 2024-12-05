@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -61,7 +63,6 @@ class AirtableApiGroup {
 class CreateAddressCall {
   Future<ApiCallResponse> call({
     String? contactID = 'recckAFNMzRd5saKz',
-    int? pincode = 271001,
     String? longitude = '77.6883275',
     String? latitude = '12.921176',
     String? houseNumber = '01',
@@ -80,25 +81,24 @@ class CreateAddressCall {
     {
       "fields": {
         "ContactID": [
-          "$contactID"
+          "${contactID}"
         ],
-        "Pincode": $pincode,
-        "Longitude": "$longitude",
-        "Latitude": "$latitude",
-        "HouseNumber": "$houseNumber",
-        "Floor": "$floor",
-        "BuildingName": "$buildingName",
-        "Landmark": "$landmark",
-        "Locality": "$locality",
-        "ContactMobile": "$contactMobile",
-        "Tag": "$tag"
+        "Longitude": "${longitude}",
+        "Latitude": "${latitude}",
+        "HouseNumber": "${houseNumber}",
+        "Floor": "${floor}",
+        "BuildingName": "${buildingName}",
+        "Landmark": "${landmark}",
+        "Locality": "${locality}",
+        "ContactMobile": "${contactMobile}",
+        "Tag": "${tag}"
       }
     }
   ]
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createAddress',
-      apiUrl: '$baseUrl/tblc0RIN7JYzFmlxm',
+      apiUrl: '${baseUrl}/tblc0RIN7JYzFmlxm',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -137,18 +137,18 @@ class CreateContactIdCall {
   "records": [
     {
       "fields": {
-        "ContactID": "$contactID",
-        "FirstName": "$firstName",
-        "LastName": "$lastName",
-        "MobilePhoneNumber": "$mobilePhoneNumber",
-        "Gender" : "$gender"
+        "ContactID": "${contactID}",
+        "FirstName": "${firstName}",
+        "LastName": "${lastName}",
+        "MobilePhoneNumber": "${mobilePhoneNumber}",
+        "Gender" : "${gender}"
       }
     }
   ]
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'CreateContactId',
-      apiUrl: '$baseUrl/tblemoQGd9z2Ehwum',
+      apiUrl: '${baseUrl}/tblemoQGd9z2Ehwum',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -196,26 +196,26 @@ class AddMedicineCall {
     {
       "fields": {
         "Order": [
-          "$orderID"
+          "${orderID}"
         ],
-         "MedicineImages": $imagePath,
-        "Medicine Name": "$medicineName",
-        "Quantity": $quantity,
-        "Plazza Price": $plazzaPrice,
-        "PlazzaPrice_Cart": $plazzaPriceCart,
-        "MedicineRate": $medicineRate,
-        "Quantity_Cart": $quantityCart,
-        "Product_ID": "$productid",
-        "Prescription_Required": "$prescriptionRequired",
-        "Packaging_Details": "$packagingDetails",
-         "Medicine_strip_size": "$medicineStripSizes"
+         "MedicineImages": ${imagePath},
+        "Medicine Name": "${medicineName}",
+        "Quantity": ${quantity},
+        "Plazza Price": ${plazzaPrice},
+        "PlazzaPrice_Cart": ${plazzaPriceCart},
+        "MedicineRate": ${medicineRate},
+        "Quantity_Cart": ${quantityCart},
+        "Product_ID": "${productid}",
+        "Prescription_Required": "${prescriptionRequired}",
+        "Packaging_Details": "${packagingDetails}",
+         "Medicine_strip_size": "${medicineStripSizes}"
       }
     }
   ]
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Add Medicine',
-      apiUrl: '$baseUrl/tblN6VE6bxbIgu0z3',
+      apiUrl: '${baseUrl}/tblN6VE6bxbIgu0z3',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -242,8 +242,9 @@ class AddMedicineCall {
 class CreateOrderByPrescriptionCall {
   Future<ApiCallResponse> call({
     String? contactID = 'recckAFNMzRd5saKz',
-    dynamic urlListJson,
+    dynamic? urlListJson,
     String? localityId = '',
+    String? appVersion = '',
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
 
@@ -253,13 +254,14 @@ class CreateOrderByPrescriptionCall {
   "records": [
     {
       "fields": {
-        "Prescription": $urlList,
+        "Prescription": ${urlList},
         "Contact ID": [
-          "$contactID"
+          "${contactID}"
        ],
      "Locality": [
-             "$localityId"
+             "${localityId}"
         ],
+     "App_Version_Order": "${appVersion}",
          "Order_Source":"Rx"
       }
     }
@@ -267,7 +269,7 @@ class CreateOrderByPrescriptionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createOrder By Prescription',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -289,9 +291,10 @@ class CreateOrderByPrescriptionCall {
 class CreateOrderByPrescriptionWithAddressCall {
   Future<ApiCallResponse> call({
     String? contactID = 'recckAFNMzRd5saKz',
-    dynamic urlListJson,
+    dynamic? urlListJson,
     String? localityId = '',
     String? addressId = '',
+    String? appVersion = '',
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
 
@@ -301,16 +304,17 @@ class CreateOrderByPrescriptionWithAddressCall {
   "records": [
     {
       "fields": {
-        "Prescription": $urlList,
+        "Prescription": ${urlList},
         "Contact ID": [
-          "$contactID"
+          "${contactID}"
        ],
      "Locality": [
-             "$localityId"
+             "${localityId}"
         ],
      "AddressID": [
-      "$addressId"
+      "${addressId}"
     ],
+      "App_Version_Order": "${appVersion}",
          "Order_Source":"Rx"
       }
     }
@@ -318,7 +322,7 @@ class CreateOrderByPrescriptionWithAddressCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createOrder By Prescription With Address',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -341,6 +345,7 @@ class CreateOrdersBySearchCall {
   Future<ApiCallResponse> call({
     String? contactID = 'recckAFNMzRd5saKz',
     String? localityId = 'rec2J5Eh29afzsS2T',
+    String? appVersion = '',
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
 
@@ -351,11 +356,12 @@ class CreateOrdersBySearchCall {
       "fields": {
         "Status": "New Order",
         "Contact ID": [
-          "$contactID"
+          "${contactID}"
         ],
         "Locality": [
-          "$localityId"
+          "${localityId}"
         ],
+ "App_Version_Order": "${appVersion}",
         "Order_Source": "Search"
       }
     }
@@ -363,7 +369,7 @@ class CreateOrdersBySearchCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createOrders By Search',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -389,6 +395,26 @@ class CreateOrdersBySearchCall {
         response,
         r'''$.records[:].fields["Ticket ID"]''',
       ));
+  int? deliveryCharges(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].fields.Delivery_Charges''',
+      ));
+  int? platformFee(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].fields.Platform_Fee''',
+      ));
+  int? packagingCharges(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].fields.Packaging_Charges''',
+      ));
+  int? convenienceFee(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.records[:].fields.Convenience_Fee''',
+      ));
+  dynamic addressID(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.AddressID[0]''',
+      );
 }
 
 class CreateOrdersBySearchWithAddressCall {
@@ -396,6 +422,7 @@ class CreateOrdersBySearchWithAddressCall {
     String? contactID = 'recckAFNMzRd5saKz',
     String? localityId = 'rec2J5Eh29afzsS2T',
     String? addressId = '',
+    String? appVersion = '',
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
 
@@ -406,14 +433,15 @@ class CreateOrdersBySearchWithAddressCall {
       "fields": {
         "Status": "New Order",
         "Contact ID": [
-          "$contactID"
+          "${contactID}"
         ],
         "Locality": [
-          "$localityId"
+          "${localityId}"
         ],
            "AddressID": [
-      "$addressId"
+      "${addressId}"
     ],
+    "App_Version_Order": "${appVersion}",
     "Order_Source":"Search"
       }
     }
@@ -421,7 +449,7 @@ class CreateOrdersBySearchWithAddressCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createOrders By Search With address',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N',
       callType: ApiCallType.POST,
       headers: {
         'Authorization':
@@ -447,12 +475,31 @@ class CreateOrdersBySearchWithAddressCall {
         response,
         r'''$.records[:].fields["Ticket ID"]''',
       ));
+  dynamic deliveryCharges(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.Delivery_Charges''',
+      );
+  dynamic platformFee(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.Platform_Fee''',
+      );
+  dynamic packagingCharges(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.Packaging_Charges''',
+      );
+  dynamic convenienceFee(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.Convenience_Fee''',
+      );
+  dynamic addressID(dynamic response) => getJsonField(
+        response,
+        r'''$.records[:].fields.AddressID[0]''',
+      );
 }
 
 class UpdateAddressCall {
   Future<ApiCallResponse> call({
     String? addressId = '919450490634',
-    int? pincode = 271001,
     String? longitude = '81.961990',
     String? latitude = '27.133875',
     String? houseNumber = '01',
@@ -468,21 +515,20 @@ class UpdateAddressCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "Pincode": $pincode,
-    "Longitude": "$longitude",
-    "Latitude": "$latitude",
-    "HouseNumber": "$houseNumber",
-    "Floor": "$floor",
-    "BuildingName": "$buildingName",
-    "Landmark": "$landmark",
-    "Locality": "$locality",
-    "ContactMobile": "$contactNumber",
-    "Tag": "$addressTag"
+    "Longitude": "${longitude}",
+    "Latitude": "${latitude}",
+    "HouseNumber": "${houseNumber}",
+    "Floor": "${floor}",
+    "BuildingName": "${buildingName}",
+    "Landmark": "${landmark}",
+    "Locality": "${locality}",
+    "ContactMobile": "${contactNumber}",
+    "Tag": "${addressTag}"
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateAddress',
-      apiUrl: '$baseUrl/tblc0RIN7JYzFmlxm/$addressId',
+      apiUrl: '${baseUrl}/tblc0RIN7JYzFmlxm/${addressId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -512,13 +558,13 @@ class UpdateContactIdAddressCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "Longitude": "$longitude",
-    "Latitude": "$latitude"
+    "Longitude": "${longitude}",
+    "Latitude": "${latitude}"
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateContactIdAddress',
-      apiUrl: '$baseUrl/tblemoQGd9z2Ehwum/$recordId',
+      apiUrl: '${baseUrl}/tblemoQGd9z2Ehwum/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -548,13 +594,13 @@ class UpdateMedicineDetailsCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "PlazzaPrice_Cart": $totalprice,
-    "Quantity_Cart": $quantity
+    "PlazzaPrice_Cart": ${totalprice},
+    "Quantity_Cart": ${quantity}
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateMedicineDetails',
-      apiUrl: '$baseUrl/tblN6VE6bxbIgu0z3/$recordId',
+      apiUrl: '${baseUrl}/tblN6VE6bxbIgu0z3/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -584,15 +630,15 @@ class UpdateSearchMedicineDetailsCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "PlazzaPrice_Cart": $totalprice,
-    "Quantity_Cart": $quantity,
-     "Quantity":$quantity,
-      "Plazza Price":$totalprice
+    "PlazzaPrice_Cart": ${totalprice},
+    "Quantity_Cart": ${quantity},
+     "Quantity":${quantity},
+      "Plazza Price":${totalprice}
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateSearchMedicineDetails ',
-      apiUrl: '$baseUrl/tblN6VE6bxbIgu0z3/$recordId',
+      apiUrl: '${baseUrl}/tblN6VE6bxbIgu0z3/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -621,12 +667,12 @@ class UpdateOrderItemPriceCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "Item Total": $itemPrice
+    "Item Total": ${itemPrice}
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateOrderItemPrice',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N/$recordId',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -647,7 +693,7 @@ class UpdateOrderItemPriceCall {
 
 class UpdateOrderPrescriptionCall {
   Future<ApiCallResponse> call({
-    dynamic prescriptionJson,
+    dynamic? prescriptionJson,
     String? recordId = 'rec1XQSNz2bMZVGLM',
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
@@ -656,12 +702,12 @@ class UpdateOrderPrescriptionCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "Prescription": $prescription
+    "Prescription": ${prescription}
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'UpdateOrder Prescription',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N/$recordId',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -690,12 +736,12 @@ class RateOrderCall {
     final ffApiRequestBody = '''
 {
   "fields": {
-    "Rating": $rating
+    "Rating": ${rating}
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'RateOrder',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N/$recordId',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -725,13 +771,13 @@ class UpdateAddressidInOrderCall {
 {
   "fields": {
     "AddressID": [
-      "$addressId"
+      "${addressId}"
     ]
   }
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'update Addressid in order',
-      apiUrl: '$baseUrl/tblGQ0gGC4IKOo48N/$recordId',
+      apiUrl: '${baseUrl}/tblGQ0gGC4IKOo48N/${recordId}',
       callType: ApiCallType.PATCH,
       headers: {
         'Authorization':
@@ -764,7 +810,7 @@ class DeleteCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Delete',
-      apiUrl: '$baseUrl/$tableName/$recordId',
+      apiUrl: '${baseUrl}/${tableName}/${recordId}',
       callType: ApiCallType.DELETE,
       headers: {
         'Authorization':
@@ -790,7 +836,7 @@ class FindOrderListDataCall {
     return ApiManager.instance.makeApiCall(
       callName: 'FindOrderListData',
       apiUrl:
-          '$baseUrl/tblGQ0gGC4IKOo48N?filterByFormula=AND({Contact ID} = \'$phoneNumber\', OR( {Order_Source} != \"Search\",  AND( {Order_Source} = \"Search\", {Status} != \"New Order\",  {Status} != \"Waiting for availability\", {Status} != \"Availability updated\",  {Status} != \"Final order ready\" )))&sortField=Ticket%20ID&sortDirection=desc',
+          '${baseUrl}/tblGQ0gGC4IKOo48N?filterByFormula=AND({Contact ID} = \'${phoneNumber}\', OR( {Order_Source} != \"Search\",  AND( {Order_Source} = \"Search\", {Status} != \"New Order\",  {Status} != \"Waiting for availability\", {Status} != \"Availability updated\",  {Status} != \"Final order ready\" )))&sortField=Ticket%20ID&sortDirection=desc',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -822,7 +868,7 @@ class ArrowBarOrderCall {
     return ApiManager.instance.makeApiCall(
       callName: 'ArrowBarOrder',
       apiUrl:
-          '$baseUrl/tblGQ0gGC4IKOo48N?filterByFormula=AND( {Contact ID} = \'$phoneNumber\', {Status} != \'Order Cancelled\',{Rating}=BLANK(),OR({Order_Source} != \'Search\', AND({Order_Source} = \'Search\', {Status} != \'New Order\', {Status} != \'Waiting for availability\',{Status} != \'Availability updated\', {Status} != \'Final order ready\' )))&sortField=Ticket%20ID&sortDirection=desc',
+          '${baseUrl}/tblGQ0gGC4IKOo48N?filterByFormula=AND( {Contact ID} = \'${phoneNumber}\', {Status} != \'Order Cancelled\',{Rating}=BLANK(),OR({Order_Source} != \'Search\', AND({Order_Source} = \'Search\', {Status} != \'New Order\', {Status} != \'Waiting for availability\',{Status} != \'Availability updated\', {Status} != \'Final order ready\' )))&sortField=Ticket%20ID&sortDirection=desc',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -854,7 +900,7 @@ class FindListAddressCall {
     return ApiManager.instance.makeApiCall(
       callName: 'FindListAddress',
       apiUrl:
-          '$baseUrl/tblc0RIN7JYzFmlxm?filterByFormula=AND({ContactID}=\'$phoneNumber\')',
+          '${baseUrl}/tblc0RIN7JYzFmlxm?filterByFormula=AND({ContactID}=\'${phoneNumber}\')',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -879,14 +925,14 @@ class FindListAddressCall {
 
 class FindSingleOrderCall {
   Future<ApiCallResponse> call({
-    int? ticketID = 446,
+    int? ticketID = 484,
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'FindSingleOrder',
       apiUrl:
-          '$baseUrl/tblGQ0gGC4IKOo48N?filterByFormula={Ticket ID}=\'$ticketID\'',
+          '${baseUrl}/tblGQ0gGC4IKOo48N?filterByFormula={Ticket ID}=\'${ticketID}\'',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1011,7 +1057,7 @@ class GetInvoiceCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getInvoice',
       apiUrl:
-          '$baseUrl/tbl2YQpHdFU39XgfE?filterByFormula={Order ID}=\'$ticketID\'',
+          '${baseUrl}/tbl2YQpHdFU39XgfE?filterByFormula={Order ID}=\'${ticketID}\'',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1042,7 +1088,7 @@ class GetAnysingleTableDataCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAnysingleTableData',
-      apiUrl: '$baseUrl/$tableName/$recordId',
+      apiUrl: '${baseUrl}/${tableName}/${recordId}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1067,7 +1113,7 @@ class GetAddressDetailsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAddressDetails',
-      apiUrl: '$baseUrl/tblc0RIN7JYzFmlxm/$addressId',
+      apiUrl: '${baseUrl}/tblc0RIN7JYzFmlxm/${addressId}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1123,7 +1169,7 @@ class GetAddressDetailsCall {
 
 class GetMedicineDetailsCall {
   Future<ApiCallResponse> call({
-    int? orderTicketId = 252,
+    int? orderTicketId = 499,
     int? quantityvalue = 0,
   }) async {
     final baseUrl = AirtableApiGroup.getBaseUrl();
@@ -1131,7 +1177,7 @@ class GetMedicineDetailsCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getMedicineDetails',
       apiUrl:
-          '$baseUrl/tblN6VE6bxbIgu0z3?filterByFormula=AND(SEARCH(\'$orderTicketId\', {Order}) , {Quantity_Cart} != $quantityvalue)',
+          '${baseUrl}/tblN6VE6bxbIgu0z3?filterByFormula=AND(SEARCH(\'${orderTicketId}\', {Order}) , {Quantity_Cart} != ${quantityvalue})',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1163,7 +1209,7 @@ class GetLocalityCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getLocality',
       apiUrl:
-          '$baseUrl/tblHEwaQIZ5KDGXbW?filterByFormula={LocalityNumber}=$localitynumber',
+          '${baseUrl}/tblHEwaQIZ5KDGXbW?filterByFormula={LocalityNumber}=${localitynumber}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
@@ -1205,13 +1251,15 @@ class GetLocalityCall {
 
 class GoogleMapApiCall {
   static Future<ApiCallResponse> call({
-    String? api = 'AIzaSyDbJmsYeWF94p6IC-2I4AN2r3-13HfFWNo',
+    String? api,
     String? latlng = '12.9485692,77.6927833',
   }) async {
+    api ??= FFDevEnvironmentValues().googlemapApikey;
+
     return ApiManager.instance.makeApiCall(
       callName: 'GoogleMapApi',
       apiUrl:
-          'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latlng&key=$api',
+          'https://maps.googleapis.com/maps/api/geocode/json?latlng=${latlng}&key=${api}',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -1248,13 +1296,15 @@ class GoogleMapApiCall {
 
 class GoogleMapSearchCall {
   static Future<ApiCallResponse> call({
-    String? api = 'AIzaSyDbJmsYeWF94p6IC-2I4AN2r3-13HfFWNo',
+    String? api,
     String? input = 'gonda',
   }) async {
+    api ??= FFDevEnvironmentValues().googlemapApikey;
+
     return ApiManager.instance.makeApiCall(
       callName: 'googleMapSearch',
       apiUrl:
-          'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$input&types=geocode&key=$api',
+          'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${input}&types=geocode&key=${api}',
       callType: ApiCallType.POST,
       headers: {},
       params: {},
@@ -1271,13 +1321,15 @@ class GoogleMapSearchCall {
 
 class FindlatlngByPlaceIdCall {
   static Future<ApiCallResponse> call({
-    String? api = 'AIzaSyDbJmsYeWF94p6IC-2I4AN2r3-13HfFWNo',
+    String? api,
     String? placeid = 'ChIJqbfllQTumTkRyjb1HybWJ8k',
   }) async {
+    api ??= FFDevEnvironmentValues().googlemapApikey;
+
     return ApiManager.instance.makeApiCall(
       callName: 'findlatlng By Place Id',
       apiUrl:
-          'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeid&key=$api',
+          'https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeid}&key=${api}',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -1312,7 +1364,7 @@ class PaymentCaptureCall {
     String? appTransactionId = '12123345',
     int? tickectid = 71,
   }) async {
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
     "data": {
         "paymentId": "pay_PJrsHZEKBm6mcU",
@@ -1348,9 +1400,9 @@ class ServiceabilityCall {
   }) async {
     final ffApiRequestBody = '''
 {
-  "user_latitude": "$lat",
-  "user_longitude": "$lng",
-  "mobile_number": "$phonenumber"
+  "user_latitude": "${lat}",
+  "user_longitude": "${lng}",
+  "mobile_number": "${phonenumber}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Serviceability',
@@ -1435,7 +1487,7 @@ class MedicineSearchAutoCompleteCall {
     return ApiManager.instance.makeApiCall(
       callName: 'MedicineSearch Auto Complete',
       apiUrl:
-          'http://13.127.192.122:80/collections/medicines/documents/search?q=$query&query_by=name,salt_composition&prefix=true&per_page=5',
+          'http://13.127.192.122:80/collections/medicines/documents/search?q=${query}&query_by=name,salt_composition&prefix=true&per_page=5',
       callType: ApiCallType.GET,
       headers: {
         'X-TYPESENSE-API-KEY': 'ts_4aXLeylmbA_438324',
@@ -1472,7 +1524,7 @@ class SingleMedicineByProductIdCall {
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Single Medicine By ProductId',
-      apiUrl: 'http://13.202.245.86/medicine/_search?q=Product_id:$productId',
+      apiUrl: 'http://13.202.245.86/medicine/_search?q=Product_id:${productId}',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -1522,14 +1574,14 @@ class SingleMedicineByProductIdCall {
       ));
 }
 
-class MedicineSearchTestCall {
+class MedicineSearchTestsCall {
   static Future<ApiCallResponse> call({
     String? name = 'dolo',
   }) async {
     return ApiManager.instance.makeApiCall(
-      callName: ' medicine Search test',
+      callName: ' medicine Search tests',
       apiUrl:
-          'http://13.202.245.86/medicine/_search?q=(name:$name%20OR%20description:$name)AND%20medicine_type:drugs&size=240',
+          'http://13.202.245.86/medicine/_search?q=(name:${name}%20OR%20description:${name})AND%20medicine_type:drugs&size=240',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -1588,6 +1640,35 @@ class MedicineSearchsCall {
         r'''$.hits.hits''',
         true,
       ) as List?;
+}
+
+class CreateOrderCall {
+  static Future<ApiCallResponse> call() async {
+    final ffApiRequestBody = '''
+{
+    "data": {
+        "amount": 1000,
+        "currency": "INR",
+        "isProd": false
+    }
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'createOrder',
+      apiUrl:
+          'https://us-central1-plazza-mvp.cloudfunctions.net/createRazorpayOrder',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {

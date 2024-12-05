@@ -1,8 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cart_shimmer_model.dart';
 export 'cart_shimmer_model.dart';
@@ -114,7 +117,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
         constraints: BoxConstraints(
           maxWidth: isWeb
@@ -133,13 +136,13 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                 }()
               : FFAppState().width.small.toDouble(),
         ),
-        decoration: const BoxDecoration(),
+        decoration: BoxDecoration(),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              decoration: const BoxDecoration(),
+              decoration: BoxDecoration(),
               child: SingleChildScrollView(
                 primary: false,
                 child: Column(
@@ -147,13 +150,13 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 100.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 24.0,
                               color: Color(0x34959DA5),
@@ -171,13 +174,13 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 200.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          boxShadow: const [
+                          boxShadow: [
                             BoxShadow(
                               blurRadius: 24.0,
                               color: Color(0x34959DA5),
@@ -195,7 +198,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 68.0,
@@ -208,7 +211,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 68.0,
@@ -219,7 +222,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                       ).animateOnPageLoad(
                           animationsMap['containerOnPageLoadAnimation4']!),
                     ),
-                  ].divide(const SizedBox(height: 20.0)),
+                  ].divide(SizedBox(height: 20.0)),
                 ),
               ),
             ),
@@ -228,7 +231,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
               height: 200.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 24.0,
                     color: Color(0x34959DA5),
@@ -239,7 +242,7 @@ class _CartShimmerWidgetState extends State<CartShimmerWidget>
                     spreadRadius: 0.0,
                   )
                 ],
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(20.0),

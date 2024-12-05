@@ -8,6 +8,7 @@ import '/upload_prescription/components/cancel_uploading/cancel_uploading_widget
 import '/upload_prescription/components/failed_prescription/failed_prescription_widget.dart';
 import '/upload_prescription/components/successfully_uploaded/successfully_uploaded_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -76,9 +77,9 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                 }()
               : FFAppState().width.small.toDouble(),
         ),
-        decoration: const BoxDecoration(),
+        decoration: BoxDecoration(),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+          padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +91,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -146,7 +147,8 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                 }
                               }
 
-                              if (_model.uploadedFileUrl1 != '') {
+                              if (_model.uploadedFileUrl1 != null &&
+                                  _model.uploadedFileUrl1 != '') {
                                 Navigator.pop(context);
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
@@ -166,7 +168,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                           url: PrescriptiondataStruct(
                                             url: _model.uploadedFileUrl1,
                                           ),
-                                          orderId: widget.orderId,
+                                          orderId: widget!.orderId,
                                         ),
                                       ),
                                     );
@@ -186,7 +188,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
                                         child: FailedPrescriptionWidget(
-                                          orderId: widget.orderId,
+                                          orderId: widget!.orderId,
                                         ),
                                       ),
                                     );
@@ -205,7 +207,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                   return WebViewAware(
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const CancelUploadingWidget(),
+                                      child: CancelUploadingWidget(),
                                     ),
                                   );
                                 },
@@ -217,9 +219,9 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).info,
                           textStyle: FlutterFlowTheme.of(context)
@@ -299,7 +301,8 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                 }
                               }
 
-                              if (_model.uploadedFileUrl2 != '') {
+                              if (_model.uploadedFileUrl2 != null &&
+                                  _model.uploadedFileUrl2 != '') {
                                 Navigator.pop(context);
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
@@ -319,7 +322,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                           url: PrescriptiondataStruct(
                                             url: _model.uploadedFileUrl2,
                                           ),
-                                          orderId: widget.orderId,
+                                          orderId: widget!.orderId,
                                         ),
                                       ),
                                     );
@@ -339,7 +342,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
                                         child: FailedPrescriptionWidget(
-                                          orderId: widget.orderId,
+                                          orderId: widget!.orderId,
                                         ),
                                       ),
                                     );
@@ -358,7 +361,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                                   return WebViewAware(
                                     child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
-                                      child: const CancelUploadingWidget(),
+                                      child: CancelUploadingWidget(),
                                     ),
                                   );
                                 },
@@ -370,9 +373,9 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                         options: FFButtonOptions(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: 40.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 0.0, 16.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).info,
                           textStyle: FlutterFlowTheme.of(context)
@@ -404,9 +407,9 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                 options: FFButtonOptions(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 50.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   textStyle: FlutterFlowTheme.of(context)
                       .headlineSmall
@@ -421,7 +424,7 @@ class _UploadPrescriptionsWidgetState extends State<UploadPrescriptionsWidget> {
                   borderRadius: BorderRadius.circular(12.0),
                 ),
               ),
-            ].divide(const SizedBox(height: 20.0)),
+            ].divide(SizedBox(height: 20.0)),
           ),
         ),
       ),

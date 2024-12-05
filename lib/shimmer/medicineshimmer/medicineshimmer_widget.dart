@@ -1,8 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'medicineshimmer_model.dart';
 export 'medicineshimmer_model.dart';
@@ -39,7 +42,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -51,7 +54,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -63,7 +66,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -75,7 +78,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -87,7 +90,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -99,7 +102,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -111,7 +114,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -123,7 +126,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -135,7 +138,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -147,7 +150,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -159,7 +162,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -171,7 +174,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -193,7 +196,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
         constraints: BoxConstraints(
           maxWidth: isWeb
@@ -216,7 +219,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
           color: FlutterFlowTheme.of(context).primaryBackground,
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -230,7 +233,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -239,7 +242,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -248,7 +251,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -264,7 +267,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -273,7 +276,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -282,7 +285,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -298,7 +301,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -307,7 +310,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -316,7 +319,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -332,7 +335,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -341,7 +344,7 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
@@ -350,14 +353,14 @@ class _MedicineshimmerWidgetState extends State<MedicineshimmerWidget>
                     width: 100.0,
                     height: 160.0,
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEDF1F3),
+                      color: Color(0xFFEDF1F3),
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                   ).animateOnPageLoad(
                       animationsMap['containerOnPageLoadAnimation12']!),
                 ],
               ),
-            ].divide(const SizedBox(height: 25.0)),
+            ].divide(SizedBox(height: 25.0)),
           ),
         ),
       ),

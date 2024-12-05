@@ -1,7 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/home_profile/components/delete_account/delete_account_widget.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/home_profile/components/delete_accounts/delete_accounts_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -89,9 +90,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         .titleLargeFamily),
                               ),
                         ),
-                      ].divide(const SizedBox(width: 20.0)),
+                      ].divide(SizedBox(width: 20.0)),
                     ),
-                    actions: const [],
+                    actions: [],
                     centerTitle: true,
                     elevation: 0.0,
                   )
@@ -99,7 +100,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   constraints: BoxConstraints(
                     maxWidth: isWeb
@@ -119,16 +120,16 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                           }()
                         : FFAppState().width.small.toDouble(),
                   ),
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -149,7 +150,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                       width: 32.0,
                                       height: 32.0,
                                       clipBehavior: Clip.antiAlias,
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                       ),
                                       child: SvgPicture.asset(
@@ -172,11 +173,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                         .bodyMediumFamily),
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 14.0)),
+                                  ].divide(SizedBox(width: 14.0)),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -193,7 +194,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         width: 32.0,
                                         height: 32.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: SvgPicture.asset(
@@ -218,12 +219,12 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           .bodyMediumFamily),
                                             ),
                                       ),
-                                    ].divide(const SizedBox(width: 14.0)),
+                                    ].divide(SizedBox(width: 14.0)),
                                   ),
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 0.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -244,7 +245,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: const DeleteAccountWidget(),
+                                              child: DeleteAccountsWidget(),
                                             ),
                                           ),
                                         );
@@ -258,7 +259,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                         width: 32.0,
                                         height: 32.0,
                                         clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
+                                        decoration: BoxDecoration(
                                           shape: BoxShape.circle,
                                         ),
                                         child: SvgPicture.asset(
@@ -274,7 +275,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                               fontFamily:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMediumFamily,
-                                              color: const Color(0xFFE23744),
+                                              color: Color(0xFFE23744),
                                               letterSpacing: 0.0,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -284,11 +285,11 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                           .bodyMediumFamily),
                                             ),
                                       ),
-                                    ].divide(const SizedBox(width: 14.0)),
+                                    ].divide(SizedBox(width: 14.0)),
                                   ),
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                            ].divide(SizedBox(height: 16.0)),
                           ),
                         ),
                         Column(
@@ -316,7 +317,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                                                 .bodyMediumFamily),
                                   ),
                             ),
-                          ].divide(const SizedBox(height: 5.0)),
+                          ].divide(SizedBox(height: 5.0)),
                         ),
                       ],
                     ),

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sign_in_model.dart';
 export 'sign_in_model.dart';
 
@@ -51,12 +52,12 @@ class _SignInWidgetState extends State<SignInWidget> {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: 450.0,
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
         maxWidth: 393.0,
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -67,13 +68,13 @@ class _SignInWidgetState extends State<SignInWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -93,7 +94,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(0.0),
               child: Image.asset(
@@ -105,12 +106,12 @@ class _SignInWidgetState extends State<SignInWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
             child: Text(
               'Enter your phone number to get started',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
                     fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                    color: const Color(0xFF4A4A4A),
+                    color: Color(0xFF4A4A4A),
                     letterSpacing: 0.0,
                     useGoogleFonts: GoogleFonts.asMap().containsKey(
                         FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -121,7 +122,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             key: _model.formKey,
             autovalidateMode: AutovalidateMode.disabled,
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12.0),
@@ -130,14 +131,14 @@ class _SignInWidgetState extends State<SignInWidget> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 5.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                        child: SizedBox(
+                            EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                        child: Container(
                           width: 40.0,
                           child: TextFormField(
                             controller: _model.textController1,
@@ -173,7 +174,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               focusedBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               focusedErrorBorder: InputBorder.none,
-                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
                                   5.0, 10.0, 5.0, 10.0),
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -201,7 +202,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                       Expanded(
                         flex: 5,
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController2,
@@ -215,10 +216,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                               }
                               final phoneNumberVal =
                                   '${_model.textController1.text}${_model.textController2.text}';
-                              if (phoneNumberVal.isEmpty ||
+                              if (phoneNumberVal == null ||
+                                  phoneNumberVal.isEmpty ||
                                   !phoneNumberVal.startsWith('+')) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
+                                  SnackBar(
                                     content: Text(
                                         'Phone Number is required and has to start with +.'),
                                   ),
@@ -275,7 +277,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               focusedBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               focusedErrorBorder: InputBorder.none,
-                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: EdgeInsetsDirectional.fromSTEB(
                                   5.0, 10.0, 5.0, 10.0),
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -301,7 +303,7 @@ class _SignInWidgetState extends State<SignInWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
             child: FFButtonWidget(
               onPressed: () async {
                 if (_model.formKey.currentState == null ||
@@ -310,10 +312,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                 }
                 final phoneNumberVal =
                     '${_model.textController1.text}${_model.textController2.text}';
-                if (phoneNumberVal.isEmpty ||
+                if (phoneNumberVal == null ||
+                    phoneNumberVal.isEmpty ||
                     !phoneNumberVal.startsWith('+')) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
+                    SnackBar(
                       content: Text(
                           'Phone Number is required and has to start with +.'),
                     ),
@@ -342,9 +345,9 @@ class _SignInWidgetState extends State<SignInWidget> {
               options: FFButtonOptions(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 45.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                color: const Color(0xFFFF0083),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: Color(0xFFFF0083),
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: 'Figtree',
                       color: Colors.white,
@@ -354,7 +357,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                           GoogleFonts.asMap().containsKey('Figtree'),
                     ),
                 elevation: 3.0,
-                borderSide: const BorderSide(
+                borderSide: BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
                 ),

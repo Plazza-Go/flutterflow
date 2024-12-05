@@ -1,7 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'shimmer_model.dart';
 export 'shimmer_model.dart';
 
@@ -39,7 +44,7 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0x80D1D1D1),
+            color: Color(0x80D1D1D1),
             angle: 0.785,
           ),
         ],
@@ -59,7 +64,7 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -67,11 +72,11 @@ class _ShimmerWidgetState extends State<ShimmerWidget>
             width: MediaQuery.sizeOf(context).width * 1.0,
             height: 100.0,
             decoration: BoxDecoration(
-              color: const Color(0xFFEDEEEF),
+              color: Color(0xFFEDEEEF),
               borderRadius: BorderRadius.circular(8.0),
             ),
           ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
-        ].divide(const SizedBox(height: 8.0)),
+        ].divide(SizedBox(height: 8.0)),
       ),
     );
   }

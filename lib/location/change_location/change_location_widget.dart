@@ -3,12 +3,14 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/location/components/add_more_address/add_more_address_widget.dart';
 import '/location/components/update_address/update_address_widget.dart';
 import '/shimmer/shimmer/shimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'change_location_model.dart';
 export 'change_location_model.dart';
@@ -57,19 +59,19 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
               ParamType.String,
             ),
             'recordId': serializeParam(
-              widget.orderRecordId,
+              widget!.orderRecordId,
               ParamType.String,
             ),
             'addressId': serializeParam(
-              widget.addressId,
+              widget!.addressId,
               ParamType.String,
             ),
             'tag': serializeParam(
-              widget.tag,
+              widget!.tag,
               ParamType.String,
             ),
             'pagename': serializeParam(
-              widget.pagename,
+              widget!.pagename,
               ParamType.String,
             ),
           }.withoutNulls,
@@ -92,7 +94,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
       future: GoogleMapApiCall.call(
         latlng: _model.googleMapsCenter != null
             ? '${functions.getLet(_model.googleMapsCenter!)},${functions.getLng(_model.googleMapsCenter!)}'
-            : '${widget.lat},${widget.lng}',
+            : '${widget!.lat},${widget!.lng}',
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -160,7 +162,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                         .titleLargeFamily),
                               ),
                         ),
-                        actions: const [],
+                        actions: [],
                         centerTitle: true,
                         elevation: 2.0,
                       )
@@ -168,12 +170,12 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: Container(
                       constraints: BoxConstraints(
                         maxWidth: isWeb ? 393.0 : 393.0,
                       ),
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -183,9 +185,11 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                               children: [
                                 Container(
                                   child: Builder(builder: (context) {
-                                    final googleMapMarker =
-                                        (_model.googleMapsCenter ?? functions.getLatlng(
-                                                widget.lat, widget.lng));
+                                    final _googleMapMarker =
+                                        (_model.googleMapsCenter != null
+                                            ? _model.googleMapsCenter
+                                            : functions.getLatlng(
+                                                widget!.lat, widget!.lng));
                                     return FlutterFlowGoogleMap(
                                       controller: _model.googleMapsController,
                                       onCameraIdle: (latLng) => safeSetState(
@@ -194,12 +198,12 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                       initialLocation:
                                           _model.googleMapsCenter ??=
                                               functions.getLatlng(
-                                                  widget.lat, widget.lng)!,
+                                                  widget!.lat, widget!.lng)!,
                                       markers: [
-                                        if (googleMapMarker != null)
+                                        if (_googleMapMarker != null)
                                           FlutterFlowMarker(
-                                            googleMapMarker.serialize(),
-                                            googleMapMarker,
+                                            _googleMapMarker.serialize(),
+                                            _googleMapMarker,
                                             () async {
                                               _model.latlng =
                                                   _model.googleMapsCenter;
@@ -208,7 +212,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                           ),
                                       ],
                                       markerColor: GoogleMarkerColor.red,
-                                      markerImage: const MarkerImage(
+                                      markerImage: MarkerImage(
                                         imagePath:
                                             'assets/images/7691960_1.png',
                                         isAssetImage: true,
@@ -229,17 +233,17 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                   }),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(16.0),
+                                  padding: EdgeInsets.all(16.0),
                                   child: Container(
                                     height: 50.0,
                                     decoration: BoxDecoration(
                                       border: Border.all(
-                                        color: const Color(0x03000000),
+                                        color: Color(0x03000000),
                                         width: 1.0,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: SizedBox(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           0.9,
                                       child: TextFormField(
@@ -331,9 +335,9 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .primaryBackground,
                                           contentPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 10.0),
-                                          prefixIcon: const Icon(
+                                          prefixIcon: Icon(
                                             FFIcons.ksearch1,
                                           ),
                                         ),
@@ -370,7 +374,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                           Material(
                             color: Colors.transparent,
                             elevation: 0.0,
-                            shape: const RoundedRectangleBorder(
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0.0),
                                 bottomRight: Radius.circular(0.0),
@@ -382,7 +386,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .primaryBackground,
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(0.0),
                                   bottomRight: Radius.circular(0.0),
                                   topLeft: Radius.circular(18.0),
@@ -390,7 +394,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 16.0, 20.0, 20.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -424,7 +428,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                     Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
-                                      decoration: const BoxDecoration(),
+                                      decoration: BoxDecoration(),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -444,7 +448,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                           ),
                                           Expanded(
                                             child: Container(
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -501,13 +505,13 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                                                       .bodyLargeFamily),
                                                         ),
                                                   ),
-                                                ].divide(const SizedBox(height: 8.0)),
+                                                ].divide(SizedBox(height: 8.0)),
                                               ),
                                             ),
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 0.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -525,19 +529,19 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                                       ParamType.String,
                                                     ),
                                                     'recordId': serializeParam(
-                                                      widget.orderRecordId,
+                                                      widget!.orderRecordId,
                                                       ParamType.String,
                                                     ),
                                                     'addressId': serializeParam(
-                                                      widget.addressId,
+                                                      widget!.addressId,
                                                       ParamType.String,
                                                     ),
                                                     'tag': serializeParam(
-                                                      widget.tag,
+                                                      widget!.tag,
                                                       ParamType.String,
                                                     ),
                                                     'pagename': serializeParam(
-                                                      widget.pagename,
+                                                      widget!.pagename,
                                                       ParamType.String,
                                                     ),
                                                   }.withoutNulls,
@@ -570,7 +574,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                               ),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                     FutureBuilder<ApiCallResponse>(
@@ -578,16 +582,16 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                         lat: _model.googleMapsCenter != null
                                             ? functions.getLet(
                                                 _model.googleMapsCenter!)
-                                            : widget.lat,
+                                            : widget!.lat,
                                         lng: _model.googleMapsCenter != null
                                             ? functions.getLng(
                                                 _model.googleMapsCenter!)
-                                            : widget.lng,
+                                            : widget!.lng,
                                       ),
                                       builder: (context, snapshot) {
                                         // Customize what your widget looks like when it's loading.
                                         if (!snapshot.hasData) {
-                                          return const ShimmerWidget();
+                                          return ShimmerWidget();
                                         }
                                         final containerServiceabilityResponse =
                                             snapshot.data!;
@@ -602,8 +606,8 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                               containerServiceabilityResponse
                                                   .jsonBody,
                                             )!) {
-                                              if (widget.addressId != null &&
-                                                  widget.addressId != '') {
+                                              if (widget!.addressId != null &&
+                                                  widget!.addressId != '') {
                                                 await showModalBottomSheet(
                                                   isScrollControlled: true,
                                                   backgroundColor:
@@ -630,16 +634,16 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                                                   .jsonBody,
                                                             )!
                                                                     .toString(),
-                                                            lng: widget.lng!,
+                                                            lng: widget!.lng!,
                                                             locality:
                                                                 GoogleMapApiCall
                                                                     .locality(
                                                               changeLocationGoogleMapApiResponse
                                                                   .jsonBody,
                                                             )!,
-                                                            addressId: widget
+                                                            addressId: widget!
                                                                 .addressId!,
-                                                            tag: widget.tag!,
+                                                            tag: widget!.tag!,
                                                             pincode: functions
                                                                 .getIntergerByString(
                                                                     GoogleMapApiCall
@@ -701,9 +705,9 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                                               changeLocationGoogleMapApiResponse
                                                                   .jsonBody,
                                                             )!,
-                                                            recordId: widget
+                                                            recordId: widget!
                                                                 .orderRecordId,
-                                                            pagename: widget
+                                                            pagename: widget!
                                                                 .pagename!,
                                                           ),
                                                         ),
@@ -733,8 +737,8 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                               boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 40.0,
-                                                  color: const Color(0x80FF0083),
-                                                  offset: const Offset(
+                                                  color: Color(0x80FF0083),
+                                                  offset: Offset(
                                                     0.0,
                                                     10.0,
                                                   ),
@@ -746,7 +750,7 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                                   BorderRadius.circular(5.0),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 !ServiceabilityCall.serviceable(
@@ -777,12 +781,12 @@ class _ChangeLocationWidgetState extends State<ChangeLocationWidget> {
                                         );
                                       },
                                     ),
-                                  ].divide(const SizedBox(height: 20.0)),
+                                  ].divide(SizedBox(height: 20.0)),
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 10.0)),
+                        ].divide(SizedBox(height: 10.0)),
                       ),
                     ),
                   ),

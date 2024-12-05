@@ -72,7 +72,7 @@ class _RetingWidgetState extends State<RetingWidget> {
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -87,7 +87,7 @@ class _RetingWidgetState extends State<RetingWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -98,9 +98,9 @@ class _RetingWidgetState extends State<RetingWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 0.0, 0.0),
                             child: Container(
                               width: 59.0,
@@ -158,14 +158,14 @@ class _RetingWidgetState extends State<RetingWidget> {
               glowColor: FlutterFlowTheme.of(context).primary,
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   if (_model.ratingBarValue != null) {
                     _model.apiResult4ki =
                         await AirtableApiGroup.rateOrderCall.call(
                       rating: _model.ratingBarValue?.round(),
-                      recordId: widget.orderrecordId,
+                      recordId: widget!.orderrecordId,
                     );
 
                     if ((_model.apiResult4ki?.succeeded ?? true)) {
@@ -181,7 +181,7 @@ class _RetingWidgetState extends State<RetingWidget> {
                             color: FlutterFlowTheme.of(context).info,
                           ),
                         ),
-                        duration: const Duration(milliseconds: 4000),
+                        duration: Duration(milliseconds: 4000),
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                       ),
                     );
@@ -193,9 +193,9 @@ class _RetingWidgetState extends State<RetingWidget> {
                 options: FFButtonOptions(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 50.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: _model.ratingBarValue != null
                       ? FlutterFlowTheme.of(context).primary
                       : FlutterFlowTheme.of(context).accent2,
@@ -213,7 +213,7 @@ class _RetingWidgetState extends State<RetingWidget> {
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 20.0)),
+          ].divide(SizedBox(height: 20.0)),
         ),
       ),
     );

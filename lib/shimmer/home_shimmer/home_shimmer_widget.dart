@@ -1,8 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'home_shimmer_model.dart';
 export 'home_shimmer_model.dart';
@@ -39,7 +42,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -51,7 +54,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -63,7 +66,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -75,7 +78,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -87,7 +90,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -99,7 +102,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -111,7 +114,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -123,7 +126,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -135,7 +138,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -147,7 +150,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -159,7 +162,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -171,7 +174,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -183,7 +186,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -195,7 +198,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -207,7 +210,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -219,7 +222,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            color: const Color(0xFFC3C1C1),
+            color: Color(0xFFC3C1C1),
             angle: 0.524,
           ),
         ],
@@ -241,7 +244,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, -1.0),
+      alignment: AlignmentDirectional(0.0, -1.0),
       child: Container(
         constraints: BoxConstraints(
           maxWidth: isWeb
@@ -264,13 +267,13 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
           color: FlutterFlowTheme.of(context).primaryBackground,
         ),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 20.0),
+          padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 20.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -280,7 +283,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                       width: MediaQuery.sizeOf(context).width * 0.7,
                       height: 90.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFFEDF1F3),
+                        color: Color(0xFFEDF1F3),
                         borderRadius: BorderRadius.circular(6.0),
                       ),
                     ).animateOnPageLoad(
@@ -288,7 +291,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                     Container(
                       width: 50.0,
                       height: 50.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xFFEDF1F3),
                         shape: BoxShape.circle,
                       ),
@@ -308,7 +311,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.3,
                         height: 25.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
@@ -331,7 +334,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                         width: MediaQuery.sizeOf(context).width * 0.15,
                         height: 80.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFEDF1F3),
+                          color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.circular(8.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -340,7 +343,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 90.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
@@ -367,7 +370,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.4,
                         height: 25.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
@@ -390,7 +393,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                         width: MediaQuery.sizeOf(context).width * 0.75,
                         height: 70.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFEDF1F3),
+                          color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                       ).animateOnPageLoad(
@@ -400,7 +403,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -416,7 +419,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                             Container(
                               width: 50.0,
                               height: 50.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFEDF1F3),
                                 shape: BoxShape.circle,
                               ),
@@ -429,7 +432,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                                   width: 80.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFEDF1F3),
+                                    color: Color(0xFFEDF1F3),
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -438,14 +441,14 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                                   width: 80.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFEDF1F3),
+                                    color: Color(0xFFEDF1F3),
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation10']!),
-                              ].divide(const SizedBox(height: 5.0)),
+                              ].divide(SizedBox(height: 5.0)),
                             ),
-                          ].divide(const SizedBox(width: 12.0)),
+                          ].divide(SizedBox(width: 12.0)),
                         ),
                       ],
                     ),
@@ -460,7 +463,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                             Container(
                               width: 50.0,
                               height: 50.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFEDF1F3),
                                 shape: BoxShape.circle,
                               ),
@@ -473,7 +476,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                                   width: 80.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFEDF1F3),
+                                    color: Color(0xFFEDF1F3),
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
@@ -482,25 +485,25 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                                   width: 80.0,
                                   height: 25.0,
                                   decoration: BoxDecoration(
-                                    color: const Color(0xFFEDF1F3),
+                                    color: Color(0xFFEDF1F3),
                                     borderRadius: BorderRadius.circular(6.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
                                     'containerOnPageLoadAnimation13']!),
-                              ].divide(const SizedBox(height: 5.0)),
+                              ].divide(SizedBox(height: 5.0)),
                             ),
-                          ].divide(const SizedBox(width: 12.0)),
+                          ].divide(SizedBox(width: 12.0)),
                         ),
                       ],
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
               ),
               Container(
                 width: MediaQuery.sizeOf(context).width * 0.9,
                 height: 100.0,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFEDF1F3),
+                  color: Color(0xFFEDF1F3),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
               ).animateOnPageLoad(
@@ -516,7 +519,7 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                         width: 80.0,
                         height: 25.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFEDF1F3),
+                          color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ).animateOnPageLoad(
@@ -525,16 +528,16 @@ class _HomeShimmerWidgetState extends State<HomeShimmerWidget>
                         width: 160.0,
                         height: 25.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFEDF1F3),
+                          color: Color(0xFFEDF1F3),
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                       ).animateOnPageLoad(
                           animationsMap['containerOnPageLoadAnimation16']!),
-                    ].divide(const SizedBox(height: 16.0)),
+                    ].divide(SizedBox(height: 16.0)),
                   ),
                 ],
               ),
-            ].divide(const SizedBox(height: 25.0)),
+            ].divide(SizedBox(height: 25.0)),
           ),
         ),
       ),

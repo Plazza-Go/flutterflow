@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -56,6 +58,21 @@ class FFAppState extends ChangeNotifier {
               .withoutNulls
               .toList() ??
           _CartMedicineDetails;
+    });
+    _safeInit(() {
+      _medicinecartApp = prefs
+              .getStringList('ff_medicinecartApp')
+              ?.map((x) {
+                try {
+                  return MedicineCartStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _medicinecartApp;
     });
   }
 
@@ -259,6 +276,47 @@ class FFAppState extends ChangeNotifier {
   String get RebuildPage => _RebuildPage;
   set RebuildPage(String value) {
     _RebuildPage = value;
+  }
+
+  List<MedicineCartStruct> _medicinecartApp = [];
+  List<MedicineCartStruct> get medicinecartApp => _medicinecartApp;
+  set medicinecartApp(List<MedicineCartStruct> value) {
+    _medicinecartApp = value;
+    prefs.setStringList(
+        'ff_medicinecartApp', value.map((x) => x.serialize()).toList());
+  }
+
+  void addToMedicinecartApp(MedicineCartStruct value) {
+    medicinecartApp.add(value);
+    prefs.setStringList('ff_medicinecartApp',
+        _medicinecartApp.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromMedicinecartApp(MedicineCartStruct value) {
+    medicinecartApp.remove(value);
+    prefs.setStringList('ff_medicinecartApp',
+        _medicinecartApp.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromMedicinecartApp(int index) {
+    medicinecartApp.removeAt(index);
+    prefs.setStringList('ff_medicinecartApp',
+        _medicinecartApp.map((x) => x.serialize()).toList());
+  }
+
+  void updateMedicinecartAppAtIndex(
+    int index,
+    MedicineCartStruct Function(MedicineCartStruct) updateFn,
+  ) {
+    medicinecartApp[index] = updateFn(_medicinecartApp[index]);
+    prefs.setStringList('ff_medicinecartApp',
+        _medicinecartApp.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInMedicinecartApp(int index, MedicineCartStruct value) {
+    medicinecartApp.insert(index, value);
+    prefs.setStringList('ff_medicinecartApp',
+        _medicinecartApp.map((x) => x.serialize()).toList());
   }
 
   final _appAssetsManager = FutureRequestManager<List<AppResourcesRecord>>();

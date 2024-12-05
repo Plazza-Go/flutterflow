@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_and_discover2_model.dart';
 export 'search_and_discover2_model.dart';
 
@@ -53,7 +55,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -99,22 +101,22 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                   color: FlutterFlowTheme.of(context).primary,
                                   size: 24.0,
                                 ),
-                              ].divide(const SizedBox(width: 12.0)),
+                              ].divide(SizedBox(width: 12.0)),
                             ),
                           ],
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Stack(
-                              alignment: const AlignmentDirectional(1.1, 1.0),
+                              alignment: AlignmentDirectional(1.1, 1.0),
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 10.0),
                                   child: Container(
                                     width: 270.0,
@@ -122,7 +124,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(8.0),
                                       border: Border.all(
-                                        color: const Color(0xFFF0F0F0),
+                                        color: Color(0xFFF0F0F0),
                                         width: 1.0,
                                       ),
                                     ),
@@ -137,7 +139,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: Row(
@@ -156,7 +158,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: Column(
@@ -168,7 +170,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.41, -1.02),
                                                           child: Text(
                                                             'Order #3',
@@ -196,7 +198,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.04, -0.75),
                                                           child: Text(
                                                             'Delivered on today, 4:40 pm',
@@ -219,7 +221,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -0.39, -0.59),
                                                           child: Text(
                                                             '4 medicines',
@@ -240,11 +242,11 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                                 ),
                                                           ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           height: 4.0)),
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 10.0)),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
                                             Divider(
@@ -254,7 +256,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       .alternate,
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 8.0),
                                               child: Row(
@@ -264,7 +266,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.95, -0.06),
                                                     child: Text(
                                                       '10X',
@@ -295,7 +297,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.78, -0.08),
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -306,7 +308,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                         width: 24.0,
                                                         height: 24.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -320,7 +322,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.08, -0.11),
                                                         child: Text(
                                                           'Tablet Combiflam Pain Relief Strip',
@@ -347,7 +349,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.08, -0.11),
                                                         child: Text(
                                                           '10 capsules',
@@ -377,11 +379,11 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       ),
                                                     ],
                                                   ),
-                                                ].divide(const SizedBox(width: 10.0)),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 8.0),
                                               child: Row(
@@ -391,7 +393,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                 children: [
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.95, -0.06),
                                                     child: Text(
                                                       '10X',
@@ -422,7 +424,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             -0.78, -0.08),
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -433,7 +435,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                         width: 24.0,
                                                         height: 24.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -447,7 +449,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.08, -0.11),
                                                         child: Text(
                                                           'Tablet Roxy',
@@ -474,7 +476,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       ),
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.08, -0.11),
                                                         child: Text(
                                                           '10 capsules',
@@ -504,17 +506,17 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                                       ),
                                                     ],
                                                   ),
-                                                ].divide(const SizedBox(width: 10.0)),
+                                                ].divide(SizedBox(width: 10.0)),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 5.0),
                                             child: Text(
                                               '+ 2 more',
@@ -548,7 +550,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: const AlignmentDirectional(1.24, 1.14),
+                                  alignment: AlignmentDirectional(1.24, 1.14),
                                   child: Container(
                                     width: 68.0,
                                     height: 44.0,
@@ -561,7 +563,7 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                       ),
                                     ),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Reorder',
                                         textAlign: TextAlign.center,
@@ -590,10 +592,10 @@ class _SearchAndDiscover2WidgetState extends State<SearchAndDiscover2Widget> {
                                 ),
                               ],
                             ),
-                          ].divide(const SizedBox(width: 8.0)),
+                          ].divide(SizedBox(width: 8.0)),
                         ),
                       ),
-                    ].divide(const SizedBox(height: 20.0)),
+                    ].divide(SizedBox(height: 20.0)),
                   ),
                 ],
               ),

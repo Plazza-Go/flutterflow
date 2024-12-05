@@ -1,17 +1,22 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'serialization_util.dart';
+import '../backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
+import '../../index.dart';
+import '../../main.dart';
 
 final _handledMessageIds = <String?>{};
 
 class PushNotificationsHandler extends StatefulWidget {
-  const PushNotificationsHandler({super.key, required this.child});
+  const PushNotificationsHandler({Key? key, required this.child})
+      : super(key: key);
 
   final Widget child;
 
@@ -102,7 +107,7 @@ class ParameterData {
       );
 
   static Future<ParameterData> Function(Map<String, dynamic>) none() =>
-      (data) async => const ParameterData();
+      (data) async => ParameterData();
 }
 
 final parametersBuilderMap =
@@ -114,11 +119,6 @@ final parametersBuilderMap =
         },
       ),
   'History': ParameterData.none(),
-  'statusOfOrders': (data) async => ParameterData(
-        allParams: {
-          'ticketid': getParameter<int>(data, 'ticketid'),
-        },
-      ),
   'Home': ParameterData.none(),
   'Cancelled': ParameterData.none(),
   'medicineCart': (data) async => ParameterData(
@@ -151,9 +151,6 @@ final parametersBuilderMap =
           'pagename': getParameter<String>(data, 'pagename'),
         },
       ),
-  'statusOfOrder3': ParameterData.none(),
-  'statusOfOrder4': ParameterData.none(),
-  'statusOfOrder5': ParameterData.none(),
   'Userlogdata': ParameterData.none(),
   'Settings': ParameterData.none(),
   'changeLocation': (data) async => ParameterData(
@@ -180,15 +177,6 @@ final parametersBuilderMap =
       ),
   'searchMedicineCopy': ParameterData.none(),
   'cartEmpty': ParameterData.none(),
-  'SearchLocationCopy': (data) async => ParameterData(
-        allParams: {
-          'recordId': getParameter<String>(data, 'recordId'),
-          'pagename': getParameter<String>(data, 'pagename'),
-          'addLocation': getParameter<String>(data, 'addLocation'),
-          'addressId': getParameter<String>(data, 'addressId'),
-          'tag': getParameter<String>(data, 'tag'),
-        },
-      ),
   'SearchLocation': (data) async => ParameterData(
         allParams: {
           'recordId': getParameter<String>(data, 'recordId'),
@@ -198,15 +186,20 @@ final parametersBuilderMap =
           'pagename': getParameter<String>(data, 'pagename'),
         },
       ),
-  'searchMedicineCopy2': ParameterData.none(),
   'UpdateApp': ParameterData.none(),
-  'SearchLocationCopy2': (data) async => ParameterData(
+  'RazorpaycreateOrders': (data) async => ParameterData(
         allParams: {
-          'recordId': getParameter<String>(data, 'recordId'),
-          'addLocation': getParameter<String>(data, 'addLocation'),
-          'addressId': getParameter<String>(data, 'addressId'),
-          'tag': getParameter<String>(data, 'tag'),
-          'pagename': getParameter<String>(data, 'pagename'),
+          'ticketId': getParameter<int>(data, 'ticketId'),
+        },
+      ),
+  'test': (data) async => ParameterData(
+        allParams: {
+          'phone': getParameter<String>(data, 'phone'),
+        },
+      ),
+  'medicineCartSearch': (data) async => ParameterData(
+        allParams: {
+          'ticketId': getParameter<int>(data, 'ticketId'),
         },
       ),
 };

@@ -7,6 +7,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'update_address_model.dart';
 export 'update_address_model.dart';
@@ -78,7 +79,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
         safeSetState(() {});
       },
     );
-    _model.textController5 ??= TextEditingController(text: widget.locality);
+    _model.textController5 ??= TextEditingController(text: widget!.locality);
     _model.textFieldFocusNode3 ??= FocusNode();
     _model.textFieldFocusNode3!.addListener(
       () async {
@@ -107,10 +108,10 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
       child: FutureBuilder<ApiCallResponse>(
         future: AirtableApiGroup.getAddressDetailsCall.call(
-          addressId: widget.addressId,
+          addressId: widget!.addressId,
         ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
@@ -134,7 +135,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
             height: 630.0,
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).primaryBackground,
-              borderRadius: const BorderRadius.only(
+              borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(14.0),
@@ -142,7 +143,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -150,7 +151,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 6.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 6.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,7 +188,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                       ],
                     ),
                   ),
-                  const Divider(
+                  Divider(
                     thickness: 1.0,
                     color: Color(0xFFF0F0F0),
                   ),
@@ -196,7 +197,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                     autovalidateMode: AutovalidateMode.disabled,
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -413,7 +414,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                         color: (_model.addessType != null &&
                                                         _model.addessType != ''
                                                     ? _model.addessType
-                                                    : widget.tag) ==
+                                                    : widget!.tag) ==
                                                 'Home'
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -422,14 +423,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
+                                      padding: EdgeInsets.all(6.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) ==
+                                                  : widget!.tag) ==
                                               'Home')
                                             ClipRRect(
                                               borderRadius:
@@ -444,7 +445,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) !=
+                                                  : widget!.tag) !=
                                               'Home')
                                             ClipRRect(
                                               borderRadius:
@@ -471,7 +472,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                                       ''
                                                               ? _model
                                                                   .addessType
-                                                              : widget.tag) ==
+                                                              : widget!.tag) ==
                                                           'Home'
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -488,7 +489,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                               .displaySmallFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -511,7 +512,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                         color: (_model.addessType != null &&
                                                         _model.addessType != ''
                                                     ? _model.addessType
-                                                    : widget.tag) ==
+                                                    : widget!.tag) ==
                                                 'Work'
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -520,14 +521,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
+                                      padding: EdgeInsets.all(6.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) !=
+                                                  : widget!.tag) !=
                                               'Work')
                                             ClipRRect(
                                               borderRadius:
@@ -542,7 +543,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) ==
+                                                  : widget!.tag) ==
                                               'Work')
                                             ClipRRect(
                                               borderRadius:
@@ -569,7 +570,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                                       ''
                                                               ? _model
                                                                   .addessType
-                                                              : widget.tag) ==
+                                                              : widget!.tag) ==
                                                           'Work'
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -586,7 +587,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                               .displaySmallFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -609,7 +610,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                         color: (_model.addessType != null &&
                                                         _model.addessType != ''
                                                     ? _model.addessType
-                                                    : widget.tag) ==
+                                                    : widget!.tag) ==
                                                 'Hotel'
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -618,14 +619,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
+                                      padding: EdgeInsets.all(6.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) !=
+                                                  : widget!.tag) !=
                                               'Hotel')
                                             ClipRRect(
                                               borderRadius:
@@ -640,7 +641,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) ==
+                                                  : widget!.tag) ==
                                               'Hotel')
                                             ClipRRect(
                                               borderRadius:
@@ -667,7 +668,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                                       ''
                                                               ? _model
                                                                   .addessType
-                                                              : widget.tag) ==
+                                                              : widget!.tag) ==
                                                           'Hotel'
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -684,7 +685,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                               .displaySmallFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
@@ -707,7 +708,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                         color: (_model.addessType != null &&
                                                         _model.addessType != ''
                                                     ? _model.addessType
-                                                    : widget.tag) ==
+                                                    : widget!.tag) ==
                                                 'Other'
                                             ? FlutterFlowTheme.of(context)
                                                 .primary
@@ -716,14 +717,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(6.0),
+                                      padding: EdgeInsets.all(6.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) ==
+                                                  : widget!.tag) ==
                                               'Other')
                                             ClipRRect(
                                               borderRadius:
@@ -738,7 +739,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                           if ((_model.addessType != null &&
                                                       _model.addessType != ''
                                                   ? _model.addessType
-                                                  : widget.tag) !=
+                                                  : widget!.tag) !=
                                               'Other')
                                             ClipRRect(
                                               borderRadius:
@@ -765,7 +766,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                                       ''
                                                               ? _model
                                                                   .addessType
-                                                              : widget.tag) ==
+                                                              : widget!.tag) ==
                                                           'Other'
                                                       ? FlutterFlowTheme.of(
                                                               context)
@@ -782,12 +783,12 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                                               .displaySmallFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 12.0)),
+                              ].divide(SizedBox(width: 12.0)),
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1004,7 +1005,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                         .asValidator(context),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 12.0)),
+                              ].divide(SizedBox(width: 12.0)),
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.max,
@@ -1227,11 +1228,11 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                       'changeLocation',
                                       queryParameters: {
                                         'lat': serializeParam(
-                                          widget.lat,
+                                          widget!.lat,
                                           ParamType.String,
                                         ),
                                         'lng': serializeParam(
-                                          widget.lng,
+                                          widget!.lng,
                                           ParamType.String,
                                         ),
                                         'pagename': serializeParam(
@@ -1239,11 +1240,11 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                           ParamType.String,
                                         ),
                                         'addressId': serializeParam(
-                                          widget.addressId,
+                                          widget!.addressId,
                                           ParamType.String,
                                         ),
                                         'tag': serializeParam(
-                                          widget.tag,
+                                          widget!.tag,
                                           ParamType.String,
                                         ),
                                       }.withoutNulls,
@@ -1252,9 +1253,9 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                   text: 'Change',
                                   options: FFButtonOptions(
                                     height: 30.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
@@ -1280,7 +1281,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                             TextFormField(
                               controller: _model.textController6 ??=
@@ -1373,18 +1374,18 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                               validator: _model.textController6Validator
                                   .asValidator(context),
                             ),
-                          ].divide(const SizedBox(height: 16.0)),
+                          ].divide(SizedBox(height: 16.0)),
                         ),
                       ),
                     ),
                   ),
-                  const Divider(
+                  Divider(
                     thickness: 1.0,
                     color: Color(0xFFF0F0F0),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         if (_model.formKey.currentState == null ||
@@ -1394,10 +1395,9 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                         if (_model.radioButtonValue != 'Someone else') {
                           _model.address1 =
                               await AirtableApiGroup.updateAddressCall.call(
-                            addressId: widget.addressId,
-                            pincode: widget.pincode,
-                            longitude: widget.lng,
-                            latitude: widget.lat,
+                            addressId: widget!.addressId,
+                            longitude: widget!.lng,
+                            latitude: widget!.lat,
                             houseNumber:
                                 _model.houseTextFieldTextController.text,
                             floor: _model.textController3.text,
@@ -1409,14 +1409,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                             addressTag: _model.addessType != null &&
                                     _model.addessType != ''
                                 ? _model.addessType
-                                : widget.tag,
+                                : widget!.tag,
                           );
 
                           if ((_model.address1?.succeeded ?? true)) {
                             context.pushNamed(
                               'Home',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: const TransitionInfo(
+                                kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.topToBottom,
@@ -1425,13 +1425,13 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                             );
                           }
                         } else {
-                          if (_model.textController1.text != '') {
+                          if (_model.textController1.text != null &&
+                              _model.textController1.text != '') {
                             _model.address2 =
                                 await AirtableApiGroup.updateAddressCall.call(
-                              addressId: widget.addressId,
-                              pincode: widget.pincode,
-                              longitude: widget.lng,
-                              latitude: widget.lat,
+                              addressId: widget!.addressId,
+                              longitude: widget!.lng,
+                              latitude: widget!.lat,
                               houseNumber:
                                   _model.houseTextFieldTextController.text,
                               floor: _model.textController3.text,
@@ -1443,14 +1443,14 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                               addressTag: _model.addessType != null &&
                                       _model.addessType != ''
                                   ? _model.addessType
-                                  : widget.tag,
+                                  : widget!.tag,
                             );
 
                             if ((_model.address2?.succeeded ?? true)) {
                               context.pushNamed(
                                 'Home',
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: const TransitionInfo(
+                                  kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
                                     transitionType:
                                         PageTransitionType.topToBottom,
@@ -1464,12 +1464,12 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                               builder: (alertDialogContext) {
                                 return WebViewAware(
                                   child: AlertDialog(
-                                    content: const Text('Please Enter Phone Number'),
+                                    content: Text('Please Enter Phone Number'),
                                     actions: [
                                       TextButton(
                                         onPressed: () =>
                                             Navigator.pop(alertDialogContext),
-                                        child: const Text('Ok'),
+                                        child: Text('Ok'),
                                       ),
                                     ],
                                   ),
@@ -1485,10 +1485,10 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 1.0,
                         height: 40.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 0.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle: FlutterFlowTheme.of(context)
                             .bodyLarge
@@ -1505,7 +1505,7 @@ class _UpdateAddressWidgetState extends State<UpdateAddressWidget> {
                       ),
                     ),
                   ),
-                ].divide(const SizedBox(height: 5.0)),
+                ].divide(SizedBox(height: 5.0)),
               ),
             ),
           );

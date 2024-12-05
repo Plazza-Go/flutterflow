@@ -77,9 +77,9 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
     context.watch<FFAppState>();
 
     return Container(
-      width: widget.width?.toDouble(),
-      height: widget.height?.toDouble(),
-      decoration: const BoxDecoration(),
+      width: widget!.width?.toDouble(),
+      height: widget!.height?.toDouble(),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,46 +90,47 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                           .CartMedicineDetails
                           .map((e) => e.productID)
                           .toList(),
-                      widget.productID!)
+                      widget!.productID!)
                   .toString() ==
               '-1')
             Align(
-              alignment: const AlignmentDirectional(1.06, -0.04),
+              alignment: AlignmentDirectional(1.06, -0.04),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  if (FFAppState().cartId.orderid != '') {
+                  if (FFAppState().cartId.orderid != null &&
+                      FFAppState().cartId.orderid != '') {
                     FFAppState()
                         .addToCartMedicineDetails(CartMedicineDetailsStruct(
-                      medicineName: widget.name,
+                      medicineName: widget!.name,
                       quantity: 1,
                       quantityCart: 1,
-                      productID: widget.productID,
-                      plazzaPrice: widget.mrp,
-                      medicineRate: widget.mrp,
-                      plazzaPriceCart: widget.mrp,
-                      cartProductid: widget.productID,
-                      prescriptionRequired: widget.prescriptionRequired,
-                      url: widget.image,
-                      medicineStripSize: widget.packagingDetails,
+                      productID: widget!.productID,
+                      plazzaPrice: widget!.mrp,
+                      medicineRate: widget!.mrp,
+                      plazzaPriceCart: widget!.mrp,
+                      cartProductid: widget!.productID,
+                      prescriptionRequired: widget!.prescriptionRequired,
+                      url: widget!.image,
+                      medicineStripSize: widget!.packagingDetails,
                     ));
                     safeSetState(() {});
                     _model.addMedicine1 =
                         await AirtableApiGroup.addMedicineCall.call(
                       orderID: FFAppState().cartId.orderid,
-                      medicineName: widget.name,
+                      medicineName: widget!.name,
                       quantity: 1,
-                      plazzaPrice: widget.mrp,
+                      plazzaPrice: widget!.mrp,
                       quantityCart: 1,
-                      plazzaPriceCart: widget.mrp,
-                      medicineRate: widget.mrp,
-                      productid: widget.productID,
-                      prescriptionRequired: widget.prescriptionRequired,
-                      packagingDetails: widget.packagingDetails,
-                      medicineStripSizes: widget.packagingDetails,
+                      plazzaPriceCart: widget!.mrp,
+                      medicineRate: widget!.mrp,
+                      productid: widget!.productID,
+                      prescriptionRequired: widget!.prescriptionRequired,
+                      packagingDetails: widget!.packagingDetails,
+                      medicineStripSizes: widget!.packagingDetails,
                     );
 
                     if ((_model.addMedicine1?.succeeded ?? true)) {
@@ -139,7 +140,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                 .CartMedicineDetails
                                 .map((e) => e.productID)
                                 .toList(),
-                            widget.productID!)!,
+                            widget!.productID!)!,
                         (e) => e
                           ..recordid = AirtableApiGroup.addMedicineCall.id(
                             (_model.addMedicine1?.jsonBody ?? ''),
@@ -158,7 +159,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                               fontSize: 14.0,
                             ),
                           ),
-                          duration: const Duration(milliseconds: 4000),
+                          duration: Duration(milliseconds: 4000),
                           backgroundColor: FlutterFlowTheme.of(context).primary,
                         ),
                       );
@@ -168,23 +169,23 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   .CartMedicineDetails
                                   .map((e) => e.productID)
                                   .toList(),
-                              widget.productID!)!);
+                              widget!.productID!)!);
                       safeSetState(() {});
                     }
                   } else {
                     FFAppState()
                         .addToCartMedicineDetails(CartMedicineDetailsStruct(
-                      medicineName: widget.name,
+                      medicineName: widget!.name,
                       quantity: 1,
                       quantityCart: 1,
-                      productID: widget.productID,
-                      plazzaPrice: widget.mrp,
-                      medicineRate: widget.mrp,
-                      plazzaPriceCart: widget.mrp,
-                      cartProductid: widget.productID,
-                      prescriptionRequired: widget.prescriptionRequired,
-                      url: widget.image,
-                      medicineStripSize: widget.packagingDetails,
+                      productID: widget!.productID,
+                      plazzaPrice: widget!.mrp,
+                      medicineRate: widget!.mrp,
+                      plazzaPriceCart: widget!.mrp,
+                      cartProductid: widget!.productID,
+                      prescriptionRequired: widget!.prescriptionRequired,
+                      url: widget!.image,
+                      medicineStripSize: widget!.packagingDetails,
                     ));
                     safeSetState(() {});
                     if (FFAppState().Serviceability.addressIdSet) {
@@ -195,6 +196,16 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                             currentUserDocument?.userRecordId, ''),
                         localityId: FFAppState().Serviceability.id,
                         addressId: FFAppState().Serviceability.addressId,
+                        appVersion:
+                            '${FFAppConstants.appversion.toString()}-${() {
+                          if (isAndroid) {
+                            return 'Android';
+                          } else if (isiOS) {
+                            return 'IOS';
+                          } else {
+                            return 'Web';
+                          }
+                        }()}',
                       );
 
                       if ((_model.createorderwithaddress?.succeeded ?? true)) {
@@ -214,16 +225,16 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                         _model.addMedicine2A =
                             await AirtableApiGroup.addMedicineCall.call(
                           orderID: FFAppState().cartId.orderid,
-                          medicineName: widget.name,
+                          medicineName: widget!.name,
                           quantity: 1,
-                          plazzaPrice: widget.mrp,
+                          plazzaPrice: widget!.mrp,
                           quantityCart: 1,
-                          plazzaPriceCart: widget.mrp,
-                          medicineRate: widget.mrp,
-                          productid: widget.productID,
-                          prescriptionRequired: widget.prescriptionRequired,
-                          packagingDetails: widget.packagingDetails,
-                          medicineStripSizes: widget.packagingDetails,
+                          plazzaPriceCart: widget!.mrp,
+                          medicineRate: widget!.mrp,
+                          productid: widget!.productID,
+                          prescriptionRequired: widget!.prescriptionRequired,
+                          packagingDetails: widget!.packagingDetails,
+                          medicineStripSizes: widget!.packagingDetails,
                         );
 
                         if ((_model.addMedicine2A?.succeeded ?? true)) {
@@ -233,7 +244,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!,
+                                widget!.productID!)!,
                             (e) => e
                               ..recordid = AirtableApiGroup.addMedicineCall.id(
                                 (_model.addMedicine2A?.jsonBody ?? ''),
@@ -252,7 +263,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   fontSize: 14.0,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
+                              duration: Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).primary,
                             ),
@@ -263,7 +274,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!);
+                                  widget!.productID!)!);
                           safeSetState(() {});
                         }
                       } else {
@@ -278,7 +289,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                 fontSize: 14.0,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
+                            duration: Duration(milliseconds: 4000),
                             backgroundColor:
                                 FlutterFlowTheme.of(context).primary,
                           ),
@@ -289,7 +300,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!);
+                                widget!.productID!)!);
                         safeSetState(() {});
                       }
                     } else {
@@ -298,6 +309,16 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                         contactID: valueOrDefault(
                             currentUserDocument?.userRecordId, ''),
                         localityId: FFAppState().Serviceability.id,
+                        appVersion:
+                            '${FFAppConstants.appversion.toString()}-${() {
+                          if (isAndroid) {
+                            return 'Android';
+                          } else if (isiOS) {
+                            return 'IOS';
+                          } else {
+                            return 'Web';
+                          }
+                        }()}',
                       );
 
                       if ((_model.createorder1?.succeeded ?? true)) {
@@ -315,16 +336,16 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                         _model.addMedicine2 =
                             await AirtableApiGroup.addMedicineCall.call(
                           orderID: FFAppState().cartId.orderid,
-                          medicineName: widget.name,
+                          medicineName: widget!.name,
                           quantity: 1,
-                          plazzaPrice: widget.mrp,
+                          plazzaPrice: widget!.mrp,
                           quantityCart: 1,
-                          plazzaPriceCart: widget.mrp,
-                          medicineRate: widget.mrp,
-                          productid: widget.productID,
-                          prescriptionRequired: widget.prescriptionRequired,
-                          packagingDetails: widget.packagingDetails,
-                          medicineStripSizes: widget.packagingDetails,
+                          plazzaPriceCart: widget!.mrp,
+                          medicineRate: widget!.mrp,
+                          productid: widget!.productID,
+                          prescriptionRequired: widget!.prescriptionRequired,
+                          packagingDetails: widget!.packagingDetails,
+                          medicineStripSizes: widget!.packagingDetails,
                         );
 
                         if ((_model.addMedicine2?.succeeded ?? true)) {
@@ -334,7 +355,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!,
+                                widget!.productID!)!,
                             (e) => e
                               ..recordid = AirtableApiGroup.addMedicineCall.id(
                                 (_model.addMedicine2?.jsonBody ?? ''),
@@ -353,7 +374,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   fontSize: 14.0,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
+                              duration: Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).primary,
                             ),
@@ -364,7 +385,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!);
+                                  widget!.productID!)!);
                           safeSetState(() {});
                         }
                       } else {
@@ -379,7 +400,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                 fontSize: 14.0,
                               ),
                             ),
-                            duration: const Duration(milliseconds: 4000),
+                            duration: Duration(milliseconds: 4000),
                             backgroundColor:
                                 FlutterFlowTheme.of(context).primary,
                           ),
@@ -390,7 +411,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!);
+                                widget!.productID!)!);
                         safeSetState(() {});
                       }
                     }
@@ -399,26 +420,26 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                   safeSetState(() {});
                 },
                 child: Container(
-                  width: widget.width?.toDouble(),
-                  height: widget.height?.toDouble(),
+                  width: widget!.width?.toDouble(),
+                  height: widget!.height?.toDouble(),
                   decoration: BoxDecoration(
                     color: valueOrDefault<Color>(
-                      widget.background,
+                      widget!.background,
                       FlutterFlowTheme.of(context).primaryBackground,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                     border: Border.all(
                       color: valueOrDefault<Color>(
-                        widget.bordercolor,
+                        widget!.bordercolor,
                         FlutterFlowTheme.of(context).primary,
                       ),
                     ),
                   ),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       valueOrDefault<String>(
-                        widget.textValue,
+                        widget!.textValue,
                         'Add',
                       ),
                       textAlign: TextAlign.center,
@@ -426,7 +447,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: valueOrDefault<Color>(
-                              widget.textcolor,
+                              widget!.textcolor,
                               FlutterFlowTheme.of(context).primary,
                             ),
                             fontSize: 12.0,
@@ -445,23 +466,23 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                           .CartMedicineDetails
                           .map((e) => e.productID)
                           .toList(),
-                      widget.productID!)
+                      widget!.productID!)
                   .toString() !=
               '-1')
             Align(
-              alignment: const AlignmentDirectional(1.06, -0.04),
+              alignment: AlignmentDirectional(1.06, -0.04),
               child: Container(
-                width: widget.width?.toDouble(),
-                height: widget.height?.toDouble(),
+                width: widget!.width?.toDouble(),
+                height: widget!.height?.toDouble(),
                 decoration: BoxDecoration(
                   color: valueOrDefault<Color>(
-                    widget.background,
+                    widget!.background,
                     FlutterFlowTheme.of(context).primaryBackground,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                   border: Border.all(
                     color: valueOrDefault<Color>(
-                      widget.bordercolor,
+                      widget!.bordercolor,
                       FlutterFlowTheme.of(context).primary,
                     ),
                   ),
@@ -473,13 +494,13 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                     FlutterFlowIconButton(
                       buttonSize: 30.0,
                       fillColor: valueOrDefault<Color>(
-                        widget.background,
+                        widget!.background,
                         FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.minus,
                         color: valueOrDefault<Color>(
-                          widget.textcolor,
+                          widget!.textcolor,
                           FlutterFlowTheme.of(context).primary,
                         ),
                         size: 12.0,
@@ -491,14 +512,44 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   .CartMedicineDetails
                                   .map((e) => e.productID)
                                   .toList(),
-                              widget.productID!)!,
+                              widget!.productID!)!,
                           (e) => e
                             ..incrementQuantity(-1)
-                            ..incrementQuantityCart(-1)
-                            ..incrementPlazzaPrice(
-                                functions.getMinus(widget.mrp!))
-                            ..incrementPlazzaPriceCart(
-                                functions.getMinus(widget.mrp!)),
+                            ..incrementQuantityCart(-1),
+                        );
+                        safeSetState(() {});
+                        FFAppState().updateCartMedicineDetailsAtIndex(
+                          functions.checklistContains(
+                              FFAppState()
+                                  .CartMedicineDetails
+                                  .map((e) => e.productID)
+                                  .toList(),
+                              widget!.productID!)!,
+                          (e) => e
+                            ..plazzaPrice =
+                                functions.valueOneMultiplayByvalueTwo(
+                                    FFAppState()
+                                        .CartMedicineDetails[
+                                            functions.checklistContains(
+                                                FFAppState()
+                                                    .CartMedicineDetails
+                                                    .map((e) => e.productID)
+                                                    .toList(),
+                                                widget!.productID!)!]
+                                        .quantity,
+                                    functions.doubleToInt(widget!.mrp!))
+                            ..plazzaPriceCart =
+                                functions.valueOneMultiplayByvalueTwo(
+                                    FFAppState()
+                                        .CartMedicineDetails[
+                                            functions.checklistContains(
+                                                FFAppState()
+                                                    .CartMedicineDetails
+                                                    .map((e) => e.productID)
+                                                    .toList(),
+                                                widget!.productID!)!]
+                                        .quantity,
+                                    functions.doubleToInt(widget!.mrp!)),
                         );
                         safeSetState(() {});
                         if (FFAppState()
@@ -508,7 +559,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                             .CartMedicineDetails
                                             .map((e) => e.productID)
                                             .toList(),
-                                        widget.productID!)!]
+                                        widget!.productID!)!]
                                 .quantity ==
                             0) {
                           FFAppState().updateCartMedicineDetailsAtIndex(
@@ -517,7 +568,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!,
+                                widget!.productID!)!,
                             (e) => e..productID = null,
                           );
                           safeSetState(() {});
@@ -531,7 +582,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                             .CartMedicineDetails
                                             .map((e) => e.cartProductid)
                                             .toList(),
-                                        widget.productID!)!]
+                                        widget!.productID!)!]
                                 .recordid,
                           );
 
@@ -542,7 +593,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                         .CartMedicineDetails
                                         .map((e) => e.cartProductid)
                                         .toList(),
-                                    widget.productID!)!);
+                                    widget!.productID!)!);
                             safeSetState(() {});
                             if (!(FFAppState()
                                 .CartMedicineDetails
@@ -565,8 +616,8 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!,
-                              (e) => e..productID = widget.productID,
+                                  widget!.productID!)!,
+                              (e) => e..productID = widget!.productID,
                             );
                             safeSetState(() {});
                           }
@@ -581,7 +632,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                             .CartMedicineDetails
                                             .map((e) => e.productID)
                                             .toList(),
-                                        widget.productID!)!]
+                                        widget!.productID!)!]
                                 .recordid,
                             totalprice: FFAppState()
                                 .CartMedicineDetails[
@@ -590,7 +641,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                             .CartMedicineDetails
                                             .map((e) => e.productID)
                                             .toList(),
-                                        widget.productID!)!]
+                                        widget!.productID!)!]
                                 .plazzaPrice,
                             quantity: FFAppState()
                                 .CartMedicineDetails[
@@ -599,7 +650,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                             .CartMedicineDetails
                                             .map((e) => e.productID)
                                             .toList(),
-                                        widget.productID!)!]
+                                        widget!.productID!)!]
                                 .quantity
                                 .toDouble(),
                           );
@@ -611,12 +662,44 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!,
+                                  widget!.productID!)!,
                               (e) => e
                                 ..incrementQuantity(1)
-                                ..incrementQuantityCart(1)
-                                ..incrementPlazzaPrice(widget.mrp!)
-                                ..incrementPlazzaPriceCart(widget.mrp!),
+                                ..incrementQuantityCart(1),
+                            );
+                            safeSetState(() {});
+                            FFAppState().updateCartMedicineDetailsAtIndex(
+                              functions.checklistContains(
+                                  FFAppState()
+                                      .CartMedicineDetails
+                                      .map((e) => e.productID)
+                                      .toList(),
+                                  widget!.productID!)!,
+                              (e) => e
+                                ..plazzaPrice =
+                                    functions.valueOneMultiplayByvalueTwo(
+                                        FFAppState()
+                                            .CartMedicineDetails[
+                                                functions.checklistContains(
+                                                    FFAppState()
+                                                        .CartMedicineDetails
+                                                        .map((e) => e.productID)
+                                                        .toList(),
+                                                    widget!.productID!)!]
+                                            .quantity,
+                                        functions.doubleToInt(widget!.mrp!))
+                                ..plazzaPriceCart =
+                                    functions.valueOneMultiplayByvalueTwo(
+                                        FFAppState()
+                                            .CartMedicineDetails[
+                                                functions.checklistContains(
+                                                    FFAppState()
+                                                        .CartMedicineDetails
+                                                        .map((e) => e.productID)
+                                                        .toList(),
+                                                    widget!.productID!)!]
+                                            .quantity,
+                                        functions.doubleToInt(widget!.mrp!)),
                             );
                             safeSetState(() {});
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -630,7 +713,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     fontSize: 14.0,
                                   ),
                                 ),
-                                duration: const Duration(milliseconds: 4000),
+                                duration: Duration(milliseconds: 4000),
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).primary,
                               ),
@@ -649,7 +732,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!]
+                                widget!.productID!)!]
                             .quantity
                             .toString(),
                         '0',
@@ -658,7 +741,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleLargeFamily,
                             color: valueOrDefault<Color>(
-                              widget.textcolor,
+                              widget!.textcolor,
                               FlutterFlowTheme.of(context).primary,
                             ),
                             fontSize: 12.0,
@@ -672,13 +755,13 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                       borderColor: Colors.transparent,
                       buttonSize: 30.0,
                       fillColor: valueOrDefault<Color>(
-                        widget.background,
+                        widget!.background,
                         FlutterFlowTheme.of(context).primaryBackground,
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.plus,
                         color: valueOrDefault<Color>(
-                          widget.textcolor,
+                          widget!.textcolor,
                           FlutterFlowTheme.of(context).primary,
                         ),
                         size: 12.0,
@@ -690,12 +773,44 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   .CartMedicineDetails
                                   .map((e) => e.productID)
                                   .toList(),
-                              widget.productID!)!,
+                              widget!.productID!)!,
                           (e) => e
                             ..incrementQuantity(1)
-                            ..incrementQuantityCart(1)
-                            ..incrementPlazzaPrice(widget.mrp!)
-                            ..incrementPlazzaPriceCart(widget.mrp!),
+                            ..incrementQuantityCart(1),
+                        );
+                        safeSetState(() {});
+                        FFAppState().updateCartMedicineDetailsAtIndex(
+                          functions.checklistContains(
+                              FFAppState()
+                                  .CartMedicineDetails
+                                  .map((e) => e.productID)
+                                  .toList(),
+                              widget!.productID!)!,
+                          (e) => e
+                            ..plazzaPrice =
+                                functions.valueOneMultiplayByvalueTwo(
+                                    FFAppState()
+                                        .CartMedicineDetails[
+                                            functions.checklistContains(
+                                                FFAppState()
+                                                    .CartMedicineDetails
+                                                    .map((e) => e.productID)
+                                                    .toList(),
+                                                widget!.productID!)!]
+                                        .quantity,
+                                    functions.doubleToInt(widget!.mrp!))
+                            ..plazzaPriceCart =
+                                functions.valueOneMultiplayByvalueTwo(
+                                    FFAppState()
+                                        .CartMedicineDetails[
+                                            functions.checklistContains(
+                                                FFAppState()
+                                                    .CartMedicineDetails
+                                                    .map((e) => e.productID)
+                                                    .toList(),
+                                                widget!.productID!)!]
+                                        .quantity,
+                                    functions.doubleToInt(widget!.mrp!)),
                         );
                         safeSetState(() {});
                         _model.apiResult1om = await AirtableApiGroup
@@ -707,7 +822,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!]
+                                  widget!.productID!)!]
                               .recordid,
                           totalprice: FFAppState()
                               .CartMedicineDetails[functions.checklistContains(
@@ -715,7 +830,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!]
+                                  widget!.productID!)!]
                               .plazzaPrice,
                           quantity: FFAppState()
                               .CartMedicineDetails[functions.checklistContains(
@@ -723,7 +838,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                       .CartMedicineDetails
                                       .map((e) => e.productID)
                                       .toList(),
-                                  widget.productID!)!]
+                                  widget!.productID!)!]
                               .quantity
                               .toDouble(),
                         );
@@ -740,7 +855,7 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                   fontSize: 14.0,
                                 ),
                               ),
-                              duration: const Duration(milliseconds: 4000),
+                              duration: Duration(milliseconds: 4000),
                               backgroundColor:
                                   FlutterFlowTheme.of(context).primary,
                             ),
@@ -751,14 +866,44 @@ class _AddtocartWidgetState extends State<AddtocartWidget> {
                                     .CartMedicineDetails
                                     .map((e) => e.productID)
                                     .toList(),
-                                widget.productID!)!,
+                                widget!.productID!)!,
                             (e) => e
                               ..incrementQuantity(-1)
-                              ..incrementQuantityCart(-1)
-                              ..incrementPlazzaPrice(
-                                  functions.getMinus(widget.mrp!))
-                              ..incrementPlazzaPriceCart(
-                                  functions.getMinus(widget.mrp!)),
+                              ..incrementQuantityCart(-1),
+                          );
+                          safeSetState(() {});
+                          FFAppState().updateCartMedicineDetailsAtIndex(
+                            functions.checklistContains(
+                                FFAppState()
+                                    .CartMedicineDetails
+                                    .map((e) => e.productID)
+                                    .toList(),
+                                widget!.productID!)!,
+                            (e) => e
+                              ..plazzaPrice = functions
+                                  .valueOneMultiplayByvalueTwo(
+                                      FFAppState()
+                                          .CartMedicineDetails[
+                                              functions.checklistContains(
+                                                  FFAppState()
+                                                      .CartMedicineDetails
+                                                      .map((e) => e.productID)
+                                                      .toList(),
+                                                  widget!.productID!)!]
+                                          .quantity,
+                                      functions.doubleToInt(widget!.mrp!))
+                              ..plazzaPriceCart =
+                                  functions.valueOneMultiplayByvalueTwo(
+                                      FFAppState()
+                                          .CartMedicineDetails[
+                                              functions.checklistContains(
+                                                  FFAppState()
+                                                      .CartMedicineDetails
+                                                      .map((e) => e.productID)
+                                                      .toList(),
+                                                  widget!.productID!)!]
+                                          .quantity,
+                                      functions.doubleToInt(widget!.mrp!)),
                           );
                           safeSetState(() {});
                         }

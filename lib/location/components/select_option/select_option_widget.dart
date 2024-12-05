@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/location/components/update_address/update_address_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'select_option_model.dart';
 export 'select_option_model.dart';
@@ -61,7 +62,7 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
       height: 220.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -69,14 +70,14 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -110,19 +111,19 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                 ],
               ),
             ),
-            const Divider(
+            Divider(
               thickness: 1.0,
               color: Color(0xFFF0F0F0),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
               child: Container(
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primaryBackground,
                   borderRadius: BorderRadius.circular(12.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -138,18 +139,18 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                                 builder: (alertDialogContext) {
                                   return WebViewAware(
                                     child: AlertDialog(
-                                      content: const Text(
+                                      content: Text(
                                           'Are you sure you want to delete this address?'),
                                       actions: [
                                         TextButton(
                                           onPressed: () => Navigator.pop(
                                               alertDialogContext, false),
-                                          child: const Text('NO'),
+                                          child: Text('NO'),
                                         ),
                                         TextButton(
                                           onPressed: () => Navigator.pop(
                                               alertDialogContext, true),
-                                          child: const Text('YES'),
+                                          child: Text('YES'),
                                         ),
                                       ],
                                     ),
@@ -161,7 +162,7 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                             _model.apiResultuwy =
                                 await AirtableApiGroup.deleteCall.call(
                               tableName: 'tblc0RIN7JYzFmlxm',
-                              recordId: widget.addressId,
+                              recordId: widget!.addressId,
                             );
 
                             if ((_model.apiResultuwy?.succeeded ?? true)) {
@@ -175,9 +176,9 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                         },
                         child: Container(
                           height: 40.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -208,7 +209,7 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                                                         .bodyLargeFamily),
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 10.0)),
+                                  ].divide(SizedBox(width: 10.0)),
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios_sharp,
@@ -240,12 +241,12 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
                                   child: UpdateAddressWidget(
-                                    lat: widget.lat!,
-                                    lng: widget.lng!,
-                                    locality: widget.locality!,
-                                    addressId: widget.addressId!,
-                                    tag: widget.tag!,
-                                    pincode: widget.pincode!,
+                                    lat: widget!.lat!,
+                                    lng: widget!.lng!,
+                                    locality: widget!.locality!,
+                                    addressId: widget!.addressId!,
+                                    tag: widget!.tag!,
+                                    pincode: widget!.pincode!,
                                   ),
                                 ),
                               );
@@ -254,9 +255,9 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                         },
                         child: Container(
                           height: 40.0,
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -287,7 +288,7 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                                                         .bodyLargeFamily),
                                           ),
                                     ),
-                                  ].divide(const SizedBox(width: 10.0)),
+                                  ].divide(SizedBox(width: 10.0)),
                                 ),
                                 Icon(
                                   Icons.arrow_forward_ios_sharp,
@@ -305,7 +306,7 @@ class _SelectOptionWidgetState extends State<SelectOptionWidget> {
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 10.0)),
+          ].divide(SizedBox(height: 10.0)),
         ),
       ),
     );

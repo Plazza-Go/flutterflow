@@ -2,7 +2,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'policy_webview_model.dart';
 export 'policy_webview_model.dart';
 
@@ -66,12 +69,12 @@ class _PolicyWebviewWidgetState extends State<PolicyWebviewWidget> {
                         context.pop();
                       },
                     ),
-                    actions: const [],
+                    actions: [],
                     centerTitle: false,
                     elevation: 0.0,
                   )
                 : null,
-            body: const SafeArea(
+            body: SafeArea(
               top: true,
               child: Column(
                 mainAxisSize: MainAxisSize.max,

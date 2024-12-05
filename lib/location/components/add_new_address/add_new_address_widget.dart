@@ -1,3 +1,4 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/schema/structs/index.dart';
@@ -10,6 +11,7 @@ import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -55,11 +57,11 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
           'SearchLocation',
           queryParameters: {
             'addLocation': serializeParam(
-              widget.pagename,
+              widget!.pagename,
               ParamType.String,
             ),
             'recordId': serializeParam(
-              widget.recordid,
+              widget!.recordid,
               ParamType.String,
             ),
           }.withoutNulls,
@@ -88,12 +90,12 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 20.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -104,7 +106,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 59.0,
                             height: 6.0,
@@ -134,7 +136,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: RefreshIndicator(
                   onRefresh: () async {
                     safeSetState(() => _model.apiRequestCompleter = null);
@@ -162,14 +164,14 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                               ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 12.0, 0.0, 12.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             height: 50.0,
-                            decoration: const BoxDecoration(),
-                            alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: SizedBox(
+                            decoration: BoxDecoration(),
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.9,
                               child: TextFormField(
                                 controller: _model.textController,
@@ -238,9 +240,9 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                   fillColor: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   contentPadding:
-                                      const EdgeInsetsDirectional.fromSTEB(
+                                      EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 10.0),
-                                  prefixIcon: const Icon(
+                                  prefixIcon: Icon(
                                     FFIcons.ksearch1,
                                   ),
                                 ),
@@ -266,7 +268,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 4.0),
                           child: Container(
                             decoration: BoxDecoration(
@@ -275,15 +277,15 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 10.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -294,7 +296,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                           currentUserLocationValue =
                                               await getCurrentUserLocation(
                                                   defaultLocation:
-                                                      const LatLng(0.0, 0.0));
+                                                      LatLng(0.0, 0.0));
                                           _model.location = await actions
                                               .locationPermissionDenied();
                                           if (_model.location!) {
@@ -398,7 +400,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                               .bodyLargeFamily),
                                                                 ),
                                                           ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           height: 5.0)),
                                                     ),
                                                   ),
@@ -410,22 +412,22 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                         .primaryText,
                                                     size: 24.0,
                                                   ),
-                                                ].divide(const SizedBox(width: 8.0)),
+                                                ].divide(SizedBox(width: 8.0)),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(width: 10.0)),
+                                          ].divide(SizedBox(width: 10.0)),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  if ((widget.pagename != 'Cart') && loggedIn)
-                                    const Divider(
+                                  if ((widget!.pagename != 'Cart') && loggedIn)
+                                    Divider(
                                       thickness: 1.0,
                                       color: Color(0xFFF0F0F0),
                                     ),
                                   if (loggedIn)
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 10.0, 10.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -434,8 +436,12 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
                                           if ((FFAppState().address.lat !=
+                                                      null &&
+                                                  FFAppState().address.lat !=
                                                       '') &&
                                               (FFAppState().address.lng !=
+                                                      null &&
+                                                  FFAppState().address.lng !=
                                                       '')) {
                                             context.pushNamed(
                                               'changeLocation',
@@ -449,11 +455,11 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                   ParamType.String,
                                                 ),
                                                 'orderRecordId': serializeParam(
-                                                  widget.recordid,
+                                                  widget!.recordid,
                                                   ParamType.String,
                                                 ),
                                                 'pagename': serializeParam(
-                                                  widget.pagename,
+                                                  widget!.pagename,
                                                   ParamType.String,
                                                 ),
                                               }.withoutNulls,
@@ -505,7 +511,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                 .bodyMediumFamily),
                                                   ),
                                             ),
-                                          ].divide(const SizedBox(width: 10.0)),
+                                          ].divide(SizedBox(width: 10.0)),
                                         ),
                                       ),
                                     ),
@@ -516,7 +522,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                         ),
                         if (loggedIn)
                           Container(
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -537,7 +543,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                     .titleMediumFamily),
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 10.0)),
+                              ].divide(SizedBox(width: 10.0)),
                             ),
                           ),
                         if (loggedIn)
@@ -556,7 +562,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
-                                  return const LocationSearchShimmerWidget();
+                                  return LocationSearchShimmerWidget();
                                 }
                                 final columnFindListAddressResponse =
                                     snapshot.data!;
@@ -584,12 +590,12 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            if (widget.pagename == 'Cart') {
+                                            if (widget!.pagename == 'Cart') {
                                               _model.apiResultjvr =
                                                   await AirtableApiGroup
                                                       .updateAddressidInOrderCall
                                                       .call(
-                                                recordId: widget.recordid,
+                                                recordId: widget!.recordid,
                                                 addressId: getJsonField(
                                                   addressItem,
                                                   r'''$.id''',
@@ -654,7 +660,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                 .info,
                                                       ),
                                                     ),
-                                                    duration: const Duration(
+                                                    duration: Duration(
                                                         milliseconds: 4000),
                                                     backgroundColor:
                                                         FlutterFlowTheme.of(
@@ -679,7 +685,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(16.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -699,7 +705,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                   Expanded(
                                                     child: Container(
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                          BoxDecoration(),
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -737,7 +743,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                               FlutterFlowTheme.of(context).titleMediumFamily),
                                                                     ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 8.0)),
                                                           ),
                                                           Text(
@@ -774,7 +780,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         8.0,
@@ -873,7 +879,7 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                       ),
                                                                     ),
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                     child: Icon(
@@ -887,28 +893,28 @@ class _AddNewAddressWidgetState extends State<AddNewAddressWidget> {
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   width: 20.0)),
                                                             ),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             height: 8.0)),
                                                       ),
                                                     ),
                                                   ),
-                                                ].divide(const SizedBox(width: 16.0)),
+                                                ].divide(SizedBox(width: 16.0)),
                                               ),
                                             ),
                                           ),
                                         );
-                                      }),
+                                      }).divide(SizedBox(height: 16.0)),
                                     );
                                   },
                                 );
                               },
                             ),
                           ),
-                      ].divide(const SizedBox(height: 20.0)),
+                      ].divide(SizedBox(height: 20.0)),
                     ),
                   ),
                 ),

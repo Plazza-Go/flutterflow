@@ -1,8 +1,11 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/home_profile/components/home_faqs/home_faqs_widget.dart';
 import '/home_profile/components/home_hearder/home_hearder_widget.dart';
 import '/home_profile/components/order_trackings/order_trackings_widget.dart';
@@ -44,11 +47,13 @@ class _HomeWidgetState extends State<HomeWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       currentUserLocationValue =
-          await getCurrentUserLocation(defaultLocation: const LatLng(0.0, 0.0));
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       if ((FFAppConstants.appversion >= getRemoteConfigDouble('app_version')) ||
           FFAppState().IsNotmandatory) {
-        if (!((FFAppState().address.lat != '') &&
-            (FFAppState().address.lng != ''))) {
+        if (!((FFAppState().address.lat != null &&
+                FFAppState().address.lat != '') &&
+            (FFAppState().address.lng != null &&
+                FFAppState().address.lng != ''))) {
           _model.location = await actions.checkLocationPermission();
           if (_model.location!) {
             FFAppState().address = AppAddressStruct(
@@ -69,7 +74,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                     onTap: () => FocusScope.of(context).unfocus(),
                     child: Padding(
                       padding: MediaQuery.viewInsetsOf(context),
-                      child: const AddNewAddressWidget(
+                      child: AddNewAddressWidget(
                         pagename: 'Home',
                       ),
                     ),
@@ -123,7 +128,7 @@ class _HomeWidgetState extends State<HomeWidget> {
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primary,
-            body: const HomeShimmerWidget(),
+            body: HomeShimmerWidget(),
           );
         }
         List<AppResourcesRecord> homeAppResourcesRecordList = snapshot.data!;
@@ -151,28 +156,30 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   .toList())
                               .toString() !=
                           '0') &&
-                      (FFAppState().Serviceability.id != ''),
+                      (FFAppState().Serviceability.number >= 1),
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: FloatingActionButton.extended(
                         onPressed: () async {
-                          context.pushNamed(
-                            'medicineCart',
-                            queryParameters: {
-                              'ticketId': serializeParam(
-                                FFAppState().cartId.ticketid,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                          );
-                                                },
+                          if (FFAppState().cartId.ticketid != null) {
+                            context.pushNamed(
+                              'medicineCart',
+                              queryParameters: {
+                                'ticketId': serializeParam(
+                                  FFAppState().cartId.ticketid,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          }
+                        },
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         elevation: 8.0,
                         label: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 8.0, 0.0, 8.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -180,16 +187,18 @@ class _HomeWidgetState extends State<HomeWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed(
-                                'medicineCart',
-                                queryParameters: {
-                                  'ticketId': serializeParam(
-                                    FFAppState().cartId.ticketid,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                              );
-                                                        },
+                              if (FFAppState().cartId.ticketid != null) {
+                                context.pushNamed(
+                                  'medicineCart',
+                                  queryParameters: {
+                                    'ticketId': serializeParam(
+                                      FFAppState().cartId.ticketid,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              }
+                            },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,7 +244,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -243,16 +252,19 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed(
-                                        'medicineCart',
-                                        queryParameters: {
-                                          'ticketId': serializeParam(
-                                            FFAppState().cartId.ticketid,
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                                                        },
+                                      if (FFAppState().cartId.ticketid !=
+                                          null) {
+                                        context.pushNamed(
+                                          'medicineCart',
+                                          queryParameters: {
+                                            'ticketId': serializeParam(
+                                              FFAppState().cartId.ticketid,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      }
+                                    },
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: FlutterFlowTheme.of(context)
@@ -261,7 +273,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                         ),
@@ -273,10 +285,12 @@ class _HomeWidgetState extends State<HomeWidget> {
                   top: true,
                   child: Stack(
                     children: [
-                      if ((FFAppState().address.lat != '') &&
-                          (FFAppState().address.lng != ''))
+                      if ((FFAppState().address.lat != null &&
+                              FFAppState().address.lat != '') &&
+                          (FFAppState().address.lng != null &&
+                              FFAppState().address.lng != ''))
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: AuthUserStreamWidget(
                             builder: (context) =>
                                 FutureBuilder<ApiCallResponse>(
@@ -294,7 +308,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
-                                  return const HomeShimmerWidget();
+                                  return HomeShimmerWidget();
                                 }
                                 final containerServiceabilityResponse =
                                     snapshot.data!;
@@ -335,11 +349,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                           }()
                                         : FFAppState().width.small.toDouble(),
                                   ),
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Color(0xFFFFEDF8),
                                   ),
                                   child: Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -350,7 +364,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
-                                                decoration: const BoxDecoration(),
+                                                decoration: BoxDecoration(),
                                                 child: wrapWithModel(
                                                   model: _model
                                                       .homeHearderTopModel,
@@ -448,10 +462,10 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 Expanded(
                                                   child: Container(
                                                     height: 450.0,
-                                                    constraints: const BoxConstraints(
+                                                    constraints: BoxConstraints(
                                                       maxHeight: 600.0,
                                                     ),
-                                                    decoration: const BoxDecoration(),
+                                                    decoration: BoxDecoration(),
                                                     child:
                                                         SingleChildScrollView(
                                                       child: Column(
@@ -460,7 +474,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         10.0,
@@ -494,7 +508,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         20.0,
                                                                         0.0,
@@ -542,7 +556,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                                 onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
-                                                                                  child: const SizedBox(
+                                                                                  child: Container(
                                                                                     height: 320.0,
                                                                                     child: UploadPrescriptionsWidget(),
                                                                                   ),
@@ -569,7 +583,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                                 onTap: () => FocusScope.of(context).unfocus(),
                                                                                 child: Padding(
                                                                                   padding: MediaQuery.viewInsetsOf(context),
-                                                                                  child: const SignInWidget(),
+                                                                                  child: SignInWidget(),
                                                                                 ),
                                                                               ),
                                                                             );
@@ -599,7 +613,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -651,7 +665,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     onTap:
                                                                         () async {
                                                                       await launchURL(
-                                                                          homeAppResourcesRecord
+                                                                          homeAppResourcesRecord!
                                                                               .whatsappOrder);
                                                                     },
                                                                     child:
@@ -675,7 +689,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(8.0),
+                                                                            EdgeInsets.all(8.0),
                                                                         child:
                                                                             Column(
                                                                           mainAxisSize:
@@ -712,7 +726,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 Expanded(
                                                                   child: Stack(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             1.7,
                                                                             0.74),
                                                                     children: [
@@ -736,7 +750,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              const EdgeInsets.all(8.0),
+                                                                              EdgeInsets.all(8.0),
                                                                           child:
                                                                               Column(
                                                                             mainAxisSize:
@@ -751,7 +765,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                                   'Order by \nSymptoms',
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                        color: const Color(0xFFFFADC9),
+                                                                                        color: Color(0xFFFFADC9),
                                                                                         fontSize: 13.0,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
@@ -759,7 +773,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                                       ),
                                                                                 ),
                                                                               ),
-                                                                              const Icon(
+                                                                              Icon(
                                                                                 Icons.check_circle_outline_rounded,
                                                                                 color: Color(0xFFFFADC9),
                                                                                 size: 24.0,
@@ -785,7 +799,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                     ],
                                                                   ),
                                                                 ),
-                                                              ].divide(const SizedBox(
+                                                              ].divide(SizedBox(
                                                                   width: 20.0)),
                                                             ),
                                                           ),
@@ -799,7 +813,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                           ))
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           32.0,
@@ -817,7 +831,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                       .primaryBackground,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           10.0,
@@ -831,7 +845,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                         safeSetState(
                                                                             () {}),
                                                                     child:
-                                                                        const HomeFaqsWidget(),
+                                                                        HomeFaqsWidget(),
                                                                   ),
                                                                 ),
                                                               ),
@@ -849,7 +863,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 30.0,
                                                                 0.0, 0.0),
                                                     child: wrapWithModel(
@@ -858,7 +872,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                       updateCallback: () =>
                                                           safeSetState(() {}),
                                                       child:
-                                                          const ServiceAvailabilityWidget(
+                                                          ServiceAvailabilityWidget(
                                                         speard: -10,
                                                       ),
                                                     ),
@@ -887,7 +901,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                   builder: (context, snapshot) {
                                                     // Customize what your widget looks like when it's loading.
                                                     if (!snapshot.hasData) {
-                                                      return const CommanShimmerWidget(
+                                                      return CommanShimmerWidget(
                                                         hieght: 68,
                                                         width: 400,
                                                         radiusTL: 16,
@@ -901,14 +915,16 @@ class _HomeWidgetState extends State<HomeWidget> {
 
                                                     return Container(
                                                       decoration:
-                                                          const BoxDecoration(),
+                                                          BoxDecoration(),
                                                       child: Visibility(
                                                         visible: AirtableApiGroup
                                                                 .arrowBarOrderCall
                                                                 .records(
                                                                   containerArrowBarOrderResponse
                                                                       .jsonBody,
-                                                                )!.isNotEmpty,
+                                                                )!
+                                                                .length >=
+                                                            1,
                                                         child: wrapWithModel(
                                                           model: _model
                                                               .orderTrackingsModel,
@@ -943,12 +959,14 @@ class _HomeWidgetState extends State<HomeWidget> {
                             ),
                           ),
                         ),
-                      if ((FFAppState().address.lat == '') &&
-                          (FFAppState().address.lng == ''))
+                      if ((FFAppState().address.lat == null ||
+                              FFAppState().address.lat == '') &&
+                          (FFAppState().address.lng == null ||
+                              FFAppState().address.lng == ''))
                         wrapWithModel(
                           model: _model.homeShimmerModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const HomeShimmerWidget(),
+                          child: HomeShimmerWidget(),
                         ),
                     ],
                   ),

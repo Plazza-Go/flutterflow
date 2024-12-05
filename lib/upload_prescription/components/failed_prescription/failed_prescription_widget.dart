@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/upload_prescription/components/upload_prescriptions/upload_prescriptions_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -72,7 +73,7 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 25.0,
             color: Color(0x19000000),
@@ -83,7 +84,7 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
             spreadRadius: 0.0,
           )
         ],
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -91,7 +92,7 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -124,13 +125,13 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
                   style: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodySmallFamily,
-                        color: const Color(0xFF616161),
+                        color: Color(0xFF616161),
                         letterSpacing: 0.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodySmallFamily),
                       ),
                 ),
-              ].divide(const SizedBox(height: 8.0)),
+              ].divide(SizedBox(height: 8.0)),
             ),
             FFButtonWidget(
               onPressed: () async {
@@ -145,7 +146,7 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
                       child: Padding(
                         padding: MediaQuery.viewInsetsOf(context),
                         child: UploadPrescriptionsWidget(
-                          orderId: widget.orderId,
+                          orderId: widget!.orderId,
                         ),
                       ),
                     );
@@ -155,8 +156,8 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
               text: 'Retry',
               options: FFButtonOptions(
                 height: 40.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).info,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
@@ -169,7 +170,7 @@ class _FailedPrescriptionWidgetState extends State<FailedPrescriptionWidget> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-          ].divide(const SizedBox(height: 20.0)),
+          ].divide(SizedBox(height: 20.0)),
         ),
       ),
     );

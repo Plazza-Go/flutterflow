@@ -63,7 +63,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
         color: FlutterFlowTheme.of(context).primaryBackground,
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,7 +123,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                   ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Visibility(
                     visible: _model.faqs1,
                     child: Text(
@@ -140,7 +140,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)),
             ),
             Column(
               mainAxisSize: MainAxisSize.max,
@@ -186,7 +186,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                   ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Visibility(
                     visible: _model.faqs2,
                     child: Text(
@@ -203,7 +203,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)),
             ),
             Column(
               mainAxisSize: MainAxisSize.max,
@@ -249,7 +249,7 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                   ),
                 ),
                 Container(
-                  decoration: const BoxDecoration(),
+                  decoration: BoxDecoration(),
                   child: Visibility(
                     visible: _model.faqs3,
                     child: Text(
@@ -266,9 +266,9 @@ class _HomeFaqsWidgetState extends State<HomeFaqsWidget> {
                     ),
                   ),
                 ),
-              ].divide(const SizedBox(height: 12.0)),
+              ].divide(SizedBox(height: 12.0)),
             ),
-          ].divide(const SizedBox(height: 16.0)),
+          ].divide(SizedBox(height: 16.0)),
         ),
       ),
     );

@@ -88,15 +88,6 @@ int getIntergerByString(String distance) {
   }
 }
 
-String shotStringData(String address) {
-  // pass this formate  "Jhanjhari Block,  Gonda, Uttar Pradesh,  value return only 29 character then add 3dots
-  if (address.length <= 32) {
-    return address;
-  } else {
-    return address.substring(0, 29) + '...';
-  }
-}
-
 String getphoneNumber(String phone) {
   // pass the phone number remove +
   return phone.replaceAll('+', '');
@@ -121,11 +112,8 @@ String getImagePath(String url) {
 
 double stringToDouble(String stringData) {
   // Pass String convert to double
-  try {
-    return double.parse(stringData);
-  } catch (e) {
-    return 0.0;
-  }
+  double value = double.parse(stringData);
+  return double.parse(value.toStringAsFixed(2));
 }
 
 double addListData(List<double> listDouble) {
@@ -163,15 +151,6 @@ int? checklistContains(
   return productidlist.indexOf(productid);
 }
 
-double? getTotalItemPrice(List<double> pricelist) {
-  // pass double data list add all list data
-  double total = 0.0;
-  for (double price in pricelist) {
-    total += price;
-  }
-  return total;
-}
-
 int addlist(List<int> count) {
   // add integer list data
   int sum = 0;
@@ -201,16 +180,21 @@ bool checkInt(dynamic price) {
 }
 
 double jsonToDouble(dynamic json) {
-  //  json return double
+  double result;
+
+  // Convert JSON to double
   if (json is int) {
-    return json.toDouble();
+    result = json.toDouble();
   } else if (json is double) {
-    return json;
+    result = json;
   } else if (json is String) {
-    return double.parse(json);
+    result = double.parse(json);
   } else {
     throw Exception('Invalid JSON type for conversion to double');
   }
+
+  // Ensure result has two decimal places
+  return double.parse(result.toStringAsFixed(2));
 }
 
 List<dynamic> singleimageToList(String imageurl) {
@@ -220,4 +204,17 @@ List<dynamic> singleimageToList(String imageurl) {
       'image_url': imageurl,
     }
   ];
+}
+
+int doubleToInt(double doublevalue) {
+  // pass value * by 100 return int
+  return (doublevalue * 100).toInt();
+}
+
+double valueOneMultiplayByvalueTwo(
+  int quantity,
+  int price,
+) {
+  double result = (quantity * price) / 100;
+  return double.parse(result.toStringAsFixed(2));
 }

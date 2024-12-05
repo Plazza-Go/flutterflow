@@ -2,6 +2,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'web_view_model.dart';
 export 'web_view_model.dart';
 
@@ -49,7 +51,7 @@ class _WebViewWidgetState extends State<WebViewWidget> {
         height: 700.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          borderRadius: const BorderRadius.only(
+          borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(0.0),
             bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(16.0),
@@ -62,9 +64,9 @@ class _WebViewWidgetState extends State<WebViewWidget> {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 20.0),
                 child: FlutterFlowWebView(
-                  content: widget.paymentUrl!,
+                  content: widget!.paymentUrl!,
                   bypass: false,
                   height: 680.0,
                   verticalScroll: false,
@@ -72,7 +74,7 @@ class _WebViewWidgetState extends State<WebViewWidget> {
                 ),
               ),
             ),
-          ].divide(const SizedBox(height: 10.0)),
+          ].divide(SizedBox(height: 10.0)),
         ),
       ),
     );

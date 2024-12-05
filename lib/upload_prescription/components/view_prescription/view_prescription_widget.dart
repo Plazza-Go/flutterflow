@@ -52,7 +52,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
 
     return FutureBuilder<ApiCallResponse>(
       future: AirtableApiGroup.findSingleOrderCall.call(
-        ticketID: widget.ticketid,
+        ticketID: widget!.ticketid,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
@@ -92,7 +92,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
           ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(16.0),
@@ -104,7 +104,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -115,7 +115,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               width: 59.0,
                               height: 6.0,
@@ -167,7 +167,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                 ),
                       ),
                       Text(
-                        'Order ID #${widget.ticketid?.toString()}',
+                        'Order ID #${widget!.ticketid?.toString()}',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
                               fontFamily:
                                   FlutterFlowTheme.of(context).bodyLargeFamily,
@@ -176,12 +176,12 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                   FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                       ),
-                    ].divide(const SizedBox(height: 4.0)),
+                    ].divide(SizedBox(height: 4.0)),
                   ),
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -208,7 +208,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Stack(
-                                    alignment: const AlignmentDirectional(0.9, -0.95),
+                                    alignment: AlignmentDirectional(0.9, -0.95),
                                     children: [
                                       ClipRRect(
                                         borderRadius:
@@ -241,7 +241,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                   ),
                                 ],
                               );
-                            }).divide(const SizedBox(width: 10.0)),
+                            }).divide(SizedBox(width: 10.0)),
                           ),
                         );
                       },
@@ -250,7 +250,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -281,15 +281,15 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                   ).then((value) => safeSetState(() {}));
                                 },
                                 text: 'Add more prescription',
-                                icon: const Icon(
+                                icon: Icon(
                                   Icons.add,
                                   size: 15.0,
                                 ),
                                 options: FFButtonOptions(
                                   height: 50.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -315,11 +315,11 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                         ),
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Color(0xFFEDF4FF),
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -344,7 +344,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                                     .displaySmallFamily),
                                       ),
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                         ),
@@ -381,9 +381,9 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                   }()
                                 : FFAppState().width.small.toDouble(),
                           ),
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -393,7 +393,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                   'Total  ${AirtableApiGroup.findSingleOrderCall.prescriptionList(
                                         containerFindSingleOrderResponse
                                             .jsonBody,
-                                      )?.length.toString()} file(s)',
+                                      )?.length?.toString()} file(s)',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
@@ -423,7 +423,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 40.0,
                                           color: Color(0x80FF0083),
@@ -437,7 +437,7 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                                       borderRadius: BorderRadius.circular(5.0),
                                     ),
                                     child: Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         'Continue to cart',
                                         style: FlutterFlowTheme.of(context)
@@ -462,12 +462,12 @@ class _ViewPrescriptionWidgetState extends State<ViewPrescriptionWidget> {
                             ),
                           ),
                         ),
-                      ].divide(const SizedBox(height: 8.0)),
+                      ].divide(SizedBox(height: 8.0)),
                     ),
                   ],
                 ),
               ),
-            ].divide(const SizedBox(height: 12.0)),
+            ].divide(SizedBox(height: 12.0)),
           ),
         );
       },

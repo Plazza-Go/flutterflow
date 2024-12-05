@@ -68,16 +68,16 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: FutureBuilder<ApiCallResponse>(
         future: AirtableApiGroup.getMedicineDetailsCall.call(
-          orderTicketId: widget.ticketid,
+          orderTicketId: widget!.ticketid,
           quantityvalue: 0,
         ),
         builder: (context, snapshot) {
           // Customize what your widget looks like when it's loading.
           if (!snapshot.hasData) {
-            return const CommanShimmerWidget(
+            return CommanShimmerWidget(
               hieght: 400,
               width: 400,
               radiusTL: 18,
@@ -89,15 +89,15 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
           final containerGetMedicineDetailsResponse = snapshot.data!;
 
           return Container(
-            decoration: const BoxDecoration(),
+            decoration: BoxDecoration(),
             child: FutureBuilder<ApiCallResponse>(
               future: AirtableApiGroup.getInvoiceCall.call(
-                ticketID: widget.ticketid,
+                ticketID: widget!.ticketid,
               ),
               builder: (context, snapshot) {
                 // Customize what your widget looks like when it's loading.
                 if (!snapshot.hasData) {
-                  return const CommanShimmerWidget(
+                  return CommanShimmerWidget(
                     hieght: 400,
                     width: 400,
                     radiusTL: 18,
@@ -130,7 +130,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                   ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(18.0),
@@ -141,7 +141,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 10.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -153,7 +153,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         40.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 59.0,
@@ -187,7 +187,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 20.0),
                         child: FutureBuilder<List<AppResourcesRecord>>(
                           future: FFAppState().appAssets(
@@ -252,7 +252,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                             MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
-                                            'Order#${widget.ticketid?.toString()}',
+                                            'Order#${widget!.ticketid?.toString()}',
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
@@ -284,14 +284,14 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                               highlightColor:
                                                   Colors.transparent,
                                               onTap: () async {
-                                                while (widget
+                                                while (widget!
                                                         .prescriptionListurl
                                                         ?.length ==
                                                     _model.downloadlist) {
                                                   _model.downloadlist =
                                                       _model.downloadlist! + 1;
                                                   safeSetState(() {});
-                                                  await launchURL(widget
+                                                  await launchURL(widget!
                                                           .prescriptionListurl![
                                                       (_model.downloadlist!) -
                                                           1]);
@@ -330,7 +330,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                         .primary,
                                                     size: 24.0,
                                                   ),
-                                                ].divide(const SizedBox(width: 5.0)),
+                                                ].divide(SizedBox(width: 5.0)),
                                               ),
                                             ),
                                         ],
@@ -340,7 +340,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                         children: [
                                           Text(
                                             dateTimeFormat("d/M h:mm a",
-                                                widget.timeStamp),
+                                                widget!.timeStamp),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
@@ -371,7 +371,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                             '${AirtableApiGroup.getMedicineDetailsCall.recordList(
                                                   containerGetMedicineDetailsResponse
                                                       .jsonBody,
-                                                )?.length.toString()} items',
+                                                )?.length?.toString()} items',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
@@ -399,7 +399,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                             ),
                                           ),
                                           Text(
-                                            '₹${widget.itemtotal}',
+                                            '₹${widget!.itemtotal}',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
@@ -416,7 +416,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                               .bodyLargeFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(width: 5.0)),
+                                        ].divide(SizedBox(width: 5.0)),
                                       ),
                                     ],
                                   ),
@@ -442,7 +442,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                         scrollDirection: Axis.vertical,
                                         itemCount: medicine.length,
                                         separatorBuilder: (_, __) =>
-                                            const SizedBox(height: 12.0),
+                                            SizedBox(height: 12.0),
                                         itemBuilder: (context, medicineIndex) {
                                           final medicineItem =
                                               medicine[medicineIndex];
@@ -546,7 +546,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                                 ),
                                                       ),
                                                   ].divide(
-                                                      const SizedBox(height: 5.0)),
+                                                      SizedBox(height: 5.0)),
                                                 ),
                                               ),
                                               Text(
@@ -581,7 +581,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                                       .displaySmallFamily),
                                                         ),
                                               ),
-                                            ].divide(const SizedBox(width: 10.0)),
+                                            ].divide(SizedBox(width: 10.0)),
                                           );
                                         },
                                       );
@@ -668,10 +668,10 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                         .primary,
                                                     size: 24.0,
                                                   ),
-                                                ].divide(const SizedBox(width: 5.0)),
+                                                ].divide(SizedBox(width: 5.0)),
                                               ),
                                             ),
-                                        ].divide(const SizedBox(width: 10.0)),
+                                        ].divide(SizedBox(width: 10.0)),
                                       ),
                                       Divider(
                                         thickness: 2.0,
@@ -679,7 +679,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                             .alternate,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -701,7 +701,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -727,7 +727,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                               ],
                                             ),
                                             Text(
-                                              '₹ ${widget.itemtotal}',
+                                              '₹ ${widget!.itemtotal}',
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .bodyLarge
@@ -753,7 +753,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -775,7 +775,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -801,7 +801,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                 Builder(
                                                   builder: (context) => Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: InkWell(
@@ -826,7 +826,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                               backgroundColor:
                                                                   Colors
                                                                       .transparent,
-                                                              alignment: const AlignmentDirectional(
+                                                              alignment: AlignmentDirectional(
                                                                       0.0, 0.0)
                                                                   .resolve(
                                                                       Directionality.of(
@@ -834,19 +834,19 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                               child:
                                                                   WebViewAware(
                                                                 child:
-                                                                    SizedBox(
+                                                                    Container(
                                                                   height: 300.0,
                                                                   width: 300.0,
                                                                   child:
                                                                       HandlingchargesWidget(
                                                                     packaging:
-                                                                        widget
+                                                                        widget!
                                                                             .packegingfee!,
                                                                     platform:
-                                                                        widget
+                                                                        widget!
                                                                             .platformfee!,
                                                                     canvenience:
-                                                                        widget
+                                                                        widget!
                                                                             .canvanicefee!,
                                                                   ),
                                                                 ),
@@ -871,46 +871,107 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 8.0, 0.0),
-                                                  child: Text(
-                                                    '₹ ${(valueOrDefault<int>(
-                                                          widget.platformfee,
-                                                          2,
-                                                        ) + valueOrDefault<int>(
-                                                          widget.canvanicefee,
-                                                          5,
-                                                        ) + valueOrDefault<int>(
-                                                          widget.packegingfee,
-                                                          15,
-                                                        )).toString()}',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 11.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w100,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
-                                                  ),
-                                                ),
-                                                if (((widget.platformfee!) +
-                                                            (widget
+                                                if (((widget!.platformfee!) +
+                                                            (widget!
                                                                 .canvanicefee!) +
-                                                            (widget
+                                                            (widget!
+                                                                .packegingfee!))
+                                                        .toString() !=
+                                                    '0')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: Text(
+                                                      '₹ ${(valueOrDefault<int>(
+                                                            widget!.platformfee,
+                                                            2,
+                                                          ) + valueOrDefault<int>(
+                                                            widget!
+                                                                .canvanicefee,
+                                                            5,
+                                                          ) + valueOrDefault<int>(
+                                                            widget!
+                                                                .packegingfee,
+                                                            15,
+                                                          )).toString()}',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w100,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (((widget!.platformfee!) +
+                                                            (widget!
+                                                                .canvanicefee!) +
+                                                            (widget!
+                                                                .packegingfee!))
+                                                        .toString() ==
+                                                    '0')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                8.0, 0.0),
+                                                    child: Text(
+                                                      '₹ ${(valueOrDefault<int>(
+                                                            widget!.platformfee,
+                                                            2,
+                                                          ) + valueOrDefault<int>(
+                                                            widget!
+                                                                .canvanicefee,
+                                                            5,
+                                                          ) + valueOrDefault<int>(
+                                                            widget!
+                                                                .packegingfee,
+                                                            15,
+                                                          )).toString()}',
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                fontSize: 11.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w100,
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .lineThrough,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (((widget!.platformfee!) +
+                                                            (widget!
+                                                                .canvanicefee!) +
+                                                            (widget!
                                                                 .packegingfee!))
                                                         .toString() ==
                                                     '0')
@@ -963,7 +1024,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -991,38 +1052,74 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 8.0, 0.0),
-                                                child: Text(
-                                                  '₹ ${valueOrDefault<String>(
-                                                    widget.deliveryfee
-                                                        ?.toString(),
-                                                    '40',
-                                                  )}',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        fontSize: 11.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w100,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
+                                              if (widget!.deliveryfee != 0)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 8.0, 0.0),
+                                                  child: Text(
+                                                    '₹ ${valueOrDefault<String>(
+                                                      widget!.deliveryfee
+                                                          ?.toString(),
+                                                      '40',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w100,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                                  ),
                                                 ),
-                                              ),
-                                              if (widget.deliveryfee == 0)
+                                              if (widget!.deliveryfee == 0)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 8.0, 0.0),
+                                                  child: Text(
+                                                    '₹ ${valueOrDefault<String>(
+                                                      widget!.deliveryfee
+                                                          ?.toString(),
+                                                      '40',
+                                                    )}',
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          fontSize: 11.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w100,
+                                                          decoration:
+                                                              TextDecoration
+                                                                  .lineThrough,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                                  ),
+                                                ),
+                                              if (widget!.deliveryfee == 0)
                                                 Text(
                                                   'FREE',
                                                   style: FlutterFlowTheme.of(
@@ -1081,7 +1178,7 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                                 ),
                                           ),
                                           Text(
-                                            '₹ ${widget.totalbill}',
+                                            '₹ ${widget!.totalbill}',
                                             style: FlutterFlowTheme.of(context)
                                                 .headlineLarge
                                                 .override(
@@ -1099,9 +1196,9 @@ class _BillDetailsWidgetState extends State<BillDetailsWidget> {
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(height: 4.0)),
+                                    ].divide(SizedBox(height: 4.0)),
                                   ),
-                                ].divide(const SizedBox(height: 20.0)),
+                                ].divide(SizedBox(height: 20.0)),
                               ),
                             );
                           },

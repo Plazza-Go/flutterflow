@@ -1,9 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_and_auto_suggest_model.dart';
 export 'search_and_auto_suggest_model.dart';
 
@@ -52,7 +54,7 @@ class _SearchAndAutoSuggestWidgetState
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -61,13 +63,13 @@ class _SearchAndAutoSuggestWidgetState
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Container(
-                            constraints: const BoxConstraints(
+                            constraints: BoxConstraints(
                               maxHeight: 48.0,
                             ),
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
-                              boxShadow: const [
+                              boxShadow: [
                                 BoxShadow(
                                   blurRadius: 24.0,
                                   color: Color(0x34959DA5),
@@ -85,7 +87,7 @@ class _SearchAndAutoSuggestWidgetState
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -98,7 +100,7 @@ class _SearchAndAutoSuggestWidgetState
                                     size: 20.0,
                                   ),
                                   Expanded(
-                                    child: SizedBox(
+                                    child: Container(
                                       width: 200.0,
                                       child: TextFormField(
                                         controller: _model.textController,
@@ -143,7 +145,7 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelMediumFamily),
                                               ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -151,7 +153,7 @@ class _SearchAndAutoSuggestWidgetState
                                                 BorderRadius.circular(8.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -219,18 +221,18 @@ class _SearchAndAutoSuggestWidgetState
                                       fit: BoxFit.contain,
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 10.0)),
+                                ].divide(SizedBox(width: 10.0)),
                               ),
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -239,7 +241,7 @@ class _SearchAndAutoSuggestWidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.78, -0.08),
+                                            AlignmentDirectional(-0.78, -0.08),
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -248,7 +250,7 @@ class _SearchAndAutoSuggestWidgetState
                                             width: 24.0,
                                             height: 24.0,
                                             fit: BoxFit.fitWidth,
-                                            alignment: const Alignment(-1.0, 0.0),
+                                            alignment: Alignment(-1.0, 0.0),
                                           ),
                                         ),
                                       ),
@@ -258,7 +260,7 @@ class _SearchAndAutoSuggestWidgetState
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 0.08, -0.11),
                                             child: Text(
                                               'Crocin',
@@ -282,11 +284,11 @@ class _SearchAndAutoSuggestWidgetState
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(width: 10.0)),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -295,7 +297,7 @@ class _SearchAndAutoSuggestWidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.78, -0.08),
+                                            AlignmentDirectional(-0.78, -0.08),
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -304,7 +306,7 @@ class _SearchAndAutoSuggestWidgetState
                                             width: 24.0,
                                             height: 24.0,
                                             fit: BoxFit.fitWidth,
-                                            alignment: const Alignment(-1.0, 0.0),
+                                            alignment: Alignment(-1.0, 0.0),
                                           ),
                                         ),
                                       ),
@@ -314,7 +316,7 @@ class _SearchAndAutoSuggestWidgetState
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 0.08, -0.11),
                                             child: Text(
                                               'Crocin paracetamol',
@@ -338,11 +340,11 @@ class _SearchAndAutoSuggestWidgetState
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(width: 10.0)),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -351,7 +353,7 @@ class _SearchAndAutoSuggestWidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.78, -0.08),
+                                            AlignmentDirectional(-0.78, -0.08),
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -360,7 +362,7 @@ class _SearchAndAutoSuggestWidgetState
                                             width: 24.0,
                                             height: 24.0,
                                             fit: BoxFit.fitWidth,
-                                            alignment: const Alignment(-1.0, 0.0),
+                                            alignment: Alignment(-1.0, 0.0),
                                           ),
                                         ),
                                       ),
@@ -370,7 +372,7 @@ class _SearchAndAutoSuggestWidgetState
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 0.08, -0.11),
                                             child: Text(
                                               'Crocin pain relief tablets ',
@@ -394,11 +396,11 @@ class _SearchAndAutoSuggestWidgetState
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(width: 10.0)),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -407,7 +409,7 @@ class _SearchAndAutoSuggestWidgetState
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-0.78, -0.08),
+                                            AlignmentDirectional(-0.78, -0.08),
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(8.0),
@@ -416,7 +418,7 @@ class _SearchAndAutoSuggestWidgetState
                                             width: 24.0,
                                             height: 24.0,
                                             fit: BoxFit.fitWidth,
-                                            alignment: const Alignment(-1.0, 0.0),
+                                            alignment: Alignment(-1.0, 0.0),
                                           ),
                                         ),
                                       ),
@@ -426,7 +428,7 @@ class _SearchAndAutoSuggestWidgetState
                                             CrossAxisAlignment.start,
                                         children: [
                                           Align(
-                                            alignment: const AlignmentDirectional(
+                                            alignment: AlignmentDirectional(
                                                 0.08, -0.11),
                                             child: Text(
                                               'Crocin paracetamol baby drops',
@@ -450,16 +452,16 @@ class _SearchAndAutoSuggestWidgetState
                                           ),
                                         ],
                                       ),
-                                    ].divide(const SizedBox(width: 10.0)),
+                                    ].divide(SizedBox(width: 10.0)),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 10.0)),
+                              ].divide(SizedBox(height: 10.0)),
                             ),
                           ),
-                        ].divide(const SizedBox(height: 24.0)),
+                        ].divide(SizedBox(height: 24.0)),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -494,7 +496,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -507,14 +509,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -529,7 +531,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -560,7 +562,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -587,7 +589,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -609,7 +611,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -635,7 +637,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -667,7 +669,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -680,14 +682,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -702,7 +704,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -733,7 +735,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -760,7 +762,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -782,7 +784,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -808,7 +810,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -840,7 +842,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -853,14 +855,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -875,7 +877,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -906,7 +908,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -933,7 +935,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -955,7 +957,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -981,7 +983,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1013,7 +1015,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1026,14 +1028,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1076,7 +1078,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -1103,7 +1105,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -1125,7 +1127,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -1151,7 +1153,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1180,7 +1182,7 @@ class _SearchAndAutoSuggestWidgetState
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 8.0)),
+                                ].divide(SizedBox(width: 8.0)),
                               ),
                             ),
                             SingleChildScrollView(
@@ -1191,7 +1193,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1204,14 +1206,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1226,7 +1228,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -1257,7 +1259,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -1284,7 +1286,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -1306,7 +1308,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -1332,7 +1334,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1364,7 +1366,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1377,14 +1379,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1399,7 +1401,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -1430,7 +1432,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -1457,7 +1459,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -1479,7 +1481,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -1505,7 +1507,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1534,14 +1536,14 @@ class _SearchAndAutoSuggestWidgetState
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 8.0)),
+                                ].divide(SizedBox(width: 8.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 20.0)),
+                          ].divide(SizedBox(height: 20.0)),
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1576,7 +1578,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1589,14 +1591,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1611,7 +1613,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -1642,7 +1644,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -1669,7 +1671,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -1691,7 +1693,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -1717,7 +1719,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1749,7 +1751,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1762,14 +1764,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1784,7 +1786,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -1815,7 +1817,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -1842,7 +1844,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -1864,7 +1866,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -1890,7 +1892,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -1922,7 +1924,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -1935,14 +1937,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -1957,7 +1959,7 @@ class _SearchAndAutoSuggestWidgetState
                                               ),
                                             ),
                                             child: Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: Text(
                                                 'Add',
@@ -1988,7 +1990,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -2015,7 +2017,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -2037,7 +2039,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -2063,7 +2065,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -2095,7 +2097,7 @@ class _SearchAndAutoSuggestWidgetState
                                   Container(
                                     width: 109.0,
                                     height: 186.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Stack(
                                       children: [
                                         Stack(
@@ -2108,14 +2110,14 @@ class _SearchAndAutoSuggestWidgetState
                                                 width: 100.0,
                                                 height: 100.0,
                                                 fit: BoxFit.fitWidth,
-                                                alignment: const Alignment(-1.0, 0.0),
+                                                alignment: Alignment(-1.0, 0.0),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(1.06, -0.04),
+                                              AlignmentDirectional(1.06, -0.04),
                                           child: Container(
                                             width: 80.0,
                                             height: 32.0,
@@ -2158,7 +2160,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.05, 0.98),
+                                              AlignmentDirectional(-0.05, 0.98),
                                           child: Text(
                                             '₹350',
                                             style: FlutterFlowTheme.of(context)
@@ -2185,7 +2187,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.55),
+                                              AlignmentDirectional(0.0, 0.55),
                                           child: Text(
                                             'Salmon Omega 3 Fish Oil Capsule with vitamin',
                                             style: FlutterFlowTheme.of(context)
@@ -2207,7 +2209,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-1.01, 0.79),
+                                              AlignmentDirectional(-1.01, 0.79),
                                           child: Text(
                                             '10 capsules',
                                             style: FlutterFlowTheme.of(context)
@@ -2233,7 +2235,7 @@ class _SearchAndAutoSuggestWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(-0.97, 0.96),
+                                              AlignmentDirectional(-0.97, 0.96),
                                           child: Text(
                                             '₹400',
                                             style: FlutterFlowTheme.of(context)
@@ -2262,17 +2264,17 @@ class _SearchAndAutoSuggestWidgetState
                                       ],
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 8.0)),
+                                ].divide(SizedBox(width: 8.0)),
                               ),
                             ),
-                          ].divide(const SizedBox(height: 20.0)),
+                          ].divide(SizedBox(height: 20.0)),
                         ),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -2305,7 +2307,7 @@ class _SearchAndAutoSuggestWidgetState
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2336,12 +2338,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2372,12 +2374,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2408,17 +2410,17 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 14.0)),
+                                ].divide(SizedBox(width: 14.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2449,12 +2451,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2486,12 +2488,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2522,20 +2524,20 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 14.0)),
+                                ].divide(SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(SizedBox(height: 20.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -2568,7 +2570,7 @@ class _SearchAndAutoSuggestWidgetState
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2599,12 +2601,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2635,12 +2637,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2671,20 +2673,20 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 14.0)),
+                                ].divide(SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(SizedBox(height: 20.0)),
                       ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -2717,7 +2719,7 @@ class _SearchAndAutoSuggestWidgetState
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2748,12 +2750,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2784,12 +2786,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2820,17 +2822,17 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 14.0)),
+                                ].divide(SizedBox(width: 14.0)),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2861,12 +2863,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2898,12 +2900,12 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                   Container(
                                     height: 152.0,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -2934,16 +2936,16 @@ class _SearchAndAutoSuggestWidgetState
                                                             .labelSmallFamily),
                                               ),
                                         ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
-                                ].divide(const SizedBox(width: 14.0)),
+                                ].divide(SizedBox(width: 14.0)),
                               ),
                             ],
                           ),
-                        ].divide(const SizedBox(height: 20.0)),
+                        ].divide(SizedBox(height: 20.0)),
                       ),
-                    ].divide(const SizedBox(height: 24.0)),
+                    ].divide(SizedBox(height: 24.0)),
                   ),
                 ),
               ),

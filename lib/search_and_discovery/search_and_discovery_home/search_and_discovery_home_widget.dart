@@ -1,6 +1,8 @@
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/home_profile/home_nav_bar/home_nav_bar_widget.dart';
 import '/location/components/add_new_address/add_new_address_widget.dart';
 import '/pages/authentication/sign_in/sign_in_widget.dart';
@@ -68,7 +70,7 @@ class _SearchAndDiscoveryHomeWidgetState
                   children: [
                     Container(
                       width: 100.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Color(0xFF99004F), Color(0xFFF10E83)],
                           stops: [0.0, 1.0],
@@ -116,14 +118,14 @@ class _SearchAndDiscoveryHomeWidgetState
                               color: FlutterFlowTheme.of(context).primary,
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 20.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -205,7 +207,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               .viewInsetsOf(
                                                                   context),
                                                           child:
-                                                              const AddNewAddressWidget(
+                                                              AddNewAddressWidget(
                                                             pagename: 'Home',
                                                           ),
                                                         ),
@@ -256,10 +258,10 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         .info,
                                                     size: 20.0,
                                                   ),
-                                                ].divide(const SizedBox(width: 5.0)),
+                                                ].divide(SizedBox(width: 5.0)),
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 4.0)),
+                                          ].divide(SizedBox(height: 4.0)),
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -294,7 +296,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
                                                                       context),
-                                                              child: const SizedBox(
+                                                              child: Container(
                                                                 height: 500.0,
                                                                 child:
                                                                     SignInWidget(),
@@ -311,7 +313,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     height: 30.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
@@ -354,7 +356,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
                                                                       context),
-                                                              child: const SizedBox(
+                                                              child: Container(
                                                                 height: 500.0,
                                                                 child:
                                                                     SignInWidget(),
@@ -371,7 +373,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                   width: 30.0,
                                                   height: 30.0,
                                                   decoration: BoxDecoration(
-                                                    color: const Color(0xFFFF0083),
+                                                    color: Color(0xFFFF0083),
                                                     shape: BoxShape.circle,
                                                     border: Border.all(
                                                       color: FlutterFlowTheme
@@ -381,7 +383,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                   ),
                                                   child: Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: AuthUserStreamWidget(
                                                       builder: (context) =>
@@ -422,11 +424,11 @@ class _SearchAndDiscoveryHomeWidgetState
                                               ),
                                           ],
                                         ),
-                                      ].divide(const SizedBox(width: 10.0)),
+                                      ].divide(SizedBox(width: 10.0)),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
@@ -442,14 +444,14 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Container(
-                                                constraints: const BoxConstraints(
+                                                constraints: BoxConstraints(
                                                   maxHeight: 48.0,
                                                 ),
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 24.0,
                                                       color: Color(0x34959DA5),
@@ -471,7 +473,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.max,
@@ -491,7 +493,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         ),
                                                       ),
                                                       Expanded(
-                                                        child: SizedBox(
+                                                        child: Container(
                                                           width: 200.0,
                                                           child: TextFormField(
                                                             controller: _model
@@ -502,7 +504,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 EasyDebounce
                                                                     .debounce(
                                                               '_model.textController',
-                                                              const Duration(
+                                                              Duration(
                                                                   milliseconds:
                                                                       2000),
                                                               () async {
@@ -548,7 +550,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               enabledBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -561,7 +563,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               focusedBorder:
                                                                   OutlineInputBorder(
                                                                 borderSide:
-                                                                    const BorderSide(
+                                                                    BorderSide(
                                                                   color: Color(
                                                                       0x00000000),
                                                                   width: 1.0,
@@ -634,25 +636,25 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(width: 10.0)),
+                                                        SizedBox(width: 10.0)),
                                                   ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 4.0)),
+                                            ].divide(SizedBox(height: 4.0)),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 10.0)),
+                                      ].divide(SizedBox(width: 10.0)),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         Container(
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Color(0x2AFFFFFF),
                                             borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(0.0),
@@ -663,7 +665,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 10.0, 20.0, 0.0),
                                             child: Text(
                                               'Coming soon',
@@ -695,7 +697,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                     ),
                                   ),
                                   Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -705,7 +707,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -721,7 +723,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: Text(
@@ -747,16 +749,16 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Container(
                                                   width: 80.0,
                                                   height: 4.0,
                                                   decoration: BoxDecoration(
-                                                    color: const Color(0xFFFFEDF8),
+                                                    color: Color(0xFFFFEDF8),
                                                     borderRadius:
-                                                        const BorderRadius.only(
+                                                        BorderRadius.only(
                                                       bottomLeft:
                                                           Radius.circular(0.0),
                                                       bottomRight:
@@ -779,7 +781,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                         Expanded(
                                           child: Container(
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               color: Color(0x2AFFFFFF),
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft:
@@ -791,7 +793,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                               ),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 10.0, 20.0, 12.0),
                                               child: Row(
@@ -840,7 +842,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 12.0)),
+                                                        SizedBox(height: 12.0)),
                                                   ),
                                                   Column(
                                                     mainAxisSize:
@@ -882,7 +884,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 12.0)),
+                                                        SizedBox(height: 12.0)),
                                                   ),
                                                   Column(
                                                     mainAxisSize:
@@ -924,14 +926,14 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 ),
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 12.0)),
+                                                        SizedBox(height: 12.0)),
                                                   ),
-                                                ].divide(const SizedBox(width: 5.0)),
+                                                ].divide(SizedBox(width: 5.0)),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ].divide(const SizedBox(width: 10.0)),
+                                      ].divide(SizedBox(width: 10.0)),
                                     ),
                                   ),
                                 ],
@@ -951,7 +953,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -960,7 +962,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                             'assets/images/medicineBackgroundImage.png',
                                             height: 96.0,
                                             fit: BoxFit.contain,
-                                            alignment: const Alignment(-1.0, 0.0),
+                                            alignment: Alignment(-1.0, 0.0),
                                           ),
                                         ),
                                       ),
@@ -974,7 +976,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 5.0, 0.0),
                                         child: ClipRRect(
                                           borderRadius:
@@ -983,16 +985,16 @@ class _SearchAndDiscoveryHomeWidgetState
                                             'assets/images/image_1261.png',
                                             height: 50.0,
                                             fit: BoxFit.contain,
-                                            alignment: const Alignment(0.0, 0.0),
+                                            alignment: Alignment(0.0, 0.0),
                                           ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                ].divide(const SizedBox(height: 16.0)),
+                                ].divide(SizedBox(height: 16.0)),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 20.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1012,7 +1014,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 13.0, 8.0, 13.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1050,7 +1052,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .primary,
                                               size: 24.0,
                                             ),
-                                          ].divide(const SizedBox(height: 16.0)),
+                                          ].divide(SizedBox(height: 16.0)),
                                         ),
                                       ),
                                     ),
@@ -1067,7 +1069,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 13.0, 8.0, 13.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1105,7 +1107,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .primary,
                                               size: 24.0,
                                             ),
-                                          ].divide(const SizedBox(height: 16.0)),
+                                          ].divide(SizedBox(height: 16.0)),
                                         ),
                                       ),
                                     ),
@@ -1122,7 +1124,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 13.0, 8.0, 13.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -1161,21 +1163,21 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .primary,
                                               size: 24.0,
                                             ),
-                                          ].divide(const SizedBox(height: 16.0)),
+                                          ].divide(SizedBox(height: 16.0)),
                                         ),
                                       ),
                                     ),
-                                  ].divide(const SizedBox(width: 20.0)),
+                                  ].divide(SizedBox(width: 20.0)),
                                 ),
                               ),
-                            ].divide(const SizedBox(height: 16.0)),
+                            ].divide(SizedBox(height: 16.0)),
                           ),
                         ],
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1190,7 +1192,7 @@ class _SearchAndDiscoveryHomeWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1246,7 +1248,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                        ].divide(const SizedBox(width: 12.0)),
+                                        ].divide(SizedBox(width: 12.0)),
                                       ),
                                     ],
                                   ),
@@ -1259,7 +1261,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                   desktop: false,
                                 ))
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
@@ -1269,7 +1271,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                           Container(
                                             width: 109.0,
                                             height: 186.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Stack(
                                               children: [
                                                 Stack(
@@ -1283,7 +1285,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         width: 100.0,
                                                         height: 100.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -1291,7 +1293,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.06, -0.04),
                                                   child: Container(
                                                     width: 80.0,
@@ -1310,7 +1312,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Text(
                                                         'Add',
@@ -1343,7 +1345,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.05, 0.98),
                                                   child: Text(
                                                     '₹350',
@@ -1373,7 +1375,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.55),
                                                   child: Text(
                                                     'Salmon Omega 3 Fish Oil Capsule with vitamin',
@@ -1397,7 +1399,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.01, 0.79),
                                                   child: Text(
                                                     '10 capsules',
@@ -1426,7 +1428,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.97, 0.96),
                                                   child: Text(
                                                     '₹400',
@@ -1462,7 +1464,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                           Container(
                                             width: 109.0,
                                             height: 186.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Stack(
                                               children: [
                                                 Stack(
@@ -1476,7 +1478,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         width: 100.0,
                                                         height: 100.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -1484,7 +1486,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.06, -0.04),
                                                   child: Container(
                                                     width: 80.0,
@@ -1503,7 +1505,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Text(
                                                         'Add',
@@ -1536,7 +1538,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.05, 0.98),
                                                   child: Text(
                                                     '₹350',
@@ -1566,7 +1568,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.55),
                                                   child: Text(
                                                     'Salmon Omega 3 Fish Oil Capsule with vitamin',
@@ -1590,7 +1592,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.01, 0.79),
                                                   child: Text(
                                                     '10 capsules',
@@ -1619,7 +1621,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.97, 0.96),
                                                   child: Text(
                                                     '₹400',
@@ -1655,7 +1657,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                           Container(
                                             width: 109.0,
                                             height: 186.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Stack(
                                               children: [
                                                 Stack(
@@ -1669,7 +1671,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         width: 100.0,
                                                         height: 100.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -1677,7 +1679,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.06, -0.04),
                                                   child: Container(
                                                     width: 80.0,
@@ -1696,7 +1698,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Text(
                                                         'Add',
@@ -1729,7 +1731,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.05, 0.98),
                                                   child: Text(
                                                     '₹350',
@@ -1759,7 +1761,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.55),
                                                   child: Text(
                                                     'Salmon Omega 3 Fish Oil Capsule with vitamin',
@@ -1783,7 +1785,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.01, 0.79),
                                                   child: Text(
                                                     '10 capsules',
@@ -1812,7 +1814,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.97, 0.96),
                                                   child: Text(
                                                     '₹400',
@@ -1848,7 +1850,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                           Container(
                                             width: 109.0,
                                             height: 186.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Stack(
                                               children: [
                                                 Stack(
@@ -1862,7 +1864,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         width: 100.0,
                                                         height: 100.0,
                                                         fit: BoxFit.fitWidth,
-                                                        alignment: const Alignment(
+                                                        alignment: Alignment(
                                                             -1.0, 0.0),
                                                       ),
                                                     ),
@@ -1870,7 +1872,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           1.06, -0.04),
                                                   child: Container(
                                                     width: 80.0,
@@ -1916,7 +1918,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.05, 0.98),
                                                   child: Text(
                                                     '₹350',
@@ -1946,7 +1948,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.55),
                                                   child: Text(
                                                     'Salmon Omega 3 Fish Oil Capsule with vitamin',
@@ -1970,7 +1972,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -1.01, 0.79),
                                                   child: Text(
                                                     '10 capsules',
@@ -1999,7 +2001,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           -0.97, 0.96),
                                                   child: Text(
                                                     '₹400',
@@ -2032,11 +2034,11 @@ class _SearchAndDiscoveryHomeWidgetState
                                               ],
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 8.0)),
+                                        ].divide(SizedBox(width: 8.0)),
                                       ),
                                     ),
                                   ),
-                              ].divide(const SizedBox(height: 20.0)),
+                              ].divide(SizedBox(height: 20.0)),
                             ),
                           if (responsiveVisibility(
                             context: context,
@@ -2049,7 +2051,7 @@ class _SearchAndDiscoveryHomeWidgetState
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -2105,13 +2107,13 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 .primary,
                                             size: 24.0,
                                           ),
-                                        ].divide(const SizedBox(width: 12.0)),
+                                        ].divide(SizedBox(width: 12.0)),
                                       ),
                                     ],
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
@@ -2120,10 +2122,10 @@ class _SearchAndDiscoveryHomeWidgetState
                                       children: [
                                         Stack(
                                           alignment:
-                                              const AlignmentDirectional(1.1, 1.0),
+                                              AlignmentDirectional(1.1, 1.0),
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: Container(
@@ -2134,7 +2136,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       BorderRadius.circular(
                                                           8.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFF0F0F0),
+                                                    color: Color(0xFFF0F0F0),
                                                     width: 1.0,
                                                   ),
                                                 ),
@@ -2154,7 +2156,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2181,7 +2183,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2196,7 +2198,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                           .start,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.41,
                                                                           -1.02),
                                                                       child:
@@ -2214,7 +2216,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                       ),
                                                                     ),
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           0.04,
                                                                           -0.75),
                                                                       child:
@@ -2230,7 +2232,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                       ),
                                                                     ),
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.39,
                                                                           -0.59),
                                                                       child:
@@ -2245,12 +2247,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                             ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(const SizedBox(
+                                                                  ].divide(SizedBox(
                                                                       height:
                                                                           4.0)),
                                                                 ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -2262,7 +2264,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2278,7 +2280,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.95,
                                                                         -0.06),
                                                                 child: Text(
@@ -2304,7 +2306,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.78,
                                                                         -0.08),
                                                                 child:
@@ -2322,7 +2324,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     fit: BoxFit
                                                                         .fitWidth,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             -1.0,
                                                                             0.0),
                                                                   ),
@@ -2338,7 +2340,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2362,7 +2364,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2388,13 +2390,13 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2410,7 +2412,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.95,
                                                                         -0.06),
                                                                 child: Text(
@@ -2436,7 +2438,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.78,
                                                                         -0.08),
                                                                 child:
@@ -2454,7 +2456,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     fit: BoxFit
                                                                         .fitWidth,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             -1.0,
                                                                             0.0),
                                                                   ),
@@ -2470,7 +2472,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2494,7 +2496,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2520,7 +2522,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -2528,11 +2530,11 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -0.97, 0.96),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -2569,7 +2571,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   1.24, 1.14),
                                               child: Container(
                                                 width: 68.0,
@@ -2587,7 +2589,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Text(
                                                     'Reorder',
@@ -2622,10 +2624,10 @@ class _SearchAndDiscoveryHomeWidgetState
                                         ),
                                         Stack(
                                           alignment:
-                                              const AlignmentDirectional(1.1, 1.0),
+                                              AlignmentDirectional(1.1, 1.0),
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 10.0, 0.0, 10.0),
                                               child: Container(
@@ -2636,7 +2638,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       BorderRadius.circular(
                                                           8.0),
                                                   border: Border.all(
-                                                    color: const Color(0xFFF0F0F0),
+                                                    color: Color(0xFFF0F0F0),
                                                     width: 1.0,
                                                   ),
                                                 ),
@@ -2656,7 +2658,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2683,7 +2685,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -2698,7 +2700,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                           .start,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.41,
                                                                           -1.02),
                                                                       child:
@@ -2716,7 +2718,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                       ),
                                                                     ),
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           0.04,
                                                                           -0.75),
                                                                       child:
@@ -2732,7 +2734,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                       ),
                                                                     ),
                                                                     Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -0.39,
                                                                           -0.59),
                                                                       child:
@@ -2747,12 +2749,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                             ),
                                                                       ),
                                                                     ),
-                                                                  ].divide(const SizedBox(
+                                                                  ].divide(SizedBox(
                                                                       height:
                                                                           4.0)),
                                                                 ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -2764,7 +2766,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2780,7 +2782,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.95,
                                                                         -0.06),
                                                                 child: Text(
@@ -2806,7 +2808,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.78,
                                                                         -0.08),
                                                                 child:
@@ -2824,7 +2826,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     fit: BoxFit
                                                                         .fitWidth,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             -1.0,
                                                                             0.0),
                                                                   ),
@@ -2840,7 +2842,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2864,7 +2866,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2890,13 +2892,13 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       10.0,
                                                                       0.0,
@@ -2912,7 +2914,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.95,
                                                                         -0.06),
                                                                 child: Text(
@@ -2938,7 +2940,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -0.78,
                                                                         -0.08),
                                                                 child:
@@ -2956,7 +2958,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     fit: BoxFit
                                                                         .fitWidth,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             -1.0,
                                                                             0.0),
                                                                   ),
@@ -2972,7 +2974,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -2996,7 +2998,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             0.08,
                                                                             -0.11),
                                                                     child: Text(
@@ -3022,7 +3024,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -3030,11 +3032,11 @@ class _SearchAndDiscoveryHomeWidgetState
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -0.97, 0.96),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -3071,7 +3073,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                               ),
                                             ),
                                             Align(
-                                              alignment: const AlignmentDirectional(
+                                              alignment: AlignmentDirectional(
                                                   1.24, 1.14),
                                               child: Container(
                                                 width: 68.0,
@@ -3089,7 +3091,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Text(
                                                     'Reorder',
@@ -3122,11 +3124,11 @@ class _SearchAndDiscoveryHomeWidgetState
                                             ),
                                           ],
                                         ),
-                                      ].divide(const SizedBox(width: 16.0)),
+                                      ].divide(SizedBox(width: 16.0)),
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(height: 20.0)),
+                              ].divide(SizedBox(height: 20.0)),
                             ),
                           if (responsiveVisibility(
                             context: context,
@@ -3136,13 +3138,13 @@ class _SearchAndDiscoveryHomeWidgetState
                             desktop: false,
                           ))
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -3202,7 +3204,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .primary,
                                               size: 24.0,
                                             ),
-                                          ].divide(const SizedBox(width: 12.0)),
+                                          ].divide(SizedBox(width: 12.0)),
                                         ),
                                       ],
                                     ),
@@ -3215,7 +3217,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         children: [
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3249,12 +3251,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3288,12 +3290,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3327,17 +3329,17 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 14.0)),
+                                        ].divide(SizedBox(width: 14.0)),
                                       ),
                                       Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3371,12 +3373,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3411,12 +3413,12 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
                                           Container(
                                             height: 152.0,
-                                            decoration: const BoxDecoration(),
+                                            decoration: BoxDecoration(),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3450,14 +3452,14 @@ class _SearchAndDiscoveryHomeWidgetState
                                                                     .labelSmallFamily),
                                                       ),
                                                 ),
-                                              ].divide(const SizedBox(height: 8.0)),
+                                              ].divide(SizedBox(height: 8.0)),
                                             ),
                                           ),
-                                        ].divide(const SizedBox(width: 14.0)),
+                                        ].divide(SizedBox(width: 14.0)),
                                       ),
                                     ],
                                   ),
-                                ].divide(const SizedBox(height: 20.0)),
+                                ].divide(SizedBox(height: 20.0)),
                               ),
                             ),
                           if (responsiveVisibility(
@@ -3468,13 +3470,13 @@ class _SearchAndDiscoveryHomeWidgetState
                             desktop: false,
                           ))
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 20.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -3513,7 +3515,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -3547,7 +3549,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .accent2,
                                                   size: 20.0,
                                                 ),
-                                              ].divide(const SizedBox(width: 14.0)),
+                                              ].divide(SizedBox(width: 14.0)),
                                             ),
                                           ),
                                           Text(
@@ -3573,7 +3575,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 20.0)),
                                       ),
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -3582,7 +3584,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -3616,7 +3618,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .accent2,
                                                   size: 20.0,
                                                 ),
-                                              ].divide(const SizedBox(width: 14.0)),
+                                              ].divide(SizedBox(width: 14.0)),
                                             ),
                                           ),
                                           Text(
@@ -3642,7 +3644,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 20.0)),
                                       ),
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -3651,7 +3653,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -3685,7 +3687,7 @@ class _SearchAndDiscoveryHomeWidgetState
                                                       .accent2,
                                                   size: 20.0,
                                                 ),
-                                              ].divide(const SizedBox(width: 14.0)),
+                                              ].divide(SizedBox(width: 14.0)),
                                             ),
                                           ),
                                           Text(
@@ -3711,19 +3713,19 @@ class _SearchAndDiscoveryHomeWidgetState
                                                               .bodyMediumFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(height: 20.0)),
+                                        ].divide(SizedBox(height: 20.0)),
                                       ),
-                                    ].divide(const SizedBox(height: 24.0)),
+                                    ].divide(SizedBox(height: 24.0)),
                                   ),
-                                ].divide(const SizedBox(height: 20.0)),
+                                ].divide(SizedBox(height: 20.0)),
                               ),
                             ),
                           wrapWithModel(
                             model: _model.homeNavBarModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: const HomeNavBarWidget(),
+                            child: HomeNavBarWidget(),
                           ),
-                        ].divide(const SizedBox(height: 28.0)),
+                        ].divide(SizedBox(height: 28.0)),
                       ),
                     ),
                   ],

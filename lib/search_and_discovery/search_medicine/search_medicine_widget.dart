@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/cart/addtocart/addtocart_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shimmer/medicineshimmer/medicineshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'dart:async';
@@ -66,42 +67,46 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                       '0') &&
                   (FFAppState().cartId.ticketid != 0),
               child: Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                   child: FloatingActionButton.extended(
                     onPressed: () async {
-                      context.pushNamed(
-                        'medicineCart',
-                        queryParameters: {
-                          'ticketId': serializeParam(
-                            FFAppState().cartId.ticketid,
-                            ParamType.int,
-                          ),
-                        }.withoutNulls,
-                      );
-                                        },
+                      if (FFAppState().cartId.ticketid != null) {
+                        context.pushNamed(
+                          'medicineCart',
+                          queryParameters: {
+                            'ticketId': serializeParam(
+                              FFAppState().cartId.ticketid,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                        );
+                      }
+                    },
                     backgroundColor: FlutterFlowTheme.of(context).primary,
                     elevation: 8.0,
                     label: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 8.0, 0.0, 8.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(
-                            'medicineCart',
-                            queryParameters: {
-                              'ticketId': serializeParam(
-                                FFAppState().cartId.ticketid,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                          );
-                                                },
+                          if (FFAppState().cartId.ticketid != null) {
+                            context.pushNamed(
+                              'medicineCart',
+                              queryParameters: {
+                                'ticketId': serializeParam(
+                                  FFAppState().cartId.ticketid,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          }
+                        },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -145,7 +150,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                               ],
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -153,16 +158,18 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed(
-                                    'medicineCart',
-                                    queryParameters: {
-                                      'ticketId': serializeParam(
-                                        FFAppState().cartId.ticketid,
-                                        ParamType.int,
-                                      ),
-                                    }.withoutNulls,
-                                  );
-                                                                },
+                                  if (FFAppState().cartId.ticketid != null) {
+                                    context.pushNamed(
+                                      'medicineCart',
+                                      queryParameters: {
+                                        'ticketId': serializeParam(
+                                          FFAppState().cartId.ticketid,
+                                          ParamType.int,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  }
+                                },
                                 child: Icon(
                                   Icons.arrow_forward_ios,
                                   color: FlutterFlowTheme.of(context)
@@ -171,7 +178,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                 ),
                               ),
                             ),
-                          ].divide(const SizedBox(width: 8.0)),
+                          ].divide(SizedBox(width: 8.0)),
                         ),
                       ),
                     ),
@@ -191,7 +198,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                       backgroundColor:
                           FlutterFlowTheme.of(context).primaryBackground,
                       automaticallyImplyLeading: false,
-                      actions: const [],
+                      actions: [],
                       flexibleSpace: FlexibleSpaceBar(
                         title: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -215,7 +222,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           8.0, 0.0, 0.0, 0.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -234,7 +241,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                       ),
                                     ),
                                     Expanded(
-                                      child: SizedBox(
+                                      child: Container(
                                         width: 200.0,
                                         child: TextFormField(
                                           controller:
@@ -243,7 +250,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
                                             '_model.textFieldTextController',
-                                            const Duration(milliseconds: 2000),
+                                            Duration(milliseconds: 2000),
                                             () async {
                                               safeSetState(() => _model
                                                   .apiRequestCompleter = null);
@@ -298,7 +305,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                       lineHeight: 1.0,
                                                     ),
                                             enabledBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -306,7 +313,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             focusedBorder: OutlineInputBorder(
-                                              borderSide: const BorderSide(
+                                              borderSide: BorderSide(
                                                 color: Color(0x00000000),
                                                 width: 1.0,
                                               ),
@@ -339,7 +346,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .primaryBackground,
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 0.0, 0.0),
                                             suffixIcon: _model
                                                     .textFieldTextController!
@@ -405,7 +412,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                         ),
                         centerTitle: false,
                         expandedTitleScale: 1.0,
-                        titlePadding: const EdgeInsetsDirectional.fromSTEB(
+                        titlePadding: EdgeInsetsDirectional.fromSTEB(
                             20.0, 4.0, 20.0, 4.0),
                       ),
                       elevation: 0.0,
@@ -421,7 +428,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
-                    return const Center(
+                    return Center(
                       child: SizedBox(
                         width: 50,
                         height: 50,
@@ -445,10 +452,10 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                           : null;
 
                   return Container(
-                    decoration: const BoxDecoration(),
+                    decoration: BoxDecoration(),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -497,10 +504,11 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                       .bodyMediumFamily),
                                         ),
                                   ),
-                                ].divide(const SizedBox(width: 19.0)),
+                                ].divide(SizedBox(width: 19.0)),
                               ),
                             ),
-                          if (_model.textFieldTextController.text != '')
+                          if (_model.textFieldTextController.text != null &&
+                              _model.textFieldTextController.text != '')
                             Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -527,7 +535,8 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                 ),
                               ],
                             ),
-                          if (_model.textFieldTextController.text != '')
+                          if (_model.textFieldTextController.text != null &&
+                              _model.textFieldTextController.text != '')
                             Expanded(
                               child: FutureBuilder<ApiCallResponse>(
                                 future: (_model.apiRequestCompleter ??=
@@ -540,7 +549,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const MedicineshimmerWidget();
+                                    return MedicineshimmerWidget();
                                   }
                                   final medicineCardMedicineSearchsResponse =
                                       snapshot.data!;
@@ -563,7 +572,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                         },
                                         child: MasonryGridView.builder(
                                           gridDelegate:
-                                              const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                              SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                             crossAxisCount: 3,
                                           ),
                                           crossAxisSpacing: 10.0,
@@ -576,7 +585,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                             return Container(
                                               width: 109.0,
                                               height: 186.0,
-                                              decoration: const BoxDecoration(),
+                                              decoration: BoxDecoration(),
                                               child: Stack(
                                                 children: [
                                                   InkWell(
@@ -632,20 +641,20 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                             fit:
                                                                 BoxFit.fitWidth,
                                                             alignment:
-                                                                const Alignment(
+                                                                Alignment(
                                                                     -1.0, 0.0),
                                                           ),
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.55),
                                                           child: Container(
                                                             height: 50.0,
                                                             decoration:
-                                                                const BoxDecoration(),
+                                                                BoxDecoration(),
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.0, -1.0),
                                                             child: Visibility(
                                                               visible:
@@ -656,7 +665,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                                       null,
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -695,7 +704,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                             null)
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     -1.01,
                                                                     0.79),
                                                             child: Text(
@@ -764,7 +773,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             1.06, -0.04),
                                                     child: wrapWithModel(
                                                       model: _model
@@ -858,7 +867,7 @@ class _SearchMedicineWidgetState extends State<SearchMedicineWidget> {
                                 },
                               ),
                             ),
-                        ].divide(const SizedBox(height: 24.0)),
+                        ].divide(SizedBox(height: 24.0)),
                       ),
                     ),
                   );

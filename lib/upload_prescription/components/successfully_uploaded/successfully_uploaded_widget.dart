@@ -46,10 +46,10 @@ class _SuccessfullyUploadedWidgetState
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      FFAppState().addToPrescriptionAppside(widget.imageurl!);
-      FFAppState().addToPrescritiondata(widget.url!);
+      FFAppState().addToPrescriptionAppside(widget!.imageurl!);
+      FFAppState().addToPrescritiondata(widget!.url!);
       safeSetState(() {});
-      if (widget.orderId == null || widget.orderId == '') {
+      if (widget!.orderId == null || widget!.orderId == '') {
         _model.delay = await actions.secondDelay(
           1,
         );
@@ -63,7 +63,7 @@ class _SuccessfullyUploadedWidgetState
             await AirtableApiGroup.updateOrderPrescriptionCall.call(
           prescriptionJson:
               FFAppState().prescritiondata.map((e) => e.toMap()).toList(),
-          recordId: widget.orderId,
+          recordId: widget!.orderId,
         );
 
         if ((_model.apiResultimx?.succeeded ?? true)) {
@@ -71,7 +71,7 @@ class _SuccessfullyUploadedWidgetState
           FFAppState().prescriptionAppside = [];
           FFAppState().update(() {});
           Navigator.pop(context);
-          if (widget.orderId == FFAppState().cartId.orderid) {
+          if (widget!.orderId == FFAppState().cartId.orderid) {
             context.pushNamed(
               'medicineCart',
               queryParameters: {
@@ -81,7 +81,7 @@ class _SuccessfullyUploadedWidgetState
                 ),
               }.withoutNulls,
               extra: <String, dynamic>{
-                kTransitionInfoKey: const TransitionInfo(
+                kTransitionInfoKey: TransitionInfo(
                   hasTransition: true,
                   transitionType: PageTransitionType.topToBottom,
                 ),
@@ -94,11 +94,11 @@ class _SuccessfullyUploadedWidgetState
             builder: (alertDialogContext) {
               return WebViewAware(
                 child: AlertDialog(
-                  title: const Text('Please try agian'),
+                  title: Text('Please try agian'),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(alertDialogContext),
-                      child: const Text('Ok'),
+                      child: Text('Ok'),
                     ),
                   ],
                 ),
@@ -145,7 +145,7 @@ class _SuccessfullyUploadedWidgetState
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).primaryBackground,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 25.0,
             color: Color(0x19000000),
@@ -156,7 +156,7 @@ class _SuccessfullyUploadedWidgetState
             spreadRadius: 0.0,
           )
         ],
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(18.0),
@@ -164,7 +164,7 @@ class _SuccessfullyUploadedWidgetState
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -195,15 +195,15 @@ class _SuccessfullyUploadedWidgetState
                   style: FlutterFlowTheme.of(context).bodySmall.override(
                         fontFamily:
                             FlutterFlowTheme.of(context).bodySmallFamily,
-                        color: const Color(0xFF616161),
+                        color: Color(0xFF616161),
                         letterSpacing: 0.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodySmallFamily),
                       ),
                 ),
-              ].divide(const SizedBox(height: 8.0)),
+              ].divide(SizedBox(height: 8.0)),
             ),
-          ].divide(const SizedBox(height: 20.0)),
+          ].divide(SizedBox(height: 20.0)),
         ),
       ),
     );

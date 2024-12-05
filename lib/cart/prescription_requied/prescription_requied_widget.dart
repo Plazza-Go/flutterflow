@@ -1,7 +1,9 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/upload_prescription/components/upload_prescriptions/upload_prescriptions_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -52,9 +54,9 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.0, 1.0),
+      alignment: AlignmentDirectional(0.0, 1.0),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
         child: Container(
           constraints: BoxConstraints(
             maxWidth: isWeb
@@ -76,7 +78,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
           ),
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
-            boxShadow: const [
+            boxShadow: [
               BoxShadow(
                 blurRadius: 25.0,
                 color: Color(0x19000000),
@@ -87,7 +89,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                 spreadRadius: 0.0,
               )
             ],
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(18.0),
@@ -95,7 +97,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 20.0),
             child: SingleChildScrollView(
               primary: false,
               child: Column(
@@ -104,13 +106,13 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 10.0, 20.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Container(
                             width: 59.0,
                             height: 6.0,
@@ -146,11 +148,11 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: medicine.length,
-                        separatorBuilder: (_, __) => const SizedBox(height: 20.0),
+                        separatorBuilder: (_, __) => SizedBox(height: 20.0),
                         itemBuilder: (context, medicineIndex) {
                           final medicineItem = medicine[medicineIndex];
                           return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -158,7 +160,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.network(
@@ -179,7 +181,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                                 ),
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -207,6 +209,8 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                                               ),
                                         ),
                                         if (medicineItem.medicineStripSize !=
+                                                null &&
+                                            medicineItem.medicineStripSize !=
                                                 '')
                                           Text(
                                             medicineItem.medicineStripSize,
@@ -227,7 +231,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                                                               .labelMediumFamily),
                                                 ),
                                           ),
-                                      ].divide(const SizedBox(height: 8.0)),
+                                      ].divide(SizedBox(height: 8.0)),
                                     ),
                                   ),
                                 ),
@@ -257,7 +261,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: UploadPrescriptionsWidget(
-                                orderId: widget.orderId,
+                                orderId: widget!.orderId,
                               ),
                             ),
                           );
@@ -309,7 +313,7 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                                                   .bodySmallFamily),
                                     ),
                               ),
-                            ].divide(const SizedBox(height: 4.0)),
+                            ].divide(SizedBox(height: 4.0)),
                           ),
                         ],
                       ),
@@ -375,13 +379,13 @@ class _PrescriptionRequiedWidgetState extends State<PrescriptionRequiedWidget> {
                                                   .bodySmallFamily),
                                     ),
                               ),
-                            ].divide(const SizedBox(height: 4.0)),
+                            ].divide(SizedBox(height: 4.0)),
                           ),
                         ],
                       ),
                     ),
                   ),
-                ].divide(const SizedBox(height: 20.0)),
+                ].divide(SizedBox(height: 20.0)),
               ),
             ),
           ),

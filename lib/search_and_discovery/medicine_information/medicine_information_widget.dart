@@ -4,6 +4,7 @@ import '/cart/addtocart/addtocart_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/shimmer/medicineinformationshimmer/medicineinformationshimmer_widget.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -53,14 +54,14 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
 
     return FutureBuilder<ApiCallResponse>(
       future: SingleMedicineByProductIdCall.call(
-        productId: widget.productid,
+        productId: widget!.productid,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: const MedicineinformationshimmerWidget(),
+            body: MedicineinformationshimmerWidget(),
           );
         }
         final medicineInformationSingleMedicineByProductIdResponse =
@@ -83,26 +84,28 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                           .toString() !=
                       '0',
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, 0.8),
+                    alignment: AlignmentDirectional(0.0, 0.8),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                       child: FloatingActionButton.extended(
                         onPressed: () async {
-                          context.pushNamed(
-                            'medicineCart',
-                            queryParameters: {
-                              'ticketId': serializeParam(
-                                FFAppState().cartId.ticketid,
-                                ParamType.int,
-                              ),
-                            }.withoutNulls,
-                          );
-                                                },
+                          if (FFAppState().cartId.ticketid != null) {
+                            context.pushNamed(
+                              'medicineCart',
+                              queryParameters: {
+                                'ticketId': serializeParam(
+                                  FFAppState().cartId.ticketid,
+                                  ParamType.int,
+                                ),
+                              }.withoutNulls,
+                            );
+                          }
+                        },
                         backgroundColor: FlutterFlowTheme.of(context).primary,
                         elevation: 8.0,
                         label: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 8.0, 0.0, 8.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
@@ -110,16 +113,18 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.pushNamed(
-                                'medicineCart',
-                                queryParameters: {
-                                  'ticketId': serializeParam(
-                                    FFAppState().cartId.ticketid,
-                                    ParamType.int,
-                                  ),
-                                }.withoutNulls,
-                              );
-                                                        },
+                              if (FFAppState().cartId.ticketid != null) {
+                                context.pushNamed(
+                                  'medicineCart',
+                                  queryParameters: {
+                                    'ticketId': serializeParam(
+                                      FFAppState().cartId.ticketid,
+                                      ParamType.int,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              }
+                            },
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,7 +170,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -173,16 +178,19 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed(
-                                        'medicineCart',
-                                        queryParameters: {
-                                          'ticketId': serializeParam(
-                                            FFAppState().cartId.ticketid,
-                                            ParamType.int,
-                                          ),
-                                        }.withoutNulls,
-                                      );
-                                                                        },
+                                      if (FFAppState().cartId.ticketid !=
+                                          null) {
+                                        context.pushNamed(
+                                          'medicineCart',
+                                          queryParameters: {
+                                            'ticketId': serializeParam(
+                                              FFAppState().cartId.ticketid,
+                                              ParamType.int,
+                                            ),
+                                          }.withoutNulls,
+                                        );
+                                      }
+                                    },
                                     child: Icon(
                                       Icons.arrow_forward_ios,
                                       color: FlutterFlowTheme.of(context)
@@ -191,7 +199,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(const SizedBox(width: 8.0)),
+                              ].divide(SizedBox(width: 8.0)),
                             ),
                           ),
                         ),
@@ -205,7 +213,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                   desktop: false,
                 )
                     ? AppBar(
-                        backgroundColor: const Color(0xFFFFEDF3),
+                        backgroundColor: Color(0xFFFFEDF3),
                         automaticallyImplyLeading: false,
                         leading: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
@@ -238,7 +246,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                         .headlineLargeFamily),
                               ),
                         ),
-                        actions: const [],
+                        actions: [],
                         centerTitle: false,
                         elevation: 0.0,
                       )
@@ -246,7 +254,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: FutureBuilder<List<AppResourcesRecord>>(
                       future: queryAppResourcesRecordOnce(
                         singleRecord: true,
@@ -254,7 +262,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const MedicineinformationshimmerWidget();
+                          return MedicineinformationshimmerWidget();
                         }
                         List<AppResourcesRecord>
                             containerAppResourcesRecordList = snapshot.data!;
@@ -268,9 +276,9 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                 : null;
 
                         return Container(
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -292,10 +300,10 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                             .isNotEmpty)
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, -1.0),
+                                            AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 30.0, 0.0, 30.0),
                                           child: Builder(
                                             builder: (context) {
@@ -307,14 +315,14 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                                       )?.toList() ??
                                                       [];
 
-                                              return SizedBox(
+                                              return Container(
                                                 width: 230.0,
                                                 height: 290.0,
                                                 child: Stack(
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -357,11 +365,11 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 1.0),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -388,7 +396,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                                                 .pageViewimageController!
                                                                 .animateToPage(
                                                               i,
-                                                              duration: const Duration(
+                                                              duration: Duration(
                                                                   milliseconds:
                                                                       500),
                                                               curve:
@@ -462,7 +470,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     SingleMedicineByProductIdCall
@@ -484,7 +492,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                         ),
                                   ),
                                 ),
-                                const Spacer(),
+                                Spacer(),
                                 Container(
                                   constraints: BoxConstraints(
                                     maxWidth: isWeb
@@ -521,7 +529,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                           }()
                                         : FFAppState().width.small.toDouble(),
                                   ),
-                                  decoration: const BoxDecoration(),
+                                  decoration: BoxDecoration(),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -575,7 +583,7 @@ class _MedicineInformationWidgetState extends State<MedicineInformationWidget> {
                                                               .bodySmallFamily),
                                                 ),
                                           ),
-                                        ].divide(const SizedBox(height: 4.0)),
+                                        ].divide(SizedBox(height: 4.0)),
                                       ),
                                       wrapWithModel(
                                         model: _model.addtocartModel,

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/authentication/sign_in/sign_in_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_nav_bar_model.dart';
@@ -73,7 +74,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -90,7 +91,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                       height: 2.0,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primary,
-                        borderRadius: const BorderRadius.only(
+                        borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(8.0),
                           bottomRight: Radius.circular(8.0),
                           topLeft: Radius.circular(0.0),
@@ -100,7 +101,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -122,7 +123,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                               fit: BoxFit.contain,
                             ),
                           ),
-                        ].divide(const SizedBox(height: 5.0)),
+                        ].divide(SizedBox(height: 5.0)),
                       ),
                     ),
                   ],
@@ -132,7 +133,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -151,7 +152,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                         return WebViewAware(
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: const SizedBox(
+                            child: Container(
                               height: 500.0,
                               child: SignInWidget(),
                             ),
@@ -167,7 +168,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                     Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: 2.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(8.0),
                           bottomRight: Radius.circular(8.0),
@@ -178,7 +179,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -200,7 +201,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
                               fit: BoxFit.contain,
                             ),
                           ),
-                        ].divide(const SizedBox(height: 5.0)),
+                        ].divide(SizedBox(height: 5.0)),
                       ),
                     ),
                   ],
@@ -208,7 +209,7 @@ class _HomeNavBarWidgetState extends State<HomeNavBarWidget> {
               ),
             ),
           ),
-        ].divide(const SizedBox(width: 10.0)),
+        ].divide(SizedBox(width: 10.0)),
       ),
     );
   }

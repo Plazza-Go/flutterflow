@@ -50,7 +50,6 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       FFAppState().itemsPrice = 0.0;
-      FFAppState().Donothaveprescription = false;
       safeSetState(() {});
     });
 
@@ -70,14 +69,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
 
     return FutureBuilder<ApiCallResponse>(
       future: AirtableApiGroup.findSingleOrderCall.call(
-        ticketID: widget.ticketId,
+        ticketID: widget!.ticketId,
       ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: const CartShimmerWidget(),
+            body: CartShimmerWidget(),
           );
         }
         final medicineCartFindSingleOrderResponse = snapshot.data!;
@@ -129,9 +128,9 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 .titleLargeFamily),
                                   ),
                             ),
-                          ].divide(const SizedBox(width: 20.0)),
+                          ].divide(SizedBox(width: 20.0)),
                         ),
-                        actions: const [],
+                        actions: [],
                         centerTitle: true,
                         elevation: 0.0,
                       )
@@ -139,20 +138,20 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                 body: SafeArea(
                   top: true,
                   child: Align(
-                    alignment: const AlignmentDirectional(0.0, -1.0),
+                    alignment: AlignmentDirectional(0.0, -1.0),
                     child: FutureBuilder<ApiCallResponse>(
                       future: (_model.apiRequestCompleter ??= Completer<
                               ApiCallResponse>()
                             ..complete(
                                 AirtableApiGroup.getMedicineDetailsCall.call(
-                              orderTicketId: widget.ticketId,
+                              orderTicketId: widget!.ticketId,
                               quantityvalue: 0,
                             )))
                           .future,
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const CartShimmerWidget();
+                          return CartShimmerWidget();
                         }
                         final mainContainerGetMedicineDetailsResponse =
                             snapshot.data!;
@@ -190,7 +189,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                   }()
                                 : FFAppState().width.small.toDouble(),
                           ),
-                          decoration: const BoxDecoration(),
+                          decoration: BoxDecoration(),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -213,23 +212,25 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           .where((e) =>
                                               e.prescriptionRequired ==
                                               'Prescription Required')
-                                          .toList().isNotEmpty))
+                                          .toList()
+                                          .length >=
+                                      1))
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
                                           1.0,
                                       height: 44.0,
                                       decoration: BoxDecoration(
-                                        color: const Color(0xFFFFEDF8),
+                                        color: Color(0xFFFFEDF8),
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -350,9 +351,9 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                       ) !=
                                       '')
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         20.0, 0.0, 20.0, 0.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -376,7 +377,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       MediaQuery.viewInsetsOf(
                                                           context),
                                                   child: ViewPrescriptionWidget(
-                                                    ticketid: widget.ticketId,
+                                                    ticketid: widget!.ticketId,
                                                   ),
                                                 ),
                                               ),
@@ -390,13 +391,13 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 1.0,
                                         height: 44.0,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFFFFEDF8),
+                                          color: Color(0xFFFFEDF8),
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -407,7 +408,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                 '${AirtableApiGroup.findSingleOrderCall.prescriptionList(
                                                       medicineCartFindSingleOrderResponse
                                                           .jsonBody,
-                                                    )?.length.toString()} Prescriptions uploaded. Tap to see files.',
+                                                    )?.length?.toString()} Prescriptions uploaded. Tap to see files.',
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodySmall
@@ -440,10 +441,10 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                 ),
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Container(
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -461,7 +462,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       20.0, 0.0, 20.0, 0.0),
                                               child: Container(
@@ -469,7 +470,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
-                                                  boxShadow: const [
+                                                  boxShadow: [
                                                     BoxShadow(
                                                       blurRadius: 24.0,
                                                       color: Color(0x34959DA5),
@@ -485,7 +486,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 20.0),
                                                   child: Column(
@@ -505,7 +506,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           0)
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       20.0,
                                                                       0.0,
@@ -555,7 +556,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return const LocationSearchShimmerWidget();
+                                                            return LocationSearchShimmerWidget();
                                                           }
                                                           List<AppResourcesRecord>
                                                               containerAppResourcesRecordList =
@@ -574,7 +575,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
 
                                                           return Container(
                                                             decoration:
-                                                                const BoxDecoration(),
+                                                                BoxDecoration(),
                                                             child: Builder(
                                                               builder:
                                                                   (context) {
@@ -588,7 +589,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         [];
                                                                 if (medicine
                                                                     .isEmpty) {
-                                                                  return const EmptymedicineWidget();
+                                                                  return EmptymedicineWidget();
                                                                 }
 
                                                                 return Column(
@@ -654,7 +655,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           r'''$.fields.MedicineRate''',
                                                                         ),
                                                                         ticketid:
-                                                                            widget.ticketId!,
+                                                                            widget!.ticketId!,
                                                                         orderRecordId: AirtableApiGroup
                                                                             .findSingleOrderCall
                                                                             .recordId(
@@ -696,7 +697,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         },
                                                       ),
                                                     ].divide(
-                                                        const SizedBox(height: 10.0)),
+                                                        SizedBox(height: 10.0)),
                                                   ),
                                                 ),
                                               ),
@@ -710,7 +711,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -718,7 +719,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryBackground,
-                                                    boxShadow: const [
+                                                    boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 24.0,
                                                         color:
@@ -736,14 +737,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsets.all(10.0),
+                                                        EdgeInsets.all(10.0),
                                                     child: Column(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -770,7 +771,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                               FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 width: 10.0)),
                                                           ),
                                                         ),
@@ -782,7 +783,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                             null)
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     8.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -813,7 +814,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -870,7 +871,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                           ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -909,13 +910,13 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                           backgroundColor:
                                                                               Colors.transparent,
                                                                           alignment:
-                                                                              const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                              AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                           child:
                                                                               WebViewAware(
                                                                             child:
                                                                                 GestureDetector(
                                                                               onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                              child: SizedBox(
+                                                                              child: Container(
                                                                                 height: 300.0,
                                                                                 width: 300.0,
                                                                                 child: HandlingchargesWidget(
@@ -965,7 +966,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         ),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             8.0,
                                                                             0.0,
                                                                             0.0,
@@ -986,7 +987,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                         builder:
                                                                             (context) =>
                                                                                 Padding(
-                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
                                                                               8.0,
                                                                               0.0,
                                                                               0.0,
@@ -1010,11 +1011,11 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                                     elevation: 0,
                                                                                     insetPadding: EdgeInsets.zero,
                                                                                     backgroundColor: Colors.transparent,
-                                                                                    alignment: const AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0).resolve(Directionality.of(context)),
                                                                                     child: WebViewAware(
                                                                                       child: GestureDetector(
                                                                                         onTap: () => FocusScope.of(dialogContext).unfocus(),
-                                                                                        child: SizedBox(
+                                                                                        child: Container(
                                                                                           height: 300.0,
                                                                                           width: 300.0,
                                                                                           child: HandlingchargesWidget(
@@ -1062,43 +1063,95 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      '₹ ${(valueOrDefault<int>(
-                                                                            AirtableApiGroup.findSingleOrderCall.platformfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
+                                                                  if (((AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!))
+                                                                          .toString() !=
+                                                                      '0')
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        '₹ ${(valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              2,
+                                                                            ) + valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              5,
+                                                                            ) + valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              15,
+                                                                            )).toString()}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
                                                                             ),
-                                                                            2,
-                                                                          ) + valueOrDefault<int>(
-                                                                            AirtableApiGroup.findSingleOrderCall.conveniencefee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            ),
-                                                                            5,
-                                                                          ) + valueOrDefault<int>(
-                                                                            AirtableApiGroup.findSingleOrderCall.packingfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            ),
-                                                                            15,
-                                                                          )).toString()}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                          ),
+                                                                      ),
                                                                     ),
-                                                                  ),
+                                                                  if (((AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!) +
+                                                                              (AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )!))
+                                                                          .toString() ==
+                                                                      '0')
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        '₹ ${(valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.platformfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              2,
+                                                                            ) + valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.conveniencefee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              5,
+                                                                            ) + valueOrDefault<int>(
+                                                                              AirtableApiGroup.findSingleOrderCall.packingfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              ),
+                                                                              15,
+                                                                            )).toString()}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              decoration: TextDecoration.lineThrough,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ),
                                                                   if (((AirtableApiGroup.findSingleOrderCall.platformfee(
                                                                                 medicineCartFindSingleOrderResponse.jsonBody,
                                                                               )!) +
@@ -1137,7 +1190,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   8.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -1168,7 +1221,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     ),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             8.0,
                                                                             0.0,
@@ -1196,36 +1249,73 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: const EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      '₹ ${valueOrDefault<String>(
-                                                                        AirtableApiGroup
-                                                                            .findSingleOrderCall
-                                                                            .deliveryfee(
-                                                                              medicineCartFindSingleOrderResponse.jsonBody,
-                                                                            )
-                                                                            ?.toString(),
-                                                                        '40',
-                                                                      )}',
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyLarge
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyLargeFamily,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
-                                                                          ),
+                                                                  if (AirtableApiGroup
+                                                                          .findSingleOrderCall
+                                                                          .deliveryfee(
+                                                                        medicineCartFindSingleOrderResponse
+                                                                            .jsonBody,
+                                                                      ) !=
+                                                                      0)
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        '₹ ${valueOrDefault<String>(
+                                                                          AirtableApiGroup
+                                                                              .findSingleOrderCall
+                                                                              .deliveryfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )
+                                                                              ?.toString(),
+                                                                          '40',
+                                                                        )}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
                                                                     ),
-                                                                  ),
+                                                                  if (AirtableApiGroup
+                                                                          .findSingleOrderCall
+                                                                          .deliveryfee(
+                                                                        medicineCartFindSingleOrderResponse
+                                                                            .jsonBody,
+                                                                      ) ==
+                                                                      0)
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        '₹ ${valueOrDefault<String>(
+                                                                          AirtableApiGroup
+                                                                              .findSingleOrderCall
+                                                                              .deliveryfee(
+                                                                                medicineCartFindSingleOrderResponse.jsonBody,
+                                                                              )
+                                                                              ?.toString(),
+                                                                          '40',
+                                                                        )}',
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              decoration: TextDecoration.lineThrough,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
+                                                                      ),
+                                                                    ),
                                                                   if (AirtableApiGroup
                                                                           .findSingleOrderCall
                                                                           .deliveryfee(
@@ -1268,7 +1358,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ))
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsets.all(
+                                                                EdgeInsets.all(
                                                                     8.0),
                                                             child: Row(
                                                               mainAxisSize:
@@ -1299,7 +1389,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           8.0,
                                                                           0.0,
                                                                           0.0,
@@ -1356,7 +1446,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsets.all(
+                                                              EdgeInsets.all(
                                                                   9.0),
                                                           child: Row(
                                                             mainAxisSize:
@@ -1447,7 +1537,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -1471,7 +1561,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       await launchURL(
-                                                          'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget.ticketId?.toString()}');
+                                                          'https://api.whatsapp.com/send?phone=15557031014&text=Hi%2C%20I%20need%20help%20with%20my%20Plazza%20Order%23${widget!.ticketId?.toString()}');
                                                     },
                                                     child: Row(
                                                       mainAxisSize:
@@ -1479,14 +1569,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       children: [
                                                         Stack(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   0.0, 0.0),
                                                           children: [
                                                             Container(
                                                               width: 36.0,
                                                               height: 36.0,
                                                               decoration:
-                                                                  const BoxDecoration(
+                                                                  BoxDecoration(
                                                                 color: Color(
                                                                     0xFFF7F7F7),
                                                                 shape: BoxShape
@@ -1522,7 +1612,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         8.0,
                                                                         0.0,
@@ -1573,7 +1663,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1588,7 +1678,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                             size: 14.0,
                                                           ),
                                                         ),
-                                                      ].divide(const SizedBox(
+                                                      ].divide(SizedBox(
                                                           width: 10.0)),
                                                     ),
                                                   ),
@@ -1603,7 +1693,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ?.length !=
                                                 0)
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: Container(
@@ -1622,14 +1712,14 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     children: [
                                                       Stack(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         children: [
                                                           Container(
                                                             width: 36.0,
                                                             height: 36.0,
                                                             decoration:
-                                                                const BoxDecoration(
+                                                                BoxDecoration(
                                                               color: Color(
                                                                   0xFFF7F7F7),
                                                               shape: BoxShape
@@ -1665,7 +1755,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       Expanded(
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       8.0,
                                                                       0.0,
@@ -1759,7 +1849,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                         '',
                                               ),
                                             ),
-                                          ].divide(const SizedBox(height: 20.0)),
+                                          ].divide(SizedBox(height: 20.0)),
                                         ),
                                       ),
                                     ),
@@ -1789,7 +1879,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 24.0,
                                       color: Color(0x34959DA5),
@@ -1800,7 +1890,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                       spreadRadius: 0.0,
                                     )
                                   ],
-                                  borderRadius: const BorderRadius.only(
+                                  borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
                                     topLeft: Radius.circular(20.0),
@@ -1808,7 +1898,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -1837,7 +1927,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                               0))
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 10.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -1875,10 +1965,10 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       .width *
                                                   1.0,
                                               height: 50.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1940,7 +2030,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return const ShimmerAddressWidget();
+                                              return ShimmerAddressWidget();
                                             }
                                             final addressRowGetAddressDetailsResponse =
                                                 snapshot.data!;
@@ -1969,7 +2059,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   8.0,
                                                                   0.0,
@@ -2173,7 +2263,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   ?.length !=
                                               0))
                                         AuthUserStreamWidget(
-                                          builder: (context) => SizedBox(
+                                          builder: (context) => Container(
                                             width: 390.0,
                                             height: 60.0,
                                             child:
@@ -2216,7 +2306,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                       .toDouble(),
                                               name:
                                                   '${valueOrDefault(currentUserDocument?.firstName, '')} ${valueOrDefault(currentUserDocument?.lastName, '')}',
-                                              ticketId: widget.ticketId,
+                                              ticketId: widget!.ticketId,
                                               contactNumber: currentPhoneNumber,
                                               buttonTextValue:
                                                   'TOTAL ${'₹ ${formatNumber(
@@ -2264,7 +2354,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   'PaymentSuccess',
                                                   queryParameters: {
                                                     'ticketId': serializeParam(
-                                                      widget.ticketId,
+                                                      widget!.ticketId,
                                                       ParamType.int,
                                                     ),
                                                   }.withoutNulls,
@@ -2275,7 +2365,7 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                                   'PaymentFailed',
                                                   queryParameters: {
                                                     'ticketid': serializeParam(
-                                                      widget.ticketId,
+                                                      widget!.ticketId,
                                                       ParamType.int,
                                                     ),
                                                   }.withoutNulls,
@@ -2285,8 +2375,8 @@ class _MedicineCartWidgetState extends State<MedicineCartWidget> {
                                           ),
                                         ),
                                     ]
-                                        .divide(const SizedBox(height: 8.0))
-                                        .around(const SizedBox(height: 8.0)),
+                                        .divide(SizedBox(height: 8.0))
+                                        .around(SizedBox(height: 8.0)),
                                   ),
                                 ),
                               ),

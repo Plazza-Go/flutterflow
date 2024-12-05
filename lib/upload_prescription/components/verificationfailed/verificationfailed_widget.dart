@@ -63,7 +63,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
       ),
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -75,13 +75,13 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -92,7 +92,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 width: 59.0,
                                 height: 6.0,
@@ -123,7 +123,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -149,7 +149,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                                       .bodyMediumFamily),
                             ),
                       ),
-                    ].divide(const SizedBox(width: 15.0)),
+                    ].divide(SizedBox(width: 15.0)),
                   ),
                 ),
                 Text(
@@ -164,7 +164,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                       ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                   child: Text(
                     'Doctor’s prescription',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -195,7 +195,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.cancel_outlined,
                           color: Color(0xFFF91111),
                           size: 24.0,
@@ -207,7 +207,7 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .bodyMediumFamily,
-                                color: const Color(0xFFF91111),
+                                color: Color(0xFFF91111),
                                 fontSize: 14.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
@@ -216,9 +216,9 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                                         .bodyMediumFamily),
                               ),
                         ),
-                      ].divide(const SizedBox(width: 15.0)),
+                      ].divide(SizedBox(width: 15.0)),
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
                 Divider(
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -260,15 +260,15 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
                                         .bodyMediumFamily),
                               ),
                         ),
-                      ].divide(const SizedBox(width: 15.0)),
+                      ].divide(SizedBox(width: 15.0)),
                     ),
-                  ].divide(const SizedBox(width: 10.0)),
+                  ].divide(SizedBox(width: 10.0)),
                 ),
-              ].divide(const SizedBox(height: 20.0)),
+              ].divide(SizedBox(height: 20.0)),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: EdgeInsets.all(10.0),
             child: FFButtonWidget(
               onPressed: () {
                 print('Button pressed ...');
@@ -277,8 +277,8 @@ class _VerificationfailedWidgetState extends State<VerificationfailedWidget> {
               options: FFButtonOptions(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: 50.0,
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                       fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,

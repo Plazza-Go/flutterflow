@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
@@ -12,7 +14,10 @@ import '/backend/push_notifications/push_notifications_handler.dart'
 import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -77,13 +82,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const PhoneAuthWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : PhoneAuthWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const PhoneAuthWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : PhoneAuthWidget(),
         ),
         FFRoute(
           name: 'Status',
@@ -103,28 +108,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'History',
           path: '/history',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'History')
-              : const NavBarPage(
+              ? NavBarPage(initialPage: 'History')
+              : NavBarPage(
                   initialPage: 'History',
                   page: HistoryWidget(),
                 ),
         ),
         FFRoute(
-          name: 'statusOfOrders',
-          path: '/statusOfOrders',
-          builder: (context, params) => StatusOfOrdersWidget(
-            ticketid: params.getParam(
-              'ticketid',
-              ParamType.int,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'Home',
           path: '/home',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Home')
-              : const NavBarPage(
+              ? NavBarPage(initialPage: 'Home')
+              : NavBarPage(
                   initialPage: 'Home',
                   page: HomeWidget(),
                 ),
@@ -132,7 +127,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Cancelled',
           path: '/cancelled',
-          builder: (context, params) => const CancelledWidget(),
+          builder: (context, params) => CancelledWidget(),
         ),
         FFRoute(
           name: 'medicineCart',
@@ -147,12 +142,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Location',
           path: '/location',
-          builder: (context, params) => const LocationWidget(),
+          builder: (context, params) => LocationWidget(),
         ),
         FFRoute(
           name: 'PhoneAuth',
           path: '/phoneAuth',
-          builder: (context, params) => const PhoneAuthWidget(),
+          builder: (context, params) => PhoneAuthWidget(),
         ),
         FFRoute(
           name: 'Otp',
@@ -168,12 +163,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Profile',
           path: '/profile',
           requireAuth: true,
-          builder: (context, params) => const ProfileWidget(),
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: 'Ordermedicine',
           path: '/ordermedicine',
-          builder: (context, params) => const OrdermedicineWidget(),
+          builder: (context, params) => OrdermedicineWidget(),
         ),
         FFRoute(
           name: 'PaymentSuccess',
@@ -210,30 +205,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'statusOfOrder3',
-          path: '/statusOfOrder3',
-          builder: (context, params) => const StatusOfOrder3Widget(),
-        ),
-        FFRoute(
-          name: 'statusOfOrder4',
-          path: '/statusOfOrder4',
-          builder: (context, params) => const StatusOfOrder4Widget(),
-        ),
-        FFRoute(
-          name: 'statusOfOrder5',
-          path: '/statusOfOrder5',
-          builder: (context, params) => const StatusOfOrder5Widget(),
-        ),
-        FFRoute(
           name: 'Userlogdata',
           path: '/userlogdata',
-          builder: (context, params) => const UserlogdataWidget(),
+          builder: (context, params) => UserlogdataWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
           requireAuth: true,
-          builder: (context, params) => const SettingsWidget(),
+          builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
           name: 'changeLocation',
@@ -268,37 +248,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'searchAndDiscoveryHome',
           path: '/searchAndDiscoveryHome',
-          builder: (context, params) => const SearchAndDiscoveryHomeWidget(),
+          builder: (context, params) => SearchAndDiscoveryHomeWidget(),
         ),
         FFRoute(
           name: 'searchAndDiscover2',
           path: '/searchAndDiscover2',
-          builder: (context, params) => const SearchAndDiscover2Widget(),
+          builder: (context, params) => SearchAndDiscover2Widget(),
         ),
         FFRoute(
           name: 'Addressbook',
           path: '/addressbook',
-          builder: (context, params) => const AddressbookWidget(),
+          builder: (context, params) => AddressbookWidget(),
         ),
         FFRoute(
           name: 'PolicyWebview',
           path: '/policyWebview',
-          builder: (context, params) => const PolicyWebviewWidget(),
+          builder: (context, params) => PolicyWebviewWidget(),
         ),
         FFRoute(
           name: 'searchMedicine',
           path: '/searchMedicine',
-          builder: (context, params) => const SearchMedicineWidget(),
+          builder: (context, params) => SearchMedicineWidget(),
         ),
         FFRoute(
           name: 'searchAndAutoSuggest',
           path: '/searchAndAutoSuggest',
-          builder: (context, params) => const SearchAndAutoSuggestWidget(),
+          builder: (context, params) => SearchAndAutoSuggestWidget(),
         ),
         FFRoute(
           name: 'productDescriptionPage',
           path: '/productDescriptionPage',
-          builder: (context, params) => const ProductDescriptionPageWidget(),
+          builder: (context, params) => ProductDescriptionPageWidget(),
         ),
         FFRoute(
           name: 'MedicineInformation',
@@ -313,38 +293,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'searchMedicineCopy',
           path: '/searchMedicineCopy',
-          builder: (context, params) => const SearchMedicineCopyWidget(),
+          builder: (context, params) => SearchMedicineCopyWidget(),
         ),
         FFRoute(
           name: 'cartEmpty',
           path: '/cartEmpty',
-          builder: (context, params) => const CartEmptyWidget(),
-        ),
-        FFRoute(
-          name: 'SearchLocationCopy',
-          path: '/searchLocationCopy',
-          builder: (context, params) => SearchLocationCopyWidget(
-            recordId: params.getParam(
-              'recordId',
-              ParamType.String,
-            ),
-            pagename: params.getParam(
-              'pagename',
-              ParamType.String,
-            ),
-            addLocation: params.getParam(
-              'addLocation',
-              ParamType.String,
-            ),
-            addressId: params.getParam(
-              'addressId',
-              ParamType.String,
-            ),
-            tag: params.getParam(
-              'tag',
-              ParamType.String,
-            ),
-          ),
+          builder: (context, params) => CartEmptyWidget(),
         ),
         FFRoute(
           name: 'SearchLocation',
@@ -373,38 +327,37 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'searchMedicineCopy2',
-          path: '/searchMedicineCopy2',
-          builder: (context, params) => const SearchMedicineCopy2Widget(),
-        ),
-        FFRoute(
           name: 'UpdateApp',
           path: '/updateApp',
-          builder: (context, params) => const UpdateAppWidget(),
+          builder: (context, params) => UpdateAppWidget(),
         ),
         FFRoute(
-          name: 'SearchLocationCopy2',
-          path: '/searchLocationCopy2',
-          builder: (context, params) => SearchLocationCopy2Widget(
-            recordId: params.getParam(
-              'recordId',
+          name: 'RazorpaycreateOrders',
+          path: '/razorpaycreateOrders',
+          builder: (context, params) => RazorpaycreateOrdersWidget(
+            ticketId: params.getParam(
+              'ticketId',
+              ParamType.int,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'test',
+          path: '/test',
+          builder: (context, params) => TestWidget(
+            phone: params.getParam(
+              'phone',
               ParamType.String,
             ),
-            addLocation: params.getParam(
-              'addLocation',
-              ParamType.String,
-            ),
-            addressId: params.getParam(
-              'addressId',
-              ParamType.String,
-            ),
-            tag: params.getParam(
-              'tag',
-              ParamType.String,
-            ),
-            pagename: params.getParam(
-              'pagename',
-              ParamType.String,
+          ),
+        ),
+        FFRoute(
+          name: 'medicineCartSearch',
+          path: '/medicineCartSearch',
+          builder: (context, params) => MedicineCartSearchWidget(
+            ticketId: params.getParam(
+              'ticketId',
+              ParamType.int,
             ),
           ),
         )
@@ -647,7 +600,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

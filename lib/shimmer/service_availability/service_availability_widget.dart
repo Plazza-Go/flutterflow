@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'service_availability_model.dart';
 export 'service_availability_model.dart';
 
@@ -45,9 +46,9 @@ class _ServiceAvailabilityWidgetState extends State<ServiceAvailabilityWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(20.0, 60.0, 20.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(20.0, 60.0, 20.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -72,7 +73,7 @@ class _ServiceAvailabilityWidgetState extends State<ServiceAvailabilityWidget> {
                         FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
-          ].divide(const SizedBox(height: 16.0)),
+          ].divide(SizedBox(height: 16.0)),
         ),
       ),
     );
